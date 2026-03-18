@@ -660,7 +660,7 @@ ul{list-style:none}
         <div class="loc-items">
           <div class="loc-item"><div class="loc-ico"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div><div><div class="loc-title">Address</div><div class="loc-val">Tabata Sundown, Dar es Salaam, Tanzania</div></div></div>
           <div class="loc-item"><div class="loc-ico"><i class="fas fa-phone-alt" aria-hidden="true"></i></div><div><div class="loc-title">Direct Line</div><div class="loc-val"><a href="tel:+255689583281">+255 689 583 281</a></div></div></div>
-          <div class="loc-item"><div class="loc-ico"><i class="fas fa-envelope" aria-hidden="true"></i></div><div><div class="loc-title">Email</div><div class="loc-val"><a href="mailto:josephinenicodemus05@gmail.com">josephinenicodemus05@gmail.com</a></div></div></div>
+          <div class="loc-item"><div class="loc-ico"><i class="fas fa-envelope" aria-hidden="true"></i></div><div><div class="loc-title">Email</div><div class="loc-val"><a href="/cdn-cgi/l/email-protection#80eaeff3e5f0e8e9eee5eee9e3efe4e5edf5f3b0b5c0e7ede1e9ecaee3efed"><span class="__cf_email__" data-cfemail="3c56534f594c5455525952555f53585951494f0c097c5b515d5550125f5351">[email&#160;protected]</span></a></div></div></div>
           <div class="loc-item"><div class="loc-ico"><i class="fas fa-truck" aria-hidden="true"></i></div><div><div class="loc-title">Delivery Areas</div><div class="loc-val">Dar es Salaam Region · Same-day delivery available · Nationwide shipping for bulk orders</div></div></div>
         </div>
         <div class="hours-table" role="table" aria-label="Business hours">
@@ -767,7 +767,7 @@ ul{list-style:none}
           <div class="foot-socials" aria-label="Social links">
             <a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
             <a href="https://www.instagram.com/nicodemus_moshi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-            <a href="mailto:josephinenicodemus05@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+            <a href="/cdn-cgi/l/email-protection#610b0e12041109080f040f08020e05040c1412515421060c00080d4f020e0c" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
           </div>
         </div>
         <div>
@@ -785,7 +785,7 @@ ul{list-style:none}
           <h3 class="foot-col-title">Contact</h3>
           <div class="foot-contact-item"><i class="fas fa-phone-alt" aria-hidden="true"></i><a href="tel:+255689583281">+255 689 583 281</a></div>
           <div class="foot-contact-item"><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer">WhatsApp Order Line</a></div>
-          <div class="foot-contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:josephinenicodemus05@gmail.com">josephinenicodemus05@gmail.com</a></div>
+          <div class="foot-contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><a href="/cdn-cgi/l/email-protection#89e3e6faecf9e1e0e7ece7e0eae6edece4fcfab9bcc9eee4e8e0e5a7eae6e4"><span class="__cf_email__" data-cfemail="9ff5f0ecfaeff7f6f1faf1f6fcf0fbfaf2eaecafaadff8f2fef6f3b1fcf0f2">[email&#160;protected]</span></a></div>
           <div class="foot-contact-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Tabata Sundown, Dar es Salaam</div>
         </div>
         <div>
@@ -807,7 +807,7 @@ ul{list-style:none}
 <a href="https://wa.me/255689583281?text=Hello%20Nico%20Poultry!%20I'd%20like%20to%20place%20an%20order." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
 <button class="btt-btn" id="bttBtn" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 'use strict';
 const $=s=>document.querySelector(s);
 const $$=s=>document.querySelectorAll(s);
@@ -933,21 +933,67 @@ $('#orderForm').addEventListener('submit',function(e){
   const prod=PRICES[pk],unit=prod.price,dc=DCOST[dk],sub=unit>0?unit*qty:0;
   const grand=dc===-1||unit===0?'To be quoted':fmtTZS(sub+dc);
   const delLabel={pickup:'Farm Pickup (Free)',dar:'Dar es Salaam Delivery (+TZS 5,000)',nationwide:'Nationwide Shipping (Quote Required)'}[dk];
-  const msg=['🦃 *NEW ORDER — Nico Poultry & Eggs Ltd*','━━━━━━━━━━━━━━━━━━━━━━━━',
-    `👤 *Name:* ${name}`,`📱 *Phone:* ${phone}`,'━━━━━━━━━━━━━━━━━━━━━━━━',
-    `🛒 *Product:* ${prod.label}`,`🔢 *Qty:* ${qty}`,
-    `💰 *Unit Price:* ${unit>0?fmtTZS(unit):'Quote required'}`,
-    `📊 *Subtotal:* ${unit>0?fmtTZS(sub):'Quote required'}`,
-    `🚚 *Delivery:* ${delLabel}`,`💵 *TOTAL:* *${grand}*`,
-    '━━━━━━━━━━━━━━━━━━━━━━━━',`📝 *Notes:* ${notes||'None'}`,
-    `⏰ *Ordered:* ${new Date().toLocaleString('en-TZ')}`].join('\n');
+  /* ── Build category & weight label ── */
+  const weightMap={'turkey-local':'8–10 kg','turkey-improved':'10–15 kg','turkey-premium':'15+ kg','chicken':'1.5–2.5 kg','eggs':'per egg'};
+  const categoryMap={'turkey-local':'Heritage Turkey','turkey-improved':'Improved Turkey','turkey-premium':'Premium Turkey','chicken':'Broiler Chicken','eggs':'Turkey Eggs'};
+  const unitLabel=weightMap[pk]||'';
+  const catLabel=categoryMap[pk]||prod.label;
+  const bulkNote=qty>=10?' ✅ *BULK DISCOUNT APPLIES*':'';
+  const now=new Date();
+  const dateStr=now.toLocaleDateString('en-TZ',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const timeStr=now.toLocaleTimeString('en-TZ',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  const orderRef='NPE-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+String(now.getHours()).padStart(2,'0')+String(now.getMinutes()).padStart(2,'0');
+  const statusLine=unit===0||dc===-1?'⏳ Awaiting Confirmation':'✅ Ready to Process';
+
+  const msg=[
+    '╔══════════════════════════╗',
+    '🦃  *NICO POULTRY & EGGS LTD*  🥚',
+    '  _Farm Fresh · Dar es Salaam_',
+    '╚══════════════════════════╝',
+    '',
+    `🔖 *Order Ref:* \`${orderRef}\``,
+    `📅 *Date:* ${dateStr}`,
+    `🕐 *Time:* ${timeStr}`,
+    `📌 *Status:* ${statusLine}`,
+    '',
+    '┄┄┄┄┄ 👤 CUSTOMER DETAILS ┄┄┄┄┄',
+    `• *Full Name:*    ${name}`,
+    `• *Phone / WA:*   ${phone}`,
+    '',
+    '┄┄┄┄┄ 🛒 ORDER DETAILS ┄┄┄┄┄┄',
+    `• *Category:*     ${catLabel}`,
+    `• *Product:*      ${prod.label}`,
+    `• *Size / Unit:*  ${unitLabel}`,
+    `• *Quantity:*     ${qty} ${pk==='eggs'?'egg(s)':'bird(s)'}${bulkNote}`,
+    '',
+    '┄┄┄┄┄ 💰 PRICING SUMMARY ┄┄┄┄┄',
+    `• *Unit Price:*   ${unit>0?fmtTZS(unit):'_To be quoted_'}`,
+    `• *Subtotal:*     ${unit>0?fmtTZS(sub):'_To be quoted_'}`,
+    `• *Delivery:*     ${delLabel}`,
+    `• *Delivery Fee:* ${dc===0?'Free 🎁':dc>0?fmtTZS(dc):'_Quote required_'}`,
+    '',
+    `💵 *GRAND TOTAL:  ${grand}*`,
+    '',
+    '┄┄┄┄┄ 🚚 DELIVERY INFO ┄┄┄┄┄┄',
+    `• *Method:*  ${delLabel}`,
+    ...(notes?['','┄┄┄┄┄ 📝 SPECIAL INSTRUCTIONS ┄┄┄',`${notes}`]:[]),
+    '',
+    '══════════════════════════════',
+    '🌿 *Thank you for choosing Nico Poultry!*',
+    '_We will confirm your order within 15 minutes._',
+    '',
+    '📞 +255 689 583 281',
+    '📧 josephinenicodemus05@gmail.com',
+    '📍 Tabata Sundown, Dar es Salaam',
+    '══════════════════════════════',
+  ].join('\n');
   const btn=$('#submitBtn');btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp…';
   setTimeout(()=>{
     window.open('https://wa.me/255689583281?text='+encodeURIComponent(msg),'_blank');
     setTimeout(()=>{
       this.reset();updatePreview();btn.disabled=false;
       btn.innerHTML='<i class="fab fa-whatsapp"></i> Send Order via WhatsApp';
-      showToast('✅ Order sent! Check WhatsApp for confirmation from Nico Poultry.');
+      showToast(`✅ Order ${orderRef} sent! Nico Poultry will confirm via WhatsApp shortly.`);
     },900);
   },600);
 });
@@ -955,11 +1001,4 @@ $('#orderForm').addEventListener('submit',function(e){
 function showToast(msg){
   const old=document.querySelector('.np-toast');if(old)old.remove();
   const t=document.createElement('div');t.className='np-toast';t.setAttribute('role','alert');
-  Object.assign(t.style,{position:'fixed',bottom:'5rem',left:'50%',transform:'translateX(-50%) translateY(80px)',background:'linear-gradient(135deg,#073d27,#0b5d3b)',color:'#fff',padding:'1rem 2rem',borderRadius:'12px',boxShadow:'0 20px 60px rgba(0,0,0,.28)',fontWeight:'600',fontSize:'.92rem',zIndex:'700',transition:'transform .35s cubic-bezier(0.16,1,0.3,1)',maxWidth:'90vw',textAlign:'center',fontFamily:'var(--sans)'});
-  t.textContent=msg;document.body.appendChild(t);
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{t.style.transform='translateX(-50%) translateY(0)';}));
-  setTimeout(()=>{t.style.transform='translateX(-50%) translateY(80px)';setTimeout(()=>t.remove(),400);},5000);
-}
-</script>
-</body>
-</html>
+  Object.assign(t.style,{position:'fixed',bottom:'5rem',left:'50%',transform:'translateX(-50%) translateY(80px)',background:'linear-gradient(135deg,#073d27,#0b5d3b)',color:'#fff',padding:'1rem 2rem',borderRadius:'12px',boxShadow:'0 20px 60px rgba(0,0,
