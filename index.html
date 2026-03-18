@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Nico Poultry & Eggs Ltd — Premium turkey, chicken & fresh eggs supplier in Dar es Salaam, Tanzania."/>
-  <meta name="keywords" content="turkey supplier Tanzania, poultry Dar es Salaam, fresh eggs, Nico Poultry, chicken supplier"/>
-  <meta name="author" content="Nico Poultry & Eggs Ltd"/>
-  <meta name="theme-color" content="#0b5d3b"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <title>Nico Poultry & Eggs Ltd | Premium Turkey & Chicken — Tanzania</title>
-  <style>
-:root{--f0:#041f13;--f1:#073d27;--f2:#0b5d3b;--f3:#116845;--f4:#1a8a5a;--g0:#7a5c10;--g1:#a3821a;--g2:#c9a227;--g3:#e8bb3e;--g4:#f5d06a;--cream:#faf7f0;--cream2:#f2ead8;--ivory:#fefcf7;--dark:#0d0d0a;--dark2:#1a1a14;--dark3:#2c2c22;--mid:#4a5568;--muted:#718096;--light:#e2e8f0;--white:#ffffff;--gf:linear-gradient(135deg,var(--f0) 0%,var(--f2) 55%,var(--f4) 100%);--gg:linear-gradient(135deg,var(--g0) 0%,var(--g2) 50%,var(--g4) 100%);--gdark:linear-gradient(160deg,var(--dark) 0%,var(--dark2) 100%);--s1:0 2px 8px rgba(0,0,0,.07);--s2:0 8px 24px rgba(0,0,0,.11);--s3:0 20px 50px rgba(0,0,0,.16);--s4:0 40px 90px rgba(0,0,0,.22);--sgold:0 0 40px rgba(201,162,39,.35);--sgreen:0 0 40px rgba(11,93,59,.3);--r1:6px;--r2:12px;--r3:20px;--r4:32px;--r5:9999px;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Outfit',system-ui,sans-serif;--t1:cubic-bezier(0.16,1,0.3,1);--t2:cubic-bezier(0.4,0,0.2,1);--t3:cubic-bezier(0.68,-0.55,0.265,1.55);--nav-h:80px;--max-w:1380px}
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Nico Poultry and Eggs Ltd — Premium turkey, chicken and fresh eggs supplier in Dar es Salaam, Tanzania."/>
+<meta name="theme-color" content="#0b5d3b"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;0,800;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>Nico Poultry &amp; Eggs Ltd | Premium Turkey &amp; Chicken — Tanzania</title>
+<style>
+/* =====================================================
+   DESIGN TOKENS
+===================================================== */
+:root {
+  --f0:#041f13; --f1:#073d27; --f2:#0b5d3b; --f3:#116845; --f4:#1a8a5a;
+  --g0:#7a5c10; --g1:#a3821a; --g2:#c9a227; --g3:#e8bb3e; --g4:#f5d06a;
+  --cream:#faf7f0; --cream2:#f2ead8; --ivory:#fefcf7;
+  --dark:#0d0d0a; --dark2:#1a1a14; --dark3:#2c2c22;
+  --muted:#718096; --light:#e2e8f0; --white:#ffffff;
+  --gf:linear-gradient(135deg,#041f13 0%,#0b5d3b 55%,#1a8a5a 100%);
+  --gg:linear-gradient(135deg,#7a5c10 0%,#c9a227 50%,#f5d06a 100%);
+  --s1:0 2px 8px rgba(0,0,0,.07);
+  --s2:0 8px 24px rgba(0,0,0,.11);
+  --s3:0 20px 50px rgba(0,0,0,.16);
+  --s4:0 40px 90px rgba(0,0,0,.22);
+  --sgold:0 0 40px rgba(201,162,39,.35);
+  --sgreen:0 0 40px rgba(11,93,59,.3);
+  --r1:6px; --r2:12px; --r3:20px; --r5:9999px;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+  --t1:cubic-bezier(0.16,1,0.3,1);
+  --t2:cubic-bezier(0.4,0,0.2,1);
+  --nav-h:76px;
+}
+
+/* =====================================================
+   RESET
+===================================================== */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);font-size:16px;overflow-x:hidden}
-body{font-family:var(--sans);background:var(--ivory);color:var(--dark);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--sans);background:var(--ivory);color:var(--dark);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 button{font-family:var(--sans);cursor:pointer;border:none;background:none}
@@ -28,28 +53,25 @@ ul{list-style:none}
 .skip:focus{top:0}
 :focus-visible{outline:3px solid var(--g2);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
-.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+.container{width:100%;max-width:1380px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
 .section{padding:clamp(70px,9vw,120px) 0;position:relative}
 
-/* CURSOR */
-#cursor-glow{position:fixed;width:360px;height:360px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(11,93,59,.05) 0%,transparent 70%);transform:translate(-50%,-50%);transition:transform .08s linear}
-
-/* HEADER */
-.site-header{position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);background:rgba(254,252,247,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,162,39,.18);transition:box-shadow .3s var(--t2),background .3s var(--t2)}
-.site-header.scrolled{box-shadow:var(--s3);background:rgba(254,252,247,.99)}
+/* =====================================================
+   HEADER
+===================================================== */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);background:rgba(254,252,247,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,162,39,.2);transition:box-shadow .3s var(--t2)}
+.site-header.scrolled{box-shadow:var(--s3)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:var(--nav-h);gap:1.5rem}
-.nav-logo{display:flex;align-items:center;gap:.9rem;flex-shrink:0;transition:opacity .2s}
-.nav-logo:hover{opacity:.85}
-.logo-ring{width:52px;height:52px;border-radius:50%;border:2.5px solid var(--g2);background:var(--f1);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;box-shadow:0 4px 16px rgba(201,162,39,.28);transition:transform .4s var(--t1),box-shadow .4s}
-.nav-logo:hover .logo-ring{transform:rotate(8deg) scale(1.06);box-shadow:0 6px 24px rgba(201,162,39,.45)}
+.nav-logo{display:flex;align-items:center;gap:.9rem;flex-shrink:0}
+.logo-ring{width:50px;height:50px;border-radius:50%;border:2.5px solid var(--g2);background:var(--f1);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;box-shadow:0 4px 16px rgba(201,162,39,.25);transition:transform .4s var(--t1)}
+.nav-logo:hover .logo-ring{transform:rotate(8deg) scale(1.06)}
 .logo-ring img{width:100%;height:100%;object-fit:contain}
-.logo-initials{font-family:var(--serif);font-weight:800;font-size:.9rem;color:var(--g3);line-height:1.1;text-align:center;display:none}
-.logo-text{display:flex;flex-direction:column}
-.logo-name{font-family:var(--serif);font-weight:800;font-size:1.12rem;color:var(--f2);line-height:1.1;letter-spacing:.01em}
-.logo-sub{font-size:.66rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--g1);margin-top:1px}
+.logo-initials{font-family:var(--serif);font-weight:800;font-size:.85rem;color:var(--g3);text-align:center;display:none;flex-direction:column;align-items:center;justify-content:center;line-height:1.1}
+.logo-name{font-family:var(--serif);font-weight:800;font-size:1.1rem;color:var(--f2);line-height:1.1}
+.logo-sub{font-size:.65rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--g1);margin-top:1px}
 .nav-links{display:flex;align-items:center;gap:.1rem}
-.nav-links a{font-size:.88rem;font-weight:600;color:var(--dark3);padding:.55rem 1rem;border-radius:var(--r1);position:relative;transition:color .2s}
-.nav-links a::after{content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%) scaleX(0);width:60%;height:2px;background:var(--gg);border-radius:var(--r5);transition:transform .25s var(--t1);transform-origin:center}
+.nav-links a{font-size:.87rem;font-weight:600;color:var(--dark3);padding:.5rem .95rem;border-radius:var(--r1);position:relative;transition:color .2s}
+.nav-links a::after{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%) scaleX(0);width:60%;height:2px;background:var(--gg);border-radius:var(--r5);transition:transform .25s var(--t1);transform-origin:center}
 .nav-links a:hover,.nav-links a.active{color:var(--f2)}
 .nav-links a:hover::after,.nav-links a.active::after{transform:translateX(-50%) scaleX(1)}
 .nav-cta{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
@@ -65,21 +87,25 @@ ul{list-style:none}
 .mobile-menu a.mob-link:hover{color:var(--f2);padding-left:.5rem}
 .mob-cta{margin-top:1rem}
 
-/* BUTTONS */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:var(--sans);font-weight:700;font-size:.88rem;letter-spacing:.4px;border-radius:var(--r5);padding:.8rem 2rem;transition:all .35s var(--t1);position:relative;overflow:hidden;cursor:pointer;border:none;white-space:nowrap}
+/* =====================================================
+   BUTTONS
+===================================================== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:var(--sans);font-weight:700;font-size:.88rem;letter-spacing:.4px;border-radius:var(--r5);padding:.8rem 2rem;transition:all .35s var(--t1);cursor:pointer;border:none;white-space:nowrap;text-decoration:none}
 .btn-gold{background:var(--gg);color:var(--dark2);box-shadow:var(--s2)}
 .btn-gold:hover{transform:translateY(-3px) scale(1.02);box-shadow:var(--s3),var(--sgold);color:var(--dark)}
-.btn-forest{background:var(--gf);color:var(--white);box-shadow:var(--s2)}
+.btn-forest{background:var(--gf);color:#fff;box-shadow:var(--s2)}
 .btn-forest:hover{transform:translateY(-3px) scale(1.02);box-shadow:var(--s3),var(--sgreen)}
-.btn-outline{background:transparent;border:2px solid var(--g2);color:var(--g2);box-shadow:none}
+.btn-outline{background:transparent;border:2px solid var(--g2);color:var(--g2)}
 .btn-outline:hover{background:var(--g2);color:var(--dark2);transform:translateY(-3px);box-shadow:var(--s2),var(--sgold)}
 .btn-ghost{background:rgba(255,255,255,.12);backdrop-filter:blur(8px);color:#fff;border:1.5px solid rgba(255,255,255,.3)}
 .btn-ghost:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.6);transform:translateY(-3px)}
-.btn-sm{padding:.58rem 1.4rem;font-size:.8rem}
+.btn-sm{padding:.55rem 1.35rem;font-size:.8rem}
 .btn-lg{padding:1rem 2.8rem;font-size:1rem}
 .btn-xl{padding:1.15rem 3.2rem;font-size:1.05rem}
 
-/* SECTION TITLE */
+/* =====================================================
+   SECTION TITLE
+===================================================== */
 .sec-title{text-align:center;margin-bottom:3.5rem}
 .eyebrow{display:inline-flex;align-items:center;gap:.65rem;font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--g2);margin-bottom:.9rem}
 .eyebrow::before,.eyebrow::after{content:'';display:block;width:28px;height:1.5px;background:var(--gg);border-radius:var(--r5)}
@@ -87,233 +113,254 @@ ul{list-style:none}
 .sec-title h2::after{content:'';position:absolute;bottom:-11px;left:50%;transform:translateX(-50%);width:56px;height:3.5px;background:var(--gg);border-radius:var(--r5)}
 .sec-title p{max-width:600px;margin:1.2rem auto 0;color:var(--muted);font-size:1rem;line-height:1.8}
 
-/* HERO */
-.hero{min-height:100svh;display:grid;place-items:center;position:relative;overflow:hidden;padding-top:var(--nav-h);background:linear-gradient(160deg,rgba(4,31,19,.94) 0%,rgba(11,93,59,.88) 40%,rgba(0,0,0,.82) 100%),url('https://images.unsplash.com/photo-1518492104633-130d0cc84637?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat}
-.hero-grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
-.hero::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 80% 55% at 50% 105%,rgba(11,93,59,.55) 0%,transparent 65%)}
-.hero-orb{position:absolute;border-radius:50%;pointer-events:none;z-index:1;filter:blur(70px);opacity:.15;animation:orbFloat 8s ease-in-out infinite alternate}
-.orb-1{width:500px;height:500px;background:var(--f4);top:-100px;right:-100px;animation-delay:0s}
-.orb-2{width:350px;height:350px;background:var(--g2);bottom:-50px;left:-80px;animation-delay:-3s;animation-duration:11s}
-@keyframes orbFloat{from{transform:translate(0,0) scale(1)}to{transform:translate(30px,20px) scale(1.08)}}
-.hero-content{position:relative;z-index:2;text-align:center;max-width:1000px;padding:2rem 1.5rem}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--g3);margin-bottom:1.5rem;animation:fadeUp .8s .1s var(--t1) both}
-.hero-eyebrow span{width:36px;height:1px;background:var(--g3);display:block;opacity:.7}
-.hero-title{font-family:var(--serif);font-weight:800;line-height:1.08;font-size:clamp(2.6rem,7vw,5.6rem);color:#fff;margin-bottom:1.3rem;text-shadow:0 4px 32px rgba(0,0,0,.4);animation:fadeUp .9s .2s var(--t1) both}
-.hero-title em{font-style:italic;color:var(--g3)}
-.hero-sub{font-size:clamp(.95rem,2vw,1.3rem);color:rgba(255,255,255,.88);max-width:720px;margin:0 auto 2.5rem;line-height:1.75;animation:fadeUp 1s .3s var(--t1) both}
-.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;animation:fadeUp 1s .4s var(--t1) both}
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;animation:fadeUp 1s .5s var(--t1) both}
-.hero-stat{background:rgba(255,255,255,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1.5px solid rgba(201,162,39,.25);border-radius:var(--r3);padding:1.3rem 1rem;text-align:center;transition:all .3s var(--t2)}
+/* =====================================================
+   HERO
+===================================================== */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:var(--nav-h);background:linear-gradient(160deg,rgba(4,31,19,.94) 0%,rgba(11,93,59,.88) 40%,rgba(0,0,0,.82) 100%),url('https://images.unsplash.com/photo-1518492104633-130d0cc84637?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat}
+.hero-grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.3;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
+.hero::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 80% 55% at 50% 105%,rgba(11,93,59,.5) 0%,transparent 65%)}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none;z-index:1;filter:blur(70px);opacity:.14}
+.orb-1{width:400px;height:400px;background:#1a8a5a;top:-80px;right:-80px;animation:orbFloat 8s ease-in-out infinite alternate}
+.orb-2{width:300px;height:300px;background:#c9a227;bottom:-40px;left:-60px;animation:orbFloat 11s ease-in-out infinite alternate-reverse}
+@keyframes orbFloat{from{transform:translate(0,0)}to{transform:translate(25px,18px)}}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:980px;padding:2rem 1.5rem;width:100%}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#e8bb3e;margin-bottom:1.5rem;animation:fadeUp .8s .1s both}
+.hero-eyebrow span{width:36px;height:1px;background:#e8bb3e;display:block;opacity:.7}
+.hero-title{font-family:var(--serif);font-weight:800;line-height:1.08;font-size:clamp(2.5rem,7vw,5.5rem);color:#fff;margin-bottom:1.3rem;text-shadow:0 4px 32px rgba(0,0,0,.4);animation:fadeUp .9s .2s both}
+.hero-title em{font-style:italic;color:#e8bb3e}
+.hero-sub{font-size:clamp(.95rem,2vw,1.3rem);color:rgba(255,255,255,.88);max-width:700px;margin:0 auto 2.5rem;line-height:1.75;animation:fadeUp 1s .3s both}
+.hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;animation:fadeUp 1s .4s both}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;animation:fadeUp 1s .5s both}
+.hero-stat{background:rgba(255,255,255,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1.5px solid rgba(201,162,39,.25);border-radius:20px;padding:1.3rem 1rem;text-align:center;transition:all .3s var(--t2);cursor:default}
 .hero-stat:hover{background:rgba(255,255,255,.14);border-color:rgba(201,162,39,.55);transform:translateY(-4px)}
-.stat-n{display:block;font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--g3);line-height:1;margin-bottom:.3rem}
-.stat-l{font-size:.66rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.8);font-weight:600}
-.scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:fadeUp 1s .8s var(--t1) both;cursor:pointer}
-.scroll-ind .s-line{width:1px;height:44px;background:linear-gradient(to bottom,transparent,var(--g2));animation:scrollPulse 2s ease-in-out infinite}
-@keyframes scrollPulse{0%,100%{transform:scaleY(1);opacity:.7}50%{transform:scaleY(.6);opacity:1}}
+.stat-n{display:block;font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#e8bb3e;line-height:1;margin-bottom:.3rem}
+.stat-l{font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.8);font-weight:600}
+.scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.5rem;cursor:pointer;animation:fadeUp 1s .8s both}
+.scroll-ind .s-line{width:1px;height:44px;background:linear-gradient(to bottom,transparent,#c9a227);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.7}50%{opacity:1}}
 .scroll-ind span{font-size:.58rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
-/* TICKER */
+/* =====================================================
+   TICKER
+===================================================== */
 .ticker{background:var(--gf);overflow:hidden;padding:.65rem 0;position:relative}
-.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
-.ticker::before{left:0;background:linear-gradient(to right,var(--f1),transparent)}
-.ticker::after{right:0;background:linear-gradient(to left,var(--f1),transparent)}
-.ticker-track{display:flex;gap:3rem;width:max-content;animation:tickerScroll 40s linear infinite}
+.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(to right,#073d27,transparent)}
+.ticker::after{right:0;background:linear-gradient(to left,#073d27,transparent)}
+.ticker-track{display:flex;gap:2.5rem;width:max-content;animation:tickerScroll 38s linear infinite}
 .ticker:hover .ticker-track{animation-play-state:paused}
 @keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.ticker-item{display:flex;align-items:center;gap:.6rem;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.88);white-space:nowrap}
-.ticker-item i{color:var(--g3);font-size:.8rem}
+.ticker-item{display:flex;align-items:center;gap:.55rem;font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.88);white-space:nowrap}
+.ticker-item i{color:#e8bb3e;font-size:.78rem}
 
-/* FEATURES BAR */
-.features-bar{background:var(--white);padding:2.2rem 0;border-bottom:1px solid var(--light)}
+/* =====================================================
+   FEATURES BAR
+===================================================== */
+.features-bar{background:#fff;padding:2rem 0;border-bottom:1px solid var(--light)}
 .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
 .feature-item{display:flex;align-items:center;gap:.9rem;padding:1.1rem;border-radius:var(--r2);background:var(--ivory);border:1px solid var(--light);transition:all .3s var(--t2)}
 .feature-item:hover{border-color:rgba(11,93,59,.3);box-shadow:var(--s2);transform:translateY(-2px)}
 .feat-icon{width:46px;height:46px;flex-shrink:0;border-radius:var(--r2);display:flex;align-items:center;justify-content:center;font-size:1.15rem}
 .feat-icon.green{background:rgba(11,93,59,.1);color:var(--f2)}
 .feat-icon.gold{background:rgba(201,162,39,.12);color:var(--g1)}
-.feat-label{font-size:.66rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem}
-.feat-value{font-size:.92rem;font-weight:700;color:var(--dark)}
+.feat-label{font-size:.65rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem}
+.feat-value{font-size:.9rem;font-weight:700;color:var(--dark)}
 
-/* PRODUCTS */
+/* =====================================================
+   PRODUCTS
+===================================================== */
 .products-section{background:var(--cream)}
 .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-.prod-card{background:var(--white);border-radius:var(--r3);overflow:hidden;border:1px solid rgba(201,162,39,.12);box-shadow:var(--s2);display:flex;flex-direction:column;transition:all .5s var(--t1);position:relative}
-.prod-card:hover{transform:translateY(-12px) scale(1.01);box-shadow:var(--s4),0 0 60px rgba(11,93,59,.12);border-color:rgba(201,162,39,.4)}
+.prod-card{background:#fff;border-radius:20px;overflow:hidden;border:1px solid rgba(201,162,39,.12);box-shadow:var(--s2);display:flex;flex-direction:column;transition:all .5s var(--t1);position:relative}
+.prod-card:hover{transform:translateY(-12px) scale(1.01);box-shadow:var(--s4),0 0 60px rgba(11,93,59,.1);border-color:rgba(201,162,39,.4)}
 .prod-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gg);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--t1);z-index:2}
 .prod-card:hover::before{transform:scaleX(1)}
 .prod-img{position:relative;height:290px;overflow:hidden;background:var(--cream2)}
 .prod-img img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .7s var(--t1);transform:scale(1.03)}
 .prod-card:hover .prod-img img{transform:scale(1.12)}
 .prod-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,31,19,.55) 0%,transparent 55%);pointer-events:none}
-.prod-badge{position:absolute;top:1rem;right:1rem;z-index:2;background:var(--gg);color:var(--dark2);padding:.32rem .9rem;border-radius:var(--r5);font-size:.65rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;box-shadow:var(--s1)}
+.prod-badge{position:absolute;top:1rem;right:1rem;z-index:2;background:var(--gg);color:var(--dark2);padding:.32rem .9rem;border-radius:var(--r5);font-size:.65rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
 .prod-body{padding:1.6rem;flex:1;display:flex;flex-direction:column}
 .prod-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.66rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--f3);margin-bottom:.6rem}
 .prod-body h3{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--dark);margin-bottom:.7rem;line-height:1.2}
 .prod-body p{color:var(--muted);font-size:.92rem;line-height:1.75;flex:1;margin-bottom:1.4rem}
 .prod-footer{display:flex;align-items:center;justify-content:space-between;padding-top:1.1rem;border-top:1px solid var(--cream2);gap:.75rem}
-.prod-price{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--f2);line-height:1}
-.prod-price small{font-family:var(--sans);font-size:.72rem;color:var(--muted);font-weight:400;display:block;margin-top:2px}
+.prod-price{font-family:var(--serif);font-size:1.55rem;font-weight:700;color:var(--f2);line-height:1}
+.prod-price small{font-family:var(--sans);font-size:.7rem;color:var(--muted);font-weight:400;display:block;margin-top:2px}
 
-/* ABOUT */
+/* =====================================================
+   ABOUT
+===================================================== */
 .about-section{background:var(--ivory);overflow:hidden}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center}
 .about-img-wrap{position:relative}
-.about-img-main{border-radius:var(--r3);overflow:hidden;box-shadow:var(--s4);height:500px;position:relative}
-.about-img-main img{width:100%;height:100%;object-fit:cover;object-position:center}
-.about-img-accent{position:absolute;bottom:-2rem;right:-2rem;width:200px;height:200px;border-radius:var(--r3);overflow:hidden;box-shadow:var(--s3);border:4px solid var(--white)}
+.about-img-main{border-radius:20px;overflow:hidden;box-shadow:var(--s4);height:480px}
+.about-img-main img{width:100%;height:100%;object-fit:cover}
+.about-img-accent{position:absolute;bottom:-1.5rem;right:-1.5rem;width:190px;height:190px;border-radius:16px;overflow:hidden;box-shadow:var(--s3);border:4px solid #fff}
 .about-img-accent img{width:100%;height:100%;object-fit:cover}
-.about-badge{position:absolute;top:1.5rem;left:-1.5rem;background:var(--gf);color:#fff;padding:1.1rem 1.4rem;border-radius:var(--r2);box-shadow:var(--s3);text-align:center;min-width:112px}
-.badge-n{font-family:var(--serif);font-size:2.4rem;font-weight:800;color:var(--g3);line-height:1;display:block}
-.badge-l{font-size:.64rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:.85}
+.about-badge{position:absolute;top:1.5rem;left:-1.2rem;background:var(--gf);color:#fff;padding:1rem 1.3rem;border-radius:12px;box-shadow:var(--s3);text-align:center;min-width:108px}
+.badge-n{font-family:var(--serif);font-size:2.3rem;font-weight:800;color:#e8bb3e;line-height:1;display:block}
+.badge-l{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:.85}
 .about-content .eyebrow{justify-content:flex-start}
 .about-content h2{font-family:var(--serif);font-size:clamp(1.8rem,3.2vw,2.8rem);font-weight:800;color:var(--dark);line-height:1.15;margin-bottom:1.1rem}
-.about-content>p{color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:.9rem}
-.about-list{display:flex;flex-direction:column;gap:.9rem;margin:1.5rem 0 2rem}
+.about-content > p{color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:.9rem}
+.about-list{display:flex;flex-direction:column;gap:.85rem;margin:1.4rem 0 1.9rem}
 .about-list-item{display:flex;align-items:flex-start;gap:.9rem;padding:.9rem 1.1rem;border-radius:var(--r2);background:var(--cream);border-left:3px solid var(--f3);transition:all .3s var(--t2)}
 .about-list-item:hover{background:rgba(11,93,59,.05);border-left-color:var(--g2);transform:translateX(4px)}
 .abt-icon{color:var(--g1);font-size:1rem;margin-top:.1rem;flex-shrink:0}
-.abt-title{font-weight:700;color:var(--dark);font-size:.92rem;margin-bottom:.12rem}
-.abt-desc{font-size:.85rem;color:var(--muted);line-height:1.6}
+.abt-title{font-weight:700;color:var(--dark);font-size:.9rem;margin-bottom:.1rem}
+.abt-desc{font-size:.84rem;color:var(--muted);line-height:1.6}
 
-/* PRICING */
+/* =====================================================
+   PRICING
+===================================================== */
 .pricing-section{background:var(--cream2)}
-.pricing-card{max-width:960px;margin:0 auto;background:var(--white);border-radius:var(--r3);overflow:hidden;box-shadow:var(--s3);border:1px solid rgba(201,162,39,.2)}
+.pricing-card{max-width:940px;margin:0 auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--s3);border:1px solid rgba(201,162,39,.2)}
 .pricing-table{width:100%;border-collapse:collapse}
 .pricing-table thead{background:var(--gf)}
-.pricing-table th{padding:1.2rem 1.8rem;text-align:left;color:#fff;font-weight:700;font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase}
+.pricing-table th{padding:1.1rem 1.75rem;text-align:left;color:#fff;font-weight:700;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase}
 .pricing-table th:last-child{text-align:right}
-.pricing-table td{padding:1rem 1.8rem;font-size:.95rem;border-bottom:1px solid var(--cream2);vertical-align:middle}
+.pricing-table td{padding:.95rem 1.75rem;font-size:.93rem;border-bottom:1px solid var(--cream2);vertical-align:middle}
 .pricing-table td:last-child{text-align:right}
-.pricing-table tbody tr{transition:background .15s}
 .pricing-table tbody tr:hover{background:rgba(11,93,59,.03)}
 .pricing-table tbody tr:last-child td{border-bottom:none}
 .p-name{font-weight:700;color:var(--dark)}
-.p-desc{font-size:.76rem;color:var(--muted);margin-top:.12rem}
-.p-price{font-family:var(--serif);font-size:1.35rem;font-weight:700;color:var(--g1)}
-.p-quote{display:inline-flex;align-items:center;gap:.4rem;color:var(--f2);font-weight:700;font-size:.88rem}
-.pricing-note{background:rgba(11,93,59,.05);padding:1.1rem 1.8rem;display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:var(--f2);font-weight:600;border-top:1px solid rgba(11,93,59,.1)}
-.pricing-note i{color:var(--g2);font-size:.95rem}
+.p-desc{font-size:.74rem;color:var(--muted);margin-top:.1rem}
+.p-price{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--g1)}
+.p-quote{display:inline-flex;align-items:center;gap:.4rem;color:var(--f2);font-weight:700;font-size:.86rem}
+.pricing-note{background:rgba(11,93,59,.05);padding:1rem 1.75rem;display:flex;align-items:center;gap:.7rem;font-size:.84rem;color:var(--f2);font-weight:600;border-top:1px solid rgba(11,93,59,.1)}
 
-/* REVIEWS */
+/* =====================================================
+   REVIEWS
+===================================================== */
 .reviews-section{background:var(--ivory)}
 .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
-.review-card{background:var(--white);padding:1.9rem;border-radius:var(--r3);box-shadow:var(--s1);border:1px solid var(--light);position:relative;overflow:hidden;transition:all .3s var(--t2);display:flex;flex-direction:column;gap:1.1rem}
+.review-card{background:#fff;padding:1.9rem;border-radius:20px;box-shadow:var(--s1);border:1px solid var(--light);position:relative;overflow:hidden;transition:all .3s var(--t2);display:flex;flex-direction:column;gap:1.1rem}
 .review-card:hover{transform:translateY(-6px);box-shadow:var(--s3);border-color:rgba(201,162,39,.3)}
-.review-card::before{content:'\201C';position:absolute;top:.5rem;right:1.5rem;font-family:var(--serif);font-size:5.5rem;color:var(--g2);opacity:.08;line-height:1;pointer-events:none;user-select:none}
+.review-card::before{content:'\201C';position:absolute;top:.5rem;right:1.5rem;font-family:var(--serif);font-size:5rem;color:var(--g2);opacity:.08;line-height:1;pointer-events:none;user-select:none}
 .review-stars{display:flex;gap:.15rem}
 .review-stars i{color:var(--g2);font-size:.82rem}
-.review-text{font-size:.95rem;line-height:1.8;color:var(--dark3);font-style:italic;flex:1}
+.review-text{font-size:.94rem;line-height:1.8;color:var(--dark3);font-style:italic;flex:1}
 .reviewer{display:flex;align-items:center;gap:.85rem}
-.reviewer-av{width:44px;height:44px;border-radius:50%;background:var(--gf);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;flex-shrink:0;border:2.5px solid var(--g2);font-family:var(--serif)}
-.reviewer-name{font-weight:700;color:var(--dark);font-size:.92rem}
-.reviewer-role{font-size:.76rem;color:var(--muted);margin-top:.1rem}
-.review-date{font-size:.7rem;color:var(--muted);margin-left:auto}
-.review-card.featured{background:var(--gf);color:#fff;border-color:transparent}
+.reviewer-av{width:44px;height:44px;border-radius:50%;background:var(--gf);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.92rem;flex-shrink:0;border:2.5px solid var(--g2);font-family:var(--serif)}
+.reviewer-name{font-weight:700;color:var(--dark);font-size:.9rem}
+.reviewer-role{font-size:.74rem;color:var(--muted);margin-top:.1rem}
+.review-date{font-size:.7rem;color:var(--muted);margin-left:auto;white-space:nowrap}
+.review-card.featured{background:var(--gf);border-color:transparent}
 .review-card.featured::before{color:#fff;opacity:.07}
-.review-card.featured .review-stars i{color:var(--g3)}
+.review-card.featured .review-stars i{color:#e8bb3e}
 .review-card.featured .review-text{color:rgba(255,255,255,.92)}
 .review-card.featured .reviewer-name{color:#fff}
 .review-card.featured .reviewer-role{color:rgba(255,255,255,.7)}
 .review-card.featured .review-date{color:rgba(255,255,255,.5)}
-.review-card.featured .reviewer-av{background:rgba(255,255,255,.15);border-color:var(--g3)}
+.review-card.featured .reviewer-av{background:rgba(255,255,255,.15);border-color:#e8bb3e}
 
-/* LOCATION */
+/* =====================================================
+   LOCATION
+===================================================== */
 .location-section{background:var(--cream)}
 .location-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:start}
-.map-wrap{border-radius:var(--r3);overflow:hidden;box-shadow:var(--s3);height:440px;border:2px solid rgba(201,162,39,.2);transition:border-color .3s}
+.map-wrap{border-radius:20px;overflow:hidden;box-shadow:var(--s3);height:430px;border:2px solid rgba(201,162,39,.2);transition:border-color .3s}
 .map-wrap:hover{border-color:rgba(201,162,39,.5)}
 .map-wrap iframe{width:100%;height:100%;border:none;display:block}
-.loc-card{background:var(--white);border-radius:var(--r3);padding:2.2rem;box-shadow:var(--s2);border:1px solid var(--light)}
-.loc-card h3{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:1.7rem}
-.loc-items{display:flex;flex-direction:column;gap:1.1rem;margin-bottom:1.7rem}
+.loc-card{background:#fff;border-radius:20px;padding:2rem;box-shadow:var(--s2);border:1px solid var(--light)}
+.loc-card h3{font-family:var(--serif);font-size:1.65rem;font-weight:700;color:var(--dark);margin-bottom:1.6rem}
+.loc-items{display:flex;flex-direction:column;gap:1.1rem;margin-bottom:1.5rem}
 .loc-item{display:flex;align-items:flex-start;gap:.9rem}
 .loc-ico{width:40px;height:40px;border-radius:var(--r2);flex-shrink:0;background:rgba(11,93,59,.08);display:flex;align-items:center;justify-content:center;color:var(--g1);font-size:.95rem;transition:all .2s}
 .loc-item:hover .loc-ico{background:var(--f2);color:#fff}
-.loc-title{font-weight:700;font-size:.84rem;color:var(--dark);margin-bottom:.2rem}
-.loc-val{font-size:.88rem;color:var(--muted);line-height:1.6}
+.loc-title{font-weight:700;font-size:.83rem;color:var(--dark);margin-bottom:.2rem}
+.loc-val{font-size:.87rem;color:var(--muted);line-height:1.6}
 .loc-val a{color:var(--f2);font-weight:600}
-.loc-val a:hover{color:var(--f3);text-decoration:underline}
-.hours-table{width:100%;margin-bottom:1.6rem}
-.hours-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px dashed var(--cream2);font-size:.88rem}
+.loc-val a:hover{text-decoration:underline}
+.hours-table{width:100%;margin-bottom:1.5rem}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:.48rem 0;border-bottom:1px dashed var(--cream2);font-size:.86rem}
 .hours-row:last-child{border-bottom:none}
 .hours-day{color:var(--muted);font-weight:500}
-.hours-time{font-weight:700;color:var(--dark)}
-.hours-time.open{color:var(--f2)}
+.hours-time.open{font-weight:700;color:var(--f2)}
 
-/* ORDER FORM */
+/* =====================================================
+   ORDER FORM
+===================================================== */
 .order-section{background:var(--ivory)}
-.order-wrap{max-width:840px;margin:0 auto;background:var(--white);border-radius:var(--r3);padding:clamp(1.8rem,4.5vw,3.2rem);box-shadow:var(--s3);border:1px solid rgba(201,162,39,.15);position:relative;overflow:hidden}
+.order-wrap{max-width:820px;margin:0 auto;background:#fff;border-radius:20px;padding:clamp(1.8rem,4.5vw,3rem);box-shadow:var(--s3);border:1px solid rgba(201,162,39,.15);position:relative;overflow:hidden}
 .order-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gg)}
-.order-preview{background:linear-gradient(135deg,rgba(11,93,59,.04) 0%,rgba(201,162,39,.05) 100%);border:1px solid rgba(11,93,59,.12);border-radius:var(--r2);padding:1.4rem;margin-bottom:1.75rem}
-.preview-header{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:.84rem;color:var(--f2);margin-bottom:.9rem;letter-spacing:.4px}
+.order-preview{background:linear-gradient(135deg,rgba(11,93,59,.04),rgba(201,162,39,.05));border:1px solid rgba(11,93,59,.12);border-radius:var(--r2);padding:1.4rem;margin-bottom:1.75rem}
+.preview-header{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:.84rem;color:var(--f2);margin-bottom:.9rem}
 .preview-header i{color:var(--g2)}
 .p-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px dashed rgba(0,0,0,.06);font-size:.9rem}
 .p-row:last-child{border-bottom:none}
-.p-row.total{font-weight:800;color:var(--f2);font-size:1rem;padding-top:.75rem;border-top:2px solid rgba(11,93,59,.15);border-bottom:none}
-.p-row .lbl{color:var(--muted)}
-.p-row.total .lbl{color:var(--f2)}
-.p-row .val{font-weight:700;color:var(--dark)}
-.p-row.total .val{color:var(--g1);font-size:1.05rem}
+.p-row.total{font-weight:800;font-size:1rem;padding-top:.75rem;border-top:2px solid rgba(11,93,59,.15);border-bottom:none}
+.p-lbl{color:var(--muted)}
+.p-row.total .p-lbl{color:var(--f2)}
+.p-val{font-weight:700;color:var(--dark)}
+.p-row.total .p-val{color:var(--g1);font-size:1.05rem}
 .form-grid{display:grid;gap:1.4rem}
 .form-2col{grid-template-columns:1fr 1fr}
 .form-group{display:flex;flex-direction:column;gap:.42rem}
 .form-label{font-size:.8rem;font-weight:700;color:var(--dark3);letter-spacing:.4px}
-.form-label .req{color:var(--g1)}
-.form-input,.form-select,.form-textarea{width:100%;padding:.82rem 1.05rem;border:1.5px solid var(--cream2);border-radius:var(--r2);font-family:var(--sans);font-size:.93rem;color:var(--dark);background:var(--cream);outline:none;transition:border-color .25s,box-shadow .25s,background .25s}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--f2);background:var(--white);box-shadow:0 0 0 4px rgba(11,93,59,.1)}
-.form-input.error,.form-select.error{border-color:#e53e3e;box-shadow:0 0 0 3px rgba(229,62,62,.1)}
+.req{color:var(--g1)}
+.form-input,.form-select,.form-textarea{width:100%;padding:.82rem 1.05rem;border:1.5px solid var(--cream2);border-radius:var(--r2);font-family:var(--sans);font-size:.93rem;color:var(--dark);background:var(--cream);outline:none;transition:border-color .25s,box-shadow .25s,background .25s;-webkit-appearance:none;appearance:none}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--f2);background:#fff;box-shadow:0 0 0 4px rgba(11,93,59,.1)}
 .form-textarea{min-height:115px;resize:vertical}
-.form-hint{font-size:.74rem;color:var(--muted)}
-.form-error{font-size:.74rem;color:#e53e3e;display:none}
+.form-hint{font-size:.73rem;color:var(--muted)}
+.form-error{font-size:.73rem;color:#e53e3e;display:none}
 .form-group.has-error .form-error{display:block}
-.form-group.has-error .form-input,.form-group.has-error .form-select{border-color:#e53e3e}
-.submit-row{display:flex;flex-direction:column;align-items:center;gap:.9rem;margin-top:.4rem}
-.submit-note{text-align:center;font-size:.78rem;color:var(--muted);max-width:400px;line-height:1.6}
-.submit-note i{color:var(--g2)}
+.form-group.has-error .form-input,
+.form-group.has-error .form-select{border-color:#e53e3e;box-shadow:0 0 0 3px rgba(229,62,62,.1)}
+.submit-row{display:flex;flex-direction:column;align-items:center;gap:.9rem;margin-top:.5rem}
+.submit-note{text-align:center;font-size:.78rem;color:var(--muted);max-width:420px;line-height:1.6}
 
-/* FOOTER */
-.site-footer{background:var(--dark);color:#fff;position:relative;overflow:hidden}
-.footer-top{background:var(--f1);padding:.85rem 0;border-bottom:1px solid rgba(201,162,39,.2)}
-.footer-ticker-text{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.65);text-align:center}
-.footer-ticker-text span{color:var(--g3);margin:0 .75rem}
-.footer-body{padding:4.5rem 0 2.5rem}
+/* =====================================================
+   FOOTER
+===================================================== */
+.site-footer{background:var(--dark);color:#fff;position:relative}
+.footer-top{background:#073d27;padding:.8rem 0;border-bottom:1px solid rgba(201,162,39,.18)}
+.footer-top-text{font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);text-align:center}
+.footer-top-text span{color:#e8bb3e;margin:0 .6rem}
+.footer-body{padding:4rem 0 2.5rem}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem}
-.foot-col-title{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:1.4rem;padding-bottom:.85rem;position:relative}
-.foot-col-title::after{content:'';position:absolute;bottom:0;left:0;width:34px;height:2.5px;background:var(--gg);border-radius:var(--r5)}
-.foot-brand p{color:rgba(255,255,255,.62);font-size:.88rem;line-height:1.8;margin-bottom:1.4rem}
-.foot-socials{display:flex;gap:.6rem;flex-wrap:wrap}
-.foot-socials a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:1.05rem;color:rgba(255,255,255,.72);transition:all .3s var(--t2)}
+.foot-col-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:1.3rem;padding-bottom:.8rem;position:relative}
+.foot-col-title::after{content:'';position:absolute;bottom:0;left:0;width:32px;height:2.5px;background:var(--gg);border-radius:var(--r5)}
+.foot-brand p{color:rgba(255,255,255,.6);font-size:.86rem;line-height:1.8;margin-bottom:1.3rem}
+.foot-socials{display:flex;gap:.55rem;flex-wrap:wrap}
+.foot-socials a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:1.05rem;color:rgba(255,255,255,.7);transition:all .3s var(--t2)}
 .foot-socials a:hover{background:var(--g2);color:var(--dark2);border-color:var(--g2);transform:translateY(-3px)}
-.foot-links{display:flex;flex-direction:column;gap:.7rem}
-.foot-links a{display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:rgba(255,255,255,.62);transition:all .2s}
-.foot-links a i{color:var(--g2);font-size:.7rem;transition:transform .2s}
+.foot-links{display:flex;flex-direction:column;gap:.65rem}
+.foot-links a{display:flex;align-items:center;gap:.55rem;font-size:.86rem;color:rgba(255,255,255,.6);transition:all .2s}
+.foot-links a i{color:var(--g2);font-size:.68rem;transition:transform .2s}
 .foot-links a:hover{color:#fff}
 .foot-links a:hover i{transform:translateX(3px)}
-.foot-contact-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.88rem;color:rgba(255,255,255,.62);margin-bottom:.85rem}
-.foot-contact-item i{color:var(--g2);margin-top:.2rem;flex-shrink:0}
-.foot-contact-item a{color:rgba(255,255,255,.8)}
-.foot-contact-item a:hover{color:var(--g3)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.7rem}
-.footer-bottom p{font-size:.8rem;color:rgba(255,255,255,.42)}
-.footer-bottom a{color:var(--g3)}
+.foot-contact{display:flex;flex-direction:column;gap:.75rem}
+.foot-ci{display:flex;align-items:flex-start;gap:.65rem;font-size:.86rem;color:rgba(255,255,255,.6)}
+.foot-ci i{color:var(--g2);margin-top:.15rem;flex-shrink:0;width:14px}
+.foot-ci a{color:rgba(255,255,255,.78)}
+.foot-ci a:hover{color:#e8bb3e}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+.footer-bottom p{font-size:.78rem;color:rgba(255,255,255,.4)}
+.footer-bottom a{color:#e8bb3e}
 
-/* FLOATING */
-.wa-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:600;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:var(--s3);transition:all .4s var(--t3);animation:waPulse 2.5s infinite}
-.wa-float:hover{transform:scale(1.15) translateY(-4px);box-shadow:var(--s4);color:#fff}
+/* =====================================================
+   FLOAT BUTTONS
+===================================================== */
+.wa-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:600;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:var(--s3);transition:all .4s;animation:waPulse 2.5s infinite}
+.wa-float:hover{transform:scale(1.15) translateY(-4px);color:#fff}
 @keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5),var(--s3)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0),var(--s3)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0),var(--s3)}}
-.btt-btn{position:fixed;bottom:1.75rem;left:1.75rem;z-index:600;width:44px;height:44px;border-radius:50%;background:var(--gf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.95rem;box-shadow:var(--s2);opacity:0;visibility:hidden;transition:all .3s var(--t2);border:none;cursor:pointer}
+.btt-btn{position:fixed;bottom:1.75rem;left:1.75rem;z-index:600;width:44px;height:44px;border-radius:50%;background:var(--gf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.95rem;box-shadow:var(--s2);opacity:0;visibility:hidden;transition:all .3s;border:none;cursor:pointer}
 .btt-btn.visible{opacity:1;visibility:visible}
 .btt-btn:hover{transform:translateY(-4px);box-shadow:var(--s3)}
 
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s var(--t2),transform .6s var(--t2)}
+/* =====================================================
+   REVEAL ANIMATIONS
+===================================================== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--t2),transform .6s var(--t2)}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
-/* RESPONSIVE */
+/* =====================================================
+   RESPONSIVE — 1100px
+===================================================== */
 @media(max-width:1100px){
   .hero-stats{grid-template-columns:repeat(2,1fr)}
   .products-grid{grid-template-columns:repeat(2,1fr)}
@@ -322,60 +369,62 @@ ul{list-style:none}
   .about-img-wrap{max-width:560px;margin:0 auto}
   .footer-grid{grid-template-columns:repeat(2,1fr)}
   .location-grid{grid-template-columns:1fr}
-  .map-wrap{height:340px}
+  .map-wrap{height:320px}
   .reviews-grid{grid-template-columns:1fr}
-  .form-2col{grid-template-columns:1fr}
 }
+/* 768px */
 @media(max-width:768px){
-  :root{--nav-h:66px}
+  :root{--nav-h:64px}
   .nav-links{display:none}
   .hamburger{display:flex}
+  .hero-title{font-size:clamp(2.2rem,7vw,3.5rem)}
   .hero-stats{grid-template-columns:repeat(2,1fr);gap:.75rem}
   .hero-actions{flex-direction:column;align-items:center}
   .hero-actions .btn{width:100%;max-width:300px}
-  .products-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
+  .products-grid{grid-template-columns:1fr;max-width:460px;margin-left:auto;margin-right:auto}
   .features-grid{grid-template-columns:1fr 1fr;gap:.9rem}
   .about-img-accent{display:none}
   .about-badge{left:-1rem}
-  .pricing-table th,.pricing-table td{padding:.85rem 1rem;font-size:.85rem}
+  .form-2col{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-bottom{flex-direction:column;text-align:center}
+  .pricing-table th,.pricing-table td{padding:.85rem 1rem;font-size:.83rem}
 }
+/* 480px */
 @media(max-width:480px){
-  :root{--nav-h:62px}
-  .hero-stats{grid-template-columns:repeat(2,1fr);gap:.5rem}
+  :root{--nav-h:60px}
+  .hero-stats{gap:.5rem}
   .hero-stat{padding:1rem .7rem}
-  .stat-n{font-size:1.7rem}
+  .stat-n{font-size:1.65rem}
   .features-grid{grid-template-columns:1fr}
-  .order-wrap{padding:1.5rem}
+  .order-wrap{padding:1.4rem}
   .footer-grid{grid-template-columns:1fr}
-  .nav-logo .logo-text{display:none}
-  .logo-ring{width:44px;height:44px}
+  .logo-text{display:none}
+  .logo-ring{width:42px;height:42px}
   .pricing-card{overflow-x:auto}
-  .pricing-table{min-width:460px}
+  .pricing-table{min-width:440px}
 }
 @media(max-width:360px){
-  .hero-title{font-size:2.2rem}
-  .stat-n{font-size:1.5rem}
+  .hero-title{font-size:2rem}
+  .stat-n{font-size:1.4rem}
 }
-  </style>
+</style>
 </head>
 <body>
 <a href="#main" class="skip">Skip to main content</a>
-<div id="cursor-glow" aria-hidden="true"></div>
 
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
   <div class="container">
     <nav class="nav-inner" role="navigation" aria-label="Main navigation">
-      <a href="#" class="nav-logo" aria-label="Nico Poultry & Eggs Ltd — Home">
-        <div class="logo-ring">
+      <a href="#" class="nav-logo" aria-label="Nico Poultry and Eggs Ltd home">
+        <div class="logo-ring" id="logoRing">
           <img id="logoImg" src="LOGO.jpeg" alt="Nico Poultry logo">
-          <div class="logo-initials" id="logoFallback">NP</div>
+          <div class="logo-initials" id="logoFallback" aria-hidden="true">NP<br><small style="font-size:.5rem;letter-spacing:1px">EGGS</small></div>
         </div>
         <div class="logo-text">
           <span class="logo-name">Nico Poultry &amp; Eggs Ltd</span>
-          <span class="logo-sub">Farm Fresh · Dar es Salaam</span>
+          <span class="logo-sub">Farm Fresh &middot; Dar es Salaam</span>
         </div>
       </a>
       <ul class="nav-links" id="navLinks" role="list">
@@ -386,7 +435,7 @@ ul{list-style:none}
         <li><a href="#location">Location</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="#contact" class="btn btn-forest btn-sm"><i class="fas fa-shopping-basket" aria-hidden="true"></i> Order Now</a>
+        <a href="#contact" class="btn btn-forest btn-sm"><i class="fas fa-shopping-basket"></i> Order Now</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -407,24 +456,24 @@ ul{list-style:none}
 
 <main id="main">
 
-<!-- HERO -->
-<section class="hero" aria-label="Hero banner">
+<!-- ===== HERO ===== -->
+<section class="hero" aria-label="Hero">
   <div class="hero-grain" aria-hidden="true"></div>
   <div class="hero-orb orb-1" aria-hidden="true"></div>
   <div class="hero-orb orb-2" aria-hidden="true"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow" aria-hidden="true"><span></span> Dar es Salaam's Premier Farm <span></span></div>
+    <div class="hero-eyebrow"><span></span> Dar es Salaam's Premier Farm <span></span></div>
     <h1 class="hero-title">Premium <em>Turkey</em> &amp; Chicken<br>Supplier Tanzania</h1>
-    <p class="hero-sub">Supplying hormone-free turkeys, broiler chickens &amp; farm-fresh eggs to households, restaurants, and wholesale buyers across Tanzania — delivered fresh, every single day.</p>
+    <p class="hero-sub">Supplying hormone-free turkeys, broiler chickens &amp; farm-fresh eggs to households, restaurants and wholesale buyers across Tanzania &mdash; delivered fresh, every single day.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn btn-gold btn-xl"><i class="fab fa-whatsapp" aria-hidden="true"></i> Place Your Order</a>
-      <a href="#products" class="btn btn-ghost btn-lg"><i class="fas fa-feather-alt" aria-hidden="true"></i> Explore Products</a>
+      <a href="#contact" class="btn btn-gold btn-xl"><i class="fab fa-whatsapp"></i> Place Your Order</a>
+      <a href="#products" class="btn btn-ghost btn-lg"><i class="fas fa-feather-alt"></i> Explore Products</a>
     </div>
-    <div class="hero-stats" role="list">
-      <div class="hero-stat" role="listitem"><span class="stat-n" data-target="500">0</span><span class="stat-l">Happy Customers</span></div>
-      <div class="hero-stat" role="listitem"><span class="stat-n" data-target="10">0</span><span class="stat-l">Restaurants Served</span></div>
-      <div class="hero-stat" role="listitem"><span class="stat-n">100%</span><span class="stat-l">Fresh Guarantee</span></div>
-      <div class="hero-stat" role="listitem"><span class="stat-n" data-target="8">0</span><span class="stat-l">Years of Excellence</span></div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="stat-n" data-target="500">0</span><span class="stat-l">Happy Customers</span></div>
+      <div class="hero-stat"><span class="stat-n" data-target="10">0</span><span class="stat-l">Restaurants Served</span></div>
+      <div class="hero-stat"><span class="stat-n">100%</span><span class="stat-l">Fresh Guarantee</span></div>
+      <div class="hero-stat"><span class="stat-n" data-target="8">0</span><span class="stat-l">Years of Excellence</span></div>
     </div>
   </div>
   <div class="scroll-ind" id="scrollInd" role="button" tabindex="0" aria-label="Scroll down">
@@ -442,7 +491,7 @@ ul{list-style:none}
     <span class="ticker-item"><i class="fas fa-map-marker-alt"></i>Dar es Salaam</span>
     <span class="ticker-item"><i class="fab fa-whatsapp"></i>Order via WhatsApp</span>
     <span class="ticker-item"><i class="fas fa-star"></i>8+ Years Excellence</span>
-    <span class="ticker-item"><i class="fas fa-users"></i>500+ Happy Customers</span>
+    <span class="ticker-item"><i class="fas fa-users"></i>500+ Customers</span>
     <span class="ticker-item"><i class="fas fa-egg"></i>Farm Fresh Eggs</span>
     <span class="ticker-item"><i class="fas fa-truck"></i>24-Hour Delivery</span>
     <span class="ticker-item"><i class="fas fa-leaf"></i>Hormone Free</span>
@@ -450,85 +499,73 @@ ul{list-style:none}
     <span class="ticker-item"><i class="fas fa-map-marker-alt"></i>Dar es Salaam</span>
     <span class="ticker-item"><i class="fab fa-whatsapp"></i>Order via WhatsApp</span>
     <span class="ticker-item"><i class="fas fa-star"></i>8+ Years Excellence</span>
-    <span class="ticker-item"><i class="fas fa-users"></i>500+ Happy Customers</span>
+    <span class="ticker-item"><i class="fas fa-users"></i>500+ Customers</span>
   </div>
 </div>
 
 <!-- FEATURES BAR -->
-<section class="features-bar" aria-label="Key features">
+<div class="features-bar">
   <div class="container">
     <div class="features-grid">
-      <div class="feature-item reveal">
-        <div class="feat-icon green"><i class="fas fa-truck-fast" aria-hidden="true"></i></div>
-        <div><div class="feat-label">Delivery</div><div class="feat-value">Within 24 Hours</div></div>
-      </div>
-      <div class="feature-item reveal reveal-delay-1">
-        <div class="feat-icon gold"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
-        <div><div class="feat-label">Quality</div><div class="feat-value">100% Certified Fresh</div></div>
-      </div>
-      <div class="feature-item reveal reveal-delay-2">
-        <div class="feat-icon green"><i class="fas fa-leaf" aria-hidden="true"></i></div>
-        <div><div class="feat-label">Raised</div><div class="feat-value">Hormone &amp; Antibiotic Free</div></div>
-      </div>
-      <div class="feature-item reveal reveal-delay-3">
-        <div class="feat-icon gold"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
-        <div><div class="feat-label">Support</div><div class="feat-value">24/7 WhatsApp Line</div></div>
-      </div>
+      <div class="feature-item reveal"><div class="feat-icon green"><i class="fas fa-truck"></i></div><div><div class="feat-label">Delivery</div><div class="feat-value">Within 24 Hours</div></div></div>
+      <div class="feature-item reveal d1"><div class="feat-icon gold"><i class="fas fa-shield-alt"></i></div><div><div class="feat-label">Quality</div><div class="feat-value">100% Certified Fresh</div></div></div>
+      <div class="feature-item reveal d2"><div class="feat-icon green"><i class="fas fa-leaf"></i></div><div><div class="feat-label">Raised</div><div class="feat-value">Hormone &amp; Antibiotic Free</div></div></div>
+      <div class="feature-item reveal d3"><div class="feat-icon gold"><i class="fab fa-whatsapp"></i></div><div><div class="feat-label">Support</div><div class="feat-value">24/7 WhatsApp Line</div></div></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- PRODUCTS -->
-<section id="products" class="section products-section" aria-label="Our products">
+<!-- ===== PRODUCTS ===== -->
+<section id="products" class="section products-section">
   <div class="container">
     <div class="sec-title reveal">
       <div class="eyebrow">What We Offer</div>
       <h2>Our Premium Products</h2>
-      <p>Every bird is raised with professional care under open-range conditions — hormone-free, naturally fed, and delivered fresh to your door or business.</p>
+      <p>Every bird is raised with professional care under open-range conditions &mdash; hormone-free, naturally fed and delivered fresh to your door.</p>
     </div>
     <div class="products-grid">
       <article class="prod-card reveal">
         <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80" alt="Fresh free-range broiler chickens" loading="lazy" width="800" height="600">
+          <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80" alt="Fresh broiler chickens" loading="lazy" width="800" height="600">
           <div class="prod-img-overlay"></div>
           <span class="prod-badge">Best Seller</span>
         </div>
         <div class="prod-body">
-          <div class="prod-tag"><i class="fas fa-star" aria-hidden="true"></i> Premium Quality</div>
+          <div class="prod-tag"><i class="fas fa-star"></i> Premium Quality</div>
           <h3>Broiler Chickens</h3>
-          <p>Healthy broilers raised hormone-free under professional farm standards. Consistent quality for families, restaurants, and caterers seeking reliable fresh poultry.</p>
+          <p>Healthy broilers raised hormone-free under professional farm standards. Consistent quality for families, restaurants and caterers.</p>
           <div class="prod-footer">
             <div class="prod-price">From TZS 15,000<small>per bird</small></div>
             <a href="#contact" class="btn btn-forest btn-sm">Order</a>
           </div>
         </div>
       </article>
-      <article class="prod-card reveal reveal-delay-1">
+      <article class="prod-card reveal d1">
         <div class="prod-img">
-          <img id="turkeyImg" src="TURKEY.jpeg" alt="Heritage turkeys at Nico Poultry Farm" loading="lazy" width="800" height="600">
+          <img id="turkeyImg" src="TURKEY.jpeg" alt="Heritage turkeys at Nico Poultry" loading="lazy" width="800" height="600">
           <div class="prod-img-overlay"></div>
           <span class="prod-badge">Premium</span>
         </div>
         <div class="prod-body">
-          <div class="prod-tag"><i class="fas fa-crown" aria-hidden="true"></i> Heritage Breed</div>
+          <div class="prod-tag"><i class="fas fa-crown"></i> Heritage Breed</div>
           <h3>Grand Heritage Turkeys</h3>
-          <p>Majestic heritage turkeys raised with organic feed and ample open space. Perfect for restaurants, hotels, and festive family celebrations across Tanzania.</p>
+          <p>Majestic heritage turkeys raised with organic feed and open space. Perfect for restaurants, hotels and festive celebrations.</p>
           <div class="prod-footer">
             <div class="prod-price">From TZS 85,000<small>per bird</small></div>
             <a href="#contact" class="btn btn-forest btn-sm">Order</a>
           </div>
         </div>
       </article>
-      <article class="prod-card reveal reveal-delay-2">
+      <article class="prod-card reveal d2">
         <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=800&q=80" alt="Fresh turkey eggs collected daily" loading="lazy" width="800" height="600">
+          <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=800&q=80" alt="Fresh turkey eggs" loading="lazy" width="800" height="600">
           <div class="prod-img-overlay"></div>
           <span class="prod-badge">Fresh Daily</span>
         </div>
         <div class="prod-body">
-          <div class="prod-tag"><i class="fas fa-egg" aria-hidden="true"></i> Collected Every Morning</div>
+          <div class="prod-tag"><i class="fas fa-egg"></i> Collected Every Morning</div>
           <h3>Fresh Turkey Eggs</h3>
-          <p>Nutrient-rich turkey eggs ideal for gourmet cooking, professional baking, or incubation. Collected fresh every morning — guaranteed quality and superior flavour.</p>
+          <p>Nutrient-rich turkey eggs for gourmet cooking, professional baking or incubation. Collected fresh every morning.</p>
           <div class="prod-footer">
             <div class="prod-price">TZS 3,500<small>per egg</small></div>
             <a href="#contact" class="btn btn-forest btn-sm">Order</a>
@@ -539,8 +576,8 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section about-section" aria-label="About us">
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section about-section">
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap reveal">
@@ -548,45 +585,33 @@ ul{list-style:none}
           <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=900&q=80" alt="Turkeys on our farm" loading="lazy" width="900" height="700">
         </div>
         <div class="about-img-accent">
-          <img src="https://images.unsplash.com/photo-1498579687545-d5a4fffb0a9e?auto=format&fit=crop&w=400&q=80" alt="Fresh eggs at Nico Poultry" loading="lazy" width="400" height="400">
+          <img src="https://images.unsplash.com/photo-1498579687545-d5a4fffb0a9e?auto=format&fit=crop&w=400&q=80" alt="Fresh eggs" loading="lazy" width="400" height="400">
         </div>
-        <div class="about-badge" aria-label="8 plus years of excellence">
-          <span class="badge-n">8+</span>
-          <span class="badge-l">Years of<br>Excellence</span>
-        </div>
+        <div class="about-badge"><span class="badge-n">8+</span><span class="badge-l">Years of<br>Excellence</span></div>
       </div>
-      <div class="about-content reveal reveal-delay-1">
+      <div class="about-content reveal d1">
         <div class="eyebrow">Our Story</div>
         <h2>Tanzania's Trusted Poultry Farm Since 2016</h2>
-        <p>Founded in Tabata Sundown, Dar es Salaam, Nico Poultry &amp; Eggs Ltd began as a small family operation with one mission: deliver the freshest, most ethically raised poultry to Tanzanian families and businesses.</p>
-        <p>Today we serve over 500 satisfied customers — from private households to Dar es Salaam's finest restaurants and hotels — with the same commitment to quality that built our reputation.</p>
+        <p>Founded in Tabata Sundown, Dar es Salaam, Nico Poultry &amp; Eggs Ltd began with one mission: deliver the freshest, most ethically raised poultry to Tanzanian families and businesses.</p>
+        <p>Today we serve over 500 satisfied customers &mdash; from private households to Dar es Salaam's finest restaurants and hotels &mdash; with the same commitment to quality.</p>
         <div class="about-list">
-          <div class="about-list-item">
-            <i class="fas fa-leaf abt-icon" aria-hidden="true"></i>
-            <div><div class="abt-title">Ethically Raised</div><div class="abt-desc">All birds are raised in open-range conditions with organic feed — no hormones, no antibiotics, ever.</div></div>
-          </div>
-          <div class="about-list-item">
-            <i class="fas fa-temperature-low abt-icon" aria-hidden="true"></i>
-            <div><div class="abt-title">Cold-Chain Delivery</div><div class="abt-desc">Temperature-controlled transport ensures every product arrives fresh and safe within 24 hours.</div></div>
-          </div>
-          <div class="about-list-item">
-            <i class="fas fa-handshake abt-icon" aria-hidden="true"></i>
-            <div><div class="abt-title">Wholesale Partnerships</div><div class="abt-desc">Custom supply agreements available for hotels, restaurants, supermarkets, and event caterers.</div></div>
-          </div>
+          <div class="about-list-item"><i class="fas fa-leaf abt-icon"></i><div><div class="abt-title">Ethically Raised</div><div class="abt-desc">All birds raised open-range with organic feed &mdash; no hormones, no antibiotics, ever.</div></div></div>
+          <div class="about-list-item"><i class="fas fa-temperature-low abt-icon"></i><div><div class="abt-title">Cold-Chain Delivery</div><div class="abt-desc">Temperature-controlled transport ensures every product arrives fresh and safe within 24 hours.</div></div></div>
+          <div class="about-list-item"><i class="fas fa-handshake abt-icon"></i><div><div class="abt-title">Wholesale Partnerships</div><div class="abt-desc">Custom supply agreements for hotels, restaurants, supermarkets and event caterers.</div></div></div>
         </div>
-        <a href="#contact" class="btn btn-forest btn-lg"><i class="fas fa-phone-alt" aria-hidden="true"></i> Get in Touch</a>
+        <a href="#contact" class="btn btn-forest btn-lg"><i class="fas fa-phone-alt"></i> Get in Touch</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="prices" class="section pricing-section" aria-label="Pricing">
+<!-- ===== PRICING ===== -->
+<section id="prices" class="section pricing-section">
   <div class="container">
     <div class="sec-title reveal">
       <div class="eyebrow">Rates &amp; Packages</div>
       <h2>Transparent Pricing</h2>
-      <p>Competitive rates for retail, wholesale, and corporate clients. Contact us for bulk discounts and custom supply agreements.</p>
+      <p>Competitive rates for retail, wholesale and corporate clients. Contact us for bulk discounts and custom supply agreements.</p>
     </div>
     <div class="pricing-card reveal">
       <table class="pricing-table" aria-label="Product pricing">
@@ -598,20 +623,20 @@ ul{list-style:none}
           </tr>
         </thead>
         <tbody>
-          <tr><td><div class="p-name">Local Heritage Turkey</div><div class="p-desc">Traditional breed, naturally reared</div></td><td>8 – 10 kg</td><td><span class="p-quote"><i class="fas fa-phone-alt" aria-hidden="true"></i>Contact for Quote</span></td></tr>
-          <tr><td><div class="p-name">Improved Breed Turkey</div><div class="p-desc">Larger frame, superior meat quality</div></td><td>10 – 15 kg</td><td><span class="p-price">85,000 – 120,000</span></td></tr>
-          <tr><td><div class="p-name">Premium Show Turkey</div><div class="p-desc">Grand heritage, restaurant-grade</div></td><td>15+ kg</td><td><span class="p-quote"><i class="fas fa-tag" aria-hidden="true"></i>Negotiable</span></td></tr>
-          <tr><td><div class="p-name">Broiler Chicken</div><div class="p-desc">Hormone-free, consistently fresh</div></td><td>1.5 – 2.5 kg</td><td><span class="p-price">15,000 – 25,000</span></td></tr>
-          <tr><td><div class="p-name">Fresh Turkey Eggs</div><div class="p-desc">Collected daily — retail &amp; wholesale</div></td><td>Per Egg</td><td><span class="p-price">3,500</span></td></tr>
+          <tr><td><div class="p-name">Local Heritage Turkey</div><div class="p-desc">Traditional breed, naturally reared</div></td><td>8 &ndash; 10 kg</td><td><span class="p-quote"><i class="fas fa-phone-alt"></i> Contact for Quote</span></td></tr>
+          <tr><td><div class="p-name">Improved Breed Turkey</div><div class="p-desc">Larger frame, superior meat quality</div></td><td>10 &ndash; 15 kg</td><td><span class="p-price">85,000 &ndash; 120,000</span></td></tr>
+          <tr><td><div class="p-name">Premium Show Turkey</div><div class="p-desc">Grand heritage, restaurant-grade</div></td><td>15+ kg</td><td><span class="p-quote"><i class="fas fa-tag"></i> Negotiable</span></td></tr>
+          <tr><td><div class="p-name">Broiler Chicken</div><div class="p-desc">Hormone-free, consistently fresh</div></td><td>1.5 &ndash; 2.5 kg</td><td><span class="p-price">15,000 &ndash; 25,000</span></td></tr>
+          <tr><td><div class="p-name">Fresh Turkey Eggs</div><div class="p-desc">Collected daily &mdash; retail &amp; wholesale</div></td><td>Per Egg</td><td><span class="p-price">3,500</span></td></tr>
         </tbody>
       </table>
-      <div class="pricing-note"><i class="fas fa-info-circle" aria-hidden="true"></i>Bulk orders of 10+ birds qualify for special discounts. Call or WhatsApp for a custom quote.</div>
+      <div class="pricing-note"><i class="fas fa-info-circle"></i> Bulk orders of 10+ birds qualify for special discounts. Call or WhatsApp for a custom quote.</div>
     </div>
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section id="reviews" class="section reviews-section" aria-label="Customer reviews">
+<!-- ===== REVIEWS ===== -->
+<section id="reviews" class="section reviews-section">
   <div class="container">
     <div class="sec-title reveal">
       <div class="eyebrow">Testimonials</div>
@@ -620,128 +645,128 @@ ul{list-style:none}
     </div>
     <div class="reviews-grid">
       <article class="review-card featured reveal">
-        <div class="review-stars" aria-label="5 out of 5 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p class="review-text">"Best turkey and chicken supplier in Dar es Salaam! Always healthy, well-fed, and delivered fresh. My restaurant customers love the quality — we've been ordering for over 3 years and they never disappoint."</p>
-        <div class="reviewer"><div class="reviewer-av" aria-hidden="true">JM</div><div><div class="reviewer-name">Josephine Moshi</div><div class="reviewer-role">Restaurant Owner, Dar es Salaam</div></div><div class="review-date">2024</div></div>
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="review-text">"Best turkey and chicken supplier in Dar es Salaam! Always healthy, well-fed and delivered fresh. My restaurant customers love the quality &mdash; we have been ordering for over 3 years and they never disappoint."</p>
+        <div class="reviewer"><div class="reviewer-av">JM</div><div><div class="reviewer-name">Josephine Moshi</div><div class="reviewer-role">Restaurant Owner, Dar es Salaam</div></div><div class="review-date">2024</div></div>
       </article>
-      <article class="review-card reveal reveal-delay-1">
-        <div class="review-stars" aria-label="5 out of 5 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p class="review-text">"Excellent quality and reliable delivery every time. The turkeys for our Christmas event were perfect — large, fresh, and beautifully prepared. Will reorder without hesitation!"</p>
-        <div class="reviewer"><div class="reviewer-av" aria-hidden="true">AN</div><div><div class="reviewer-name">Annette Nara</div><div class="reviewer-role">Event Planner</div></div><div class="review-date">Dec 2023</div></div>
+      <article class="review-card reveal d1">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="review-text">"Excellent quality and reliable delivery every time. The turkeys for our Christmas event were perfect &mdash; large, fresh and beautifully prepared. Will reorder without hesitation!"</p>
+        <div class="reviewer"><div class="reviewer-av">AN</div><div><div class="reviewer-name">Annette Nara</div><div class="reviewer-role">Event Planner</div></div><div class="review-date">Dec 2023</div></div>
       </article>
-      <article class="review-card reveal reveal-delay-2">
-        <div class="review-stars" aria-label="5 out of 5 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p class="review-text">"Fresh turkey eggs every time — a game-changer for my bakery. Professional service, great communication, and always on time. Highly recommend to anyone needing consistent egg supply."</p>
-        <div class="reviewer"><div class="reviewer-av" aria-hidden="true">GM</div><div><div class="reviewer-name">Gisela Msemwa</div><div class="reviewer-role">Bakery Owner</div></div><div class="review-date">2024</div></div>
+      <article class="review-card reveal d2">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="review-text">"Fresh turkey eggs every time &mdash; a game-changer for my bakery. Professional service, great communication and always on time. Highly recommend to anyone needing consistent egg supply."</p>
+        <div class="reviewer"><div class="reviewer-av">GM</div><div><div class="reviewer-name">Gisela Msemwa</div><div class="reviewer-role">Bakery Owner</div></div><div class="review-date">2024</div></div>
       </article>
-      <article class="review-card reveal reveal-delay-3">
-        <div class="review-stars" aria-label="5 out of 5 stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p class="review-text">"Very healthy chickens and turkeys. Nico Poultry has been our hotel supplier for over 3 years. Consistent quality, competitive pricing, and great flexibility for bulk orders."</p>
-        <div class="reviewer"><div class="reviewer-av" aria-hidden="true">JM</div><div><div class="reviewer-name">Jacqueline Mtui</div><div class="reviewer-role">Hotel Procurement Manager</div></div><div class="review-date">2024</div></div>
+      <article class="review-card reveal d3">
+        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="review-text">"Very healthy chickens and turkeys. Nico Poultry has been our hotel supplier for over 3 years. Consistent quality, competitive pricing and great flexibility for bulk orders."</p>
+        <div class="reviewer"><div class="reviewer-av">JM</div><div><div class="reviewer-name">Jacqueline Mtui</div><div class="reviewer-role">Hotel Procurement Manager</div></div><div class="review-date">2024</div></div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- LOCATION -->
-<section id="location" class="section location-section" aria-label="Farm location">
+<!-- ===== LOCATION ===== -->
+<section id="location" class="section location-section">
   <div class="container">
     <div class="sec-title reveal">
       <div class="eyebrow">Find Us</div>
       <h2>Visit Our Farm</h2>
-      <p>Conveniently located in Tabata Sundown, Dar es Salaam — easy access for farm pickups and deliveries across the region.</p>
+      <p>Conveniently located in Tabata Sundown, Dar es Salaam &mdash; easy access for farm pickups and deliveries across the region.</p>
     </div>
     <div class="location-grid">
       <div class="map-wrap reveal">
-        <iframe src="https://www.google.com/maps?q=-6.8310507,39.2031136&output=embed&z=15" title="Nico Poultry Farm — Tabata Sundown, Dar es Salaam" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps?q=-6.8310507,39.2031136&output=embed&z=15" title="Nico Poultry Farm location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      <div class="loc-card reveal reveal-delay-1">
+      <div class="loc-card reveal d1">
         <h3>Tabata Sundown, Dar es Salaam</h3>
         <div class="loc-items">
-          <div class="loc-item"><div class="loc-ico"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div><div><div class="loc-title">Address</div><div class="loc-val">Tabata Sundown, Dar es Salaam, Tanzania</div></div></div>
-          <div class="loc-item"><div class="loc-ico"><i class="fas fa-phone-alt" aria-hidden="true"></i></div><div><div class="loc-title">Direct Line</div><div class="loc-val"><a href="tel:+255689583281">+255 689 583 281</a></div></div></div>
-          <div class="loc-item"><div class="loc-ico"><i class="fas fa-envelope" aria-hidden="true"></i></div><div><div class="loc-title">Email</div><div class="loc-val"><a href="/cdn-cgi/l/email-protection#80eaeff3e5f0e8e9eee5eee9e3efe4e5edf5f3b0b5c0e7ede1e9ecaee3efed"><span class="__cf_email__" data-cfemail="3c56534f594c5455525952555f53585951494f0c097c5b515d5550125f5351">[email&#160;protected]</span></a></div></div></div>
-          <div class="loc-item"><div class="loc-ico"><i class="fas fa-truck" aria-hidden="true"></i></div><div><div class="loc-title">Delivery Areas</div><div class="loc-val">Dar es Salaam Region · Same-day delivery available · Nationwide shipping for bulk orders</div></div></div>
+          <div class="loc-item"><div class="loc-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="loc-title">Address</div><div class="loc-val">Tabata Sundown, Dar es Salaam, Tanzania</div></div></div>
+          <div class="loc-item"><div class="loc-ico"><i class="fas fa-phone-alt"></i></div><div><div class="loc-title">Direct Line</div><div class="loc-val"><a href="tel:+255689583281">+255 689 583 281</a></div></div></div>
+          <div class="loc-item"><div class="loc-ico"><i class="fas fa-envelope"></i></div><div><div class="loc-title">Email</div><div class="loc-val"><a href="mailto:josephinenicodemus05@gmail.com">josephinenicodemus05@gmail.com</a></div></div></div>
+          <div class="loc-item"><div class="loc-ico"><i class="fas fa-truck"></i></div><div><div class="loc-title">Delivery Areas</div><div class="loc-val">Dar es Salaam Region &middot; Same-day delivery &middot; Nationwide shipping for bulk orders</div></div></div>
         </div>
-        <div class="hours-table" role="table" aria-label="Business hours">
-          <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time open">7:00 AM – 7:00 PM</span></div>
-          <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time open">7:00 AM – 6:00 PM</span></div>
-          <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time open">8:00 AM – 2:00 PM</span></div>
+        <div class="hours-table">
+          <div class="hours-row"><span class="hours-day">Monday &ndash; Friday</span><span class="hours-time open">7:00 AM &ndash; 7:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time open">7:00 AM &ndash; 6:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time open">8:00 AM &ndash; 2:00 PM</span></div>
           <div class="hours-row"><span class="hours-day">WhatsApp Orders</span><span class="hours-time open">24 / 7</span></div>
         </div>
-        <a href="https://maps.google.com/?q=-6.8310507,39.2031136" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fas fa-directions" aria-hidden="true"></i> Get Directions</a>
+        <a href="https://maps.google.com/?q=-6.8310507,39.2031136" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fas fa-directions"></i> Get Directions</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ORDER FORM -->
-<section id="contact" class="section order-section" aria-label="Place an order">
+<!-- ===== ORDER FORM ===== -->
+<section id="contact" class="section order-section">
   <div class="container">
     <div class="sec-title reveal">
       <div class="eyebrow">Get Started</div>
       <h2>Place Your Order</h2>
-      <p>Fill in the details below and we'll confirm your order via WhatsApp within 15 minutes during business hours.</p>
+      <p>Fill in the details below and we will confirm your order via WhatsApp within 15 minutes during business hours.</p>
     </div>
     <div class="order-wrap reveal">
-      <div class="order-preview" aria-live="polite" aria-label="Order summary">
-        <div class="preview-header"><i class="fas fa-receipt" aria-hidden="true"></i> Live Order Summary</div>
-        <div class="p-row"><span class="lbl">Product</span><span class="val" id="pvProd">Not selected</span></div>
-        <div class="p-row"><span class="lbl">Quantity</span><span class="val" id="pvQty">—</span></div>
-        <div class="p-row"><span class="lbl">Unit Price</span><span class="val" id="pvUnit">—</span></div>
-        <div class="p-row"><span class="lbl">Delivery</span><span class="val" id="pvDel">Free pickup</span></div>
-        <div class="p-row total"><span class="lbl">Grand Total</span><span class="val" id="pvTotal">TZS 0</span></div>
+      <div class="order-preview">
+        <div class="preview-header"><i class="fas fa-receipt"></i> Live Order Summary</div>
+        <div class="p-row"><span class="p-lbl">Product</span><span class="p-val" id="pvProd">Not selected</span></div>
+        <div class="p-row"><span class="p-lbl">Quantity</span><span class="p-val" id="pvQty">&mdash;</span></div>
+        <div class="p-row"><span class="p-lbl">Unit Price</span><span class="p-val" id="pvUnit">&mdash;</span></div>
+        <div class="p-row"><span class="p-lbl">Delivery</span><span class="p-val" id="pvDel">Free pickup</span></div>
+        <div class="p-row total"><span class="p-lbl">Grand Total</span><span class="p-val" id="pvTotal">TZS 0</span></div>
       </div>
-      <form id="orderForm" novalidate aria-label="Order form">
+      <form id="orderForm" novalidate>
         <div class="form-grid">
           <div class="form-grid form-2col">
-            <div class="form-group" id="fg-fName">
+            <div class="form-group" id="fg-name">
               <label class="form-label" for="fName">Full Name <span class="req">*</span></label>
               <input type="text" id="fName" class="form-input" placeholder="e.g. John Mwakasege" required autocomplete="name">
               <span class="form-error">Please enter your full name.</span>
             </div>
-            <div class="form-group" id="fg-fPhone">
+            <div class="form-group" id="fg-phone">
               <label class="form-label" for="fPhone">Phone Number <span class="req">*</span></label>
               <input type="tel" id="fPhone" class="form-input" placeholder="+255 6XX XXX XXX" required autocomplete="tel">
-              <span class="form-error">Enter a valid Tanzanian number (e.g. +255689583281).</span>
+              <span class="form-error">Enter a valid Tanzanian number.</span>
             </div>
           </div>
           <div class="form-grid form-2col">
-            <div class="form-group" id="fg-fProduct">
+            <div class="form-group" id="fg-product">
               <label class="form-label" for="fProduct">Product <span class="req">*</span></label>
               <select id="fProduct" class="form-select" required>
-                <option value="" disabled selected>Select a product…</option>
-                <option value="turkey-local">Local Heritage Turkey (8–10 kg)</option>
-                <option value="turkey-improved">Improved Breed Turkey (10–15 kg)</option>
+                <option value="" disabled selected>Select a product...</option>
+                <option value="turkey-local">Local Heritage Turkey (8-10 kg)</option>
+                <option value="turkey-improved">Improved Breed Turkey (10-15 kg)</option>
                 <option value="turkey-premium">Premium Show Turkey (15 kg+)</option>
-                <option value="chicken">Broiler Chicken (1.5–2.5 kg)</option>
+                <option value="chicken">Broiler Chicken (1.5-2.5 kg)</option>
                 <option value="eggs">Fresh Turkey Eggs (per egg)</option>
               </select>
               <span class="form-error">Please select a product.</span>
             </div>
-            <div class="form-group" id="fg-fQty">
+            <div class="form-group" id="fg-qty">
               <label class="form-label" for="fQty">Quantity <span class="req">*</span></label>
               <input type="number" id="fQty" class="form-input" placeholder="e.g. 2" min="1" max="500" required>
-              <span class="form-hint"><i class="fas fa-info-circle" aria-hidden="true"></i> Orders of 10+ qualify for bulk discounts.</span>
+              <span class="form-hint"><i class="fas fa-info-circle"></i> Orders of 10+ qualify for bulk discounts.</span>
               <span class="form-error">Enter a quantity between 1 and 500.</span>
             </div>
           </div>
           <div class="form-group">
             <label class="form-label" for="fDelivery">Delivery Preference</label>
             <select id="fDelivery" class="form-select">
-              <option value="pickup">Farm Pickup — Free</option>
-              <option value="dar">Dar es Salaam Delivery — +TZS 5,000</option>
-              <option value="nationwide">Nationwide Shipping — Quote Required</option>
+              <option value="pickup">Farm Pickup - Free</option>
+              <option value="dar">Dar es Salaam Delivery - +TZS 5,000</option>
+              <option value="nationwide">Nationwide Shipping - Quote Required</option>
             </select>
           </div>
           <div class="form-group">
             <label class="form-label" for="fNotes">Special Instructions</label>
-            <textarea id="fNotes" class="form-textarea" placeholder="e.g. preferred delivery time, preparation requests, event details…"></textarea>
-            <span class="form-hint"><i class="fas fa-lightbulb" aria-hidden="true"></i> Tell us about your event — we'll help you choose the right bird!</span>
+            <textarea id="fNotes" class="form-textarea" placeholder="e.g. preferred delivery time, preparation requests, event details..."></textarea>
+            <span class="form-hint"><i class="fas fa-lightbulb"></i> Tell us about your event - we will help you choose the right bird!</span>
           </div>
           <div class="submit-row">
-            <button type="submit" id="submitBtn" class="btn btn-forest btn-xl"><i class="fab fa-whatsapp" aria-hidden="true"></i> Send Order via WhatsApp</button>
-            <p class="submit-note"><i class="fas fa-shield-alt" aria-hidden="true"></i> Your information is private and secure. Orders confirmed within 15 minutes via WhatsApp during business hours.</p>
+            <button type="submit" id="submitBtn" class="btn btn-forest btn-xl"><i class="fab fa-whatsapp"></i> Send Order via WhatsApp</button>
+            <p class="submit-note"><i class="fas fa-shield-alt"></i> Your information is private and secure. Orders confirmed within 15 minutes via WhatsApp during business hours.</p>
           </div>
         </div>
       </form>
@@ -751,11 +776,13 @@ ul{list-style:none}
 
 </main>
 
-<!-- FOOTER -->
-<footer class="site-footer" role="contentinfo">
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
   <div class="footer-top">
-    <div class="footer-ticker-text">
-      <span>Farm Fresh</span>·<span>Hormone Free</span>·<span>Dar es Salaam</span>·<span>Tanzania</span>·<span>Ethically Raised</span>·<span>Premium Quality</span>
+    <div class="container">
+      <div class="footer-top-text">
+        <span>Farm Fresh</span>&middot;<span>Hormone Free</span>&middot;<span>Dar es Salaam</span>&middot;<span>Tanzania</span>&middot;<span>Ethically Raised</span>&middot;<span>Premium Quality</span>
+      </div>
     </div>
   </div>
   <div class="footer-body">
@@ -763,242 +790,419 @@ ul{list-style:none}
       <div class="footer-grid">
         <div class="foot-brand">
           <h3 class="foot-col-title">Nico Poultry &amp; Eggs Ltd</h3>
-          <p>Premium turkey and chicken supplier in Dar es Salaam. Committed to quality, freshness, and exceptional service since 2016.</p>
-          <div class="foot-socials" aria-label="Social links">
-            <a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-            <a href="https://www.instagram.com/nicodemus_moshi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-            <a href="/cdn-cgi/l/email-protection#610b0e12041109080f040f08020e05040c1412515421060c00080d4f020e0c" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+          <p>Premium turkey and chicken supplier in Dar es Salaam. Committed to quality, freshness and exceptional service since 2016.</p>
+          <div class="foot-socials">
+            <a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/nicodemus_moshi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:josephinenicodemus05@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
         <div>
           <h3 class="foot-col-title">Quick Links</h3>
           <ul class="foot-links">
-            <li><a href="#products"><i class="fas fa-chevron-right" aria-hidden="true"></i>Our Products</a></li>
-            <li><a href="#about"><i class="fas fa-chevron-right" aria-hidden="true"></i>About Us</a></li>
-            <li><a href="#prices"><i class="fas fa-chevron-right" aria-hidden="true"></i>Pricing Guide</a></li>
-            <li><a href="#reviews"><i class="fas fa-chevron-right" aria-hidden="true"></i>Reviews</a></li>
-            <li><a href="#location"><i class="fas fa-chevron-right" aria-hidden="true"></i>Farm Location</a></li>
-            <li><a href="#contact"><i class="fas fa-chevron-right" aria-hidden="true"></i>Place an Order</a></li>
+            <li><a href="#products"><i class="fas fa-chevron-right"></i>Our Products</a></li>
+            <li><a href="#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
+            <li><a href="#prices"><i class="fas fa-chevron-right"></i>Pricing Guide</a></li>
+            <li><a href="#reviews"><i class="fas fa-chevron-right"></i>Reviews</a></li>
+            <li><a href="#location"><i class="fas fa-chevron-right"></i>Farm Location</a></li>
+            <li><a href="#contact"><i class="fas fa-chevron-right"></i>Place an Order</a></li>
           </ul>
         </div>
         <div>
           <h3 class="foot-col-title">Contact</h3>
-          <div class="foot-contact-item"><i class="fas fa-phone-alt" aria-hidden="true"></i><a href="tel:+255689583281">+255 689 583 281</a></div>
-          <div class="foot-contact-item"><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer">WhatsApp Order Line</a></div>
-          <div class="foot-contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><a href="/cdn-cgi/l/email-protection#89e3e6faecf9e1e0e7ece7e0eae6edece4fcfab9bcc9eee4e8e0e5a7eae6e4"><span class="__cf_email__" data-cfemail="9ff5f0ecfaeff7f6f1faf1f6fcf0fbfaf2eaecafaadff8f2fef6f3b1fcf0f2">[email&#160;protected]</span></a></div>
-          <div class="foot-contact-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>Tabata Sundown, Dar es Salaam</div>
+          <div class="foot-contact">
+            <div class="foot-ci"><i class="fas fa-phone-alt"></i><a href="tel:+255689583281">+255 689 583 281</a></div>
+            <div class="foot-ci"><i class="fab fa-whatsapp"></i><a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer">WhatsApp Order Line</a></div>
+            <div class="foot-ci"><i class="fas fa-envelope"></i><a href="mailto:josephinenicodemus05@gmail.com">josephinenicodemus05@gmail.com</a></div>
+            <div class="foot-ci"><i class="fas fa-map-marker-alt"></i><span>Tabata Sundown, Dar es Salaam</span></div>
+          </div>
         </div>
         <div>
           <h3 class="foot-col-title">Business Hours</h3>
-          <div class="foot-contact-item"><i class="far fa-clock" aria-hidden="true"></i>Mon – Fri: 7:00 AM – 7:00 PM</div>
-          <div class="foot-contact-item"><i class="far fa-clock" aria-hidden="true"></i>Saturday: 7:00 AM – 6:00 PM</div>
-          <div class="foot-contact-item"><i class="far fa-clock" aria-hidden="true"></i>Sunday: 8:00 AM – 2:00 PM</div>
-          <div class="foot-contact-item"><i class="fab fa-whatsapp" aria-hidden="true"></i>WhatsApp: 24 / 7</div>
+          <div class="foot-contact">
+            <div class="foot-ci"><i class="far fa-clock"></i><span>Mon &ndash; Fri: 7:00 AM &ndash; 7:00 PM</span></div>
+            <div class="foot-ci"><i class="far fa-clock"></i><span>Saturday: 7:00 AM &ndash; 6:00 PM</span></div>
+            <div class="foot-ci"><i class="far fa-clock"></i><span>Sunday: 8:00 AM &ndash; 2:00 PM</span></div>
+            <div class="foot-ci"><i class="fab fa-whatsapp"></i><span>WhatsApp: 24 / 7</span></div>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="footerYear"></span> Nico Poultry and Eggs Ltd. All rights reserved.</p>
-        <p>Crafted with <i class="fas fa-heart" style="color:var(--g3)" aria-hidden="true"></i> for Tanzania's finest poultry experience.</p>
+        <p>&copy; <span id="yr"></span> Nico Poultry and Eggs Ltd. All rights reserved.</p>
+        <p>Crafted with <i class="fas fa-heart" style="color:#e8bb3e"></i> for Tanzania's finest poultry experience.</p>
       </div>
     </div>
   </div>
 </footer>
 
-<a href="https://wa.me/255689583281?text=Hello%20Nico%20Poultry!%20I'd%20like%20to%20place%20an%20order." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-<button class="btt-btn" id="bttBtn" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+<a href="https://wa.me/255689583281?text=Hello%20Nico%20Poultry!%20I%20would%20like%20to%20place%20an%20order." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<button class="btt-btn" id="bttBtn" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+(function() {
 'use strict';
-const $=s=>document.querySelector(s);
-const $$=s=>document.querySelectorAll(s);
-const fmtTZS=n=>'TZS '+Math.round(n).toLocaleString('en-TZ');
 
-$('#footerYear').textContent=new Date().getFullYear();
+/* ── Helpers ── */
+function qs(s) { return document.querySelector(s); }
+function qsa(s) { return document.querySelectorAll(s); }
+function fmtTZS(n) { return 'TZS ' + Math.round(n).toLocaleString('en-TZ'); }
 
-/* Cursor glow */
-if(window.matchMedia('(hover:hover)').matches){
-  const g=$('#cursor-glow');let mx=0,my=0,cx=0,cy=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-  (function raf(){cx+=(mx-cx)*.08;cy+=(my-cy)*.08;g.style.left=cx+'px';g.style.top=cy+'px';requestAnimationFrame(raf);})();
+/* ── Year ── */
+var yrEl = qs('#yr');
+if (yrEl) yrEl.textContent = new Date().getFullYear();
+
+/* ── Logo fallback ── */
+var logoImg = qs('#logoImg');
+var logoFb  = qs('#logoFallback');
+if (logoImg) {
+  var logoExts = ['LOGO.jpg','LOGO.png','LOGO.PNG','LOGO.JPG','logo.jpeg','logo.jpg','logo.png'];
+  var logoIdx  = 0;
+  logoImg.onerror = function() {
+    if (logoIdx < logoExts.length) {
+      logoImg.src = logoExts[logoIdx++];
+    } else {
+      logoImg.style.display = 'none';
+      if (logoFb) { logoFb.style.display = 'flex'; }
+    }
+  };
 }
 
-/* Logo fallback */
-(function(){
-  const img=$('#logoImg'),fb=$('#logoFallback');
-  const exts=['LOGO.jpg','LOGO.png','LOGO.PNG','LOGO.JPG','logo.jpeg','logo.jpg','logo.png'];
-  let i=0;
-  img.onerror=function(){if(i<exts.length){img.src=exts[i++];}else{img.style.display='none';fb.style.display='flex';}};
-})();
+/* ── Turkey image fallback ── */
+var turkeyImg = qs('#turkeyImg');
+if (turkeyImg) {
+  var tExts = ['TURKEY.jpg','TURKEY.png','TURKEY.JPG','TURKEY.PNG',
+    'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=800&q=80'];
+  var tIdx = 0;
+  turkeyImg.onerror = function() {
+    if (tIdx < tExts.length) { turkeyImg.src = tExts[tIdx++]; }
+  };
+}
 
-/* Turkey image fallback */
-(function(){
-  const img=$('#turkeyImg');if(!img)return;
-  const exts=['TURKEY.jpg','TURKEY.png','TURKEY.JPG','TURKEY.PNG','https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=800&q=80'];
-  let i=0;
-  img.onerror=function(){if(i<exts.length){img.src=exts[i++];}};
-})();
+/* ── Header scroll ── */
+var hdr = qs('#siteHeader');
+window.addEventListener('scroll', function() {
+  if (hdr) hdr.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
 
-/* Header scroll */
-const hdr=$('#siteHeader');
-window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',window.scrollY>60),{passive:true});
+/* ── Mobile menu ── */
+var ham     = qs('#hamburger');
+var mobMenu = qs('#mobileMenu');
+var menuOpen = false;
 
-/* Mobile menu */
-const ham=$('#hamburger'),mob=$('#mobileMenu');let mOpen=false;
-function setMenu(open){mOpen=open;ham.classList.toggle('open',open);ham.setAttribute('aria-expanded',open);mob.classList.toggle('open',open);mob.setAttribute('aria-hidden',!open);document.body.style.overflow=open?'hidden':'';}
-ham.addEventListener('click',()=>setMenu(!mOpen));
-$$('.mob-link,.mob-cta').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mOpen)setMenu(false);});
+function setMenu(open) {
+  menuOpen = open;
+  if (ham)     { ham.classList.toggle('open', open); ham.setAttribute('aria-expanded', String(open)); }
+  if (mobMenu) { mobMenu.classList.toggle('open', open); mobMenu.setAttribute('aria-hidden', String(!open)); }
+  document.body.style.overflow = open ? 'hidden' : '';
+}
 
-/* Smooth scroll */
-$$('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
-    if(!t)return;e.preventDefault();
-    const nh=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'))||80;
-    window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-nh,behavior:'smooth'});
+if (ham) ham.addEventListener('click', function() { setMenu(!menuOpen); });
+
+qsa('.mob-link, .mob-cta').forEach(function(a) {
+  a.addEventListener('click', function() { setMenu(false); });
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && menuOpen) setMenu(false);
+});
+
+/* ── Smooth scroll ── */
+qsa('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var href = a.getAttribute('href');
+    if (!href || href === '#') return;
+    var target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    var navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 76;
+    var top = target.getBoundingClientRect().top + window.pageYOffset - navH;
+    window.scrollTo({ top: top, behavior: 'smooth' });
   });
 });
 
-/* Scroll cue */
-const cue=$('#scrollInd');
-if(cue){const h=()=>window.scrollTo({top:window.innerHeight,behavior:'smooth'});cue.addEventListener('click',h);cue.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();h();}});}
-
-/* Back to top */
-const btt=$('#bttBtn');
-window.addEventListener('scroll',()=>btt.classList.toggle('visible',window.scrollY>500),{passive:true});
-btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-/* Reveal observer */
-const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});},{threshold:.08,rootMargin:'0px 0px -32px 0px'});
-$$('.reveal').forEach(el=>ro.observe(el));
-
-/* Counter animation */
-function animCount(el,target){
-  let s=0,step=target/60;
-  const tm=setInterval(()=>{s=Math.min(s+step,target);el.textContent=Math.floor(s)+(el.dataset.suffix||'');if(s>=target){el.textContent=target+(el.dataset.suffix||'');clearInterval(tm);}},16);
+/* ── Scroll cue ── */
+var cue = qs('#scrollInd');
+if (cue) {
+  cue.addEventListener('click', function() {
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+  });
+  cue.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cue.click(); }
+  });
 }
-const co=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=parseInt(el.dataset.target);if(!isNaN(t))animCount(el,t);co.unobserve(el);});},{threshold:.5});
-$$('[data-target]').forEach(el=>co.observe(el));
 
-/* Active nav */
-const secs=$$('section[id]'),navAs=$$('.nav-links a[href^="#"]');
-window.addEventListener('scroll',()=>{const y=window.scrollY+110;secs.forEach(s=>{if(y>=s.offsetTop&&y<s.offsetTop+s.offsetHeight)navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+s.id));});},{passive:true});
+/* ── Back to top ── */
+var bttBtn = qs('#bttBtn');
+if (bttBtn) {
+  window.addEventListener('scroll', function() {
+    bttBtn.classList.toggle('visible', window.scrollY > 500);
+  }, { passive: true });
+  bttBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
-/* ORDER FORM */
-const PRICES={
-  'turkey-local':{price:0,label:'Local Heritage Turkey'},
-  'turkey-improved':{price:100000,label:'Improved Breed Turkey'},
-  'turkey-premium':{price:0,label:'Premium Show Turkey'},
-  'chicken':{price:20000,label:'Broiler Chicken'},
-  'eggs':{price:3500,label:'Fresh Turkey Eggs'}
+/* ── Reveal on scroll ── */
+var revealObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
+qsa('.reveal').forEach(function(el) { revealObs.observe(el); });
+
+/* ── Counter animation ── */
+function animCount(el, target) {
+  var step  = target / 55;
+  var cur   = 0;
+  var timer = setInterval(function() {
+    cur = Math.min(cur + step, target);
+    el.textContent = Math.floor(cur) + (el.dataset.suffix || '');
+    if (cur >= target) { el.textContent = target + (el.dataset.suffix || ''); clearInterval(timer); }
+  }, 18);
+}
+var cntObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (!e.isIntersecting) return;
+    var el = e.target;
+    var t  = parseInt(el.dataset.target, 10);
+    if (!isNaN(t)) animCount(el, t);
+    cntObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+qsa('[data-target]').forEach(function(el) { cntObs.observe(el); });
+
+/* ── Active nav on scroll ── */
+var secs  = qsa('section[id]');
+var navAs = qsa('.nav-links a[href^="#"]');
+window.addEventListener('scroll', function() {
+  var y = window.scrollY + 110;
+  secs.forEach(function(s) {
+    if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
+      navAs.forEach(function(a) {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + s.id);
+      });
+    }
+  });
+}, { passive: true });
+
+/* ══════════════════════════════════════════
+   ORDER FORM
+══════════════════════════════════════════ */
+var PRICES = {
+  'turkey-local':    { price: 0,      label: 'Local Heritage Turkey',    weight: '8-10 kg',      cat: 'Heritage Turkey' },
+  'turkey-improved': { price: 100000, label: 'Improved Breed Turkey',    weight: '10-15 kg',     cat: 'Improved Turkey' },
+  'turkey-premium':  { price: 0,      label: 'Premium Show Turkey',      weight: '15+ kg',       cat: 'Premium Turkey'  },
+  'chicken':         { price: 20000,  label: 'Broiler Chicken',          weight: '1.5-2.5 kg',   cat: 'Broiler Chicken' },
+  'eggs':            { price: 3500,   label: 'Fresh Turkey Eggs',        weight: 'per egg',      cat: 'Turkey Eggs'     }
 };
-const DCOST={pickup:0,dar:5000,nationwide:-1};
+var DCOST = { pickup: 0, dar: 5000, nationwide: -1 };
 
-function updatePreview(){
-  const pk=$('#fProduct').value,qty=parseInt($('#fQty').value)||0,dk=$('#fDelivery').value;
-  const prod=PRICES[pk],unit=prod?prod.price:0,sub=prod&&unit>0?unit*qty:0;
-  const dc=DCOST[dk]??0,grand=dc===-1?-1:sub+dc;
-  $('#pvProd').textContent=prod?prod.label:'Not selected';
-  $('#pvQty').textContent=qty||'—';
-  $('#pvUnit').textContent=!prod?'—':unit===0?'Quote required':fmtTZS(unit);
-  $('#pvDel').textContent=dk==='nationwide'?'Quote required':dc>0?'+'+fmtTZS(dc):'Free (Farm Pickup)';
-  if(!prod||!qty)$('#pvTotal').textContent='TZS 0';
-  else if(unit===0||grand===-1)$('#pvTotal').textContent='To be quoted';
-  else $('#pvTotal').textContent=fmtTZS(grand);
-}
-$('#fProduct').addEventListener('change',updatePreview);
-$('#fQty').addEventListener('input',updatePreview);
-$('#fDelivery').addEventListener('change',updatePreview);
+function updatePreview() {
+  var pk   = qs('#fProduct').value;
+  var qty  = parseInt(qs('#fQty').value) || 0;
+  var dk   = qs('#fDelivery').value;
+  var prod = PRICES[pk];
+  var unit = prod ? prod.price : 0;
+  var sub  = (prod && unit > 0) ? unit * qty : 0;
+  var dc   = DCOST[dk] !== undefined ? DCOST[dk] : 0;
+  var grand = (dc === -1) ? -1 : sub + dc;
 
-function vField(id){
-  const el=$('#'+id),fg=el.closest('.form-group');let ok=true;
-  if(el.required&&!el.value.trim())ok=false;
-  else if(id==='fPhone'&&el.value.trim())ok=/^\+?255[0-9]{9}$/.test(el.value.trim().replace(/\s/g,''));
-  else if(id==='fQty'&&el.value){const n=parseInt(el.value);ok=n>=1&&n<=500;}
-  fg.classList.toggle('has-error',!ok);return ok;
+  qs('#pvProd').textContent = prod ? prod.label : 'Not selected';
+  qs('#pvQty').textContent  = qty || '—';
+  qs('#pvUnit').textContent = !prod ? '—' : (unit === 0 ? 'Quote required' : fmtTZS(unit));
+  if (dk === 'nationwide') {
+    qs('#pvDel').textContent = 'Quote required';
+  } else if (dc > 0) {
+    qs('#pvDel').textContent = '+' + fmtTZS(dc);
+  } else {
+    qs('#pvDel').textContent = 'Free (Farm Pickup)';
+  }
+  if (!prod || !qty) {
+    qs('#pvTotal').textContent = 'TZS 0';
+  } else if (unit === 0 || grand === -1) {
+    qs('#pvTotal').textContent = 'To be quoted';
+  } else {
+    qs('#pvTotal').textContent = fmtTZS(grand);
+  }
 }
-['fName','fPhone','fProduct','fQty'].forEach(id=>{
-  const el=$('#'+id);
-  el.addEventListener('blur',()=>vField(id));
-  el.addEventListener('input',()=>{if($('#fg-'+id)?.classList.contains('has-error'))vField(id);});
+
+var fProductEl  = qs('#fProduct');
+var fQtyEl      = qs('#fQty');
+var fDeliveryEl = qs('#fDelivery');
+if (fProductEl)  fProductEl.addEventListener('change', updatePreview);
+if (fQtyEl)      fQtyEl.addEventListener('input', updatePreview);
+if (fDeliveryEl) fDeliveryEl.addEventListener('change', updatePreview);
+
+function vField(id) {
+  var el = qs('#' + id);
+  var fg = qs('#fg-' + id.replace('f','').toLowerCase());
+  if (!el) return true;
+  var val = el.value.trim();
+  var ok  = true;
+  if (el.required && !val) { ok = false; }
+  else if (id === 'fPhone' && val) { ok = /^\+?255[0-9]{9}$/.test(val.replace(/\s/g,'')); }
+  else if (id === 'fQty'  && val) { var n = parseInt(val); ok = (n >= 1 && n <= 500); }
+  if (fg) fg.classList.toggle('has-error', !ok);
+  return ok;
+}
+
+['fName','fPhone','fProduct','fQty'].forEach(function(id) {
+  var el = qs('#' + id);
+  if (!el) return;
+  el.addEventListener('blur', function() { vField(id); });
+  el.addEventListener('input', function() {
+    var fg = qs('#fg-' + id.replace('f','').toLowerCase());
+    if (fg && fg.classList.contains('has-error')) vField(id);
+  });
 });
 
-$('#orderForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  let valid=true;
-  ['fName','fPhone','fProduct','fQty'].forEach(id=>{if(!vField(id))valid=false;});
-  if(!valid){const fe=this.querySelector('.form-group.has-error');if(fe)fe.scrollIntoView({behavior:'smooth',block:'center'});return;}
-  const name=$('#fName').value.trim(),phone=$('#fPhone').value.trim();
-  const pk=$('#fProduct').value,qty=parseInt($('#fQty').value),dk=$('#fDelivery').value,notes=$('#fNotes').value.trim();
-  const prod=PRICES[pk],unit=prod.price,dc=DCOST[dk],sub=unit>0?unit*qty:0;
-  const grand=dc===-1||unit===0?'To be quoted':fmtTZS(sub+dc);
-  const delLabel={pickup:'Farm Pickup (Free)',dar:'Dar es Salaam Delivery (+TZS 5,000)',nationwide:'Nationwide Shipping (Quote Required)'}[dk];
-  /* ── Build category & weight label ── */
-  const weightMap={'turkey-local':'8–10 kg','turkey-improved':'10–15 kg','turkey-premium':'15+ kg','chicken':'1.5–2.5 kg','eggs':'per egg'};
-  const categoryMap={'turkey-local':'Heritage Turkey','turkey-improved':'Improved Turkey','turkey-premium':'Premium Turkey','chicken':'Broiler Chicken','eggs':'Turkey Eggs'};
-  const unitLabel=weightMap[pk]||'';
-  const catLabel=categoryMap[pk]||prod.label;
-  const bulkNote=qty>=10?' ✅ *BULK DISCOUNT APPLIES*':'';
-  const now=new Date();
-  const dateStr=now.toLocaleDateString('en-TZ',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  const timeStr=now.toLocaleTimeString('en-TZ',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
-  const orderRef='NPE-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+String(now.getHours()).padStart(2,'0')+String(now.getMinutes()).padStart(2,'0');
-  const statusLine=unit===0||dc===-1?'⏳ Awaiting Confirmation':'✅ Ready to Process';
+var orderForm = qs('#orderForm');
+if (orderForm) {
+  orderForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var valid = true;
+    ['fName','fPhone','fProduct','fQty'].forEach(function(id) { if (!vField(id)) valid = false; });
+    if (!valid) {
+      var firstErr = orderForm.querySelector('.form-group.has-error');
+      if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
 
-  const msg=[
-    '╔══════════════════════════╗',
-    '🦃  *NICO POULTRY & EGGS LTD*  🥚',
-    '  _Farm Fresh · Dar es Salaam_',
-    '╚══════════════════════════╝',
-    '',
-    `🔖 *Order Ref:* \`${orderRef}\``,
-    `📅 *Date:* ${dateStr}`,
-    `🕐 *Time:* ${timeStr}`,
-    `📌 *Status:* ${statusLine}`,
-    '',
-    '┄┄┄┄┄ 👤 CUSTOMER DETAILS ┄┄┄┄┄',
-    `• *Full Name:*    ${name}`,
-    `• *Phone / WA:*   ${phone}`,
-    '',
-    '┄┄┄┄┄ 🛒 ORDER DETAILS ┄┄┄┄┄┄',
-    `• *Category:*     ${catLabel}`,
-    `• *Product:*      ${prod.label}`,
-    `• *Size / Unit:*  ${unitLabel}`,
-    `• *Quantity:*     ${qty} ${pk==='eggs'?'egg(s)':'bird(s)'}${bulkNote}`,
-    '',
-    '┄┄┄┄┄ 💰 PRICING SUMMARY ┄┄┄┄┄',
-    `• *Unit Price:*   ${unit>0?fmtTZS(unit):'_To be quoted_'}`,
-    `• *Subtotal:*     ${unit>0?fmtTZS(sub):'_To be quoted_'}`,
-    `• *Delivery:*     ${delLabel}`,
-    `• *Delivery Fee:* ${dc===0?'Free 🎁':dc>0?fmtTZS(dc):'_Quote required_'}`,
-    '',
-    `💵 *GRAND TOTAL:  ${grand}*`,
-    '',
-    '┄┄┄┄┄ 🚚 DELIVERY INFO ┄┄┄┄┄┄',
-    `• *Method:*  ${delLabel}`,
-    ...(notes?['','┄┄┄┄┄ 📝 SPECIAL INSTRUCTIONS ┄┄┄',`${notes}`]:[]),
-    '',
-    '══════════════════════════════',
-    '🌿 *Thank you for choosing Nico Poultry!*',
-    '_We will confirm your order within 15 minutes._',
-    '',
-    '📞 +255 689 583 281',
-    '📧 josephinenicodemus05@gmail.com',
-    '📍 Tabata Sundown, Dar es Salaam',
-    '══════════════════════════════',
-  ].join('\n');
-  const btn=$('#submitBtn');btn.disabled=true;btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp…';
-  setTimeout(()=>{
-    window.open('https://wa.me/255689583281?text='+encodeURIComponent(msg),'_blank');
-    setTimeout(()=>{
-      this.reset();updatePreview();btn.disabled=false;
-      btn.innerHTML='<i class="fab fa-whatsapp"></i> Send Order via WhatsApp';
-      showToast(`✅ Order ${orderRef} sent! Nico Poultry will confirm via WhatsApp shortly.`);
-    },900);
-  },600);
-});
+    var name  = qs('#fName').value.trim();
+    var phone = qs('#fPhone').value.trim();
+    var pk    = qs('#fProduct').value;
+    var qty   = parseInt(qs('#fQty').value);
+    var dk    = qs('#fDelivery').value;
+    var notes = qs('#fNotes').value.trim();
 
-function showToast(msg){
-  const old=document.querySelector('.np-toast');if(old)old.remove();
-  const t=document.createElement('div');t.className='np-toast';t.setAttribute('role','alert');
-  Object.assign(t.style,{position:'fixed',bottom:'5rem',left:'50%',transform:'translateX(-50%) translateY(80px)',background:'linear-gradient(135deg,#073d27,#0b5d3b)',color:'#fff',padding:'1rem 2rem',borderRadius:'12px',boxShadow:'0 20px 60px rgba(0,0,
+    var prod  = PRICES[pk];
+    var unit  = prod.price;
+    var dc    = DCOST[dk];
+    var sub   = (unit > 0) ? unit * qty : 0;
+    var grandAmt = (dc === -1 || unit === 0) ? null : sub + dc;
+    var grand = grandAmt !== null ? fmtTZS(grandAmt) : 'To be quoted';
+
+    var delLabel = {
+      pickup:     'Farm Pickup (Free)',
+      dar:        'Dar es Salaam Delivery (+TZS 5,000)',
+      nationwide: 'Nationwide Shipping (Quote Required)'
+    }[dk];
+
+    var now       = new Date();
+    var dateStr   = now.toLocaleDateString('en-TZ', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+    var timeStr   = now.toLocaleTimeString('en-TZ', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+    var orderRef  = 'NPE-' + now.getFullYear() +
+                    String(now.getMonth()+1).padStart(2,'0') +
+                    String(now.getDate()).padStart(2,'0') + '-' +
+                    String(now.getHours()).padStart(2,'0') +
+                    String(now.getMinutes()).padStart(2,'0');
+    var status    = (unit === 0 || dc === -1) ? 'Awaiting Confirmation' : 'Ready to Process';
+    var bulkNote  = (qty >= 10) ? ' *BULK DISCOUNT APPLIES*' : '';
+
+    var lines = [
+      '╔══════════════════════════╗',
+      '  *NICO POULTRY & EGGS LTD*',
+      '  _Farm Fresh - Dar es Salaam_',
+      '╚══════════════════════════╝',
+      '',
+      '*ORDER REFERENCE: ' + orderRef + '*',
+      '📅 Date: ' + dateStr,
+      '🕐 Time: ' + timeStr,
+      '📌 Status: ' + status,
+      '',
+      '┄┄┄ 👤 CUSTOMER DETAILS ┄┄┄',
+      '• *Name:*    ' + name,
+      '• *Phone:*   ' + phone,
+      '',
+      '┄┄┄ 🛒 ORDER DETAILS ┄┄┄┄┄',
+      '• *Product:*  ' + prod.label,
+      '• *Size:*     ' + prod.weight,
+      '• *Quantity:* ' + qty + ' ' + (pk === 'eggs' ? 'egg(s)' : 'bird(s)') + bulkNote,
+      '',
+      '┄┄┄ 💰 PRICING SUMMARY ┄┄┄┄',
+      '• *Unit Price:* ' + (unit > 0 ? fmtTZS(unit) : 'Quote required'),
+      '• *Subtotal:*   ' + (unit > 0 ? fmtTZS(sub)  : 'Quote required'),
+      '• *Delivery:*   ' + (dc === 0 ? 'Free' : dc > 0 ? fmtTZS(dc) : 'Quote required'),
+      '',
+      '💵 *GRAND TOTAL: ' + grand + '*',
+      '',
+      '┄┄┄ 🚚 DELIVERY METHOD ┄┄┄┄',
+      '• ' + delLabel
+    ];
+
+    if (notes) {
+      lines.push('');
+      lines.push('┄┄┄ 📝 SPECIAL INSTRUCTIONS ┄┄');
+      lines.push(notes);
+    }
+
+    lines = lines.concat([
+      '',
+      '══════════════════════════════',
+      '🌿 *Thank you for choosing Nico Poultry!*',
+      '_We will confirm within 15 minutes._',
+      '',
+      '📞 +255 689 583 281',
+      '📧 josephinenicodemus05@gmail.com',
+      '📍 Tabata Sundown, Dar es Salaam',
+      '══════════════════════════════'
+    ]);
+
+    var msg = lines.join('\n');
+
+    var btn = qs('#submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
+
+    setTimeout(function() {
+      window.open('https://wa.me/255689583281?text=' + encodeURIComponent(msg), '_blank');
+      setTimeout(function() {
+        orderForm.reset();
+        updatePreview();
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fab fa-whatsapp"></i> Send Order via WhatsApp';
+        showToast('Order ' + orderRef + ' sent! Nico Poultry will confirm via WhatsApp shortly.');
+      }, 900);
+    }, 600);
+  });
+}
+
+function showToast(msg) {
+  var old = document.querySelector('.np-toast');
+  if (old) old.remove();
+  var t = document.createElement('div');
+  t.className = 'np-toast';
+  t.setAttribute('role', 'alert');
+  t.textContent = msg;
+  var s = t.style;
+  s.position  = 'fixed';
+  s.bottom    = '5rem';
+  s.left      = '50%';
+  s.transform = 'translateX(-50%) translateY(80px)';
+  s.background = 'linear-gradient(135deg,#073d27,#0b5d3b)';
+  s.color      = '#fff';
+  s.padding    = '.9rem 1.75rem';
+  s.borderRadius = '12px';
+  s.boxShadow  = '0 20px 60px rgba(0,0,0,.28)';
+  s.fontWeight = '600';
+  s.fontSize   = '.9rem';
+  s.zIndex     = '700';
+  s.transition = 'transform .35s cubic-bezier(0.16,1,0.3,1)';
+  s.maxWidth   = '90vw';
+  s.textAlign  = 'center';
+  document.body.appendChild(t);
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      t.style.transform = 'translateX(-50%) translateY(0)';
+    });
+  });
+  setTimeout(function() {
+    t.style.transform = 'translateX(-50%) translateY(80px)';
+    setTimeout(function() { if (t.parentNode) t.parentNode.removeChild(t); }, 400);
+  }, 5000);
+}
+
+})();
+</script>
+</body>
+</html>
