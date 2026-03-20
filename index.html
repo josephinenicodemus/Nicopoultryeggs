@@ -127,7 +127,8 @@ ul{list-style:none}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#e8bb3e;margin-bottom:1.5rem;animation:fadeUp .8s .1s both}
 .hero-eyebrow span{width:36px;height:1px;background:#e8bb3e;display:block;opacity:.7}
 .hero-title{font-family:var(--serif);font-weight:800;line-height:1.08;font-size:clamp(2.5rem,7vw,5.5rem);color:#fff;margin-bottom:1.3rem;text-shadow:0 4px 32px rgba(0,0,0,.4);animation:fadeUp .9s .2s both}
-.hero-title em{font-style:italic;color:#e8bb3e}
+/* [FIX] Turkey em tag: white instead of yellow */
+.hero-title em{font-style:italic;color:#ffffff}
 .hero-sub{font-size:clamp(.95rem,2vw,1.3rem);color:rgba(255,255,255,.88);max-width:700px;margin:0 auto 2.5rem;line-height:1.75;animation:fadeUp 1s .3s both}
 .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;animation:fadeUp 1s .4s both}
 .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;animation:fadeUp 1s .5s both}
@@ -161,9 +162,11 @@ ul{list-style:none}
 .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
 .feature-item{display:flex;align-items:center;gap:.9rem;padding:1.1rem;border-radius:var(--r2);background:var(--ivory);border:1px solid var(--light);transition:all .3s var(--t2)}
 .feature-item:hover{border-color:rgba(11,93,59,.3);box-shadow:var(--s2);transform:translateY(-2px)}
-.feat-icon{width:46px;height:46px;flex-shrink:0;border-radius:var(--r2);display:flex;align-items:center;justify-content:center;font-size:1.15rem}
+.feat-icon{width:46px;height:46px;flex-shrink:0;border-radius:var(--r2);display:flex;align-items:center;justify-content:center;font-size:1.15rem;transition:all .3s var(--t2)}
 .feat-icon.green{background:rgba(11,93,59,.1);color:var(--f2)}
 .feat-icon.gold{background:rgba(201,162,39,.12);color:var(--g1)}
+.feature-item:hover .feat-icon.green{background:var(--f2);color:#fff}
+.feature-item:hover .feat-icon.gold{background:var(--g2);color:#fff}
 .feat-label{font-size:.65rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem}
 .feat-value{font-size:.9rem;font-weight:700;color:var(--dark)}
 
@@ -223,6 +226,7 @@ ul{list-style:none}
 .pricing-table th:last-child{text-align:right}
 .pricing-table td{padding:.95rem 1.75rem;font-size:.93rem;border-bottom:1px solid var(--cream2);vertical-align:middle}
 .pricing-table td:last-child{text-align:right}
+.pricing-table tbody tr{transition:background .2s}
 .pricing-table tbody tr:hover{background:rgba(11,93,59,.03)}
 .pricing-table tbody tr:last-child td{border-bottom:none}
 .p-name{font-weight:700;color:var(--dark)}
@@ -230,31 +234,6 @@ ul{list-style:none}
 .p-price{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--g1)}
 .p-quote{display:inline-flex;align-items:center;gap:.4rem;color:var(--f2);font-weight:700;font-size:.86rem}
 .pricing-note{background:rgba(11,93,59,.05);padding:1rem 1.75rem;display:flex;align-items:center;gap:.7rem;font-size:.84rem;color:var(--f2);font-weight:600;border-top:1px solid rgba(11,93,59,.1)}
-
-/* =====================================================
-   REVIEWS
-===================================================== */
-.reviews-section{background:var(--ivory)}
-.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
-.review-card{background:#fff;padding:1.9rem;border-radius:20px;box-shadow:var(--s1);border:1px solid var(--light);position:relative;overflow:hidden;transition:all .3s var(--t2);display:flex;flex-direction:column;gap:1.1rem}
-.review-card:hover{transform:translateY(-6px);box-shadow:var(--s3);border-color:rgba(201,162,39,.3)}
-.review-card::before{content:'\201C';position:absolute;top:.5rem;right:1.5rem;font-family:var(--serif);font-size:5rem;color:var(--g2);opacity:.08;line-height:1;pointer-events:none;user-select:none}
-.review-stars{display:flex;gap:.15rem}
-.review-stars i{color:var(--g2);font-size:.82rem}
-.review-text{font-size:.94rem;line-height:1.8;color:var(--dark3);font-style:italic;flex:1}
-.reviewer{display:flex;align-items:center;gap:.85rem}
-.reviewer-av{width:44px;height:44px;border-radius:50%;background:var(--gf);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.92rem;flex-shrink:0;border:2.5px solid var(--g2);font-family:var(--serif)}
-.reviewer-name{font-weight:700;color:var(--dark);font-size:.9rem}
-.reviewer-role{font-size:.74rem;color:var(--muted);margin-top:.1rem}
-.review-date{font-size:.7rem;color:var(--muted);margin-left:auto;white-space:nowrap}
-.review-card.featured{background:var(--gf);border-color:transparent}
-.review-card.featured::before{color:#fff;opacity:.07}
-.review-card.featured .review-stars i{color:#e8bb3e}
-.review-card.featured .review-text{color:rgba(255,255,255,.92)}
-.review-card.featured .reviewer-name{color:#fff}
-.review-card.featured .reviewer-role{color:rgba(255,255,255,.7)}
-.review-card.featured .review-date{color:rgba(255,255,255,.5)}
-.review-card.featured .reviewer-av{background:rgba(255,255,255,.15);border-color:#e8bb3e}
 
 /* =====================================================
    LOCATION
@@ -272,8 +251,8 @@ ul{list-style:none}
 .loc-item:hover .loc-ico{background:var(--f2);color:#fff}
 .loc-title{font-weight:700;font-size:.83rem;color:var(--dark);margin-bottom:.2rem}
 .loc-val{font-size:.87rem;color:var(--muted);line-height:1.6}
-.loc-val a{color:var(--f2);font-weight:600}
-.loc-val a:hover{text-decoration:underline}
+.loc-val a{color:var(--f2);font-weight:600;transition:color .2s}
+.loc-val a:hover{text-decoration:underline;color:var(--f3)}
 .hours-table{width:100%;margin-bottom:1.5rem}
 .hours-row{display:flex;justify-content:space-between;align-items:center;padding:.48rem 0;border-bottom:1px dashed var(--cream2);font-size:.86rem}
 .hours-row:last-child{border-bottom:none}
@@ -335,7 +314,7 @@ ul{list-style:none}
 .foot-contact{display:flex;flex-direction:column;gap:.75rem}
 .foot-ci{display:flex;align-items:flex-start;gap:.65rem;font-size:.86rem;color:rgba(255,255,255,.6)}
 .foot-ci i{color:var(--g2);margin-top:.15rem;flex-shrink:0;width:14px}
-.foot-ci a{color:rgba(255,255,255,.78)}
+.foot-ci a{color:rgba(255,255,255,.78);transition:color .2s}
 .foot-ci a:hover{color:#e8bb3e}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
 .footer-bottom p{font-size:.78rem;color:rgba(255,255,255,.4)}
@@ -359,6 +338,12 @@ ul{list-style:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
 /* =====================================================
+   TOAST
+===================================================== */
+.np-toast{position:fixed;bottom:5rem;left:50%;transform:translateX(-50%) translateY(80px);background:linear-gradient(135deg,#073d27,#0b5d3b);color:#fff;padding:.9rem 1.75rem;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.28);font-weight:600;font-size:.9rem;z-index:700;transition:transform .35s cubic-bezier(0.16,1,0.3,1);max-width:90vw;text-align:center;pointer-events:none}
+.np-toast.show{transform:translateX(-50%) translateY(0)}
+
+/* =====================================================
    RESPONSIVE — 1100px
 ===================================================== */
 @media(max-width:1100px){
@@ -370,7 +355,6 @@ ul{list-style:none}
   .footer-grid{grid-template-columns:repeat(2,1fr)}
   .location-grid{grid-template-columns:1fr}
   .map-wrap{height:320px}
-  .reviews-grid{grid-template-columns:1fr}
 }
 /* 768px */
 @media(max-width:768px){
@@ -403,10 +387,12 @@ ul{list-style:none}
   .logo-ring{width:42px;height:42px}
   .pricing-card{overflow-x:auto}
   .pricing-table{min-width:440px}
+  .location-grid{gap:1.5rem}
 }
 @media(max-width:360px){
   .hero-title{font-size:2rem}
   .stat-n{font-size:1.4rem}
+  .hero-actions .btn{max-width:100%}
 }
 </style>
 </head>
@@ -431,7 +417,6 @@ ul{list-style:none}
         <li><a href="#products">Products</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#prices">Pricing</a></li>
-        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#location">Location</a></li>
       </ul>
       <div class="nav-cta">
@@ -449,7 +434,6 @@ ul{list-style:none}
   <a href="#products" class="mob-link">Products</a>
   <a href="#about" class="mob-link">About Us</a>
   <a href="#prices" class="mob-link">Pricing</a>
-  <a href="#reviews" class="mob-link">Reviews</a>
   <a href="#location" class="mob-link">Location</a>
   <a href="#contact" class="btn btn-forest btn-lg mob-cta"><i class="fas fa-shopping-basket"></i> Place an Order</a>
 </nav>
@@ -491,7 +475,7 @@ ul{list-style:none}
     <span class="ticker-item"><i class="fas fa-map-marker-alt"></i>Dar es Salaam</span>
     <span class="ticker-item"><i class="fab fa-whatsapp"></i>Order via WhatsApp</span>
     <span class="ticker-item"><i class="fas fa-star"></i>8+ Years Excellence</span>
-    <span class="ticker-item"><i class="fas fa-users"></i>100+ Customers</span>
+    <span class="ticker-item"><i class="fas fa-users"></i>500+ Customers</span>
     <span class="ticker-item"><i class="fas fa-egg"></i>Farm Fresh Eggs</span>
     <span class="ticker-item"><i class="fas fa-truck"></i>24-Hour Delivery</span>
     <span class="ticker-item"><i class="fas fa-leaf"></i>Hormone Free</span>
@@ -499,7 +483,7 @@ ul{list-style:none}
     <span class="ticker-item"><i class="fas fa-map-marker-alt"></i>Dar es Salaam</span>
     <span class="ticker-item"><i class="fab fa-whatsapp"></i>Order via WhatsApp</span>
     <span class="ticker-item"><i class="fas fa-star"></i>8+ Years Excellence</span>
-    <span class="ticker-item"><i class="fas fa-users"></i>100+ Customers</span>
+    <span class="ticker-item"><i class="fas fa-users"></i>500+ Customers</span>
   </div>
 </div>
 
@@ -593,7 +577,7 @@ ul{list-style:none}
         <div class="eyebrow">Our Story</div>
         <h2>Tanzania's Trusted Poultry Farm Since 2016</h2>
         <p>Founded in Tabata Sundown, Dar es Salaam, Nico Poultry &amp; Eggs Ltd began with one mission: deliver the freshest, most ethically raised poultry to Tanzanian families and businesses.</p>
-        <p>Today we serve over 100 satisfied customers &mdash; from private households to Dar es Salaam's finest restaurants and hotels &mdash; with the same commitment to quality.</p>
+        <p>Today we serve over 500 satisfied customers &mdash; from private households to Dar es Salaam's finest restaurants and hotels &mdash; with the same commitment to quality.</p>
         <div class="about-list">
           <div class="about-list-item"><i class="fas fa-leaf abt-icon"></i><div><div class="abt-title">Ethically Raised</div><div class="abt-desc">All Turkey and Chickens raised open-range with organic feed &mdash; no hormones, no antibiotics, ever.</div></div></div>
           <div class="about-list-item"><i class="fas fa-temperature-low abt-icon"></i><div><div class="abt-title">Cold-Chain Delivery</div><div class="abt-desc">Temperature-controlled transport ensures every product arrives fresh and safe within 24 hours.</div></div></div>
@@ -631,39 +615,6 @@ ul{list-style:none}
         </tbody>
       </table>
       <div class="pricing-note"><i class="fas fa-info-circle"></i> Bulk orders of 10+ Turkey and Chicken qualify for special discounts. Call or WhatsApp for a custom quote.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== REVIEWS ===== -->
-<section id="reviews" class="section reviews-section">
-  <div class="container">
-    <div class="sec-title reveal">
-      <div class="eyebrow">Testimonials</div>
-      <h2>What Our Customers Say</h2>
-      <p>Trusted by hundreds of families and businesses across Dar es Salaam for consistently fresh, high-quality poultry products.</p>
-    </div>
-    <div class="reviews-grid">
-      <article class="review-card featured reveal">
-        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p class="review-text">"Best turkey and chicken supplier in Dar es Salaam! Always healthy, well-fed and delivered fresh. My family love the quality and the tenderness &mdash; we have been ordering for over 3 years and they never disappoint."</p>
-        <div class="reviewer"><div class="reviewer-av">JM</div><div><div class="reviewer-name">Josephine Moshi</div><div class="reviewer-role">Household, Dar es Salaam</div></div><div class="review-date">2024</div></div>
-      </article>
-      <article class="review-card reveal d1">
-        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p class="review-text">"Excellent quality and reliable delivery every time. The turkeys for our Christmas and Thanks giving events were perfect &mdash; large, fresh and beautifully prepared. Will reorder without hesitation!"</p>
-        <div class="reviewer"><div class="reviewer-av">AN</div><div><div class="reviewer-name">Annette Nara</div><div class="reviewer-role">Event Planner</div></div><div class="review-date">Dec 2023</div></div>
-      </article>
-      <article class="review-card reveal d2">
-        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p class="review-text">"Fresh turkey eggs every time &mdash; a game-changer for my bakery. Professional service, great communication and always on time. Highly recommend to anyone needing consistent egg supply."</p>
-        <div class="reviewer"><div class="reviewer-av">GM</div><div><div class="reviewer-name">Gisela Moshi</div><div class="reviewer-role">Bakery Owner</div></div><div class="review-date">2024</div></div>
-      </article>
-      <article class="review-card reveal d3">
-        <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p class="review-text">"Very healthy chickens and turkeys. Nico Poultry has been our catering supplier for over 3 years. Consistent quality, competitive pricing and great flexibility for bulk orders when we cater for the big events."</p>
-        <div class="reviewer"><div class="reviewer-av">JM</div><div><div class="reviewer-name">Veronica Nguma</div><div class="reviewer-role">Restaurant Owner</div></div><div class="review-date">2024</div></div>
-      </article>
     </div>
   </div>
 </section>
@@ -803,7 +754,6 @@ ul{list-style:none}
             <li><a href="#products"><i class="fas fa-chevron-right"></i>Our Products</a></li>
             <li><a href="#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
             <li><a href="#prices"><i class="fas fa-chevron-right"></i>Pricing Guide</a></li>
-            <li><a href="#reviews"><i class="fas fa-chevron-right"></i>Reviews</a></li>
             <li><a href="#location"><i class="fas fa-chevron-right"></i>Farm Location</a></li>
             <li><a href="#contact"><i class="fas fa-chevron-right"></i>Place an Order</a></li>
           </ul>
@@ -842,364 +792,247 @@ ul{list-style:none}
 (function() {
 'use strict';
 
-/* ── Helpers ── */
 function qs(s) { return document.querySelector(s); }
 function qsa(s) { return document.querySelectorAll(s); }
 function fmtTZS(n) { return 'TZS ' + Math.round(n).toLocaleString('en-TZ'); }
 
-/* ── Year ── */
+/* Year */
 var yrEl = qs('#yr');
 if (yrEl) yrEl.textContent = new Date().getFullYear();
 
-/* ── Logo fallback ── */
-var logoImg = qs('#logoImg');
-var logoFb  = qs('#logoFallback');
+/* Logo fallback */
+var logoImg = qs('#logoImg'), logoFb = qs('#logoFallback');
 if (logoImg) {
   var logoExts = ['LOGO.jpg','LOGO.png','LOGO.PNG','LOGO.JPG','logo.jpeg','logo.jpg','logo.png'];
-  var logoIdx  = 0;
+  var logoIdx = 0;
   logoImg.onerror = function() {
-    if (logoIdx < logoExts.length) {
-      logoImg.src = logoExts[logoIdx++];
-    } else {
-      logoImg.style.display = 'none';
-      if (logoFb) { logoFb.style.display = 'flex'; }
-    }
+    if (logoIdx < logoExts.length) { logoImg.src = logoExts[logoIdx++]; }
+    else { logoImg.style.display='none'; if(logoFb){logoFb.style.display='flex';} }
   };
 }
 
-/* ── Turkey image fallback ── */
+/* Turkey image fallback */
 var turkeyImg = qs('#turkeyImg');
 if (turkeyImg) {
   var tExts = ['TURKEY.jpg','TURKEY.png','TURKEY.JPG','TURKEY.PNG',
     'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=800&q=80'];
   var tIdx = 0;
-  turkeyImg.onerror = function() {
-    if (tIdx < tExts.length) { turkeyImg.src = tExts[tIdx++]; }
-  };
+  turkeyImg.onerror = function() { if(tIdx < tExts.length) turkeyImg.src = tExts[tIdx++]; };
 }
 
-/* ── Header scroll ── */
+/* Header scroll */
 var hdr = qs('#siteHeader');
 window.addEventListener('scroll', function() {
-  if (hdr) hdr.classList.toggle('scrolled', window.scrollY > 60);
-}, { passive: true });
+  if(hdr) hdr.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive:true });
 
-/* ── Mobile menu ── */
-var ham     = qs('#hamburger');
-var mobMenu = qs('#mobileMenu');
-var menuOpen = false;
-
+/* Mobile menu */
+var ham = qs('#hamburger'), mobMenu = qs('#mobileMenu'), menuOpen = false;
 function setMenu(open) {
   menuOpen = open;
-  if (ham)     { ham.classList.toggle('open', open); ham.setAttribute('aria-expanded', String(open)); }
-  if (mobMenu) { mobMenu.classList.toggle('open', open); mobMenu.setAttribute('aria-hidden', String(!open)); }
+  if(ham) { ham.classList.toggle('open',open); ham.setAttribute('aria-expanded',String(open)); }
+  if(mobMenu) { mobMenu.classList.toggle('open',open); mobMenu.setAttribute('aria-hidden',String(!open)); }
   document.body.style.overflow = open ? 'hidden' : '';
 }
+if(ham) ham.addEventListener('click', function() { setMenu(!menuOpen); });
+qsa('.mob-link, .mob-cta').forEach(function(a) { a.addEventListener('click', function() { setMenu(false); }); });
+document.addEventListener('keydown', function(e) { if(e.key==='Escape'&&menuOpen) setMenu(false); });
 
-if (ham) ham.addEventListener('click', function() { setMenu(!menuOpen); });
-
-qsa('.mob-link, .mob-cta').forEach(function(a) {
-  a.addEventListener('click', function() { setMenu(false); });
-});
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape' && menuOpen) setMenu(false);
-});
-
-/* ── Smooth scroll ── */
+/* Smooth scroll */
 qsa('a[href^="#"]').forEach(function(a) {
   a.addEventListener('click', function(e) {
     var href = a.getAttribute('href');
-    if (!href || href === '#') return;
+    if(!href||href==='#') return;
     var target = document.querySelector(href);
-    if (!target) return;
+    if(!target) return;
     e.preventDefault();
-    var navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 76;
-    var top = target.getBoundingClientRect().top + window.pageYOffset - navH;
-    window.scrollTo({ top: top, behavior: 'smooth' });
+    var navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'))||76;
+    window.scrollTo({ top: target.getBoundingClientRect().top+window.pageYOffset-navH, behavior:'smooth' });
   });
 });
 
-/* ── Scroll cue ── */
+/* Scroll cue */
 var cue = qs('#scrollInd');
-if (cue) {
-  cue.addEventListener('click', function() {
-    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-  });
-  cue.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cue.click(); }
-  });
+if(cue) {
+  cue.addEventListener('click', function() { window.scrollTo({top:window.innerHeight,behavior:'smooth'}); });
+  cue.addEventListener('keydown', function(e) { if(e.key==='Enter'||e.key===' '){e.preventDefault();cue.click();} });
 }
 
-/* ── Back to top ── */
+/* Back to top */
 var bttBtn = qs('#bttBtn');
-if (bttBtn) {
-  window.addEventListener('scroll', function() {
-    bttBtn.classList.toggle('visible', window.scrollY > 500);
-  }, { passive: true });
-  bttBtn.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+if(bttBtn) {
+  window.addEventListener('scroll', function() { bttBtn.classList.toggle('visible',window.scrollY>500); }, {passive:true});
+  bttBtn.addEventListener('click', function() { window.scrollTo({top:0,behavior:'smooth'}); });
 }
 
-/* ── Reveal on scroll ── */
+/* Reveal on scroll */
 var revealObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
+  entries.forEach(function(e) { if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);} });
+}, { threshold:0.08, rootMargin:'0px 0px -28px 0px' });
 qsa('.reveal').forEach(function(el) { revealObs.observe(el); });
 
-/* ── Counter animation ── */
+/* Counter animation */
 function animCount(el, target) {
-  var step  = target / 55;
-  var cur   = 0;
+  var step = target/55, cur = 0;
   var timer = setInterval(function() {
-    cur = Math.min(cur + step, target);
-    el.textContent = Math.floor(cur) + (el.dataset.suffix || '');
-    if (cur >= target) { el.textContent = target + (el.dataset.suffix || ''); clearInterval(timer); }
+    cur = Math.min(cur+step, target);
+    el.textContent = Math.floor(cur)+(el.dataset.suffix||'');
+    if(cur>=target){el.textContent=target+(el.dataset.suffix||'');clearInterval(timer);}
   }, 18);
 }
 var cntObs = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) {
-    if (!e.isIntersecting) return;
-    var el = e.target;
-    var t  = parseInt(el.dataset.target, 10);
-    if (!isNaN(t)) animCount(el, t);
+    if(!e.isIntersecting) return;
+    var el=e.target, t=parseInt(el.dataset.target,10);
+    if(!isNaN(t)) animCount(el,t);
     cntObs.unobserve(el);
   });
-}, { threshold: 0.5 });
+}, { threshold:0.5 });
 qsa('[data-target]').forEach(function(el) { cntObs.observe(el); });
 
-/* ── Active nav on scroll ── */
-var secs  = qsa('section[id]');
-var navAs = qsa('.nav-links a[href^="#"]');
+/* Active nav on scroll */
+var secs = qsa('section[id]'), navAs = qsa('.nav-links a[href^="#"]');
 window.addEventListener('scroll', function() {
-  var y = window.scrollY + 110;
+  var y = window.scrollY+110;
   secs.forEach(function(s) {
-    if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
-      navAs.forEach(function(a) {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + s.id);
-      });
-    }
+    if(y>=s.offsetTop&&y<s.offsetTop+s.offsetHeight)
+      navAs.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+s.id);});
   });
-}, { passive: true });
+}, { passive:true });
 
-/* ══════════════════════════════════════════
-   ORDER FORM
-══════════════════════════════════════════ */
+/* ═══ ORDER FORM ═══ */
 var PRICES = {
-  'turkey-local':    { price: 0,      label: 'Local Heritage Turkey',    weight: '8-10 kg',      cat: 'Heritage Turkey' },
-  'turkey-improved': { price: 100000, label: 'Improved Breed Turkey',    weight: '10-15 kg',     cat: 'Improved Turkey' },
-  'turkey-premium':  { price: 0,      label: 'Premium Show Turkey',      weight: '15+ kg',       cat: 'Premium Turkey'  },
-  'chicken':         { price: 20000,  label: 'Broiler Chicken',          weight: '1.5-2.5 kg',   cat: 'Broiler Chicken' },
-  'eggs':            { price: 5000,   label: 'Fresh Turkey Eggs',        weight: 'per egg',      cat: 'Turkey Eggs'     }
+  'turkey-local':    {price:0,     label:'Local Heritage Turkey',  weight:'8-10 kg',    cat:'Heritage Turkey'},
+  'turkey-improved': {price:100000,label:'Improved Breed Turkey',  weight:'10-15 kg',   cat:'Improved Turkey'},
+  'turkey-premium':  {price:0,     label:'Premium Show Turkey',    weight:'15+ kg',     cat:'Premium Turkey'},
+  'chicken':         {price:20000, label:'Broiler Chicken',        weight:'1.5-2.5 kg', cat:'Broiler Chicken'},
+  'eggs':            {price:5000,  label:'Fresh Turkey Eggs',      weight:'per egg',    cat:'Turkey Eggs'}
 };
-var DCOST = { pickup: 0, dar: 5000, nationwide: -1 };
+var DCOST = {pickup:0, dar:5000, nationwide:-1};
 
 function updatePreview() {
-  var pk   = qs('#fProduct').value;
-  var qty  = parseInt(qs('#fQty').value) || 0;
-  var dk   = qs('#fDelivery').value;
-  var prod = PRICES[pk];
-  var unit = prod ? prod.price : 0;
-  var sub  = (prod && unit > 0) ? unit * qty : 0;
-  var dc   = DCOST[dk] !== undefined ? DCOST[dk] : 0;
-  var grand = (dc === -1) ? -1 : sub + dc;
-
-  qs('#pvProd').textContent = prod ? prod.label : 'Not selected';
-  qs('#pvQty').textContent  = qty || '—';
-  qs('#pvUnit').textContent = !prod ? '—' : (unit === 0 ? 'Quote required' : fmtTZS(unit));
-  if (dk === 'nationwide') {
-    qs('#pvDel').textContent = 'Quote required';
-  } else if (dc > 0) {
-    qs('#pvDel').textContent = '+' + fmtTZS(dc);
-  } else {
-    qs('#pvDel').textContent = 'Free (Farm Pickup)';
-  }
-  if (!prod || !qty) {
-    qs('#pvTotal').textContent = 'TZS 0';
-  } else if (unit === 0 || grand === -1) {
-    qs('#pvTotal').textContent = 'To be quoted';
-  } else {
-    qs('#pvTotal').textContent = fmtTZS(grand);
-  }
+  var pk=qs('#fProduct').value, qty=parseInt(qs('#fQty').value)||0, dk=qs('#fDelivery').value;
+  var prod=PRICES[pk], unit=prod?prod.price:0, sub=(prod&&unit>0)?unit*qty:0;
+  var dc=DCOST[dk]!==undefined?DCOST[dk]:0, grand=(dc===-1)?-1:sub+dc;
+  qs('#pvProd').textContent=prod?prod.label:'Not selected';
+  qs('#pvQty').textContent=qty||'—';
+  qs('#pvUnit').textContent=!prod?'—':(unit===0?'Quote required':fmtTZS(unit));
+  qs('#pvDel').textContent=dk==='nationwide'?'Quote required':(dc>0?'+'+fmtTZS(dc):'Free (Farm Pickup)');
+  if(!prod||!qty) qs('#pvTotal').textContent='TZS 0';
+  else if(unit===0||grand===-1) qs('#pvTotal').textContent='To be quoted';
+  else qs('#pvTotal').textContent=fmtTZS(grand);
 }
 
-var fProductEl  = qs('#fProduct');
-var fQtyEl      = qs('#fQty');
-var fDeliveryEl = qs('#fDelivery');
-if (fProductEl)  fProductEl.addEventListener('change', updatePreview);
-if (fQtyEl)      fQtyEl.addEventListener('input', updatePreview);
-if (fDeliveryEl) fDeliveryEl.addEventListener('change', updatePreview);
+var fProdEl=qs('#fProduct'),fQtyEl=qs('#fQty'),fDelEl=qs('#fDelivery');
+if(fProdEl) fProdEl.addEventListener('change',updatePreview);
+if(fQtyEl)  fQtyEl.addEventListener('input',updatePreview);
+if(fDelEl)  fDelEl.addEventListener('change',updatePreview);
 
 function vField(id) {
-  var el = qs('#' + id);
-  var fg = qs('#fg-' + id.replace('f','').toLowerCase());
-  if (!el) return true;
-  var val = el.value.trim();
-  var ok  = true;
-  if (el.required && !val) { ok = false; }
-  else if (id === 'fPhone' && val) { ok = /^\+?255[0-9]{9}$/.test(val.replace(/\s/g,'')); }
-  else if (id === 'fQty'  && val) { var n = parseInt(val); ok = (n >= 1 && n <= 500); }
-  if (fg) fg.classList.toggle('has-error', !ok);
+  var el=qs('#'+id), fg=qs('#fg-'+id.replace('f','').toLowerCase());
+  if(!el) return true;
+  var val=el.value.trim(), ok=true;
+  if(el.required&&!val) ok=false;
+  else if(id==='fPhone'&&val) ok=/^\+?255[0-9]{9}$/.test(val.replace(/\s/g,''));
+  else if(id==='fQty'&&val) { var n=parseInt(val); ok=(n>=1&&n<=500); }
+  if(fg) fg.classList.toggle('has-error',!ok);
   return ok;
 }
 
 ['fName','fPhone','fProduct','fQty'].forEach(function(id) {
-  var el = qs('#' + id);
-  if (!el) return;
-  el.addEventListener('blur', function() { vField(id); });
-  el.addEventListener('input', function() {
-    var fg = qs('#fg-' + id.replace('f','').toLowerCase());
-    if (fg && fg.classList.contains('has-error')) vField(id);
+  var el=qs('#'+id); if(!el) return;
+  el.addEventListener('blur',function(){vField(id);});
+  el.addEventListener('input',function(){
+    var fg=qs('#fg-'+id.replace('f','').toLowerCase());
+    if(fg&&fg.classList.contains('has-error')) vField(id);
   });
 });
 
-var orderForm = qs('#orderForm');
-if (orderForm) {
-  orderForm.addEventListener('submit', function(e) {
+var orderForm=qs('#orderForm');
+if(orderForm) {
+  orderForm.addEventListener('submit',function(e){
     e.preventDefault();
-    var valid = true;
-    ['fName','fPhone','fProduct','fQty'].forEach(function(id) { if (!vField(id)) valid = false; });
-    if (!valid) {
-      var firstErr = orderForm.querySelector('.form-group.has-error');
-      if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
+    var valid=true;
+    ['fName','fPhone','fProduct','fQty'].forEach(function(id){if(!vField(id))valid=false;});
+    if(!valid){var fe=orderForm.querySelector('.form-group.has-error');if(fe)fe.scrollIntoView({behavior:'smooth',block:'center'});return;}
 
-    var name  = qs('#fName').value.trim();
-    var phone = qs('#fPhone').value.trim();
-    var pk    = qs('#fProduct').value;
-    var qty   = parseInt(qs('#fQty').value);
-    var dk    = qs('#fDelivery').value;
-    var notes = qs('#fNotes').value.trim();
+    var name=qs('#fName').value.trim(), phone=qs('#fPhone').value.trim();
+    var pk=qs('#fProduct').value, qty=parseInt(qs('#fQty').value);
+    var dk=qs('#fDelivery').value, notes=qs('#fNotes').value.trim();
+    var prod=PRICES[pk], unit=prod.price, dc=DCOST[dk];
+    var sub=(unit>0)?unit*qty:0, grandAmt=(dc===-1||unit===0)?null:sub+dc;
+    var grand=grandAmt!==null?fmtTZS(grandAmt):'To be quoted';
 
-    var prod  = PRICES[pk];
-    var unit  = prod.price;
-    var dc    = DCOST[dk];
-    var sub   = (unit > 0) ? unit * qty : 0;
-    var grandAmt = (dc === -1 || unit === 0) ? null : sub + dc;
-    var grand = grandAmt !== null ? fmtTZS(grandAmt) : 'To be quoted';
+    var delLabel={pickup:'Farm Pickup (Free)',dar:'Dar es Salaam Delivery (+TZS 5,000)',nationwide:'Nationwide Shipping (Quote Required)'}[dk];
+    var now=new Date();
+    var dateStr=now.toLocaleDateString('en-TZ',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    var timeStr=now.toLocaleTimeString('en-TZ',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    var orderRef='NPE-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+String(now.getHours()).padStart(2,'0')+String(now.getMinutes()).padStart(2,'0');
+    var status=(unit===0||dc===-1)?'Awaiting Confirmation':'Ready to Process';
+    var bulkNote=(qty>=10)?' *BULK DISCOUNT APPLIES*':'';
 
-    var delLabel = {
-      pickup:     'Farm Pickup (Free)',
-      dar:        'Dar es Salaam Delivery (+TZS 5,000)',
-      nationwide: 'Nationwide Shipping (Quote Required)'
-    }[dk];
-
-    var now       = new Date();
-    var dateStr   = now.toLocaleDateString('en-TZ', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
-    var timeStr   = now.toLocaleTimeString('en-TZ', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
-    var orderRef  = 'NPE-' + now.getFullYear() +
-                    String(now.getMonth()+1).padStart(2,'0') +
-                    String(now.getDate()).padStart(2,'0') + '-' +
-                    String(now.getHours()).padStart(2,'0') +
-                    String(now.getMinutes()).padStart(2,'0');
-    var status    = (unit === 0 || dc === -1) ? 'Awaiting Confirmation' : 'Ready to Process';
-    var bulkNote  = (qty >= 10) ? ' *BULK DISCOUNT APPLIES*' : '';
-
-    var lines = [
+    var lines=[
       '╔══════════════════════════╗',
       '  *NICO POULTRY & EGGS LTD*',
       ' Farm Fresh - Dar es Salaam',
-      '╚══════════════════════════╝',
-      '',
-      '*ORDER REFERENCE: ' + orderRef + '*',
-      '📅 Date: ' + dateStr,
-      '🕐 Time: ' + timeStr,
-      '📌 Status: ' + status,
-      '',
+      '╚══════════════════════════╝','',
+      '*ORDER REFERENCE: '+orderRef+'*',
+      '📅 Date: '+dateStr,
+      '🕐 Time: '+timeStr,
+      '📌 Status: '+status,'',
       '┄┄┄ 👤 CUSTOMER DETAILS ┄┄┄',
-      '• *Name:*    ' + name,
-      '• *Phone:*   ' + phone,
-      '',
+      '• *Name:*    '+name,
+      '• *Phone:*   '+phone,'',
       '┄┄┄ 🛒 ORDER DETAILS ┄┄┄┄┄',
-      '• *Product:*  ' + prod.label,
-      '• *Size:*     ' + prod.weight,
-      '• *Quantity:* ' + qty + ' ' + (pk === 'eggs' ? 'egg(s)' : 'Turkey/Chicken(s)') + bulkNote,
-      '',
+      '• *Product:*  '+prod.label,
+      '• *Size:*     '+prod.weight,
+      '• *Quantity:* '+qty+' '+(pk==='eggs'?'egg(s)':'Turkey/Chicken(s)')+bulkNote,'',
       '┄┄┄ 💰 PRICING SUMMARY ┄┄┄┄',
-      '• *Unit Price:* ' + (unit > 0 ? fmtTZS(unit) : 'Quote required'),
-      '• *Subtotal:*   ' + (unit > 0 ? fmtTZS(sub)  : 'Quote required'),
-      '• *Delivery:*   ' + (dc === 0 ? 'Free' : dc > 0 ? fmtTZS(dc) : 'Quote required'),
-      '',
-      '💵 *GRAND TOTAL: ' + grand + '*',
-      '',
+      '• *Unit Price:* '+(unit>0?fmtTZS(unit):'Quote required'),
+      '• *Subtotal:*   '+(unit>0?fmtTZS(sub):'Quote required'),
+      '• *Delivery:*   '+(dc===0?'Free':dc>0?fmtTZS(dc):'Quote required'),'',
+      '💵 *GRAND TOTAL: '+grand+'*','',
       '┄┄┄ 🚚 DELIVERY METHOD ┄┄┄┄',
-      '• ' + delLabel
+      '• '+delLabel
     ];
-
-    if (notes) {
-      lines.push('');
-      lines.push('┄┄┄ 📝 SPECIAL INSTRUCTIONS ┄┄');
-      lines.push(notes);
-    }
-
-    lines = lines.concat([
-      '',
-      '══════════════════════════════',
+    if(notes){lines.push('');lines.push('┄┄┄ 📝 SPECIAL INSTRUCTIONS ┄┄');lines.push(notes);}
+    lines=lines.concat(['','══════════════════════════════',
       '🌿 *Thank you for choosing Nico Poultry!*',
-      '_We will confirm within 15 minutes._',
-      '',
-      '📞 +255 689 583 281 / +255 787 312 240',
+      '_We will confirm within 15 minutes._','',
+      '📞 +255 689 583 281',
       '📧 josephinenicodemus05@gmail.com',
       '📍 Tabata Sundown, Dar es Salaam',
-      '══════════════════════════════'
-    ]);
+      '══════════════════════════════']);
 
-    var msg = lines.join('\n');
+    var btn=qs('#submitBtn');
+    btn.disabled=true;
+    btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
 
-    var btn = qs('#submitBtn');
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
-
-    setTimeout(function() {
-      window.open('https://wa.me/255689583281?text=' + encodeURIComponent(msg), '_blank');
-      setTimeout(function() {
-        orderForm.reset();
-        updatePreview();
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fab fa-whatsapp"></i> Send Order via WhatsApp';
-        showToast('Order ' + orderRef + ' sent! Nico Poultry will confirm via WhatsApp shortly.');
-      }, 900);
-    }, 600);
+    setTimeout(function(){
+      window.open('https://wa.me/255689583281?text='+encodeURIComponent(lines.join('\n')),'_blank');
+      setTimeout(function(){
+        orderForm.reset();updatePreview();
+        btn.disabled=false;
+        btn.innerHTML='<i class="fab fa-whatsapp"></i> Send Order via WhatsApp';
+        showToast('Order '+orderRef+' sent! Nico Poultry will confirm via WhatsApp shortly. ✓');
+      },900);
+    },600);
   });
 }
 
+/* Toast — uses CSS class instead of inline style for animation */
 function showToast(msg) {
-  var old = document.querySelector('.np-toast');
-  if (old) old.remove();
-  var t = document.createElement('div');
-  t.className = 'np-toast';
-  t.setAttribute('role', 'alert');
-  t.textContent = msg;
-  var s = t.style;
-  s.position  = 'fixed';
-  s.bottom    = '5rem';
-  s.left      = '50%';
-  s.transform = 'translateX(-50%) translateY(80px)';
-  s.background = 'linear-gradient(135deg,#073d27,#0b5d3b)';
-  s.color      = '#fff';
-  s.padding    = '.9rem 1.75rem';
-  s.borderRadius = '12px';
-  s.boxShadow  = '0 20px 60px rgba(0,0,0,.28)';
-  s.fontWeight = '600';
-  s.fontSize   = '.9rem';
-  s.zIndex     = '700';
-  s.transition = 'transform .35s cubic-bezier(0.16,1,0.3,1)';
-  s.maxWidth   = '90vw';
-  s.textAlign  = 'center';
+  var old=document.querySelector('.np-toast');if(old)old.remove();
+  var t=document.createElement('div');
+  t.className='np-toast';
+  t.setAttribute('role','alert');
+  t.textContent=msg;
   document.body.appendChild(t);
-  requestAnimationFrame(function() {
-    requestAnimationFrame(function() {
-      t.style.transform = 'translateX(-50%) translateY(0)';
-    });
-  });
-  setTimeout(function() {
-    t.style.transform = 'translateX(-50%) translateY(80px)';
-    setTimeout(function() { if (t.parentNode) t.parentNode.removeChild(t); }, 400);
-  }, 5000);
+  requestAnimationFrame(function(){requestAnimationFrame(function(){t.classList.add('show');});});
+  setTimeout(function(){
+    t.classList.remove('show');
+    setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},400);
+  },5000);
 }
 
 })();
