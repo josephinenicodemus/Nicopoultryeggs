@@ -116,7 +116,9 @@ ul{list-style:none}
 /* =====================================================
    HERO
 ===================================================== */
-.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:var(--nav-h);background:linear-gradient(160deg,rgba(4,31,19,.94) 0%,rgba(11,93,59,.88) 40%,rgba(0,0,0,.82) 100%),url('https://images.unsplash.com/photo-1518492104633-130d0cc84637?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat}
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:var(--nav-h);background:linear-gradient(160deg,#041f13 0%,#0b5d3b 45%,#116845 70%,#073d27 100%)}
+.hero-bg-pattern{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.06;background-image:radial-gradient(circle,#e8bb3e 1.5px,transparent 1.5px);background-size:32px 32px}
+.hero-bg-glow{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 75% 60% at 60% 40%,rgba(26,138,90,.35) 0%,transparent 65%),radial-gradient(ellipse 45% 50% at 20% 80%,rgba(201,162,39,.12) 0%,transparent 60%)}
 .hero-grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.3;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
 .hero::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 80% 55% at 50% 105%,rgba(11,93,59,.5) 0%,transparent 65%)}
 .hero-orb{position:absolute;border-radius:50%;pointer-events:none;z-index:1;filter:blur(70px);opacity:.14}
@@ -685,6 +687,10 @@ ul{list-style:none}
 .lang-opt:hover{background:rgba(11,93,59,.06);color:var(--f2)}
 .lang-opt.active{background:rgba(11,93,59,.07);color:var(--f2)}
 .lang-opt .lang-flag{font-size:1.1rem}
+/* chevron rotation when open */
+.lang-switcher .lang-btn .fa-chevron-down{transition:transform .25s var(--t2)}
+.lang-dropdown.open ~ * .fa-chevron-down,
+#langBtn[aria-expanded="true"] .fa-chevron-down{transform:rotate(180deg)}
 
 /* =====================================================
    ORDER FORM — MULTI-ITEM CART
@@ -912,7 +918,7 @@ ul{list-style:none}
   .hero-stat{padding:1rem .7rem}
   .stat-n{font-size:1.65rem}
   .features-grid{grid-template-columns:1fr}
-  .order-wrap{padding:1.4rem}
+  .order-body{padding:1.2rem}
   .footer-grid{grid-template-columns:1fr}
   .logo-text{display:none}
   .logo-ring{width:42px;height:42px}
@@ -958,7 +964,7 @@ ul{list-style:none}
             <i class="fas fa-chevron-down" style="font-size:.6rem;opacity:.6"></i>
           </button>
           <div class="lang-dropdown" id="langDropdown" role="menu">
-            <button class="lang-opt active" data-lang="en" role="menuitem"><span class="lang-flag">🇬🇧</span> English</button>
+            <button class="lang-opt" data-lang="en" role="menuitem"><span class="lang-flag">🇬🇧</span> English</button>
             <button class="lang-opt" data-lang="sw" role="menuitem"><span class="lang-flag">🇹🇿</span> Kiswahili</button>
           </div>
         </div>
@@ -984,6 +990,8 @@ ul{list-style:none}
 
 <!-- ===== HERO ===== -->
 <section class="hero" aria-label="Hero">
+  <div class="hero-bg-pattern" aria-hidden="true"></div>
+  <div class="hero-bg-glow" aria-hidden="true"></div>
   <div class="hero-grain" aria-hidden="true"></div>
   <div class="hero-orb orb-1" aria-hidden="true"></div>
   <div class="hero-orb orb-2" aria-hidden="true"></div>
@@ -1052,7 +1060,7 @@ ul{list-style:none}
     <div class="products-grid">
       <article class="prod-card reveal">
         <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80" alt="Fresh broiler chickens" loading="lazy" width="800" height="600">
+          <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80" alt="Fresh broiler chickens" loading="lazy" width="800" height="600" onerror="this.onerror=null;this.src='https://picsum.photos/seed/chicken/800/600'">
           <div class="prod-img-overlay"></div>
           <span class="prod-badge">Best Seller</span>
         </div>
@@ -1084,7 +1092,7 @@ ul{list-style:none}
       </article>
       <article class="prod-card reveal d2">
         <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=800&q=80" alt="Fresh turkey eggs" loading="lazy" width="800" height="600">
+          <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=800&q=80" alt="Fresh turkey eggs" loading="lazy" width="800" height="600" onerror="this.onerror=null;this.src='https://picsum.photos/seed/eggs800/800/600'">
           <div class="prod-img-overlay"></div>
           <span class="prod-badge">Fresh Daily</span>
         </div>
@@ -1247,10 +1255,10 @@ ul{list-style:none}
     <div class="about-grid">
       <div class="about-img-wrap reveal">
         <div class="about-img-main">
-          <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=900&q=80" alt="Turkeys on our farm" loading="lazy" width="900" height="700">
+          <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=900&q=80" alt="Turkeys on our farm" loading="lazy" width="900" height="700" onerror="this.onerror=null;this.src='https://picsum.photos/seed/turkey900/900/700'">
         </div>
         <div class="about-img-accent">
-          <img src="https://images.unsplash.com/photo-1498579687545-d5a4fffb0a9e?auto=format&fit=crop&w=400&q=80" alt="Fresh eggs" loading="lazy" width="400" height="400">
+          <img src="https://images.unsplash.com/photo-1498579687545-d5a4fffb0a9e?auto=format&fit=crop&w=400&q=80" alt="Fresh eggs" loading="lazy" width="400" height="400" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fresheggs/400/400'">
         </div>
         <div class="about-badge"><span class="badge-n">8+</span><span class="badge-l">Years of<br>Excellence</span></div>
       </div>
@@ -1846,23 +1854,27 @@ var currentLang = localStorage.getItem('nicoLang') || 'en';
 function applyLang(lang) {
   currentLang = lang;
   localStorage.setItem('nicoLang', lang);
-  var t = I18N[lang];
-  // update flag/label
-  var flagMap = {en:'🇬🇧',sw:'🇹🇿'};
-  var labelMap = {en:'EN',sw:'SW'};
+  var tr = I18N[lang];
+  // update button flag/label
+  var flagMap = {en:'🇬🇧', sw:'🇹🇿'};
+  var labelMap = {en:'EN', sw:'SW'};
   var flagEl = qs('#langFlag'), labelEl = qs('#langLabel');
   if(flagEl) flagEl.textContent = flagMap[lang];
   if(labelEl) labelEl.textContent = labelMap[lang];
-  // update data-i18n elements
+  // SMART DROPDOWN: only show the OTHER language option
+  qsa('.lang-opt').forEach(function(o) {
+    var isOther = o.dataset.lang !== lang;
+    o.style.display = isOther ? 'flex' : 'none';
+    o.classList.toggle('active', !isOther);
+  });
+  // update all data-i18n text
   qsa('[data-i18n]').forEach(function(el) {
     var key = el.getAttribute('data-i18n');
-    if(t[key]) el.textContent = t[key];
+    if(tr[key]) el.textContent = tr[key];
   });
-  // active opt
-  qsa('.lang-opt').forEach(function(o){ o.classList.toggle('active', o.dataset.lang===lang); });
-  // rebuild product tiles with new lang
-  buildProductTiles();
-  renderReceipt();
+  // rebuild dynamic UI
+  if(typeof buildProductTiles === 'function') buildProductTiles();
+  if(typeof renderReceipt === 'function') renderReceipt();
 }
 
 var langBtn = qs('#langBtn'), langDrop = qs('#langDropdown');
@@ -2230,4 +2242,20 @@ applyLang(currentLang);
 
 /* Toast — uses CSS class instead of inline style for animation */
 function showToast(msg) {
-  var old=document.query
+  var old=document.querySelector('.np-toast');if(old)old.remove();
+  var t2=document.createElement('div');
+  t2.className='np-toast';
+  t2.setAttribute('role','alert');
+  t2.textContent=msg;
+  document.body.appendChild(t2);
+  requestAnimationFrame(function(){requestAnimationFrame(function(){t2.classList.add('show');});});
+  setTimeout(function(){
+    t2.classList.remove('show');
+    setTimeout(function(){if(t2.parentNode)t2.parentNode.removeChild(t2);},400);
+  },5000);
+}
+
+})();
+</script>
+</body>
+</html>
