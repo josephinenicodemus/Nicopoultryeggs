@@ -673,36 +673,154 @@ ul{list-style:none}
 .hours-time.open{font-weight:700;color:var(--f2)}
 
 /* =====================================================
-   ORDER FORM
+   LANGUAGE SWITCHER
+===================================================== */
+.lang-switcher{position:relative;flex-shrink:0}
+.lang-btn{display:inline-flex;align-items:center;gap:.45rem;font-size:.8rem;font-weight:700;color:var(--dark3);background:var(--cream2);border:1.5px solid rgba(201,162,39,.3);border-radius:var(--r5);padding:.42rem .9rem;cursor:pointer;transition:all .25s var(--t2);font-family:var(--sans)}
+.lang-btn:hover{background:rgba(11,93,59,.08);border-color:var(--f2);color:var(--f2)}
+.lang-btn .lang-flag{font-size:1rem;line-height:1}
+.lang-dropdown{position:absolute;top:calc(100% + .5rem);right:0;background:#fff;border:1.5px solid rgba(201,162,39,.25);border-radius:var(--r2);box-shadow:var(--s3);min-width:160px;overflow:hidden;opacity:0;pointer-events:none;transform:translateY(-6px);transition:all .25s var(--t1);z-index:600}
+.lang-dropdown.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.lang-opt{display:flex;align-items:center;gap:.65rem;padding:.7rem 1rem;font-size:.84rem;font-weight:600;color:var(--dark3);cursor:pointer;transition:background .15s;border:none;background:none;width:100%;text-align:left;font-family:var(--sans)}
+.lang-opt:hover{background:rgba(11,93,59,.06);color:var(--f2)}
+.lang-opt.active{background:rgba(11,93,59,.07);color:var(--f2)}
+.lang-opt .lang-flag{font-size:1.1rem}
+
+/* =====================================================
+   ORDER FORM — MULTI-ITEM CART
 ===================================================== */
 .order-section{background:var(--ivory)}
-.order-wrap{max-width:820px;margin:0 auto;background:#fff;border-radius:20px;padding:clamp(1.8rem,4.5vw,3rem);box-shadow:var(--s3);border:1px solid rgba(201,162,39,.15);position:relative;overflow:hidden}
+.order-wrap{max-width:960px;margin:0 auto;background:#fff;border-radius:24px;box-shadow:var(--s3);border:1px solid rgba(201,162,39,.15);position:relative;overflow:hidden}
 .order-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gg)}
-.order-preview{background:linear-gradient(135deg,rgba(11,93,59,.04),rgba(201,162,39,.05));border:1px solid rgba(11,93,59,.12);border-radius:var(--r2);padding:1.4rem;margin-bottom:1.75rem}
-.preview-header{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:.84rem;color:var(--f2);margin-bottom:.9rem}
-.preview-header i{color:var(--g2)}
-.p-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px dashed rgba(0,0,0,.06);font-size:.9rem}
-.p-row:last-child{border-bottom:none}
-.p-row.total{font-weight:800;font-size:1rem;padding-top:.75rem;border-top:2px solid rgba(11,93,59,.15);border-bottom:none}
-.p-lbl{color:var(--muted)}
-.p-row.total .p-lbl{color:var(--f2)}
-.p-val{font-weight:700;color:var(--dark)}
-.p-row.total .p-val{color:var(--g1);font-size:1.05rem}
-.form-grid{display:grid;gap:1.4rem}
+
+/* reorder banner */
+.reorder-banner{display:none;align-items:center;gap:.75rem;background:linear-gradient(135deg,rgba(11,93,59,.07),rgba(201,162,39,.07));border-bottom:1px solid rgba(201,162,39,.2);padding:1rem 2rem;font-size:.84rem;color:var(--f2);font-weight:600}
+.reorder-banner.show{display:flex}
+.reorder-banner i{color:var(--g2);font-size:1rem;flex-shrink:0}
+.reorder-banner button{margin-left:auto;font-size:.75rem;font-weight:700;color:var(--f2);background:rgba(11,93,59,.1);border:1px solid rgba(11,93,59,.2);border-radius:var(--r5);padding:.3rem .8rem;cursor:pointer;font-family:var(--sans);transition:all .2s}
+.reorder-banner button:hover{background:var(--f2);color:#fff}
+
+.order-body{padding:clamp(1.5rem,4vw,2.5rem)}
+
+/* ── customer info ── */
+.cust-section{margin-bottom:2rem}
+.section-label{display:flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--f2);margin-bottom:1.1rem}
+.section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(11,93,59,.2),transparent)}
+.section-label i{color:var(--g2);font-size:.8rem}
+.form-grid{display:grid;gap:1.1rem}
 .form-2col{grid-template-columns:1fr 1fr}
-.form-group{display:flex;flex-direction:column;gap:.42rem}
-.form-label{font-size:.8rem;font-weight:700;color:var(--dark3);letter-spacing:.4px}
+.form-group{display:flex;flex-direction:column;gap:.38rem}
+.form-label{font-size:.78rem;font-weight:700;color:var(--dark3);letter-spacing:.3px}
 .req{color:var(--g1)}
-.form-input,.form-select,.form-textarea{width:100%;padding:.82rem 1.05rem;border:1.5px solid var(--cream2);border-radius:var(--r2);font-family:var(--sans);font-size:.93rem;color:var(--dark);background:var(--cream);outline:none;transition:border-color .25s,box-shadow .25s,background .25s;-webkit-appearance:none;appearance:none}
+.form-input,.form-select,.form-textarea{width:100%;padding:.78rem 1rem;border:1.5px solid var(--cream2);border-radius:var(--r2);font-family:var(--sans);font-size:.91rem;color:var(--dark);background:var(--cream);outline:none;transition:border-color .25s,box-shadow .25s,background .25s;-webkit-appearance:none;appearance:none}
 .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--f2);background:#fff;box-shadow:0 0 0 4px rgba(11,93,59,.1)}
-.form-textarea{min-height:115px;resize:vertical}
-.form-hint{font-size:.73rem;color:var(--muted)}
-.form-error{font-size:.73rem;color:#e53e3e;display:none}
+.form-textarea{min-height:90px;resize:vertical}
+.form-hint{font-size:.72rem;color:var(--muted)}
+.form-error{font-size:.72rem;color:#e53e3e;display:none}
 .form-group.has-error .form-error{display:block}
-.form-group.has-error .form-input,
-.form-group.has-error .form-select{border-color:#e53e3e;box-shadow:0 0 0 3px rgba(229,62,62,.1)}
-.submit-row{display:flex;flex-direction:column;align-items:center;gap:.9rem;margin-top:.5rem}
-.submit-note{text-align:center;font-size:.78rem;color:var(--muted);max-width:420px;line-height:1.6}
+.form-group.has-error .form-input,.form-group.has-error .form-select{border-color:#e53e3e;box-shadow:0 0 0 3px rgba(229,62,62,.1)}
+
+/* ── product picker ── */
+.products-section-label{display:flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--f2);margin-bottom:1.1rem}
+.products-section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(11,93,59,.2),transparent)}
+.products-section-label i{color:var(--g2);font-size:.8rem}
+
+.product-picker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.5rem}
+@media(max-width:680px){.product-picker-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.product-picker-grid{grid-template-columns:1fr}}
+
+.product-tile{border:2px solid var(--cream2);border-radius:16px;padding:1rem;cursor:pointer;transition:all .3s var(--t1);background:var(--cream);position:relative;display:flex;flex-direction:column;gap:.4rem;user-select:none}
+.product-tile:hover{border-color:rgba(11,93,59,.35);background:#fff;transform:translateY(-2px);box-shadow:var(--s2)}
+.product-tile.selected{border-color:var(--f2);background:rgba(11,93,59,.04);box-shadow:0 0 0 3px rgba(11,93,59,.1)}
+.pt-check{position:absolute;top:.7rem;right:.7rem;width:22px;height:22px;border-radius:50%;background:var(--gf);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.65rem;opacity:0;transform:scale(.5);transition:all .25s var(--t1)}
+.product-tile.selected .pt-check{opacity:1;transform:scale(1)}
+.pt-icon{font-size:1.4rem;margin-bottom:.1rem}
+.pt-name{font-weight:700;font-size:.87rem;color:var(--dark);line-height:1.25}
+.pt-weight{font-size:.7rem;color:var(--muted);font-weight:500}
+.pt-price{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--f2);margin-top:.2rem}
+.pt-price.quote{font-family:var(--sans);font-size:.75rem;color:var(--g1)}
+
+/* ── cart items ── */
+.cart-items-list{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem;min-height:0}
+.cart-item{background:var(--ivory);border:1.5px solid var(--cream2);border-radius:14px;padding:1rem 1.1rem;display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:.85rem;transition:all .3s var(--t1);animation:cartSlideIn .3s var(--t1)}
+@keyframes cartSlideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.cart-item:hover{border-color:rgba(11,93,59,.25);box-shadow:var(--s1)}
+.ci-info{}
+.ci-name{font-weight:700;font-size:.9rem;color:var(--dark)}
+.ci-weight{font-size:.72rem;color:var(--muted);margin-top:.1rem}
+.ci-unit{font-size:.78rem;color:var(--f3);font-weight:600;margin-top:.1rem}
+.ci-qty{display:flex;align-items:center;gap:.5rem}
+.qty-btn{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--cream2);background:#fff;color:var(--dark3);font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;font-weight:700;font-family:var(--sans);line-height:1}
+.qty-btn:hover{border-color:var(--f2);background:var(--f2);color:#fff}
+.qty-num{font-weight:800;font-size:.95rem;color:var(--dark);min-width:28px;text-align:center}
+.ci-subtotal{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--f2);text-align:right;min-width:90px}
+.ci-subtotal.quote-item{font-family:var(--sans);font-size:.78rem;color:var(--g1)}
+.ci-remove{width:30px;height:30px;border-radius:50%;background:rgba(229,62,62,.08);border:1px solid rgba(229,62,62,.2);color:#e53e3e;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.75rem;transition:all .2s;flex-shrink:0}
+.ci-remove:hover{background:#e53e3e;color:#fff;border-color:#e53e3e}
+
+/* empty cart */
+.cart-empty{text-align:center;padding:2rem;color:var(--muted);font-size:.9rem;border:2px dashed var(--cream2);border-radius:14px;background:var(--cream)}
+.cart-empty i{display:block;font-size:2rem;color:rgba(201,162,39,.4);margin-bottom:.6rem}
+
+/* ── order summary receipt ── */
+.order-receipt{background:linear-gradient(135deg,rgba(4,31,19,.97),rgba(7,61,39,.97));border-radius:18px;padding:1.6rem 1.8rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.order-receipt::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(201,162,39,.08);pointer-events:none}
+.receipt-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px dashed rgba(255,255,255,.12)}
+.receipt-title{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:.88rem;color:#e8bb3e;letter-spacing:.5px}
+.receipt-title i{font-size:.9rem}
+.receipt-order-num{font-size:.72rem;color:rgba(255,255,255,.5);font-weight:600;letter-spacing:1px}
+
+.receipt-meta{display:flex;gap:1.5rem;margin-bottom:1.2rem;flex-wrap:wrap}
+.receipt-meta-item{font-size:.75rem;color:rgba(255,255,255,.6)}
+.receipt-meta-item strong{color:rgba(255,255,255,.9);display:block;font-size:.82rem;margin-top:.1rem}
+
+.receipt-items{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.2rem}
+.ri-row{display:flex;align-items:center;justify-content:space-between;padding:.5rem .6rem;border-radius:8px;gap:.5rem}
+.ri-row:nth-child(odd){background:rgba(255,255,255,.04)}
+.ri-left{display:flex;align-items:center;gap:.6rem;flex:1;min-width:0}
+.ri-bullet{width:6px;height:6px;border-radius:50%;background:var(--g3);flex-shrink:0}
+.ri-desc{font-size:.83rem;color:rgba(255,255,255,.85);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ri-x{font-size:.75rem;color:rgba(255,255,255,.4);margin-left:.3rem}
+.ri-unit{font-size:.72rem;color:rgba(255,255,255,.45);margin-left:.4rem;flex-shrink:0}
+.ri-total{font-family:var(--serif);font-size:.95rem;font-weight:700;color:#e8bb3e;flex-shrink:0}
+.ri-total.quote{font-family:var(--sans);font-size:.75rem;color:var(--g3)}
+
+.receipt-divider{height:1px;background:rgba(255,255,255,.1);margin:.8rem 0;border:none;background:repeating-linear-gradient(90deg,transparent,transparent 6px,rgba(255,255,255,.12) 6px,rgba(255,255,255,.12) 12px)}
+
+.receipt-delivery{display:flex;justify-content:space-between;font-size:.82rem;color:rgba(255,255,255,.65);padding:.3rem 0;margin-bottom:.6rem}
+.receipt-delivery span:last-child{font-weight:700;color:rgba(255,255,255,.85)}
+
+.receipt-total-row{display:flex;justify-content:space-between;align-items:center;padding:.9rem .8rem;background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.25);border-radius:10px;margin-top:.6rem}
+.receipt-total-label{font-size:.8rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.receipt-total-amount{font-family:var(--serif);font-size:1.5rem;font-weight:800;color:#e8bb3e;line-height:1}
+.receipt-total-amount.quote{font-family:var(--sans);font-size:1rem;color:var(--g3)}
+
+.receipt-empty{text-align:center;padding:1.5rem;color:rgba(255,255,255,.35);font-size:.86rem}
+.receipt-empty i{display:block;font-size:1.5rem;margin-bottom:.5rem;color:rgba(201,162,39,.25)}
+
+/* ── delivery + notes ── */
+.delivery-notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:1.5rem}
+@media(max-width:600px){.delivery-notes-grid{grid-template-columns:1fr}}
+
+/* ── submit row ── */
+.submit-row{display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.submit-note{text-align:center;font-size:.77rem;color:var(--muted);max-width:440px;line-height:1.6}
+
+/* ── bulk note ── */
+.bulk-badge{display:none;align-items:center;gap:.5rem;background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.3);border-radius:var(--r5);padding:.4rem 1rem;font-size:.75rem;font-weight:700;color:var(--g0);margin-bottom:1rem}
+.bulk-badge.show{display:inline-flex}
+
+@media(max-width:768px){
+  .cart-item{grid-template-columns:1fr auto auto;grid-template-rows:auto auto}
+  .ci-subtotal{grid-column:2;grid-row:1}
+  .ci-remove{grid-column:3;grid-row:1}
+  .ci-qty{grid-column:1 / -1;grid-row:2}
+}
+@media(max-width:480px){
+  .product-picker-grid{grid-template-columns:repeat(2,1fr)}
+  .order-body{padding:1.2rem}
+  .order-receipt{padding:1.2rem}
+}
 
 /* =====================================================
    FOOTER
@@ -833,7 +951,18 @@ ul{list-style:none}
         <li><a href="#location">Location</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="#contact" class="btn btn-forest btn-sm"><i class="fas fa-shopping-basket"></i> Order Now</a>
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Change language">
+            <span class="lang-flag" id="langFlag">🇬🇧</span>
+            <span id="langLabel">EN</span>
+            <i class="fas fa-chevron-down" style="font-size:.6rem;opacity:.6"></i>
+          </button>
+          <div class="lang-dropdown" id="langDropdown" role="menu">
+            <button class="lang-opt active" data-lang="en" role="menuitem"><span class="lang-flag">🇬🇧</span> English</button>
+            <button class="lang-opt" data-lang="sw" role="menuitem"><span class="lang-flag">🇹🇿</span> Kiswahili</button>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-forest btn-sm" id="navOrderBtn"><i class="fas fa-shopping-basket"></i> <span data-i18n="order_now">Order Now</span></a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -1010,7 +1139,7 @@ ul{list-style:none}
           <button class="slide-next" id="slideNext" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
         </div>
 
-        <!-- Slide 2 — Vifaranga (young Turkey in pen) -->
+        <!-- Slide 2 — Vifaranga (young birds in pen) -->
         <div class="slide" id="slide-1">
           <img src="Vifaranga.jpeg"
                alt="Young turkey flock growing strong at Nico Poultry Farm"
@@ -1020,17 +1149,17 @@ ul{list-style:none}
           <div class="slide-caption">
             <div class="caption-text">
               <div class="caption-tag"><i class="fas fa-feather-alt"></i> Growing Flock</div>
-              <div class="caption-title">Healthy Turkey, Happy Farm</div>
+              <div class="caption-title">Healthy Birds, Happy Farm</div>
               <div class="caption-desc">Our thriving flock of young turkeys raised with hormone-free feed in spacious, clean and ventilated pens.</div>
             </div>
             <div class="caption-badge">
               <span class="cb-n">500+</span>
-              <span class="cb-l">Turkey and Chicken Raised</span>
+              <span class="cb-l">Birds Raised</span>
             </div>
           </div>
         </div>
 
-        <!-- Slide 3 — Turkey Picture (mature Turkey) -->
+        <!-- Slide 3 — Turkey Picture (mature birds) -->
         <div class="slide" id="slide-2">
           <img src="Turkey Picture.jpeg"
                alt="Mature heritage turkeys ready at Nico Poultry Farm Dar es Salaam"
@@ -1188,7 +1317,7 @@ ul{list-style:none}
         <div class="loc-items">
           <div class="loc-item"><div class="loc-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="loc-title">Address</div><div class="loc-val">Tabata Sundown, Dar es Salaam, Tanzania</div></div></div>
           <div class="loc-item"><div class="loc-ico"><i class="fas fa-phone-alt"></i></div><div><div class="loc-title">Direct Line</div><div class="loc-val"><a href="tel:+255689583281">+255 689 583 281</a></div></div></div>
-          <div class="loc-item"><div class="loc-ico"><i class="fas fa-envelope"></i></div><div><div class="loc-title">Email</div><div class="loc-val"><a href="mailto:josephinenicodemus05@gmail.com">josephinenicodemus05@gmail.com</a></div></div></div>
+          <div class="loc-item"><div class="loc-ico"><i class="fas fa-envelope"></i></div><div><div class="loc-title">Email</div><div class="loc-val"><a href="/cdn-cgi/l/email-protection#7812170b1d081011161d16111b171c1d150d0b484d381f15191114561b1715"><span class="__cf_email__" data-cfemail="abc1c4d8cedbc3c2c5cec5c2c8c4cfcec6ded89b9eebccc6cac2c785c8c4c6">[email&#160;protected]</span></a></div></div></div>
           <div class="loc-item"><div class="loc-ico"><i class="fas fa-truck"></i></div><div><div class="loc-title">Delivery Areas</div><div class="loc-val">Dar es Salaam Region &middot; Same-day delivery &middot; Nationwide shipping for bulk orders</div></div></div>
         </div>
         <div class="hours-table">
@@ -1207,73 +1336,102 @@ ul{list-style:none}
 <section id="contact" class="section order-section">
   <div class="container">
     <div class="sec-title reveal">
-      <div class="eyebrow">Get Started</div>
-      <h2>Place Your Order</h2>
-      <p>Fill in the details below and we will confirm your order via WhatsApp within 15 minutes during business hours.</p>
+      <div class="eyebrow" data-i18n="get_started">Get Started</div>
+      <h2 data-i18n="place_order">Place Your Order</h2>
+      <p data-i18n="order_subtitle">Select your products, set quantities, and we'll confirm via WhatsApp within 15 minutes.</p>
     </div>
     <div class="order-wrap reveal">
-      <div class="order-preview">
-        <div class="preview-header"><i class="fas fa-receipt"></i> Live Order Summary</div>
-        <div class="p-row"><span class="p-lbl">Product</span><span class="p-val" id="pvProd">Not selected</span></div>
-        <div class="p-row"><span class="p-lbl">Quantity</span><span class="p-val" id="pvQty">&mdash;</span></div>
-        <div class="p-row"><span class="p-lbl">Unit Price</span><span class="p-val" id="pvUnit">&mdash;</span></div>
-        <div class="p-row"><span class="p-lbl">Delivery</span><span class="p-val" id="pvDel">Free pickup</span></div>
-        <div class="p-row total"><span class="p-lbl">Grand Total</span><span class="p-val" id="pvTotal">TZS 0</span></div>
+
+      <!-- Reorder banner -->
+      <div class="reorder-banner" id="reorderBanner">
+        <i class="fas fa-history"></i>
+        <span id="reorderMsg">Welcome back! We saved your details from last time.</span>
+        <button id="reorderFill">Autofill Details</button>
       </div>
-      <form id="orderForm" novalidate>
-        <div class="form-grid">
+
+      <div class="order-body">
+
+        <!-- STEP 1: Customer Info -->
+        <div class="cust-section">
+          <div class="section-label"><i class="fas fa-user-circle"></i> <span data-i18n="your_details">Your Details</span></div>
           <div class="form-grid form-2col">
             <div class="form-group" id="fg-name">
-              <label class="form-label" for="fName">Full Name <span class="req">*</span></label>
-              <input type="text" id="fName" class="form-input" placeholder="e.g. John Mwakasege" required autocomplete="name">
-              <span class="form-error">Please enter your full name.</span>
+              <label class="form-label" for="fName" data-i18n="full_name">Full Name <span class="req">*</span></label>
+              <input type="text" id="fName" class="form-input" placeholder="e.g. Brightius Kalokola" required autocomplete="name">
+              <span class="form-error" data-i18n="err_name">Please enter your full name.</span>
             </div>
             <div class="form-group" id="fg-phone">
-              <label class="form-label" for="fPhone">Phone Number <span class="req">*</span></label>
-              <input type="tel" id="fPhone" class="form-input" placeholder="+255 6XX XXX XXX" required autocomplete="tel">
-              <span class="form-error">Enter a valid Tanzanian number.</span>
+              <label class="form-label" for="fPhone" data-i18n="phone">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="fPhone" class="form-input" placeholder="+255 7XX XXX XXX" required autocomplete="tel">
+              <span class="form-error" data-i18n="err_phone">Enter a valid Tanzanian number.</span>
             </div>
           </div>
-          <div class="form-grid form-2col">
-            <div class="form-group" id="fg-product">
-              <label class="form-label" for="fProduct">Product <span class="req">*</span></label>
-              <select id="fProduct" class="form-select" required>
-                <option value="" disabled selected>Select a product...</option>
-                <option value="turkey-local">Local Heritage Turkey (8-10 kg)</option>
-                <option value="turkey-improved">Improved Breed Turkey (10-15 kg)</option>
-                <option value="turkey-premium">Premium Show Turkey (15 kg+)</option>
-                <option value="chicken">Broiler Chicken (1.5-2.5 kg)</option>
-                <option value="eggs">Fresh Turkey Eggs (per egg)</option>
-              </select>
-              <span class="form-error">Please select a product.</span>
-            </div>
-            <div class="form-group" id="fg-qty">
-              <label class="form-label" for="fQty">Quantity <span class="req">*</span></label>
-              <input type="number" id="fQty" class="form-input" placeholder="e.g. 2" min="1" max="500" required>
-              <span class="form-hint"><i class="fas fa-info-circle"></i> Orders of 10+ qualify for bulk discounts.</span>
-              <span class="form-error">Enter a quantity between 1 and 500.</span>
-            </div>
+        </div>
+
+        <!-- STEP 2: Product Picker -->
+        <div class="products-section-label"><i class="fas fa-shopping-basket"></i> <span data-i18n="select_products">Select Products</span> <span style="color:var(--muted);font-size:.65rem;font-weight:500;letter-spacing:0;text-transform:none;margin-left:.3rem" data-i18n="tap_to_add">(tap to add to cart)</span></div>
+        <div class="product-picker-grid" id="productPickerGrid">
+          <!-- tiles injected by JS -->
+        </div>
+
+        <!-- Bulk badge -->
+        <div class="bulk-badge" id="bulkBadge"><i class="fas fa-star"></i> <span data-i18n="bulk_note">Bulk discount applies on orders of 10+ items!</span></div>
+
+        <!-- STEP 3: Cart Items -->
+        <div id="cartSection" style="display:none">
+          <div class="products-section-label" style="margin-top:.5rem"><i class="fas fa-list"></i> <span data-i18n="your_cart">Your Cart</span></div>
+          <div class="cart-items-list" id="cartItemsList"></div>
+        </div>
+
+        <!-- STEP 4: Live Receipt -->
+        <div class="order-receipt" id="orderReceipt">
+          <div class="receipt-header">
+            <div class="receipt-title"><i class="fas fa-receipt"></i> <span data-i18n="order_summary">Order Summary</span></div>
+            <div class="receipt-order-num" id="receiptOrderNum">NICOPOULTRY-XXXXXX</div>
           </div>
+          <div class="receipt-meta">
+            <div class="receipt-meta-item"><span data-i18n="date">Date</span><strong id="receiptDate">—</strong></div>
+            <div class="receipt-meta-item"><span data-i18n="customer">Customer</span><strong id="receiptName">—</strong></div>
+            <div class="receipt-meta-item"><span data-i18n="phone">Phone</span><strong id="receiptPhone">—</strong></div>
+          </div>
+          <div class="receipt-items" id="receiptItems">
+            <div class="receipt-empty"><i class="fas fa-shopping-basket"></i><span data-i18n="no_items">No items yet — select products above</span></div>
+          </div>
+          <hr class="receipt-divider">
+          <div class="receipt-delivery">
+            <span data-i18n="delivery">Delivery</span>
+            <span id="receiptDelivery">Farm Pickup (Free)</span>
+          </div>
+          <div class="receipt-total-row">
+            <span class="receipt-total-label" data-i18n="grand_total">Grand Total</span>
+            <span class="receipt-total-amount" id="receiptTotal">TZS 0</span>
+          </div>
+        </div>
+
+        <!-- STEP 5: Delivery + Notes -->
+        <div class="delivery-notes-grid">
           <div class="form-group">
-            <label class="form-label" for="fDelivery">Delivery Preference</label>
+            <label class="form-label" for="fDelivery" data-i18n="delivery_pref">Delivery Preference</label>
             <select id="fDelivery" class="form-select">
-              <option value="pickup">Farm Pickup - Free</option>
-              <option value="dar">Dar es Salaam Delivery - +TZS 5,000</option>
-              <option value="nationwide">Nationwide Shipping - Quote Required</option>
+              <option value="pickup" data-i18n="pickup">Farm Pickup — Free</option>
+              <option value="dar" data-i18n="dar_delivery">Dar es Salaam Delivery — +TZS 5,000</option>
+              <option value="nationwide" data-i18n="nationwide">Nationwide Shipping — Quote Required</option>
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label" for="fNotes">Special Instructions</label>
-            <textarea id="fNotes" class="form-textarea" placeholder="e.g. preferred delivery time, preparation requests, event details..."></textarea>
-            <span class="form-hint"><i class="fas fa-lightbulb"></i> Tell us about your event - we will help you choose the right Turkey and Chicken!</span>
-          </div>
-          <div class="submit-row">
-            <button type="submit" id="submitBtn" class="btn btn-forest btn-xl"><i class="fab fa-whatsapp"></i> Send Order via WhatsApp</button>
-            <p class="submit-note"><i class="fas fa-shield-alt"></i> Your information is private and secure. Orders confirmed within 15 minutes via WhatsApp during business hours.</p>
+            <label class="form-label" for="fNotes" data-i18n="special_notes">Special Instructions</label>
+            <textarea id="fNotes" class="form-textarea" placeholder="Delivery time, event details, preparation notes..." style="min-height:48px"></textarea>
           </div>
         </div>
-      </form>
-    </div>
+
+        <!-- Submit -->
+        <div class="submit-row">
+          <button type="button" id="submitBtn" class="btn btn-forest btn-xl"><i class="fab fa-whatsapp"></i> <span data-i18n="send_order">Send Order via WhatsApp</span></button>
+          <p class="submit-note"><i class="fas fa-shield-alt"></i> <span data-i18n="privacy_note">Your info is private. Orders confirmed within 15 min via WhatsApp.</span></p>
+        </div>
+
+      </div><!-- /order-body -->
+    </div><!-- /order-wrap -->
   </div>
 </section>
 
@@ -1297,7 +1455,7 @@ ul{list-style:none}
           <div class="foot-socials">
             <a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             <a href="https://www.instagram.com/nicodemus_moshi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:josephinenicodemus05@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="/cdn-cgi/l/email-protection#c4aeabb7a1b4acadaaa1aaada7aba0a1a9b1b7f4f184a3a9a5ada8eaa7aba9" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
         <div>
@@ -1316,7 +1474,7 @@ ul{list-style:none}
           <div class="foot-contact">
             <div class="foot-ci"><i class="fas fa-phone-alt"></i><a href="tel:+255689686148">+255 689 686 148</a></div>
             <div class="foot-ci"><i class="fab fa-whatsapp"></i><a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer">WhatsApp Order Line</a></div>
-            <div class="foot-ci"><i class="fas fa-envelope"></i><a href="mailto:josephinenicodemus05@gmail.com">josephinenicodemus05@gmail.com</a></div>
+            <div class="foot-ci"><i class="fas fa-envelope"></i><a href="/cdn-cgi/l/email-protection#3953564a5c495150575c57505a565d5c544c4a090c795e54585055175a5654"><span class="__cf_email__" data-cfemail="a7cdc8d4c2d7cfcec9c2c9cec4c8c3c2cad2d49792e7c0cac6cecb89c4c8ca">[email&#160;protected]</span></a></div>
             <div class="foot-ci"><i class="fas fa-map-marker-alt"></i><span>Tabata Sundown, Dar es Salaam</span></div>
           </div>
         </div>
@@ -1341,7 +1499,7 @@ ul{list-style:none}
 <a href="https://wa.me/255689583281?text=Hello%20Nico%20Poultry!%20I%20would%20like%20to%20place%20an%20order." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <button class="btt-btn" id="bttBtn" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function() {
 'use strict';
 
@@ -1636,142 +1794,440 @@ window.addEventListener('scroll', function() {
 
 })();
 
-/* ═══ ORDER FORM ═══ */
-var PRICES = {
-  'turkey-local':    {price:0,     label:'Local Heritage Turkey',  weight:'8-10 kg',    cat:'Heritage Turkey'},
-  'turkey-improved': {price:100000,label:'Improved Breed Turkey',  weight:'10-15 kg',   cat:'Improved Turkey'},
-  'turkey-premium':  {price:0,     label:'Premium Show Turkey',    weight:'15+ kg',     cat:'Premium Turkey'},
-  'chicken':         {price:20000, label:'Broiler Chicken',        weight:'1.5-2.5 kg', cat:'Broiler Chicken'},
-  'eggs':            {price:5000,  label:'Fresh Turkey Eggs',      weight:'per egg',    cat:'Turkey Eggs'}
+/* ═══════════════════════════════════════
+   LANGUAGE SWITCHER
+═══════════════════════════════════════ */
+var I18N = {
+  en: {
+    order_now:'Order Now', get_started:'Get Started', place_order:'Place Your Order',
+    order_subtitle:'Select your products, set quantities, and we\'ll confirm via WhatsApp within 15 minutes.',
+    your_details:'Your Details', full_name:'Full Name', phone:'Phone Number',
+    select_products:'Select Products', tap_to_add:'(tap to add to cart)',
+    your_cart:'Your Cart', order_summary:'Order Summary', date:'Date',
+    customer:'Customer', delivery:'Delivery', grand_total:'Grand Total',
+    delivery_pref:'Delivery Preference', special_notes:'Special Instructions',
+    send_order:'Send Order via WhatsApp', privacy_note:'Your info is private. Orders confirmed within 15 min via WhatsApp.',
+    err_name:'Please enter your full name.', err_phone:'Enter a valid Tanzanian number.',
+    no_items:'No items yet — select products above', bulk_note:'Bulk discount applies on orders of 10+ items!',
+    pickup:'Farm Pickup — Free', dar_delivery:'Dar es Salaam Delivery — +TZS 5,000',
+    nationwide:'Nationwide Shipping — Quote Required',
+    products:{
+      'turkey-local':{name:'Local Heritage Turkey',weight:'8 – 10 kg'},
+      'turkey-improved':{name:'Improved Breed Turkey',weight:'10 – 15 kg'},
+      'turkey-premium':{name:'Premium Show Turkey',weight:'15+ kg'},
+      'chicken':{name:'Broiler Chicken',weight:'1.5 – 2.5 kg'},
+      'eggs':{name:'Fresh Turkey Eggs',weight:'per egg'}
+    }
+  },
+  sw: {
+    order_now:'Agiza Sasa', get_started:'Anza Hapa', place_order:'Weka Agizo Lako',
+    order_subtitle:'Chagua bidhaa zako, weka idadi, nasi tutathibitisha kupitia WhatsApp ndani ya dakika 15.',
+    your_details:'Maelezo Yako', full_name:'Jina Kamili', phone:'Nambari ya Simu',
+    select_products:'Chagua Bidhaa', tap_to_add:'(bonyeza kuongeza)',
+    your_cart:'Kikapu Chako', order_summary:'Muhtasari wa Agizo', date:'Tarehe',
+    customer:'Mteja', delivery:'Utoaji', grand_total:'Jumla Kuu',
+    delivery_pref:'Njia ya Utoaji', special_notes:'Maelekezo Maalum',
+    send_order:'Tuma Agizo kwa WhatsApp', privacy_note:'Taarifa zako ni salama. Uthibitisho ndani ya dakika 15 via WhatsApp.',
+    err_name:'Tafadhali ingiza jina lako kamili.', err_phone:'Ingiza nambari sahihi ya Tanzania.',
+    no_items:'Hakuna bidhaa bado — chagua bidhaa hapo juu', bulk_note:'Punguzo la jumla linatumika kwa maagizo ya vitu 10+!',
+    pickup:'Kuchukua Shambani — Bila Malipo', dar_delivery:'Utoaji Dar es Salaam — +TZS 5,000',
+    nationwide:'Usafirishaji Nchi Nzima — Nukuu Inahitajika',
+    products:{
+      'turkey-local':{name:'Bata Mzinga wa Asili',weight:'8 – 10 kg'},
+      'turkey-improved':{name:'Bata Mzinga Bora',weight:'10 – 15 kg'},
+      'turkey-premium':{name:'Bata Mzinga wa Kifahari',weight:'15+ kg'},
+      'chicken':{name:'Kuku wa Broiler',weight:'1.5 – 2.5 kg'},
+      'eggs':{name:'Mayai ya Bata Mzinga',weight:'kwa yai'}
+    }
+  }
 };
-var DCOST = {pickup:0, dar:5000, nationwide:-1};
+var currentLang = localStorage.getItem('nicoLang') || 'en';
 
-function updatePreview() {
-  var pk=qs('#fProduct').value, qty=parseInt(qs('#fQty').value)||0, dk=qs('#fDelivery').value;
-  var prod=PRICES[pk], unit=prod?prod.price:0, sub=(prod&&unit>0)?unit*qty:0;
-  var dc=DCOST[dk]!==undefined?DCOST[dk]:0, grand=(dc===-1)?-1:sub+dc;
-  qs('#pvProd').textContent=prod?prod.label:'Not selected';
-  qs('#pvQty').textContent=qty||'—';
-  qs('#pvUnit').textContent=!prod?'—':(unit===0?'Quote required':fmtTZS(unit));
-  qs('#pvDel').textContent=dk==='nationwide'?'Quote required':(dc>0?'+'+fmtTZS(dc):'Free (Farm Pickup)');
-  if(!prod||!qty) qs('#pvTotal').textContent='TZS 0';
-  else if(unit===0||grand===-1) qs('#pvTotal').textContent='To be quoted';
-  else qs('#pvTotal').textContent=fmtTZS(grand);
+function applyLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('nicoLang', lang);
+  var t = I18N[lang];
+  // update flag/label
+  var flagMap = {en:'🇬🇧',sw:'🇹🇿'};
+  var labelMap = {en:'EN',sw:'SW'};
+  var flagEl = qs('#langFlag'), labelEl = qs('#langLabel');
+  if(flagEl) flagEl.textContent = flagMap[lang];
+  if(labelEl) labelEl.textContent = labelMap[lang];
+  // update data-i18n elements
+  qsa('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if(t[key]) el.textContent = t[key];
+  });
+  // active opt
+  qsa('.lang-opt').forEach(function(o){ o.classList.toggle('active', o.dataset.lang===lang); });
+  // rebuild product tiles with new lang
+  buildProductTiles();
+  renderReceipt();
 }
 
-var fProdEl=qs('#fProduct'),fQtyEl=qs('#fQty'),fDelEl=qs('#fDelivery');
-if(fProdEl) fProdEl.addEventListener('change',updatePreview);
-if(fQtyEl)  fQtyEl.addEventListener('input',updatePreview);
-if(fDelEl)  fDelEl.addEventListener('change',updatePreview);
-
-function vField(id) {
-  var el=qs('#'+id), fg=qs('#fg-'+id.replace('f','').toLowerCase());
-  if(!el) return true;
-  var val=el.value.trim(), ok=true;
-  if(el.required&&!val) ok=false;
-  else if(id==='fPhone'&&val) ok=/^\+?255[0-9]{9}$/.test(val.replace(/\s/g,''));
-  else if(id==='fQty'&&val) { var n=parseInt(val); ok=(n>=1&&n<=500); }
-  if(fg) fg.classList.toggle('has-error',!ok);
-  return ok;
+var langBtn = qs('#langBtn'), langDrop = qs('#langDropdown');
+if(langBtn) {
+  langBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var open = langDrop.classList.toggle('open');
+    langBtn.setAttribute('aria-expanded', String(open));
+  });
 }
-
-['fName','fPhone','fProduct','fQty'].forEach(function(id) {
-  var el=qs('#'+id); if(!el) return;
-  el.addEventListener('blur',function(){vField(id);});
-  el.addEventListener('input',function(){
-    var fg=qs('#fg-'+id.replace('f','').toLowerCase());
-    if(fg&&fg.classList.contains('has-error')) vField(id);
+document.addEventListener('click', function() { if(langDrop) langDrop.classList.remove('open'); });
+qsa('.lang-opt').forEach(function(o) {
+  o.addEventListener('click', function(e) {
+    e.stopPropagation();
+    applyLang(o.dataset.lang);
+    if(langDrop) langDrop.classList.remove('open');
   });
 });
 
-var orderForm=qs('#orderForm');
-if(orderForm) {
-  orderForm.addEventListener('submit',function(e){
-    e.preventDefault();
-    var valid=true;
-    ['fName','fPhone','fProduct','fQty'].forEach(function(id){if(!vField(id))valid=false;});
-    if(!valid){var fe=orderForm.querySelector('.form-group.has-error');if(fe)fe.scrollIntoView({behavior:'smooth',block:'center'});return;}
+/* ═══════════════════════════════════════
+   MULTI-ITEM CART ORDER SYSTEM
+═══════════════════════════════════════ */
+var CATALOG = {
+  'turkey-local':   {price:0,      icon:'🦃', color:'#116845'},
+  'turkey-improved':{price:100000, icon:'🦃', color:'#0b5d3b'},
+  'turkey-premium': {price:0,      icon:'👑', color:'#7a5c10'},
+  'chicken':        {price:20000,  icon:'🐔', color:'#1a8a5a'},
+  'eggs':           {price:5000,   icon:'🥚', color:'#a3821a'}
+};
+var DCOST = {pickup:0, dar:5000, nationwide:-1};
+// cart: { key: qty }
+var cart = {};
+// generate order number once per session
+var sessionOrderNum = 'NICOPOULTRY-' + (100000 + Math.floor(Math.random() * 899999));
 
-    var name=qs('#fName').value.trim(), phone=qs('#fPhone').value.trim();
-    var pk=qs('#fProduct').value, qty=parseInt(qs('#fQty').value);
-    var dk=qs('#fDelivery').value, notes=qs('#fNotes').value.trim();
-    var prod=PRICES[pk], unit=prod.price, dc=DCOST[dk];
-    var sub=(unit>0)?unit*qty:0, grandAmt=(dc===-1||unit===0)?null:sub+dc;
-    var grand=grandAmt!==null?fmtTZS(grandAmt):'To be quoted';
+function t(key) { return I18N[currentLang][key] || I18N['en'][key] || key; }
+function prodName(key) { var p=I18N[currentLang].products[key]; return p?p.name:(I18N['en'].products[key]||{}).name||key; }
+function prodWeight(key){ var p=I18N[currentLang].products[key]; return p?p.weight:(I18N['en'].products[key]||{}).weight||''; }
 
-    var delLabel={pickup:'Farm Pickup (Free)',dar:'Dar es Salaam Delivery (+TZS 5,000)',nationwide:'Nationwide Shipping (Quote Required)'}[dk];
-    var now=new Date();
-    var dateStr=now.toLocaleDateString('en-TZ',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-    var timeStr=now.toLocaleTimeString('en-TZ',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
-    var orderRef='NPE-'+now.getFullYear()+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+String(now.getHours()).padStart(2,'0')+String(now.getMinutes()).padStart(2,'0');
-    var status=(unit===0||dc===-1)?'Awaiting Confirmation':'Ready to Process';
-    var bulkNote=(qty>=10)?' *BULK DISCOUNT APPLIES*':'';
+/* ── build product tiles ── */
+function buildProductTiles() {
+  var grid = qs('#productPickerGrid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  Object.keys(CATALOG).forEach(function(key) {
+    var c = CATALOG[key];
+    var inCart = !!cart[key];
+    var priceStr = c.price > 0 ? fmtTZS(c.price) : '<span class="pt-price quote">Contact for Quote</span>';
+    var tile = document.createElement('div');
+    tile.className = 'product-tile' + (inCart ? ' selected' : '');
+    tile.dataset.key = key;
+    tile.innerHTML =
+      '<div class="pt-check"><i class="fas fa-check"></i></div>' +
+      '<div class="pt-icon">' + c.icon + '</div>' +
+      '<div class="pt-name">' + prodName(key) + '</div>' +
+      '<div class="pt-weight">' + prodWeight(key) + '</div>' +
+      (c.price > 0 ? '<div class="pt-price">' + fmtTZS(c.price) + '</div>' : '<div class="pt-price quote">Contact for Quote</div>');
+    tile.addEventListener('click', function() { toggleProduct(key); });
+    grid.appendChild(tile);
+  });
+}
 
-    var lines=[
-      '╔══════════════════════════╗',
-      '  *NICO POULTRY & EGGS LTD*',
-      ' Farm Fresh - Dar es Salaam',
-      '╚══════════════════════════╝','',
-      '*ORDER REFERENCE: '+orderRef+'*',
-      '📅 Date: '+dateStr,
-      '🕐 Time: '+timeStr,
-      '📌 Status: '+status,'',
-      '┄┄┄ 👤 CUSTOMER DETAILS ┄┄┄',
-      '• *Name:*    '+name,
-      '• *Phone:*   '+phone,'',
-      '┄┄┄ 🛒 ORDER DETAILS ┄┄┄┄┄',
-      '• *Product:*  '+prod.label,
-      '• *Size:*     '+prod.weight,
-      '• *Quantity:* '+qty+' '+(pk==='eggs'?'egg(s)':'Turkey/Chicken(s)')+bulkNote,'',
-      '┄┄┄ 💰 PRICING SUMMARY ┄┄┄┄',
-      '• *Unit Price:* '+(unit>0?fmtTZS(unit):'Quote required'),
-      '• *Subtotal:*   '+(unit>0?fmtTZS(sub):'Quote required'),
-      '• *Delivery:*   '+(dc===0?'Free':dc>0?fmtTZS(dc):'Quote required'),'',
-      '💵 *GRAND TOTAL: '+grand+'*','',
-      '┄┄┄ 🚚 DELIVERY METHOD ┄┄┄┄',
-      '• '+delLabel
-    ];
-    if(notes){lines.push('');lines.push('┄┄┄ 📝 SPECIAL INSTRUCTIONS ┄┄');lines.push(notes);}
-    lines=lines.concat(['','══════════════════════════════',
+function toggleProduct(key) {
+  if(cart[key]) {
+    // already in cart — just highlight, don't remove (user can remove via cart)
+    var el = qs('[data-key="'+key+'"]');
+    if(el) { el.style.transform='scale(1.04)'; setTimeout(function(){el.style.transform='';},200); }
+  } else {
+    cart[key] = 1;
+    renderAll();
+  }
+}
+
+function changeQty(key, delta) {
+  if(!cart[key]) return;
+  var newQty = (cart[key] || 0) + delta;
+  if(newQty < 1) {
+    removeItem(key);
+  } else if(newQty > 500) {
+    newQty = 500;
+    cart[key] = newQty;
+    renderAll();
+  } else {
+    cart[key] = newQty;
+    renderAll();
+  }
+}
+
+function removeItem(key) {
+  delete cart[key];
+  renderAll();
+}
+
+function totalQty() {
+  return Object.values(cart).reduce(function(s,q){return s+q;},0);
+}
+
+function renderAll() {
+  buildProductTiles();
+  renderCartList();
+  renderReceipt();
+  updateBulkBadge();
+}
+
+/* ── render cart list ── */
+function renderCartList() {
+  var list = qs('#cartItemsList');
+  var section = qs('#cartSection');
+  if(!list || !section) return;
+  var keys = Object.keys(cart);
+  section.style.display = keys.length ? 'block' : 'none';
+  list.innerHTML = '';
+  keys.forEach(function(key) {
+    var c = CATALOG[key], qty = cart[key];
+    var sub = c.price > 0 ? fmtTZS(c.price * qty) : null;
+    var item = document.createElement('div');
+    item.className = 'cart-item';
+    item.innerHTML =
+      '<div class="ci-info">' +
+        '<div class="ci-name">' + c.icon + ' ' + prodName(key) + '</div>' +
+        '<div class="ci-weight">' + prodWeight(key) + '</div>' +
+        (c.price > 0 ? '<div class="ci-unit">' + fmtTZS(c.price) + ' / unit</div>' : '<div class="ci-unit" style="color:var(--g1)">Price on request</div>') +
+      '</div>' +
+      '<div class="ci-qty">' +
+        '<button class="qty-btn" data-act="minus" data-key="'+key+'"><i class="fas fa-minus" style="font-size:.65rem"></i></button>' +
+        '<span class="qty-num">'+qty+'</span>' +
+        '<button class="qty-btn" data-act="plus" data-key="'+key+'"><i class="fas fa-plus" style="font-size:.65rem"></i></button>' +
+      '</div>' +
+      '<div class="ci-subtotal' + (sub?'':' quote-item') + '">' + (sub||'Quote') + '</div>' +
+      '<button class="ci-remove" data-key="'+key+'" aria-label="Remove item"><i class="fas fa-times"></i></button>';
+    list.appendChild(item);
+  });
+  // bind qty and remove buttons
+  list.querySelectorAll('.qty-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      changeQty(btn.dataset.key, btn.dataset.act==='plus' ? 1 : -1);
+    });
+  });
+  list.querySelectorAll('.ci-remove').forEach(function(btn) {
+    btn.addEventListener('click', function() { removeItem(btn.dataset.key); });
+  });
+}
+
+/* ── render receipt ── */
+function renderReceipt() {
+  var now = new Date();
+  var dateStr = now.toLocaleDateString('en-TZ',{day:'2-digit',month:'short',year:'numeric'});
+  var name = (qs('#fName') && qs('#fName').value.trim()) || '—';
+  var phone = (qs('#fPhone') && qs('#fPhone').value.trim()) || '—';
+  var dk = qs('#fDelivery') ? qs('#fDelivery').value : 'pickup';
+  var dc = DCOST[dk] !== undefined ? DCOST[dk] : 0;
+
+  if(qs('#receiptDate')) qs('#receiptDate').textContent = dateStr;
+  if(qs('#receiptName')) qs('#receiptName').textContent = name;
+  if(qs('#receiptPhone')) qs('#receiptPhone').textContent = phone;
+  if(qs('#receiptOrderNum')) qs('#receiptOrderNum').textContent = sessionOrderNum;
+
+  // delivery label
+  var delLabels = { pickup: t('pickup'), dar: t('dar_delivery'), nationwide: t('nationwide') };
+  if(qs('#receiptDelivery')) qs('#receiptDelivery').textContent = delLabels[dk] || '';
+
+  var itemsEl = qs('#receiptItems');
+  if(!itemsEl) return;
+  var keys = Object.keys(cart);
+  if(!keys.length) {
+    itemsEl.innerHTML = '<div class="receipt-empty"><i class="fas fa-shopping-basket"></i><span>' + t('no_items') + '</span></div>';
+    if(qs('#receiptTotal')) { qs('#receiptTotal').textContent = 'TZS 0'; qs('#receiptTotal').className='receipt-total-amount'; }
+    return;
+  }
+  var subtotal = 0;
+  var hasQuote = false;
+  itemsEl.innerHTML = '';
+  keys.forEach(function(key) {
+    var c = CATALOG[key], qty = cart[key];
+    var lineTotal = c.price > 0 ? c.price * qty : null;
+    if(lineTotal !== null) subtotal += lineTotal; else hasQuote = true;
+    var row = document.createElement('div');
+    row.className = 'ri-row';
+    row.innerHTML =
+      '<div class="ri-left">' +
+        '<span class="ri-bullet"></span>' +
+        '<span class="ri-desc">' + prodName(key) + '</span>' +
+        '<span class="ri-x">× '+qty+'</span>' +
+        (c.price>0?'<span class="ri-unit">'+fmtTZS(c.price)+'/unit</span>':'') +
+      '</div>' +
+      '<span class="ri-total'+(lineTotal===null?' quote':'')+'">'+
+        (lineTotal!==null ? fmtTZS(lineTotal) : 'Quote') +
+      '</span>';
+    itemsEl.appendChild(row);
+  });
+
+  var grandTotal = qs('#receiptTotal');
+  if(!grandTotal) return;
+  if(dc === -1 || hasQuote) {
+    grandTotal.textContent = 'To be quoted';
+    grandTotal.className = 'receipt-total-amount quote';
+  } else {
+    var grand = subtotal + dc;
+    grandTotal.textContent = fmtTZS(grand);
+    grandTotal.className = 'receipt-total-amount';
+  }
+}
+
+function updateBulkBadge() {
+  var badge = qs('#bulkBadge');
+  if(badge) badge.classList.toggle('show', totalQty() >= 10);
+}
+
+/* ── live updates on name/phone/delivery ── */
+['fName','fPhone'].forEach(function(id) {
+  var el = qs('#'+id);
+  if(el) el.addEventListener('input', renderReceipt);
+});
+var fDelEl = qs('#fDelivery');
+if(fDelEl) fDelEl.addEventListener('change', renderReceipt);
+
+/* ── autofill / reorder ── */
+var STORAGE_KEY = 'nicoCustDetails';
+function loadSavedDetails() {
+  try {
+    var raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return null;
+    return JSON.parse(raw);
+  } catch(e) { return null; }
+}
+function saveDetails(name, phone) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify({name:name,phone:phone})); } catch(e){}
+}
+function showReorderBanner(saved) {
+  var banner = qs('#reorderBanner');
+  var msg = qs('#reorderMsg');
+  if(!banner) return;
+  if(msg) msg.textContent = 'Welcome back, ' + saved.name + '! Autofill your details?';
+  banner.classList.add('show');
+  var fillBtn = qs('#reorderFill');
+  if(fillBtn) {
+    fillBtn.addEventListener('click', function() {
+      var nameEl = qs('#fName'), phoneEl = qs('#fPhone');
+      if(nameEl) { nameEl.value = saved.name; nameEl.dispatchEvent(new Event('input')); }
+      if(phoneEl) { phoneEl.value = saved.phone; phoneEl.dispatchEvent(new Event('input')); }
+      banner.classList.remove('show');
+      showToast('Details filled in! ✓');
+    });
+  }
+}
+var savedCust = loadSavedDetails();
+if(savedCust && savedCust.name) { showReorderBanner(savedCust); }
+
+/* ── validation ── */
+function vField(id) {
+  var el = qs('#'+id);
+  var fgId = 'fg-' + id.slice(1).toLowerCase();
+  var fg = qs('#'+fgId);
+  if(!el) return true;
+  var val = el.value.trim(), ok = true;
+  if(el.required && !val) ok = false;
+  else if(id==='fPhone' && val) ok = /^\+?255[0-9]{9}$/.test(val.replace(/\s/g,''));
+  if(fg) fg.classList.toggle('has-error', !ok);
+  return ok;
+}
+['fName','fPhone'].forEach(function(id) {
+  var el = qs('#'+id); if(!el) return;
+  el.addEventListener('blur', function(){ vField(id); });
+  el.addEventListener('input', function(){
+    var fgId='fg-'+id.slice(1).toLowerCase();
+    var fg=qs('#'+fgId);
+    if(fg && fg.classList.contains('has-error')) vField(id);
+  });
+});
+
+/* ── submit ── */
+var submitBtn = qs('#submitBtn');
+if(submitBtn) {
+  submitBtn.addEventListener('click', function() {
+    var nameOk = vField('fName'), phoneOk = vField('fPhone');
+    if(!nameOk || !phoneOk) {
+      var fe = document.querySelector('.form-group.has-error');
+      if(fe) fe.scrollIntoView({behavior:'smooth',block:'center'});
+      return;
+    }
+    if(!Object.keys(cart).length) {
+      showToast('Please select at least one product ↑'); return;
+    }
+    var name = qs('#fName').value.trim(), phone = qs('#fPhone').value.trim();
+    var dk = qs('#fDelivery').value, notes = qs('#fNotes').value.trim();
+    var dc = DCOST[dk] !== undefined ? DCOST[dk] : 0;
+    var delLabel = {pickup:'Farm Pickup (Free)', dar:'Dar es Salaam Delivery (+TZS 5,000)', nationwide:'Nationwide Shipping (Quote Required)'}[dk];
+
+    var now = new Date();
+    var dateStr = now.toLocaleDateString('en-TZ',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    var timeStr = now.toLocaleTimeString('en-TZ',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+
+    var subtotal = 0, hasQuote = false;
+    var itemLines = [];
+    Object.keys(cart).forEach(function(key) {
+      var c = CATALOG[key], qty = cart[key];
+      var lineTotal = c.price > 0 ? c.price * qty : null;
+      if(lineTotal !== null) subtotal += lineTotal; else hasQuote = true;
+      var bulkMark = (qty >= 10) ? ' ✦BULK' : '';
+      itemLines.push('  • ' + prodName(key) + ' (' + prodWeight(key) + ') × ' + qty +
+        '  |  ' + (c.price>0?fmtTZS(c.price)+'/unit':'Quote') +
+        '  |  ' + (lineTotal!==null?fmtTZS(lineTotal):'Quote') + bulkMark);
+    });
+
+    var grandAmt = (dc===-1||hasQuote) ? null : subtotal + dc;
+    var grandStr = grandAmt !== null ? fmtTZS(grandAmt) : 'To be quoted';
+
+    var lines = [
+      '╔════════════════════════════╗',
+      '   *NICO POULTRY & EGGS LTD*',
+      '   Farm Fresh · Dar es Salaam',
+      '╚════════════════════════════╝','',
+      '🧾 *ORDER: ' + sessionOrderNum + '*',
+      '📅 Date: ' + dateStr,
+      '🕐 Time: ' + timeStr,'',
+      '┄┄┄ 👤 CUSTOMER ┄┄┄┄┄┄┄┄┄┄┄',
+      '• Name:   ' + name,
+      '• Phone:  ' + phone,'',
+      '┄┄┄ 🛒 ITEMS ORDERED ┄┄┄┄┄┄┄'
+    ].concat(itemLines).concat([
+      '',
+      '┄┄┄ 💰 PAYMENT SUMMARY ┄┄┄┄┄',
+      '• Subtotal:  ' + (hasQuote?'Includes items for quote':fmtTZS(subtotal)),
+      '• Delivery:  ' + (dc===0?'Free':dc>0?fmtTZS(dc):'Quote required'),
+      '',
+      '💵 *TOTAL: ' + grandStr + '*','',
+      '┄┄┄ 🚚 DELIVERY ┄┄┄┄┄┄┄┄┄┄┄',
+      '• ' + delLabel
+    ]);
+    if(notes){ lines.push(''); lines.push('┄┄┄ 📝 NOTES ┄┄┄┄┄┄┄┄┄┄┄┄┄┄'); lines.push(notes); }
+    lines = lines.concat([
+      '','════════════════════════════════',
       '🌿 *Thank you for choosing Nico Poultry!*',
       '_We will confirm within 15 minutes._','',
       '📞 +255 689 583 281',
       '📧 josephinenicodemus05@gmail.com',
       '📍 Tabata Sundown, Dar es Salaam',
-      '══════════════════════════════']);
+      '════════════════════════════════'
+    ]);
 
-    var btn=qs('#submitBtn');
-    btn.disabled=true;
-    btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
+    saveDetails(name, phone);
 
-    setTimeout(function(){
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
+    setTimeout(function() {
       window.open('https://wa.me/255689583281?text='+encodeURIComponent(lines.join('\n')),'_blank');
-      setTimeout(function(){
-        orderForm.reset();updatePreview();
-        btn.disabled=false;
-        btn.innerHTML='<i class="fab fa-whatsapp"></i> Send Order via WhatsApp';
-        showToast('Order '+orderRef+' sent! Nico Poultry will confirm via WhatsApp shortly. ✓');
-      },900);
-    },600);
+      setTimeout(function() {
+        cart = {};
+        renderAll();
+        qs('#fName').value = name;
+        qs('#fPhone').value = phone;
+        renderReceipt();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fab fa-whatsapp"></i> <span data-i18n="send_order">' + t('send_order') + '</span>';
+        showToast('Order ' + sessionOrderNum + ' sent! Nico Poultry will confirm shortly ✓');
+      }, 900);
+    }, 600);
   });
 }
 
+/* init */
+buildProductTiles();
+renderReceipt();
+applyLang(currentLang);
+
 /* Toast — uses CSS class instead of inline style for animation */
 function showToast(msg) {
-  var old=document.querySelector('.np-toast');if(old)old.remove();
-  var t=document.createElement('div');
-  t.className='np-toast';
-  t.setAttribute('role','alert');
-  t.textContent=msg;
-  document.body.appendChild(t);
-  requestAnimationFrame(function(){requestAnimationFrame(function(){t.classList.add('show');});});
-  setTimeout(function(){
-    t.classList.remove('show');
-    setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},400);
-  },5000);
-}
-
-})();
-</script>
-</body>
-</html>
+  var old=document.query
