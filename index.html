@@ -166,10 +166,6 @@ ul{list-style:none}
 .hero-stat:hover{background:rgba(255,255,255,.14);border-color:rgba(201,162,39,.55);transform:translateY(-4px)}
 .stat-n{display:block;font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#e8bb3e;line-height:1;margin-bottom:.3rem}
 .stat-l{font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.8);font-weight:600}
-.scroll-ind{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:.5rem;cursor:pointer;animation:fadeUp 1s .8s both}
-.scroll-ind .s-line{width:1px;height:44px;background:linear-gradient(to bottom,transparent,#c9a227);animation:scrollPulse 2s ease-in-out infinite}
-@keyframes scrollPulse{0%,100%{opacity:.7}50%{opacity:1}}
-.scroll-ind span{font-size:.58rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600}
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
 /* =====================================================
@@ -640,9 +636,6 @@ ul{list-style:none}
       <div class="hero-stat"><span class="stat-n" data-target="8">0</span><span class="stat-l" data-i18n="stat_years">Years of Excellence</span></div>
     </div>
   </div>
-  <div class="scroll-ind" id="scrollInd" role="button" tabindex="0" aria-label="Scroll down">
-    <div class="s-line"></div><span data-i18n="scroll">Scroll</span>
-  </div>
 </section>
 
 <!-- TICKER -->
@@ -773,7 +766,7 @@ ul{list-style:none}
           <div class="slide-caption">
             <div class="caption-text">
               <div class="caption-tag"><i class="fas fa-feather-alt"></i> <span data-i18n="slide2_tag">Growing Flock</span></div>
-              <div class="caption-title" data-i18n="slide2_title">Healthy Turkey Chick, Happy Farm</div>
+              <div class="caption-title" data-i18n="slide2_title">Healthy Birds, Happy Farm</div>
               <div class="caption-desc" data-i18n="slide2_desc">Our thriving flock of young turkeys raised with hormone-free feed in spacious, clean and ventilated pens.</div>
             </div>
             <div class="caption-badge"><span class="cb-n">100+</span><span class="cb-l" data-i18n="birds_raised">Turkey and Chicken Raised</span></div>
@@ -1152,13 +1145,6 @@ qsa('a[href^="#"]').forEach(function(a){
   });
 });
 
-/* ── scroll cue ── */
-var cue=qs('#scrollInd');
-if(cue){
-  cue.addEventListener('click',function(){window.scrollTo({top:window.innerHeight,behavior:'smooth'});});
-  cue.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();cue.click();}});
-}
-
 /* ── back to top ── */
 var bttBtn=qs('#bttBtn');
 if(bttBtn){
@@ -1217,7 +1203,6 @@ var T={
     hero_sub:'Supplying hormone-free turkeys, broiler chickens & farm-fresh eggs to households, restaurants and wholesale buyers across Tanzania — delivered fresh, every single day.',
     hero_cta_1:'Place Your Order', hero_cta_2:'Explore Products',
     stat_customers:'Happy Customers', stat_restaurants:'Restaurants Served', stat_fresh:'Fresh Guarantee', stat_years:'Years of Excellence',
-    scroll:'Scroll',
     /* ticker */
     tick_eggs:'Farm Fresh Eggs', tick_delivery:'24-Hour Delivery', tick_hormone:'Hormone Free',
     tick_quality:'Quality Certified', tick_location:'Dar es Salaam', tick_whatsapp:'Order via WhatsApp',
@@ -1245,7 +1230,7 @@ var T={
     slide1_tag:'Day-Old Chicks', slide1_title:'Warmth & Care from Day One',
     slide1_desc:'Our newly-hatched chicks bask under professional heat lamps — monitored 24/7 for optimal temperature and health.',
     monitored:'Monitored',
-    slide2_tag:'Growing Flock', slide2_title:'Healthy Turkey Chick, Happy Farm',
+    slide2_tag:'Growing Flock', slide2_title:'Healthy Birds, Happy Farm',
     slide2_desc:'Our thriving flock of young turkeys raised with hormone-free feed in spacious, clean and ventilated pens.',
     birds_raised:'Turkey and Chicken Raised',
     slide3_tag:'Premium Heritage Breed', slide3_title:'Restaurant-Grade Turkeys',
@@ -1330,7 +1315,6 @@ var T={
     hero_sub:'Tunasambaza bata mzinga, kuku wa broiler na mayai mapya kwa familia, migahawa na wanunuzi jumla Tanzania nzima — yakiwasilishwa mapya kila siku.',
     hero_cta_1:'Weka Oda Lako', hero_cta_2:'Angalia Bidhaa',
     stat_customers:'Wateja', stat_restaurants:'Migahawa Tunayohudumia', stat_fresh:'Uhakika wa Usafi', stat_years:'Miaka ya Ubora',
-    scroll:'Shuka',
     /* ticker */
     tick_eggs:'Mayai Mapya ya Shamba', tick_delivery:'Uwasilishaji Masaa 24', tick_hormone:'Bila Homoni',
     tick_quality:'Ubora Uliothibitishwa', tick_location:'Dar es Salaam', tick_whatsapp:'Agiza kwa WhatsApp',
@@ -1359,7 +1343,7 @@ var T={
     slide1_desc:'Vifaranga wetu wachanga wanaendelea kwa taa za joto za kitaalamu — vikifuatiliwa masaa 24 kwa joto na afya bora.',
     monitored:'Inafuatiliwa',
     slide2_tag:'Kundi Linalokua', slide2_title:'Bata mzinga Wenye Afya, Shamba Lenye Furaha',
-    slide2_desc:'Kundi letu la bata mzinga wachanga wanaofugwa bila homoni katika mazizi mapana, masafi na yenye hewa ya kutosha.',
+    slide2_desc:'Kundi letu la bata mzinga wachanga wanaolewa bila homoni katika mazizi mapana, masafi na yenye hewa ya kutosha.',
     birds_raised:'Bata mzinga Waliozaliwa',
     slide3_tag:'Kizazi Bora cha Asili', slide3_title:'Bata Mzinga wa Kiwango cha Mgahawa',
     slide3_desc:'Bata mzinga wetu wazima — waliolewa kiasili, bila homoni na wako tayari kwa jikoni yako au karamu ya sherehe.',
