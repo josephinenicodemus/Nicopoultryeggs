@@ -193,6 +193,419 @@ ul{list-style:none}
 .prod-price small{font-family:var(--sans);font-size:.7rem;color:var(--muted);font-weight:400;display:block;margin-top:2px}
 
 /* =====================================================
+   FARM GALLERY — NEW SECTION
+===================================================== */
+.gallery-section {
+  background: var(--dark);
+  padding: clamp(70px,9vw,120px) 0;
+  position: relative;
+  overflow: hidden;
+}
+.gallery-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(11,93,59,.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.gallery-section .sec-title h2 { color: #fff; }
+.gallery-section .sec-title p { color: rgba(255,255,255,.55); }
+.gallery-section .eyebrow { color: var(--g3); }
+
+/* ── Slideshow ── */
+.farm-slideshow {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.slideshow-stage {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,.6), 0 0 0 1px rgba(201,162,39,.18);
+  background: var(--dark2);
+  aspect-ratio: 16/9;
+}
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .9s cubic-bezier(0.4,0,0.2,1), transform 1.1s cubic-bezier(0.16,1,0.3,1);
+  transform: scale(1.04);
+  will-change: opacity, transform;
+}
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+.slide.prev {
+  opacity: 0;
+  transform: scale(1.06);
+  z-index: 1;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  image-rendering: high-quality;
+  display: block;
+}
+/* Ken Burns on active */
+.slide.active img {
+  animation: kenBurns 7s ease-in-out forwards;
+}
+@keyframes kenBurns {
+  from { transform: scale(1); transform-origin: 55% 45%; }
+  to   { transform: scale(1.07); transform-origin: 45% 55%; }
+}
+
+/* slide overlay */
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(4,31,19,.82) 0%,
+    rgba(4,31,19,.18) 45%,
+    transparent 70%
+  );
+  z-index: 3;
+}
+
+/* slide caption */
+.slide-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 4;
+  padding: clamp(1.5rem,4vw,2.5rem) clamp(1.5rem,4vw,2.8rem);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.caption-text { flex: 1; }
+.caption-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--g3);
+  margin-bottom: .5rem;
+}
+.caption-tag i { font-size: .7rem; }
+.caption-title {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem,3.5vw,2.2rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  text-shadow: 0 2px 20px rgba(0,0,0,.5);
+  margin-bottom: .35rem;
+}
+.caption-desc {
+  font-size: clamp(.78rem,1.5vw,.92rem);
+  color: rgba(255,255,255,.72);
+  line-height: 1.6;
+}
+.caption-badge {
+  flex-shrink: 0;
+  background: rgba(201,162,39,.18);
+  border: 1.5px solid rgba(201,162,39,.4);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: .7rem 1rem;
+  text-align: center;
+  min-width: 80px;
+  display: none;
+}
+@media(min-width:600px){ .caption-badge { display: block; } }
+.cb-n {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--g3);
+  line-height: 1;
+  display: block;
+}
+.cb-l {
+  font-size: .55rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-top: 2px;
+}
+
+/* slide counter pill */
+.slide-counter {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  z-index: 5;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--r5);
+  padding: .38rem .9rem;
+  font-size: .72rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.85);
+  letter-spacing: 1.5px;
+}
+
+/* nav arrows */
+.slide-prev,
+.slide-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.1);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255,255,255,.2);
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .3s var(--t1);
+}
+.slide-prev { left: 1.2rem; }
+.slide-next { right: 1.2rem; }
+.slide-prev:hover,
+.slide-next:hover {
+  background: var(--g2);
+  border-color: var(--g2);
+  color: var(--dark2);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: var(--sgold);
+}
+
+/* dots */
+.slide-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  margin-top: 1.6rem;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.25);
+  border: 1.5px solid rgba(255,255,255,.15);
+  cursor: pointer;
+  transition: all .35s var(--t1);
+  padding: 0;
+}
+.dot.active {
+  background: var(--g2);
+  border-color: var(--g2);
+  width: 28px;
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(201,162,39,.5);
+}
+
+/* progress bar */
+.slide-progress {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: rgba(255,255,255,.1);
+  z-index: 5;
+  overflow: hidden;
+  border-radius: 0 0 24px 24px;
+}
+.slide-progress-bar {
+  height: 100%;
+  background: var(--gg);
+  border-radius: 0 2px 2px 0;
+  width: 0%;
+  transition: width linear;
+}
+
+/* ── Thumbnail strip ── */
+.thumb-strip {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1rem;
+  margin-top: 1.2rem;
+  z-index: 1;
+  position: relative;
+}
+.thumb-item {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2.5px solid transparent;
+  transition: all .35s var(--t1);
+  aspect-ratio: 4/3;
+  background: var(--dark2);
+}
+.thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s var(--t1);
+}
+.thumb-item:hover img { transform: scale(1.08); }
+.thumb-item.active {
+  border-color: var(--g2);
+  box-shadow: 0 0 0 3px rgba(201,162,39,.25), var(--s3);
+}
+.thumb-item.active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(201,162,39,.08);
+  pointer-events: none;
+}
+.thumb-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: .5rem .75rem;
+  background: linear-gradient(to top, rgba(4,31,19,.85), transparent);
+  font-size: .68rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.9);
+  letter-spacing: .5px;
+}
+
+/* gallery stats row */
+.gallery-stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+  z-index: 1;
+  position: relative;
+}
+.gstat {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(201,162,39,.15);
+  border-radius: 16px;
+  padding: 1.3rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all .3s var(--t2);
+}
+.gstat:hover {
+  background: rgba(201,162,39,.07);
+  border-color: rgba(201,162,39,.35);
+  transform: translateY(-3px);
+}
+.gstat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(201,162,39,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--g3);
+  flex-shrink: 0;
+}
+.gstat-label {
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  margin-bottom: .2rem;
+}
+.gstat-val {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+/* lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(0,0,0,.92);
+  backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s var(--t2);
+}
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.lightbox-img-wrap {
+  max-width: min(1200px,92vw);
+  max-height: 88vh;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0,0,0,.8), 0 0 0 1px rgba(201,162,39,.2);
+  transform: scale(.92);
+  transition: transform .4s var(--t1);
+}
+.lightbox.open .lightbox-img-wrap {
+  transform: scale(1);
+}
+.lightbox-img-wrap img {
+  max-width: 100%;
+  max-height: 88vh;
+  object-fit: contain;
+  display: block;
+}
+.lb-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.1);
+  border: 1.5px solid rgba(255,255,255,.2);
+  color: #fff;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all .3s;
+}
+.lb-close:hover { background: #e53e3e; border-color: #e53e3e; transform: rotate(90deg); }
+
+/* responsive gallery */
+@media(max-width:768px) {
+  .slideshow-stage { aspect-ratio: 4/3; }
+  .thumb-strip { gap: .6rem; }
+  .gallery-stats { grid-template-columns: 1fr; gap: .75rem; }
+  .slide-prev, .slide-next { width: 40px; height: 40px; font-size: .85rem; }
+}
+@media(max-width:480px) {
+  .slideshow-stage { aspect-ratio: 1/1; }
+  .caption-title { font-size: 1.1rem; }
+  .thumb-strip { grid-template-columns: repeat(3,1fr); gap: .4rem; }
+  .thumb-label { font-size: .6rem; }
+}
+
+/* =====================================================
    ABOUT
 ===================================================== */
 .about-section{background:var(--ivory);overflow:hidden}
@@ -454,7 +867,7 @@ ul{list-style:none}
       <a href="#products" class="btn btn-ghost btn-lg"><i class="fas fa-feather-alt"></i> Explore Products</a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><span class="stat-n" data-target="500">0</span><span class="stat-l">Happy Customers</span></div>
+      <div class="hero-stat"><span class="stat-n" data-target="100">0</span><span class="stat-l">Happy Customers</span></div>
       <div class="hero-stat"><span class="stat-n" data-target="10">0</span><span class="stat-l">Restaurants Served</span></div>
       <div class="hero-stat"><span class="stat-n">100%</span><span class="stat-l">Fresh Guarantee</span></div>
       <div class="hero-stat"><span class="stat-n" data-target="8">0</span><span class="stat-l">Years of Excellence</span></div>
@@ -559,6 +972,145 @@ ul{list-style:none}
     </div>
   </div>
 </section>
+
+<!-- ===== FARM GALLERY ===== -->
+<section id="gallery" class="gallery-section">
+  <div class="container">
+    <div class="sec-title reveal">
+      <div class="eyebrow">Inside Our Farm</div>
+      <h2>From Our Farm to Your Table</h2>
+      <p>Step inside Nico Poultry &amp; Eggs Ltd &mdash; where every Turkey and Chicken is raised with love, space and the highest care standards in Tanzania.</p>
+    </div>
+
+    <div class="farm-slideshow reveal">
+      <!-- Main stage -->
+      <div class="slideshow-stage" id="slideshowStage">
+
+        <!-- Slide 1 — Wadogo (chicks under heat lamp) -->
+        <div class="slide active" id="slide-0">
+          <img src="wadogo.jpeg"
+               alt="Young turkey chicks under heat lamp at Nico Poultry Farm"
+               loading="eager"
+               decoding="async">
+          <div class="slide-overlay"></div>
+          <div class="slide-caption">
+            <div class="caption-text">
+              <div class="caption-tag"><i class="fas fa-fire"></i> Day-Old Chicks</div>
+              <div class="caption-title">Warmth &amp; Care from Day One</div>
+              <div class="caption-desc">Our newly-hatched chicks bask under professional heat lamps &mdash; monitored 24/7 for optimal temperature and health.</div>
+            </div>
+            <div class="caption-badge">
+              <span class="cb-n">24/7</span>
+              <span class="cb-l">Monitored</span>
+            </div>
+          </div>
+          <div class="slide-counter" id="slideCounter">1 / 3</div>
+          <div class="slide-progress"><div class="slide-progress-bar" id="progressBar"></div></div>
+          <button class="slide-prev" id="slidePrev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+          <button class="slide-next" id="slideNext" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <!-- Slide 2 — Vifaranga (young birds in pen) -->
+        <div class="slide" id="slide-1">
+          <img src="Vifaranga.jpeg"
+               alt="Young turkey flock growing strong at Nico Poultry Farm"
+               loading="lazy"
+               decoding="async">
+          <div class="slide-overlay"></div>
+          <div class="slide-caption">
+            <div class="caption-text">
+              <div class="caption-tag"><i class="fas fa-feather-alt"></i> Growing Flock</div>
+              <div class="caption-title">Healthy Birds, Happy Farm</div>
+              <div class="caption-desc">Our thriving flock of young turkeys raised with hormone-free feed in spacious, clean and ventilated pens.</div>
+            </div>
+            <div class="caption-badge">
+              <span class="cb-n">500+</span>
+              <span class="cb-l">Birds Raised</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 — Turkey Picture (mature birds) -->
+        <div class="slide" id="slide-2">
+          <img src="Turkey Picture.jpeg"
+               alt="Mature heritage turkeys ready at Nico Poultry Farm Dar es Salaam"
+               loading="lazy"
+               decoding="async">
+          <div class="slide-overlay"></div>
+          <div class="slide-caption">
+            <div class="caption-text">
+              <div class="caption-tag"><i class="fas fa-crown"></i> Premium Heritage Breed</div>
+              <div class="caption-title">Restaurant-Grade Turkeys</div>
+              <div class="caption-desc">Our mature heritage turkeys — naturally reared, hormone-free and ready for your kitchen or celebration feast.</div>
+            </div>
+            <div class="caption-badge">
+              <span class="cb-n">15kg+</span>
+              <span class="cb-l">Premium Size</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /slideshow-stage -->
+
+      <!-- Dot navigation -->
+      <div class="slide-dots" id="slideDots" role="tablist" aria-label="Slideshow navigation">
+        <button class="dot active" data-slide="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+        <button class="dot" data-slide="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+        <button class="dot" data-slide="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+      </div>
+
+      <!-- Thumbnail strip -->
+      <div class="thumb-strip">
+        <div class="thumb-item active" data-slide="0" role="button" tabindex="0" aria-label="View slide 1">
+          <img src="wadogo.jpeg" alt="Chicks under heat lamp" loading="lazy">
+          <div class="thumb-label"><i class="fas fa-fire" style="color:var(--g3);margin-right:.3rem"></i>Day-Old Chicks</div>
+        </div>
+        <div class="thumb-item" data-slide="1" role="button" tabindex="0" aria-label="View slide 2">
+          <img src="Vifaranga.jpeg" alt="Growing turkey flock" loading="lazy">
+          <div class="thumb-label"><i class="fas fa-feather-alt" style="color:var(--g3);margin-right:.3rem"></i>Young Flock</div>
+        </div>
+        <div class="thumb-item" data-slide="2" role="button" tabindex="0" aria-label="View slide 3">
+          <img src="Turkey Picture.jpeg" alt="Mature heritage turkeys" loading="lazy">
+          <div class="thumb-label"><i class="fas fa-crown" style="color:var(--g3);margin-right:.3rem"></i>Premium Turkeys</div>
+        </div>
+      </div>
+
+      <!-- Farm stats row -->
+      <div class="gallery-stats">
+        <div class="gstat">
+          <div class="gstat-icon"><i class="fas fa-seedling"></i></div>
+          <div>
+            <div class="gstat-label">Farming Standard</div>
+            <div class="gstat-val">Open-Range &amp; Organic</div>
+          </div>
+        </div>
+        <div class="gstat">
+          <div class="gstat-icon"><i class="fas fa-ban"></i></div>
+          <div>
+            <div class="gstat-label">Zero Tolerance</div>
+            <div class="gstat-val">No Hormones · No Antibiotics</div>
+          </div>
+        </div>
+        <div class="gstat">
+          <div class="gstat-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <div class="gstat-label">Farm Location</div>
+            <div class="gstat-val">Tabata Sundown, Dar es Salaam</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /farm-slideshow -->
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+  <button class="lb-close" id="lbClose" aria-label="Close lightbox"><i class="fas fa-times"></i></button>
+  <div class="lightbox-img-wrap">
+    <img id="lbImg" src="" alt="">
+  </div>
+</div>
 
 <!-- ===== ABOUT ===== -->
 <section id="about" class="section about-section">
@@ -753,6 +1305,7 @@ ul{list-style:none}
           <ul class="foot-links">
             <li><a href="#products"><i class="fas fa-chevron-right"></i>Our Products</a></li>
             <li><a href="#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
+            <li><a href="#gallery"><i class="fas fa-chevron-right"></i>Farm Gallery</a></li>
             <li><a href="#prices"><i class="fas fa-chevron-right"></i>Pricing Guide</a></li>
             <li><a href="#location"><i class="fas fa-chevron-right"></i>Farm Location</a></li>
             <li><a href="#contact"><i class="fas fa-chevron-right"></i>Place an Order</a></li>
@@ -899,6 +1452,189 @@ window.addEventListener('scroll', function() {
       navAs.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+s.id);});
   });
 }, { passive:true });
+
+/* ═══════════════════════════════════════
+   FARM GALLERY SLIDESHOW
+═══════════════════════════════════════ */
+(function() {
+  var SLIDE_DURATION = 6000; // ms per slide
+  var totalSlides = 3;
+  var current = 0;
+  var autoTimer = null;
+  var progTimer = null;
+
+  var slides     = qsa('.slide');
+  var dots       = qsa('.dot');
+  var thumbs     = qsa('.thumb-item');
+  var counter    = qs('#slideCounter');
+  var progressBar= qs('#progressBar');
+  var prevBtn    = qs('#slidePrev');
+  var nextBtn    = qs('#slideNext');
+
+  function goTo(idx) {
+    if(idx === current) return;
+    slides[current].classList.remove('active');
+    slides[current].classList.add('prev');
+    dots[current].classList.remove('active');
+    dots[current].setAttribute('aria-selected','false');
+    thumbs[current].classList.remove('active');
+
+    current = (idx + totalSlides) % totalSlides;
+
+    slides[current].classList.add('active');
+    slides[current].classList.remove('prev');
+    dots[current].classList.add('active');
+    dots[current].setAttribute('aria-selected','true');
+    thumbs[current].classList.add('active');
+
+    if(counter) counter.textContent = (current+1) + ' / ' + totalSlides;
+
+    // restart prev class cleanup after transition
+    setTimeout(function() {
+      slides.forEach(function(s,i){ if(i!==current) s.classList.remove('prev'); });
+    }, 1100);
+
+    resetProgress();
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  /* progress bar */
+  function resetProgress() {
+    if(!progressBar) return;
+    clearTimeout(progTimer);
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        progressBar.style.transition = 'width ' + SLIDE_DURATION + 'ms linear';
+        progressBar.style.width = '100%';
+      });
+    });
+  }
+
+  /* auto-advance */
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(next, SLIDE_DURATION);
+  }
+  function stopAuto() {
+    if(autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  }
+
+  /* arrow buttons */
+  if(prevBtn) prevBtn.addEventListener('click', function() { stopAuto(); prev(); startAuto(); });
+  if(nextBtn) nextBtn.addEventListener('click', function() { stopAuto(); next(); startAuto(); });
+
+  /* dot clicks */
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      stopAuto();
+      goTo(parseInt(dot.dataset.slide, 10));
+      startAuto();
+    });
+  });
+
+  /* thumbnail clicks */
+  thumbs.forEach(function(thumb) {
+    thumb.addEventListener('click', function() {
+      stopAuto();
+      goTo(parseInt(thumb.dataset.slide, 10));
+      startAuto();
+    });
+    thumb.addEventListener('keydown', function(e) {
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();thumb.click();}
+    });
+  });
+
+  /* keyboard navigation */
+  document.addEventListener('keydown', function(e) {
+    var stage = qs('#slideshowStage');
+    if(!stage) return;
+    var rect = stage.getBoundingClientRect();
+    var inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if(!inView) return;
+    if(e.key==='ArrowLeft') { stopAuto(); prev(); startAuto(); }
+    if(e.key==='ArrowRight') { stopAuto(); next(); startAuto(); }
+  });
+
+  /* touch/swipe */
+  var touchStartX = 0;
+  var stage = qs('#slideshowStage');
+  if(stage) {
+    stage.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive:true });
+    stage.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].screenX - touchStartX;
+      if(Math.abs(dx) > 40) {
+        stopAuto();
+        if(dx < 0) next(); else prev();
+        startAuto();
+      }
+    }, { passive:true });
+  }
+
+  /* pause on hover */
+  if(stage) {
+    stage.addEventListener('mouseenter', function() {
+      stopAuto();
+      if(progressBar) { progressBar.style.transition = 'none'; }
+    });
+    stage.addEventListener('mouseleave', function() {
+      resetProgress();
+      startAuto();
+    });
+  }
+
+  /* lightbox on slide click */
+  var lightbox = qs('#lightbox');
+  var lbImg    = qs('#lbImg');
+  var lbClose  = qs('#lbClose');
+  if(stage && lightbox && lbImg) {
+    stage.addEventListener('click', function(e) {
+      if(e.target.closest('.slide-prev,.slide-next')) return;
+      var activeSlide = qs('.slide.active');
+      if(!activeSlide) return;
+      var img = activeSlide.querySelector('img');
+      if(!img) return;
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      stopAuto();
+    });
+  }
+  if(lbClose) {
+    lbClose.addEventListener('click', function() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      startAuto();
+    });
+  }
+  if(lightbox) {
+    lightbox.addEventListener('click', function(e) {
+      if(e.target === lightbox) {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+        startAuto();
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if(e.key==='Escape' && lightbox.classList.contains('open')) {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+        startAuto();
+      }
+    });
+  }
+
+  /* init */
+  resetProgress();
+  startAuto();
+
+})();
 
 /* ═══ ORDER FORM ═══ */
 var PRICES = {
