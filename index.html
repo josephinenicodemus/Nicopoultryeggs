@@ -153,9 +153,10 @@ ul{list-style:none}
 .orb-1{width:400px;height:400px;background:#1a8a5a;top:-80px;right:-80px;animation:orbFloat 8s ease-in-out infinite alternate}
 .orb-2{width:300px;height:300px;background:#c9a227;bottom:-40px;left:-60px;animation:orbFloat 11s ease-in-out infinite alternate-reverse}
 @keyframes orbFloat{from{transform:translate(0,0)}to{transform:translate(25px,18px)}}
-.hero-content{position:relative;z-index:2;text-align:center;max-width:980px;padding:2rem 1.5rem;width:100%}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#e8bb3e;margin-bottom:1.5rem;animation:fadeUp .8s .1s both}
-.hero-eyebrow span{width:36px;height:1px;background:#e8bb3e;display:block;opacity:.7}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:980px;padding:1rem 1.5rem 2rem;width:100%;display:flex;flex-direction:column;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.9rem;font-size:.68rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#e8bb3e;margin-bottom:1.6rem;animation:fadeUp .8s .1s both;white-space:nowrap}
+.hero-eyebrow .ey-line{width:36px;height:1px;background:#e8bb3e;display:block;opacity:.7;flex-shrink:0}
+.hero-eyebrow .ey-text{white-space:nowrap;flex-shrink:0}
 .hero-title{font-family:var(--serif);font-weight:800;line-height:1.08;font-size:clamp(2.5rem,7vw,5.5rem);color:#fff;margin-bottom:1.3rem;text-shadow:0 4px 32px rgba(0,0,0,.4);animation:fadeUp .9s .2s both}
 .hero-title em{font-style:italic;color:#ffffff}
 .hero-sub{font-size:clamp(.95rem,2vw,1.3rem);color:rgba(255,255,255,.88);max-width:700px;margin:0 auto 2.5rem;line-height:1.75;animation:fadeUp 1s .3s both}
@@ -621,8 +622,12 @@ ul{list-style:none}
   <div class="hero-orb orb-1" aria-hidden="true"></div>
   <div class="hero-orb orb-2" aria-hidden="true"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow"><span></span> <span data-i18n="hero_eyebrow">Dar es Salaam's Premier Farm</span> <span></span></div>
-    <h1 class="hero-title"><span data-i18n="hero_title_1">Premium</span> <em data-i18n="hero_title_em">Turkey</em> &amp; <span data-i18n="hero_title_2">Chicken</span><br><span data-i18n="hero_title_3">Supplier Tanzania</span></h1>
+    <div class="hero-eyebrow">
+      <span class="ey-line"></span>
+      <span class="ey-text" data-i18n="hero_eyebrow">Dar es Salaam's Premier Farm</span>
+      <span class="ey-line"></span>
+    </div>
+    <h1 class="hero-title" data-i18n="hero_title_full">Premium <em>Turkey</em> &amp; Chicken<br>Supplier Tanzania</h1>
     <p class="hero-sub" data-i18n="hero_sub">Supplying hormone-free turkeys, broiler chickens &amp; farm-fresh eggs to households, restaurants and wholesale buyers across Tanzania &mdash; delivered fresh, every single day.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn btn-gold btn-xl"><i class="fab fa-whatsapp"></i> <span data-i18n="hero_cta_1">Place Your Order</span></a>
@@ -897,7 +902,7 @@ ul{list-style:none}
         <div class="loc-items">
           <div class="loc-item"><div class="loc-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="loc-title" data-i18n="loc_address_label">Address</div><div class="loc-val" data-i18n="loc_address_val">Tabata Sundown, Dar es Salaam, Tanzania</div></div></div>
           <div class="loc-item"><div class="loc-ico"><i class="fas fa-phone-alt"></i></div><div><div class="loc-title" data-i18n="loc_phone_label">Direct Line</div><div class="loc-val"><a href="tel:+255689583281">+255 689 583 281</a></div></div></div>
-          <div class="loc-item"><div class="loc-ico"><i class="fas fa-envelope"></i></div><div><div class="loc-title" data-i18n="loc_email_label">Email</div><div class="loc-val"><a href="mailto:josephinenicodemus05@gmail.com">josephinenicodemus05@gmail.com</a></div></div></div>
+          <div class="loc-item"><div class="loc-ico"><i class="fas fa-envelope"></i></div><div><div class="loc-title" data-i18n="loc_email_label">Email</div><div class="loc-val"><a href="/cdn-cgi/l/email-protection#91fbfee2f4e1f9f8fff4fff8f2fef5f4fce4e2a1a4d1f6fcf0f8fdbff2fefc"><span class="__cf_email__" data-cfemail="a3c9ccd0c6d3cbcacdc6cdcac0ccc7c6ced6d09396e3c4cec2cacf8dc0ccce">[email&#160;protected]</span></a></div></div></div>
           <div class="loc-item"><div class="loc-ico"><i class="fas fa-truck"></i></div><div><div class="loc-title" data-i18n="loc_delivery_label">Delivery Areas</div><div class="loc-val" data-i18n="loc_delivery_val">Dar es Salaam Region &middot; Same-day delivery &middot; Nationwide shipping for bulk orders</div></div></div>
         </div>
         <div class="hours-table">
@@ -1021,7 +1026,7 @@ ul{list-style:none}
           <div class="foot-socials">
             <a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             <a href="https://www.instagram.com/nicodemus_moshi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:josephinenicodemus05@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="/cdn-cgi/l/email-protection#a1cbced2c4d1c9c8cfc4cfc8c2cec5c4ccd4d29194e1c6ccc0c8cd8fc2cecc" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
         <div>
@@ -1040,7 +1045,7 @@ ul{list-style:none}
           <div class="foot-contact">
             <div class="foot-ci"><i class="fas fa-phone-alt"></i><a href="tel:+255689686148">+255 689 686 148</a></div>
             <div class="foot-ci"><i class="fab fa-whatsapp"></i><a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer" data-i18n="wa_order_line">WhatsApp Order Line</a></div>
-            <div class="foot-ci"><i class="fas fa-envelope"></i><a href="mailto:josephinenicodemus05@gmail.com">josephinenicodemus05@gmail.com</a></div>
+            <div class="foot-ci"><i class="fas fa-envelope"></i><a href="/cdn-cgi/l/email-protection#bdd7d2ced8cdd5d4d3d8d3d4ded2d9d8d0c8ce8d88fddad0dcd4d193ded2d0"><span class="__cf_email__" data-cfemail="8ae0e5f9effae2e3e4efe4e3e9e5eeefe7fff9babfcaede7ebe3e6a4e9e5e7">[email&#160;protected]</span></a></div>
             <div class="foot-ci"><i class="fas fa-map-marker-alt"></i><span>Tabata Sundown, Dar es Salaam</span></div>
           </div>
         </div>
@@ -1065,7 +1070,7 @@ ul{list-style:none}
 <a href="https://wa.me/255689583281?text=Hello%20Nico%20Poultry!%20I%20would%20like%20to%20place%20an%20order." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <button class="btt-btn" id="bttBtn" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
 'use strict';
 
@@ -1207,6 +1212,7 @@ var T={
     order_now:'Order Now', place_order_btn:'Place an Order',
     /* hero */
     hero_eyebrow:"Dar es Salaam's Premier Farm",
+    hero_title_full:'Premium <em>Turkey</em> &amp; Chicken<br>Supplier Tanzania',
     hero_title_1:'Premium', hero_title_em:'Turkey', hero_title_2:'Chicken', hero_title_3:'Supplier Tanzania',
     hero_sub:'Supplying hormone-free turkeys, broiler chickens & farm-fresh eggs to households, restaurants and wholesale buyers across Tanzania — delivered fresh, every single day.',
     hero_cta_1:'Place Your Order', hero_cta_2:'Explore Products',
@@ -1319,6 +1325,7 @@ var T={
     order_now:'Agiza Sasa', place_order_btn:'Weka Agizo',
     /* hero */
     hero_eyebrow:'Shamba Bora la Dar es Salaam',
+    hero_title_full:'Bata Mzinga &amp; <em>Kuku</em> Bora<br>Tanzania',
     hero_title_1:'Bata Mzinga na', hero_title_em:'Kuku', hero_title_2:'Bora', hero_title_3:'Tanzania',
     hero_sub:'Tunasambaza bata mzinga, kuku wa broiler na mayai mapya kwa familia, migahawa na wanunuzi jumla Tanzania nzima — yakiwasilishwa mapya kila siku.',
     hero_cta_1:'Weka Agizo Lako', hero_cta_2:'Angalia Bidhaa',
@@ -1327,7 +1334,7 @@ var T={
     /* ticker */
     tick_eggs:'Mayai Mapya ya Shamba', tick_delivery:'Uwasilishaji Masaa 24', tick_hormone:'Bila Homoni',
     tick_quality:'Ubora Uliothibitishwa', tick_location:'Dar es Salaam', tick_whatsapp:'Agiza kwa WhatsApp',
-    tick_years:'Miaka 8+ ya Ubora', tick_customers:'Wateja 100+',
+    tick_years:'Miaka 8+ ya Ubora', tick_customers:'Wateja 500+',
     /* features bar */
     feat_del_label:'Uwasilishaji', feat_del_val:'Ndani ya Masaa 24',
     feat_qual_label:'Ubora', feat_qual_val:'100% Safi Iliyothibitishwa',
@@ -1342,18 +1349,18 @@ var T={
     prod1_price:'Kuanzia TZS 15,000', prod_per_chicken:'kwa kuku',
     prod2_name:'Bata Mzinga Mkubwa wa Asili', prod2_desc:'Bata mzinga wa kizazi cha asili waliolewa kwa chakula cha kikaboni na nafasi kubwa. Bora kwa migahawa, hoteli na sherehe.',
     prod2_price:'Kuanzia TZS 85,000', prod_per_turkey:'kwa bata mzinga',
-    prod3_name:'Mayai Mapya ya Bata Mzinga', prod3_desc:'Mayai yenye virutubisho vingi kwa kupikia ladha, kuoka kitaalamu au kuatuliwa. Hukusanywa kila asubuhi.',
+    prod3_name:'Mayai Mapya ya Bata Mzinga', prod3_desc:'Mayai yenye virutubisho vingi kwa kupikia ladha, kuoka kitaalamu au kuatuliwa. Hukusanywa mapya kila asubuhi.',
     prod3_price:'TZS 5,000', prod_per_egg:'kwa yai',
     order_btn:'Agiza',
     /* gallery */
     gallery_eyebrow:'Ndani ya Shamba Letu', gallery_title:'Kutoka Shambani Hadi Mezani Kwako',
-    gallery_sub:'Ingia ndani ya Nico Poultry & Eggs Ltd — mahali ambapo kila Bata Mzinga na Kuku hufugwa kwa upendo, nafasi na viwango vya juu vya utunzaji Tanzania.',
+    gallery_sub:'Ingia ndani ya Nico Poultry & Eggs Ltd — mahali ambapo kila Bata Mzinga na Kuku hulewa kwa upendo, nafasi na viwango vya juu vya utunzaji Tanzania.',
     slide1_tag:'Vifaranga Wachanga', slide1_title:'Joto na Utunzaji Tangu Siku ya Kwanza',
     slide1_desc:'Vifaranga wetu wachanga wanaendelea kwa taa za joto za kitaalamu — vikifuatiliwa masaa 24 kwa joto na afya bora.',
     monitored:'Inafuatiliwa',
-    slide2_tag:'Kundi Linalokua', slide2_title:'Bata mzinga Wenye Afya, Shamba Lenye Furaha',
+    slide2_tag:'Kundi Linalokua', slide2_title:'Ndege Wenye Afya, Shamba Lenye Furaha',
     slide2_desc:'Kundi letu la bata mzinga wachanga wanaolewa bila homoni katika mazizi mapana, masafi na yenye hewa ya kutosha.',
-    birds_raised:'Bata mzinga Waliozaliwa',
+    birds_raised:'Ndege Waliozaliwa',
     slide3_tag:'Kizazi Bora cha Asili', slide3_title:'Bata Mzinga wa Kiwango cha Mgahawa',
     slide3_desc:'Bata mzinga wetu wazima — waliolewa kiasili, bila homoni na wako tayari kwa jikoni yako au karamu ya sherehe.',
     premium_size:'Ukubwa wa Juu',
@@ -1364,7 +1371,7 @@ var T={
     badge_years:'Miaka ya\nUbora',
     about_eyebrow:'Hadithi Yetu', about_title:'Shamba Linaloaminiwa Tanzania Tangu 2016',
     about_p1:'Ilianzishwa Tabata Sundown, Dar es Salaam, Nico Poultry & Eggs Ltd ilianza na lengo moja: kuwasilisha kuku waliozaliwa kwa uaminifu zaidi kwa familia na biashara za Tanzania.',
-    about_p2:'Leo tunahudumia wateja zaidi ya 100— kutoka kwa kaya binafsi hadi migahawa na hoteli bora za Dar es Salaam — kwa kujitolea sawa kwa ubora.',
+    about_p2:'Leo tunahudumia wateja zaidi ya 500 walioris — kutoka kwa kaya binafsi hadi migahawa na hoteli bora za Dar es Salaam — kwa kujitolea sawa kwa ubora.',
     about_f1_title:'Uliolewa kwa Uadilifu', about_f1_desc:'Bata Mzinga na Kuku wote hulewa uwanjani wazi kwa chakula cha kikaboni — bila homoni, bila antibiotiki, kamwe.',
     about_f2_title:'Uwasilishaji wa Baridi', about_f2_desc:'Usafiri unaodhibitiwa kwa joto huhakikisha kila bidhaa inafika safi na salama ndani ya masaa 24.',
     about_f3_title:'Ushirikiano wa Jumla', about_f3_desc:'Makubaliano maalum ya ugavi kwa hoteli, migahawa, maduka makubwa na wapishi wa matukio.',
@@ -1390,7 +1397,7 @@ var T={
     hours_weekday:'Jumatatu – Ijumaa', hours_sat:'Jumamosi', hours_sun:'Jumapili', hours_wa:'Maagizo ya WhatsApp',
     get_directions:'Pata Mwelekeo',
     /* order form */
-    order_eyebrow:'Anza Hapa', order_title:'Weka Oda yako',
+    order_eyebrow:'Anza Hapa', order_title:'Weka Agizo Lako',
     order_sub:'Chagua bidhaa zako, weka idadi, na tutathibitisha kupitia WhatsApp ndani ya dakika 15.',
     autofill_btn:'Jaza Maelezo',
     your_details:'Maelezo Yako', full_name:'Jina Kamili', phone_label:'Nambari ya Simu',
@@ -1412,7 +1419,7 @@ var T={
     cat_turkey_improved:'Bata Mzinga wa Kizazi Bora', cat_turkey_improved_w:'10 – 15 kg',
     cat_turkey_premium:'Bata Mzinga wa Maonyesho ya Juu', cat_turkey_premium_w:'15+ kg',
     cat_chicken:'Kuku wa Broiler', cat_chicken_w:'1.5 – 2.5 kg',
-    cat_eggs:'Mayai ya Bata Mzinga', cat_eggs_w:'kwa yai',
+    cat_eggs:'Mayai Mapya ya Bata Mzinga', cat_eggs_w:'kwa yai',
     cat_quote:'Piga Simu kwa Bei',
     /* footer */
     ft_fresh:'Mazao Safi', ft_hormone:'Bila Homoni', ft_ethical:'Uliolewa kwa Uadilifu', ft_quality:'Ubora wa Juu',
@@ -1429,6 +1436,9 @@ var T={
 var currentLang = localStorage.getItem('nicoLang') || 'en';
 
 /* apply language to whole site */
+/* Keys whose values contain HTML markup — use innerHTML not textContent */
+var HTML_KEYS = {hero_title_full:1};
+
 function applyLang(lang) {
   currentLang = lang;
   localStorage.setItem('nicoLang', lang);
@@ -1438,9 +1448,12 @@ function applyLang(lang) {
   /* update every data-i18n element */
   qsa('[data-i18n]').forEach(function(el){
     var k = el.getAttribute('data-i18n');
-    if(tr[k] !== undefined) el.textContent = tr[k];
+    if(tr[k] !== undefined){
+      if(HTML_KEYS[k]) el.innerHTML = tr[k];   /* rich HTML — e.g. hero title with <em> */
+      else el.textContent = tr[k];
+    }
   });
-  /* update select option text (options don't support data-i18n easily) */
+  /* update select option text */
   var sel = qs('#fDelivery');
   if(sel){
     sel.options[0].text = tr.opt_pickup;
@@ -1453,7 +1466,7 @@ function applyLang(lang) {
   var flagEl = qs('#langFlag'), labelEl = qs('#langLabel');
   if(flagEl) flagEl.textContent = flagMap[lang];
   if(labelEl) labelEl.textContent = labelMap[lang];
-  /* show only the other option */
+  /* smart dropdown: show only the other language */
   qsa('.lang-opt').forEach(function(o){
     o.style.display = (o.dataset.lang !== lang) ? 'flex' : 'none';
   });
