@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlRoot">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -75,6 +75,25 @@ ul{list-style:none}
 .nav-links a:hover,.nav-links a.active{color:var(--f2)}
 .nav-links a:hover::after,.nav-links a.active::after{transform:translateX(-50%) scaleX(1)}
 .nav-cta{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
+
+/* =====================================================
+   LANGUAGE SWITCHER
+===================================================== */
+.lang-switcher{position:relative;flex-shrink:0}
+.lang-btn{display:inline-flex;align-items:center;gap:.45rem;font-size:.8rem;font-weight:700;color:var(--dark3);background:var(--cream2);border:1.5px solid rgba(201,162,39,.3);border-radius:var(--r5);padding:.42rem .9rem;cursor:pointer;transition:all .25s var(--t2);font-family:var(--sans)}
+.lang-btn:hover{background:rgba(11,93,59,.08);border-color:var(--f2);color:var(--f2)}
+.lang-btn .lang-flag{font-size:1rem;line-height:1}
+.lang-btn .lang-chevron{font-size:.6rem;opacity:.6;transition:transform .25s var(--t2)}
+.lang-btn.open .lang-chevron{transform:rotate(180deg)}
+.lang-dropdown{position:absolute;top:calc(100% + .5rem);right:0;background:#fff;border:1.5px solid rgba(201,162,39,.25);border-radius:var(--r2);box-shadow:var(--s3);min-width:160px;overflow:hidden;opacity:0;pointer-events:none;transform:translateY(-6px);transition:all .25s var(--t1);z-index:600}
+.lang-dropdown.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.lang-opt{display:flex;align-items:center;gap:.65rem;padding:.75rem 1.1rem;font-size:.85rem;font-weight:600;color:var(--dark3);cursor:pointer;transition:background .15s,color .15s;border:none;background:none;width:100%;text-align:left;font-family:var(--sans)}
+.lang-opt:hover{background:rgba(11,93,59,.06);color:var(--f2)}
+.lang-opt .lang-flag{font-size:1.1rem}
+
+/* =====================================================
+   HAMBURGER
+===================================================== */
 .hamburger{display:none;flex-direction:column;gap:5px;width:40px;height:40px;align-items:center;justify-content:center;border-radius:var(--r1);background:var(--cream2);padding:.5rem;transition:background .2s}
 .hamburger:hover{background:rgba(11,93,59,.1)}
 .hamburger span{width:22px;height:2px;background:var(--dark);border-radius:var(--r5);transition:all .3s var(--t2)}
@@ -114,14 +133,23 @@ ul{list-style:none}
 .sec-title p{max-width:600px;margin:1.2rem auto 0;color:var(--muted);font-size:1rem;line-height:1.8}
 
 /* =====================================================
-   HERO
+   HERO  — image loaded via JS with CSS gradient fallback
 ===================================================== */
-.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:var(--nav-h);background:linear-gradient(160deg,#041f13 0%,#0b5d3b 45%,#116845 70%,#073d27 100%)}
-.hero-bg-pattern{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.06;background-image:radial-gradient(circle,#e8bb3e 1.5px,transparent 1.5px);background-size:32px 32px}
-.hero-bg-glow{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 75% 60% at 60% 40%,rgba(26,138,90,.35) 0%,transparent 65%),radial-gradient(ellipse 45% 50% at 20% 80%,rgba(201,162,39,.12) 0%,transparent 60%)}
-.hero-grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.3;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
+.hero{
+  min-height:100vh;min-height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;padding-top:var(--nav-h);
+  /* Pure-CSS fallback that always renders */
+  background:linear-gradient(160deg,#041f13 0%,#0b5d3b 45%,#116845 70%,#073d27 100%);
+}
+/* When JS loads the photo it adds this class */
+.hero.has-photo{
+  background:linear-gradient(160deg,rgba(4,31,19,.93) 0%,rgba(11,93,59,.87) 40%,rgba(0,0,0,.80) 100%),
+             var(--hero-img,none) center/cover no-repeat;
+}
+.hero-grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.25;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
 .hero::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 80% 55% at 50% 105%,rgba(11,93,59,.5) 0%,transparent 65%)}
-.hero-orb{position:absolute;border-radius:50%;pointer-events:none;z-index:1;filter:blur(70px);opacity:.14}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none;z-index:1;filter:blur(70px);opacity:.18}
 .orb-1{width:400px;height:400px;background:#1a8a5a;top:-80px;right:-80px;animation:orbFloat 8s ease-in-out infinite alternate}
 .orb-2{width:300px;height:300px;background:#c9a227;bottom:-40px;left:-60px;animation:orbFloat 11s ease-in-out infinite alternate-reverse}
 @keyframes orbFloat{from{transform:translate(0,0)}to{transform:translate(25px,18px)}}
@@ -129,7 +157,6 @@ ul{list-style:none}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-size:.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#e8bb3e;margin-bottom:1.5rem;animation:fadeUp .8s .1s both}
 .hero-eyebrow span{width:36px;height:1px;background:#e8bb3e;display:block;opacity:.7}
 .hero-title{font-family:var(--serif);font-weight:800;line-height:1.08;font-size:clamp(2.5rem,7vw,5.5rem);color:#fff;margin-bottom:1.3rem;text-shadow:0 4px 32px rgba(0,0,0,.4);animation:fadeUp .9s .2s both}
-/* [FIX] Turkey em tag: white instead of yellow */
 .hero-title em{font-style:italic;color:#ffffff}
 .hero-sub{font-size:clamp(.95rem,2vw,1.3rem);color:rgba(255,255,255,.88);max-width:700px;margin:0 auto 2.5rem;line-height:1.75;animation:fadeUp 1s .3s both}
 .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;animation:fadeUp 1s .4s both}
@@ -195,417 +222,61 @@ ul{list-style:none}
 .prod-price small{font-family:var(--sans);font-size:.7rem;color:var(--muted);font-weight:400;display:block;margin-top:2px}
 
 /* =====================================================
-   FARM GALLERY — NEW SECTION
+   FARM GALLERY
 ===================================================== */
-.gallery-section {
-  background: var(--dark);
-  padding: clamp(70px,9vw,120px) 0;
-  position: relative;
-  overflow: hidden;
-}
-.gallery-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(11,93,59,.18) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-.gallery-section .sec-title h2 { color: #fff; }
-.gallery-section .sec-title p { color: rgba(255,255,255,.55); }
-.gallery-section .eyebrow { color: var(--g3); }
-
-/* ── Slideshow ── */
-.farm-slideshow {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.slideshow-stage {
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 40px 100px rgba(0,0,0,.6), 0 0 0 1px rgba(201,162,39,.18);
-  background: var(--dark2);
-  aspect-ratio: 16/9;
-}
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity .9s cubic-bezier(0.4,0,0.2,1), transform 1.1s cubic-bezier(0.16,1,0.3,1);
-  transform: scale(1.04);
-  will-change: opacity, transform;
-}
-.slide.active {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 2;
-}
-.slide.prev {
-  opacity: 0;
-  transform: scale(1.06);
-  z-index: 1;
-}
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  image-rendering: high-quality;
-  display: block;
-}
-/* Ken Burns on active */
-.slide.active img {
-  animation: kenBurns 7s ease-in-out forwards;
-}
-@keyframes kenBurns {
-  from { transform: scale(1); transform-origin: 55% 45%; }
-  to   { transform: scale(1.07); transform-origin: 45% 55%; }
-}
-
-/* slide overlay */
-.slide-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(4,31,19,.82) 0%,
-    rgba(4,31,19,.18) 45%,
-    transparent 70%
-  );
-  z-index: 3;
-}
-
-/* slide caption */
-.slide-caption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  z-index: 4;
-  padding: clamp(1.5rem,4vw,2.5rem) clamp(1.5rem,4vw,2.8rem);
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.caption-text { flex: 1; }
-.caption-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: .45rem;
-  font-size: .62rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--g3);
-  margin-bottom: .5rem;
-}
-.caption-tag i { font-size: .7rem; }
-.caption-title {
-  font-family: var(--serif);
-  font-size: clamp(1.3rem,3.5vw,2.2rem);
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.15;
-  text-shadow: 0 2px 20px rgba(0,0,0,.5);
-  margin-bottom: .35rem;
-}
-.caption-desc {
-  font-size: clamp(.78rem,1.5vw,.92rem);
-  color: rgba(255,255,255,.72);
-  line-height: 1.6;
-}
-.caption-badge {
-  flex-shrink: 0;
-  background: rgba(201,162,39,.18);
-  border: 1.5px solid rgba(201,162,39,.4);
-  backdrop-filter: blur(12px);
-  border-radius: 12px;
-  padding: .7rem 1rem;
-  text-align: center;
-  min-width: 80px;
-  display: none;
-}
-@media(min-width:600px){ .caption-badge { display: block; } }
-.cb-n {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--g3);
-  line-height: 1;
-  display: block;
-}
-.cb-l {
-  font-size: .55rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.6);
-  margin-top: 2px;
-}
-
-/* slide counter pill */
-.slide-counter {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.4rem;
-  z-index: 5;
-  background: rgba(0,0,0,.45);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: var(--r5);
-  padding: .38rem .9rem;
-  font-size: .72rem;
-  font-weight: 700;
-  color: rgba(255,255,255,.85);
-  letter-spacing: 1.5px;
-}
-
-/* nav arrows */
-.slide-prev,
-.slide-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.1);
-  backdrop-filter: blur(12px);
-  border: 1.5px solid rgba(255,255,255,.2);
-  color: #fff;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all .3s var(--t1);
-}
-.slide-prev { left: 1.2rem; }
-.slide-next { right: 1.2rem; }
-.slide-prev:hover,
-.slide-next:hover {
-  background: var(--g2);
-  border-color: var(--g2);
-  color: var(--dark2);
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: var(--sgold);
-}
-
-/* dots */
-.slide-dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .65rem;
-  margin-top: 1.6rem;
-}
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.25);
-  border: 1.5px solid rgba(255,255,255,.15);
-  cursor: pointer;
-  transition: all .35s var(--t1);
-  padding: 0;
-}
-.dot.active {
-  background: var(--g2);
-  border-color: var(--g2);
-  width: 28px;
-  border-radius: 4px;
-  box-shadow: 0 0 12px rgba(201,162,39,.5);
-}
-
-/* progress bar */
-.slide-progress {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: rgba(255,255,255,.1);
-  z-index: 5;
-  overflow: hidden;
-  border-radius: 0 0 24px 24px;
-}
-.slide-progress-bar {
-  height: 100%;
-  background: var(--gg);
-  border-radius: 0 2px 2px 0;
-  width: 0%;
-  transition: width linear;
-}
-
-/* ── Thumbnail strip ── */
-.thumb-strip {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 1rem;
-  margin-top: 1.2rem;
-  z-index: 1;
-  position: relative;
-}
-.thumb-item {
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  cursor: pointer;
-  border: 2.5px solid transparent;
-  transition: all .35s var(--t1);
-  aspect-ratio: 4/3;
-  background: var(--dark2);
-}
-.thumb-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .5s var(--t1);
-}
-.thumb-item:hover img { transform: scale(1.08); }
-.thumb-item.active {
-  border-color: var(--g2);
-  box-shadow: 0 0 0 3px rgba(201,162,39,.25), var(--s3);
-}
-.thumb-item.active::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(201,162,39,.08);
-  pointer-events: none;
-}
-.thumb-label {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: .5rem .75rem;
-  background: linear-gradient(to top, rgba(4,31,19,.85), transparent);
-  font-size: .68rem;
-  font-weight: 700;
-  color: rgba(255,255,255,.9);
-  letter-spacing: .5px;
-}
-
-/* gallery stats row */
-.gallery-stats {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 1rem;
-  margin-top: 2.5rem;
-  z-index: 1;
-  position: relative;
-}
-.gstat {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(201,162,39,.15);
-  border-radius: 16px;
-  padding: 1.3rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: all .3s var(--t2);
-}
-.gstat:hover {
-  background: rgba(201,162,39,.07);
-  border-color: rgba(201,162,39,.35);
-  transform: translateY(-3px);
-}
-.gstat-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: rgba(201,162,39,.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  color: var(--g3);
-  flex-shrink: 0;
-}
-.gstat-label {
-  font-size: .65rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.45);
-  margin-bottom: .2rem;
-}
-.gstat-val {
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1;
-}
-
-/* lightbox */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 900;
-  background: rgba(0,0,0,.92);
-  backdrop-filter: blur(18px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .35s var(--t2);
-}
-.lightbox.open {
-  opacity: 1;
-  pointer-events: all;
-}
-.lightbox-img-wrap {
-  max-width: min(1200px,92vw);
-  max-height: 88vh;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 40px 120px rgba(0,0,0,.8), 0 0 0 1px rgba(201,162,39,.2);
-  transform: scale(.92);
-  transition: transform .4s var(--t1);
-}
-.lightbox.open .lightbox-img-wrap {
-  transform: scale(1);
-}
-.lightbox-img-wrap img {
-  max-width: 100%;
-  max-height: 88vh;
-  object-fit: contain;
-  display: block;
-}
-.lb-close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.1);
-  border: 1.5px solid rgba(255,255,255,.2);
-  color: #fff;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all .3s;
-}
-.lb-close:hover { background: #e53e3e; border-color: #e53e3e; transform: rotate(90deg); }
-
-/* responsive gallery */
-@media(max-width:768px) {
-  .slideshow-stage { aspect-ratio: 4/3; }
-  .thumb-strip { gap: .6rem; }
-  .gallery-stats { grid-template-columns: 1fr; gap: .75rem; }
-  .slide-prev, .slide-next { width: 40px; height: 40px; font-size: .85rem; }
-}
-@media(max-width:480px) {
-  .slideshow-stage { aspect-ratio: 1/1; }
-  .caption-title { font-size: 1.1rem; }
-  .thumb-strip { grid-template-columns: repeat(3,1fr); gap: .4rem; }
-  .thumb-label { font-size: .6rem; }
-}
+.gallery-section{background:var(--dark);padding:clamp(70px,9vw,120px) 0;position:relative;overflow:hidden}
+.gallery-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(11,93,59,.18) 0%,transparent 70%);pointer-events:none;z-index:0}
+.gallery-section .sec-title h2{color:#fff}
+.gallery-section .sec-title p{color:rgba(255,255,255,.55)}
+.gallery-section .eyebrow{color:var(--g3)}
+.farm-slideshow{position:relative;z-index:1;max-width:1200px;margin:0 auto}
+.slideshow-stage{position:relative;border-radius:24px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 0 1px rgba(201,162,39,.18);background:var(--dark2);aspect-ratio:16/9}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .9s cubic-bezier(0.4,0,0.2,1),transform 1.1s cubic-bezier(0.16,1,0.3,1);transform:scale(1.04);will-change:opacity,transform}
+.slide.active{opacity:1;transform:scale(1);z-index:2}
+.slide.prev{opacity:0;transform:scale(1.06);z-index:1}
+.slide img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.slide.active img{animation:kenBurns 7s ease-in-out forwards}
+@keyframes kenBurns{from{transform:scale(1);transform-origin:55% 45%}to{transform:scale(1.07);transform-origin:45% 55%}}
+.slide-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,31,19,.82) 0%,rgba(4,31,19,.18) 45%,transparent 70%);z-index:3}
+.slide-caption{position:absolute;bottom:0;left:0;right:0;z-index:4;padding:clamp(1.5rem,4vw,2.5rem) clamp(1.5rem,4vw,2.8rem);display:flex;align-items:flex-end;justify-content:space-between;gap:1rem}
+.caption-text{flex:1}
+.caption-tag{display:inline-flex;align-items:center;gap:.45rem;font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--g3);margin-bottom:.5rem}
+.caption-title{font-family:var(--serif);font-size:clamp(1.3rem,3.5vw,2.2rem);font-weight:800;color:#fff;line-height:1.15;text-shadow:0 2px 20px rgba(0,0,0,.5);margin-bottom:.35rem}
+.caption-desc{font-size:clamp(.78rem,1.5vw,.92rem);color:rgba(255,255,255,.72);line-height:1.6}
+.caption-badge{flex-shrink:0;background:rgba(201,162,39,.18);border:1.5px solid rgba(201,162,39,.4);backdrop-filter:blur(12px);border-radius:12px;padding:.7rem 1rem;text-align:center;min-width:80px;display:none}
+@media(min-width:600px){.caption-badge{display:block}}
+.cb-n{font-family:var(--serif);font-size:1.5rem;font-weight:800;color:var(--g3);line-height:1;display:block}
+.cb-l{font-size:.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:2px}
+.slide-counter{position:absolute;top:1.2rem;right:1.4rem;z-index:5;background:rgba(0,0,0,.45);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:var(--r5);padding:.38rem .9rem;font-size:.72rem;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:1.5px}
+.slide-prev,.slide-next{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s var(--t1)}
+.slide-prev{left:1.2rem}
+.slide-next{right:1.2rem}
+.slide-prev:hover,.slide-next:hover{background:var(--g2);border-color:var(--g2);color:var(--dark2);transform:translateY(-50%) scale(1.1);box-shadow:var(--sgold)}
+.slide-dots{display:flex;align-items:center;justify-content:center;gap:.65rem;margin-top:1.6rem}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);border:1.5px solid rgba(255,255,255,.15);cursor:pointer;transition:all .35s var(--t1);padding:0}
+.dot.active{background:var(--g2);border-color:var(--g2);width:28px;border-radius:4px;box-shadow:0 0 12px rgba(201,162,39,.5)}
+.slide-progress{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.1);z-index:5;overflow:hidden;border-radius:0 0 24px 24px}
+.slide-progress-bar{height:100%;background:var(--gg);border-radius:0 2px 2px 0;width:0%;transition:width linear}
+.thumb-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.2rem;z-index:1;position:relative}
+.thumb-item{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;border:2.5px solid transparent;transition:all .35s var(--t1);aspect-ratio:4/3;background:var(--dark2)}
+.thumb-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--t1)}
+.thumb-item:hover img{transform:scale(1.08)}
+.thumb-item.active{border-color:var(--g2);box-shadow:0 0 0 3px rgba(201,162,39,.25),var(--s3)}
+.thumb-item.active::after{content:'';position:absolute;inset:0;background:rgba(201,162,39,.08);pointer-events:none}
+.thumb-label{position:absolute;bottom:0;left:0;right:0;padding:.5rem .75rem;background:linear-gradient(to top,rgba(4,31,19,.85),transparent);font-size:.68rem;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.5px}
+.gallery-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem;z-index:1;position:relative}
+.gstat{background:rgba(255,255,255,.05);border:1px solid rgba(201,162,39,.15);border-radius:16px;padding:1.3rem 1.5rem;display:flex;align-items:center;gap:1rem;transition:all .3s var(--t2)}
+.gstat:hover{background:rgba(201,162,39,.07);border-color:rgba(201,162,39,.35);transform:translateY(-3px)}
+.gstat-icon{width:44px;height:44px;border-radius:12px;background:rgba(201,162,39,.12);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--g3);flex-shrink:0}
+.gstat-label{font-size:.65rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.2rem}
+.gstat-val{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:#fff;line-height:1}
+.lightbox{position:fixed;inset:0;z-index:900;background:rgba(0,0,0,.92);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s var(--t2)}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox-img-wrap{max-width:min(1200px,92vw);max-height:88vh;border-radius:16px;overflow:hidden;box-shadow:0 40px 120px rgba(0,0,0,.8),0 0 0 1px rgba(201,162,39,.2);transform:scale(.92);transition:transform .4s var(--t1)}
+.lightbox.open .lightbox-img-wrap{transform:scale(1)}
+.lightbox-img-wrap img{max-width:100%;max-height:88vh;object-fit:contain;display:block}
+.lb-close{position:absolute;top:1.5rem;right:1.5rem;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);color:#fff;font-size:1.1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s}
+.lb-close:hover{background:#e53e3e;border-color:#e53e3e;transform:rotate(90deg)}
 
 /* =====================================================
    ABOUT
@@ -675,41 +346,17 @@ ul{list-style:none}
 .hours-time.open{font-weight:700;color:var(--f2)}
 
 /* =====================================================
-   LANGUAGE SWITCHER
-===================================================== */
-.lang-switcher{position:relative;flex-shrink:0}
-.lang-btn{display:inline-flex;align-items:center;gap:.45rem;font-size:.8rem;font-weight:700;color:var(--dark3);background:var(--cream2);border:1.5px solid rgba(201,162,39,.3);border-radius:var(--r5);padding:.42rem .9rem;cursor:pointer;transition:all .25s var(--t2);font-family:var(--sans)}
-.lang-btn:hover{background:rgba(11,93,59,.08);border-color:var(--f2);color:var(--f2)}
-.lang-btn .lang-flag{font-size:1rem;line-height:1}
-.lang-dropdown{position:absolute;top:calc(100% + .5rem);right:0;background:#fff;border:1.5px solid rgba(201,162,39,.25);border-radius:var(--r2);box-shadow:var(--s3);min-width:160px;overflow:hidden;opacity:0;pointer-events:none;transform:translateY(-6px);transition:all .25s var(--t1);z-index:600}
-.lang-dropdown.open{opacity:1;pointer-events:all;transform:translateY(0)}
-.lang-opt{display:flex;align-items:center;gap:.65rem;padding:.7rem 1rem;font-size:.84rem;font-weight:600;color:var(--dark3);cursor:pointer;transition:background .15s;border:none;background:none;width:100%;text-align:left;font-family:var(--sans)}
-.lang-opt:hover{background:rgba(11,93,59,.06);color:var(--f2)}
-.lang-opt.active{background:rgba(11,93,59,.07);color:var(--f2)}
-.lang-opt .lang-flag{font-size:1.1rem}
-/* chevron rotation when open */
-.lang-switcher .lang-btn .fa-chevron-down{transition:transform .25s var(--t2)}
-.lang-dropdown.open ~ * .fa-chevron-down,
-#langBtn[aria-expanded="true"] .fa-chevron-down{transform:rotate(180deg)}
-
-/* =====================================================
    ORDER FORM — MULTI-ITEM CART
 ===================================================== */
 .order-section{background:var(--ivory)}
 .order-wrap{max-width:960px;margin:0 auto;background:#fff;border-radius:24px;box-shadow:var(--s3);border:1px solid rgba(201,162,39,.15);position:relative;overflow:hidden}
 .order-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gg)}
-
-/* reorder banner */
 .reorder-banner{display:none;align-items:center;gap:.75rem;background:linear-gradient(135deg,rgba(11,93,59,.07),rgba(201,162,39,.07));border-bottom:1px solid rgba(201,162,39,.2);padding:1rem 2rem;font-size:.84rem;color:var(--f2);font-weight:600}
 .reorder-banner.show{display:flex}
 .reorder-banner i{color:var(--g2);font-size:1rem;flex-shrink:0}
-.reorder-banner button{margin-left:auto;font-size:.75rem;font-weight:700;color:var(--f2);background:rgba(11,93,59,.1);border:1px solid rgba(11,93,59,.2);border-radius:var(--r5);padding:.3rem .8rem;cursor:pointer;font-family:var(--sans);transition:all .2s}
-.reorder-banner button:hover{background:var(--f2);color:#fff}
-
+.reorder-banner .refill-btn{margin-left:auto;font-size:.75rem;font-weight:700;color:var(--f2);background:rgba(11,93,59,.1);border:1px solid rgba(11,93,59,.2);border-radius:var(--r5);padding:.3rem .8rem;cursor:pointer;font-family:var(--sans);transition:all .2s}
+.reorder-banner .refill-btn:hover{background:var(--f2);color:#fff}
 .order-body{padding:clamp(1.5rem,4vw,2.5rem)}
-
-/* ── customer info ── */
-.cust-section{margin-bottom:2rem}
 .section-label{display:flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--f2);margin-bottom:1.1rem}
 .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(11,93,59,.2),transparent)}
 .section-label i{color:var(--g2);font-size:.8rem}
@@ -725,16 +372,7 @@ ul{list-style:none}
 .form-error{font-size:.72rem;color:#e53e3e;display:none}
 .form-group.has-error .form-error{display:block}
 .form-group.has-error .form-input,.form-group.has-error .form-select{border-color:#e53e3e;box-shadow:0 0 0 3px rgba(229,62,62,.1)}
-
-/* ── product picker ── */
-.products-section-label{display:flex;align-items:center;gap:.6rem;font-size:.7rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--f2);margin-bottom:1.1rem}
-.products-section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(11,93,59,.2),transparent)}
-.products-section-label i{color:var(--g2);font-size:.8rem}
-
 .product-picker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.5rem}
-@media(max-width:680px){.product-picker-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:400px){.product-picker-grid{grid-template-columns:1fr}}
-
 .product-tile{border:2px solid var(--cream2);border-radius:16px;padding:1rem;cursor:pointer;transition:all .3s var(--t1);background:var(--cream);position:relative;display:flex;flex-direction:column;gap:.4rem;user-select:none}
 .product-tile:hover{border-color:rgba(11,93,59,.35);background:#fff;transform:translateY(-2px);box-shadow:var(--s2)}
 .product-tile.selected{border-color:var(--f2);background:rgba(11,93,59,.04);box-shadow:0 0 0 3px rgba(11,93,59,.1)}
@@ -745,13 +383,10 @@ ul{list-style:none}
 .pt-weight{font-size:.7rem;color:var(--muted);font-weight:500}
 .pt-price{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--f2);margin-top:.2rem}
 .pt-price.quote{font-family:var(--sans);font-size:.75rem;color:var(--g1)}
-
-/* ── cart items ── */
-.cart-items-list{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem;min-height:0}
+.cart-items-list{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem}
 .cart-item{background:var(--ivory);border:1.5px solid var(--cream2);border-radius:14px;padding:1rem 1.1rem;display:grid;grid-template-columns:1fr auto auto auto;align-items:center;gap:.85rem;transition:all .3s var(--t1);animation:cartSlideIn .3s var(--t1)}
 @keyframes cartSlideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 .cart-item:hover{border-color:rgba(11,93,59,.25);box-shadow:var(--s1)}
-.ci-info{}
 .ci-name{font-weight:700;font-size:.9rem;color:var(--dark)}
 .ci-weight{font-size:.72rem;color:var(--muted);margin-top:.1rem}
 .ci-unit{font-size:.78rem;color:var(--f3);font-weight:600;margin-top:.1rem}
@@ -763,23 +398,16 @@ ul{list-style:none}
 .ci-subtotal.quote-item{font-family:var(--sans);font-size:.78rem;color:var(--g1)}
 .ci-remove{width:30px;height:30px;border-radius:50%;background:rgba(229,62,62,.08);border:1px solid rgba(229,62,62,.2);color:#e53e3e;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.75rem;transition:all .2s;flex-shrink:0}
 .ci-remove:hover{background:#e53e3e;color:#fff;border-color:#e53e3e}
-
-/* empty cart */
 .cart-empty{text-align:center;padding:2rem;color:var(--muted);font-size:.9rem;border:2px dashed var(--cream2);border-radius:14px;background:var(--cream)}
 .cart-empty i{display:block;font-size:2rem;color:rgba(201,162,39,.4);margin-bottom:.6rem}
-
-/* ── order summary receipt ── */
 .order-receipt{background:linear-gradient(135deg,rgba(4,31,19,.97),rgba(7,61,39,.97));border-radius:18px;padding:1.6rem 1.8rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
 .order-receipt::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(201,162,39,.08);pointer-events:none}
 .receipt-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px dashed rgba(255,255,255,.12)}
 .receipt-title{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:.88rem;color:#e8bb3e;letter-spacing:.5px}
-.receipt-title i{font-size:.9rem}
 .receipt-order-num{font-size:.72rem;color:rgba(255,255,255,.5);font-weight:600;letter-spacing:1px}
-
 .receipt-meta{display:flex;gap:1.5rem;margin-bottom:1.2rem;flex-wrap:wrap}
 .receipt-meta-item{font-size:.75rem;color:rgba(255,255,255,.6)}
 .receipt-meta-item strong{color:rgba(255,255,255,.9);display:block;font-size:.82rem;margin-top:.1rem}
-
 .receipt-items{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.2rem}
 .ri-row{display:flex;align-items:center;justify-content:space-between;padding:.5rem .6rem;border-radius:8px;gap:.5rem}
 .ri-row:nth-child(odd){background:rgba(255,255,255,.04)}
@@ -790,43 +418,20 @@ ul{list-style:none}
 .ri-unit{font-size:.72rem;color:rgba(255,255,255,.45);margin-left:.4rem;flex-shrink:0}
 .ri-total{font-family:var(--serif);font-size:.95rem;font-weight:700;color:#e8bb3e;flex-shrink:0}
 .ri-total.quote{font-family:var(--sans);font-size:.75rem;color:var(--g3)}
-
-.receipt-divider{height:1px;background:rgba(255,255,255,.1);margin:.8rem 0;border:none;background:repeating-linear-gradient(90deg,transparent,transparent 6px,rgba(255,255,255,.12) 6px,rgba(255,255,255,.12) 12px)}
-
+.receipt-divider{height:1px;background:repeating-linear-gradient(90deg,transparent,transparent 6px,rgba(255,255,255,.12) 6px,rgba(255,255,255,.12) 12px);border:none;margin:.8rem 0}
 .receipt-delivery{display:flex;justify-content:space-between;font-size:.82rem;color:rgba(255,255,255,.65);padding:.3rem 0;margin-bottom:.6rem}
 .receipt-delivery span:last-child{font-weight:700;color:rgba(255,255,255,.85)}
-
 .receipt-total-row{display:flex;justify-content:space-between;align-items:center;padding:.9rem .8rem;background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.25);border-radius:10px;margin-top:.6rem}
 .receipt-total-label{font-size:.8rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.75)}
 .receipt-total-amount{font-family:var(--serif);font-size:1.5rem;font-weight:800;color:#e8bb3e;line-height:1}
 .receipt-total-amount.quote{font-family:var(--sans);font-size:1rem;color:var(--g3)}
-
 .receipt-empty{text-align:center;padding:1.5rem;color:rgba(255,255,255,.35);font-size:.86rem}
 .receipt-empty i{display:block;font-size:1.5rem;margin-bottom:.5rem;color:rgba(201,162,39,.25)}
-
-/* ── delivery + notes ── */
 .delivery-notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:1.5rem}
-@media(max-width:600px){.delivery-notes-grid{grid-template-columns:1fr}}
-
-/* ── submit row ── */
-.submit-row{display:flex;flex-direction:column;align-items:center;gap:.9rem}
-.submit-note{text-align:center;font-size:.77rem;color:var(--muted);max-width:440px;line-height:1.6}
-
-/* ── bulk note ── */
 .bulk-badge{display:none;align-items:center;gap:.5rem;background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.3);border-radius:var(--r5);padding:.4rem 1rem;font-size:.75rem;font-weight:700;color:var(--g0);margin-bottom:1rem}
 .bulk-badge.show{display:inline-flex}
-
-@media(max-width:768px){
-  .cart-item{grid-template-columns:1fr auto auto;grid-template-rows:auto auto}
-  .ci-subtotal{grid-column:2;grid-row:1}
-  .ci-remove{grid-column:3;grid-row:1}
-  .ci-qty{grid-column:1 / -1;grid-row:2}
-}
-@media(max-width:480px){
-  .product-picker-grid{grid-template-columns:repeat(2,1fr)}
-  .order-body{padding:1.2rem}
-  .order-receipt{padding:1.2rem}
-}
+.submit-row{display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.submit-note{text-align:center;font-size:.77rem;color:var(--muted);max-width:440px;line-height:1.6}
 
 /* =====================================================
    FOOTER
@@ -868,7 +473,7 @@ ul{list-style:none}
 .btt-btn:hover{transform:translateY(-4px);box-shadow:var(--s3)}
 
 /* =====================================================
-   REVEAL ANIMATIONS
+   REVEAL
 ===================================================== */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--t2),transform .6s var(--t2)}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -881,7 +486,7 @@ ul{list-style:none}
 .np-toast.show{transform:translateX(-50%) translateY(0)}
 
 /* =====================================================
-   RESPONSIVE — 1100px
+   RESPONSIVE
 ===================================================== */
 @media(max-width:1100px){
   .hero-stats{grid-template-columns:repeat(2,1fr)}
@@ -893,7 +498,6 @@ ul{list-style:none}
   .location-grid{grid-template-columns:1fr}
   .map-wrap{height:320px}
 }
-/* 768px */
 @media(max-width:768px){
   :root{--nav-h:64px}
   .nav-links{display:none}
@@ -910,8 +514,20 @@ ul{list-style:none}
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-bottom{flex-direction:column;text-align:center}
   .pricing-table th,.pricing-table td{padding:.85rem 1rem;font-size:.83rem}
+  .slideshow-stage{aspect-ratio:4/3}
+  .thumb-strip{gap:.6rem}
+  .gallery-stats{grid-template-columns:1fr;gap:.75rem}
+  .slide-prev,.slide-next{width:40px;height:40px;font-size:.85rem}
+  .delivery-notes-grid{grid-template-columns:1fr}
+  .cart-item{grid-template-columns:1fr auto auto;grid-template-rows:auto auto}
+  .ci-subtotal{grid-column:2;grid-row:1}
+  .ci-remove{grid-column:3;grid-row:1}
+  .ci-qty{grid-column:1 / -1;grid-row:2}
 }
-/* 480px */
+@media(max-width:600px){
+  .product-picker-grid{grid-template-columns:repeat(2,1fr)}
+  .lang-btn .lang-full-label{display:none}
+}
 @media(max-width:480px){
   :root{--nav-h:60px}
   .hero-stats{gap:.5rem}
@@ -925,6 +541,10 @@ ul{list-style:none}
   .pricing-card{overflow-x:auto}
   .pricing-table{min-width:440px}
   .location-grid{gap:1.5rem}
+  .slideshow-stage{aspect-ratio:1/1}
+  .caption-title{font-size:1.1rem}
+  .order-receipt{padding:1.2rem}
+  .product-picker-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:360px){
   .hero-title{font-size:2rem}
@@ -936,7 +556,7 @@ ul{list-style:none}
 <body>
 <a href="#main" class="skip">Skip to main content</a>
 
-<!-- HEADER -->
+<!-- ===== HEADER ===== -->
 <header class="site-header" id="siteHeader">
   <div class="container">
     <nav class="nav-inner" role="navigation" aria-label="Main navigation">
@@ -947,28 +567,32 @@ ul{list-style:none}
         </div>
         <div class="logo-text">
           <span class="logo-name">Nico Poultry &amp; Eggs Ltd</span>
-          <span class="logo-sub">Farm Fresh &middot; Dar es Salaam</span>
+          <span class="logo-sub" data-i18n="tagline">Farm Fresh &middot; Dar es Salaam</span>
         </div>
       </a>
       <ul class="nav-links" id="navLinks" role="list">
-        <li><a href="#products">Products</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#prices">Pricing</a></li>
-        <li><a href="#location">Location</a></li>
+        <li><a href="#products" data-i18n="nav_products">Products</a></li>
+        <li><a href="#about" data-i18n="nav_about">About</a></li>
+        <li><a href="#prices" data-i18n="nav_pricing">Pricing</a></li>
+        <li><a href="#location" data-i18n="nav_location">Location</a></li>
       </ul>
       <div class="nav-cta">
+        <!-- Language Switcher -->
         <div class="lang-switcher" id="langSwitcher">
-          <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Change language">
+          <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Change language">
             <span class="lang-flag" id="langFlag">🇬🇧</span>
-            <span id="langLabel">EN</span>
-            <i class="fas fa-chevron-down" style="font-size:.6rem;opacity:.6"></i>
+            <span class="lang-full-label" id="langLabel">EN</span>
+            <i class="fas fa-chevron-down lang-chevron"></i>
           </button>
-          <div class="lang-dropdown" id="langDropdown" role="menu">
-            <button class="lang-opt" data-lang="en" role="menuitem"><span class="lang-flag">🇬🇧</span> English</button>
-            <button class="lang-opt" data-lang="sw" role="menuitem"><span class="lang-flag">🇹🇿</span> Kiswahili</button>
+          <div class="lang-dropdown" id="langDropdown" role="listbox">
+            <button class="lang-opt" data-lang="en" role="option"><span class="lang-flag">🇬🇧</span> English</button>
+            <button class="lang-opt" data-lang="sw" role="option"><span class="lang-flag">🇹🇿</span> Kiswahili</button>
           </div>
         </div>
-        <a href="#contact" class="btn btn-forest btn-sm" id="navOrderBtn"><i class="fas fa-shopping-basket"></i> <span data-i18n="order_now">Order Now</span></a>
+        <a href="#contact" class="btn btn-forest btn-sm" id="navOrderBtn">
+          <i class="fas fa-shopping-basket"></i>
+          <span data-i18n="order_now">Order Now</span>
+        </a>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -979,61 +603,63 @@ ul{list-style:none}
 
 <!-- MOBILE MENU -->
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
-  <a href="#products" class="mob-link">Products</a>
-  <a href="#about" class="mob-link">About Us</a>
-  <a href="#prices" class="mob-link">Pricing</a>
-  <a href="#location" class="mob-link">Location</a>
-  <a href="#contact" class="btn btn-forest btn-lg mob-cta"><i class="fas fa-shopping-basket"></i> Place an Order</a>
+  <a href="#products" class="mob-link" data-i18n="nav_products">Products</a>
+  <a href="#about" class="mob-link" data-i18n="nav_about">About Us</a>
+  <a href="#prices" class="mob-link" data-i18n="nav_pricing">Pricing</a>
+  <a href="#location" class="mob-link" data-i18n="nav_location">Location</a>
+  <a href="#contact" class="btn btn-forest btn-lg mob-cta">
+    <i class="fas fa-shopping-basket"></i>
+    <span data-i18n="place_order_btn">Place an Order</span>
+  </a>
 </nav>
 
 <main id="main">
 
 <!-- ===== HERO ===== -->
-<section class="hero" aria-label="Hero">
-  <div class="hero-bg-pattern" aria-hidden="true"></div>
-  <div class="hero-bg-glow" aria-hidden="true"></div>
+<section class="hero" id="heroSection" aria-label="Hero">
   <div class="hero-grain" aria-hidden="true"></div>
   <div class="hero-orb orb-1" aria-hidden="true"></div>
   <div class="hero-orb orb-2" aria-hidden="true"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow"><span></span> Dar es Salaam's Premier Farm <span></span></div>
-    <h1 class="hero-title">Premium <em>Turkey</em> &amp; Chicken<br>Supplier Tanzania</h1>
-    <p class="hero-sub">Supplying hormone-free turkeys, broiler chickens &amp; farm-fresh eggs to households, restaurants and wholesale buyers across Tanzania &mdash; delivered fresh, every single day.</p>
+    <div class="hero-eyebrow"><span></span> <span data-i18n="hero_eyebrow">Dar es Salaam's Premier Farm</span> <span></span></div>
+    <h1 class="hero-title"><span data-i18n="hero_title_1">Premium</span> <em data-i18n="hero_title_em">Turkey</em> &amp; <span data-i18n="hero_title_2">Chicken</span><br><span data-i18n="hero_title_3">Supplier Tanzania</span></h1>
+    <p class="hero-sub" data-i18n="hero_sub">Supplying hormone-free turkeys, broiler chickens &amp; farm-fresh eggs to households, restaurants and wholesale buyers across Tanzania &mdash; delivered fresh, every single day.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn btn-gold btn-xl"><i class="fab fa-whatsapp"></i> Place Your Order</a>
-      <a href="#products" class="btn btn-ghost btn-lg"><i class="fas fa-feather-alt"></i> Explore Products</a>
+      <a href="#contact" class="btn btn-gold btn-xl"><i class="fab fa-whatsapp"></i> <span data-i18n="hero_cta_1">Place Your Order</span></a>
+      <a href="#products" class="btn btn-ghost btn-lg"><i class="fas fa-feather-alt"></i> <span data-i18n="hero_cta_2">Explore Products</span></a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><span class="stat-n" data-target="100">0</span><span class="stat-l">Happy Customers</span></div>
-      <div class="hero-stat"><span class="stat-n" data-target="10">0</span><span class="stat-l">Restaurants Served</span></div>
-      <div class="hero-stat"><span class="stat-n">100%</span><span class="stat-l">Fresh Guarantee</span></div>
-      <div class="hero-stat"><span class="stat-n" data-target="8">0</span><span class="stat-l">Years of Excellence</span></div>
+      <div class="hero-stat"><span class="stat-n" data-target="500">0</span><span class="stat-l" data-i18n="stat_customers">Happy Customers</span></div>
+      <div class="hero-stat"><span class="stat-n" data-target="10">0</span><span class="stat-l" data-i18n="stat_restaurants">Restaurants Served</span></div>
+      <div class="hero-stat"><span class="stat-n">100%</span><span class="stat-l" data-i18n="stat_fresh">Fresh Guarantee</span></div>
+      <div class="hero-stat"><span class="stat-n" data-target="8">0</span><span class="stat-l" data-i18n="stat_years">Years of Excellence</span></div>
     </div>
   </div>
   <div class="scroll-ind" id="scrollInd" role="button" tabindex="0" aria-label="Scroll down">
-    <div class="s-line"></div><span>Scroll</span>
+    <div class="s-line"></div><span data-i18n="scroll">Scroll</span>
   </div>
 </section>
 
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span class="ticker-item"><i class="fas fa-egg"></i>Farm Fresh Eggs</span>
-    <span class="ticker-item"><i class="fas fa-truck"></i>24-Hour Delivery</span>
-    <span class="ticker-item"><i class="fas fa-leaf"></i>Hormone Free</span>
-    <span class="ticker-item"><i class="fas fa-shield-alt"></i>Quality Certified</span>
-    <span class="ticker-item"><i class="fas fa-map-marker-alt"></i>Dar es Salaam</span>
-    <span class="ticker-item"><i class="fab fa-whatsapp"></i>Order via WhatsApp</span>
-    <span class="ticker-item"><i class="fas fa-star"></i>8+ Years Excellence</span>
-    <span class="ticker-item"><i class="fas fa-users"></i>500+ Customers</span>
-    <span class="ticker-item"><i class="fas fa-egg"></i>Farm Fresh Eggs</span>
-    <span class="ticker-item"><i class="fas fa-truck"></i>24-Hour Delivery</span>
-    <span class="ticker-item"><i class="fas fa-leaf"></i>Hormone Free</span>
-    <span class="ticker-item"><i class="fas fa-shield-alt"></i>Quality Certified</span>
-    <span class="ticker-item"><i class="fas fa-map-marker-alt"></i>Dar es Salaam</span>
-    <span class="ticker-item"><i class="fab fa-whatsapp"></i>Order via WhatsApp</span>
-    <span class="ticker-item"><i class="fas fa-star"></i>8+ Years Excellence</span>
-    <span class="ticker-item"><i class="fas fa-users"></i>500+ Customers</span>
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item"><i class="fas fa-egg"></i><span data-i18n="tick_eggs">Farm Fresh Eggs</span></span>
+    <span class="ticker-item"><i class="fas fa-truck"></i><span data-i18n="tick_delivery">24-Hour Delivery</span></span>
+    <span class="ticker-item"><i class="fas fa-leaf"></i><span data-i18n="tick_hormone">Hormone Free</span></span>
+    <span class="ticker-item"><i class="fas fa-shield-alt"></i><span data-i18n="tick_quality">Quality Certified</span></span>
+    <span class="ticker-item"><i class="fas fa-map-marker-alt"></i><span data-i18n="tick_location">Dar es Salaam</span></span>
+    <span class="ticker-item"><i class="fab fa-whatsapp"></i><span data-i18n="tick_whatsapp">Order via WhatsApp</span></span>
+    <span class="ticker-item"><i class="fas fa-star"></i><span data-i18n="tick_years">8+ Years Excellence</span></span>
+    <span class="ticker-item"><i class="fas fa-users"></i><span data-i18n="tick_customers">500+ Customers</span></span>
+    <!-- duplicated for infinite scroll -->
+    <span class="ticker-item"><i class="fas fa-egg"></i><span data-i18n="tick_eggs">Farm Fresh Eggs</span></span>
+    <span class="ticker-item"><i class="fas fa-truck"></i><span data-i18n="tick_delivery">24-Hour Delivery</span></span>
+    <span class="ticker-item"><i class="fas fa-leaf"></i><span data-i18n="tick_hormone">Hormone Free</span></span>
+    <span class="ticker-item"><i class="fas fa-shield-alt"></i><span data-i18n="tick_quality">Quality Certified</span></span>
+    <span class="ticker-item"><i class="fas fa-map-marker-alt"></i><span data-i18n="tick_location">Dar es Salaam</span></span>
+    <span class="ticker-item"><i class="fab fa-whatsapp"></i><span data-i18n="tick_whatsapp">Order via WhatsApp</span></span>
+    <span class="ticker-item"><i class="fas fa-star"></i><span data-i18n="tick_years">8+ Years Excellence</span></span>
+    <span class="ticker-item"><i class="fas fa-users"></i><span data-i18n="tick_customers">500+ Customers</span></span>
   </div>
 </div>
 
@@ -1041,10 +667,10 @@ ul{list-style:none}
 <div class="features-bar">
   <div class="container">
     <div class="features-grid">
-      <div class="feature-item reveal"><div class="feat-icon green"><i class="fas fa-truck"></i></div><div><div class="feat-label">Delivery</div><div class="feat-value">Within 24 Hours</div></div></div>
-      <div class="feature-item reveal d1"><div class="feat-icon gold"><i class="fas fa-shield-alt"></i></div><div><div class="feat-label">Quality</div><div class="feat-value">100% Certified Fresh</div></div></div>
-      <div class="feature-item reveal d2"><div class="feat-icon green"><i class="fas fa-leaf"></i></div><div><div class="feat-label">Raised</div><div class="feat-value">Hormone &amp; Antibiotic Free</div></div></div>
-      <div class="feature-item reveal d3"><div class="feat-icon gold"><i class="fab fa-whatsapp"></i></div><div><div class="feat-label">Support</div><div class="feat-value">24/7 WhatsApp Line</div></div></div>
+      <div class="feature-item reveal"><div class="feat-icon green"><i class="fas fa-truck"></i></div><div><div class="feat-label" data-i18n="feat_del_label">Delivery</div><div class="feat-value" data-i18n="feat_del_val">Within 24 Hours</div></div></div>
+      <div class="feature-item reveal d1"><div class="feat-icon gold"><i class="fas fa-shield-alt"></i></div><div><div class="feat-label" data-i18n="feat_qual_label">Quality</div><div class="feat-value" data-i18n="feat_qual_val">100% Certified Fresh</div></div></div>
+      <div class="feature-item reveal d2"><div class="feat-icon green"><i class="fas fa-leaf"></i></div><div><div class="feat-label" data-i18n="feat_raised_label">Raised</div><div class="feat-value" data-i18n="feat_raised_val">Hormone &amp; Antibiotic Free</div></div></div>
+      <div class="feature-item reveal d3"><div class="feat-icon gold"><i class="fab fa-whatsapp"></i></div><div><div class="feat-label" data-i18n="feat_support_label">Support</div><div class="feat-value" data-i18n="feat_support_val">24/7 WhatsApp Line</div></div></div>
     </div>
   </div>
 </div>
@@ -1053,24 +679,24 @@ ul{list-style:none}
 <section id="products" class="section products-section">
   <div class="container">
     <div class="sec-title reveal">
-      <div class="eyebrow">What We Offer</div>
-      <h2>Our Premium Products</h2>
-      <p>Every Turkey and Chicken is raised with professional care under open-range conditions &mdash; hormone-free, naturally fed and delivered fresh to your door.</p>
+      <div class="eyebrow" data-i18n="prod_eyebrow">What We Offer</div>
+      <h2 data-i18n="prod_title">Our Premium Products</h2>
+      <p data-i18n="prod_sub">Every Turkey and Chicken is raised with professional care under open-range conditions &mdash; hormone-free, naturally fed and delivered fresh to your door.</p>
     </div>
     <div class="products-grid">
       <article class="prod-card reveal">
         <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80" alt="Fresh broiler chickens" loading="lazy" width="800" height="600" onerror="this.onerror=null;this.src='https://picsum.photos/seed/chicken/800/600'">
+          <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80" alt="Fresh broiler chickens" loading="lazy" width="800" height="600" onerror="this.src='https://picsum.photos/seed/chicken/800/600'">
           <div class="prod-img-overlay"></div>
-          <span class="prod-badge">Best Seller</span>
+          <span class="prod-badge" data-i18n="badge_bestseller">Best Seller</span>
         </div>
         <div class="prod-body">
-          <div class="prod-tag"><i class="fas fa-star"></i> Premium Quality</div>
-          <h3>Broiler Chickens</h3>
-          <p>Healthy broilers raised hormone-free under professional farm standards. Consistent quality for families, restaurants and caterers.</p>
+          <div class="prod-tag"><i class="fas fa-star"></i> <span data-i18n="prod_tag_premium">Premium Quality</span></div>
+          <h3 data-i18n="prod1_name">Broiler Chickens</h3>
+          <p data-i18n="prod1_desc">Healthy broilers raised hormone-free under professional farm standards. Consistent quality for families, restaurants and caterers.</p>
           <div class="prod-footer">
-            <div class="prod-price">From TZS 15,000<small>per chicken</small></div>
-            <a href="#contact" class="btn btn-forest btn-sm">Order</a>
+            <div class="prod-price"><span data-i18n="prod1_price">From TZS 15,000</span><small data-i18n="prod_per_chicken">per chicken</small></div>
+            <a href="#contact" class="btn btn-forest btn-sm" data-i18n="order_btn">Order</a>
           </div>
         </div>
       </article>
@@ -1078,31 +704,31 @@ ul{list-style:none}
         <div class="prod-img">
           <img id="turkeyImg" src="TURKEY.jpeg" alt="Heritage turkeys at Nico Poultry" loading="lazy" width="800" height="600">
           <div class="prod-img-overlay"></div>
-          <span class="prod-badge">Premium</span>
+          <span class="prod-badge" data-i18n="badge_premium">Premium</span>
         </div>
         <div class="prod-body">
-          <div class="prod-tag"><i class="fas fa-crown"></i> Heritage Breed</div>
-          <h3>Grand Heritage Turkeys</h3>
-          <p>Majestic heritage turkeys raised with organic feed and open space. Perfect for restaurants, hotels and festive celebrations.</p>
+          <div class="prod-tag"><i class="fas fa-crown"></i> <span data-i18n="prod_tag_heritage">Heritage Breed</span></div>
+          <h3 data-i18n="prod2_name">Grand Heritage Turkeys</h3>
+          <p data-i18n="prod2_desc">Majestic heritage turkeys raised with organic feed and open space. Perfect for restaurants, hotels and festive celebrations.</p>
           <div class="prod-footer">
-            <div class="prod-price">From TZS 85,000<small>per turkey</small></div>
-            <a href="#contact" class="btn btn-forest btn-sm">Order</a>
+            <div class="prod-price"><span data-i18n="prod2_price">From TZS 85,000</span><small data-i18n="prod_per_turkey">per turkey</small></div>
+            <a href="#contact" class="btn btn-forest btn-sm" data-i18n="order_btn">Order</a>
           </div>
         </div>
       </article>
       <article class="prod-card reveal d2">
         <div class="prod-img">
-          <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=800&q=80" alt="Fresh turkey eggs" loading="lazy" width="800" height="600" onerror="this.onerror=null;this.src='https://picsum.photos/seed/eggs800/800/600'">
+          <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=800&q=80" alt="Fresh turkey eggs" loading="lazy" width="800" height="600" onerror="this.src='https://picsum.photos/seed/eggs800/800/600'">
           <div class="prod-img-overlay"></div>
-          <span class="prod-badge">Fresh Daily</span>
+          <span class="prod-badge" data-i18n="badge_fresh_daily">Fresh Daily</span>
         </div>
         <div class="prod-body">
-          <div class="prod-tag"><i class="fas fa-egg"></i> Collected Every Morning</div>
-          <h3>Fresh Turkey Eggs</h3>
-          <p>Nutrient-rich turkey eggs for gourmet cooking, professional baking or incubation. Collected fresh every morning.</p>
+          <div class="prod-tag"><i class="fas fa-egg"></i> <span data-i18n="prod_tag_collected">Collected Every Morning</span></div>
+          <h3 data-i18n="prod3_name">Fresh Turkey Eggs</h3>
+          <p data-i18n="prod3_desc">Nutrient-rich turkey eggs for gourmet cooking, professional baking or incubation. Collected fresh every morning.</p>
           <div class="prod-footer">
-            <div class="prod-price">TZS 5,000<small>per egg</small></div>
-            <a href="#contact" class="btn btn-forest btn-sm">Order</a>
+            <div class="prod-price"><span data-i18n="prod3_price">TZS 5,000</span><small data-i18n="prod_per_egg">per egg</small></div>
+            <a href="#contact" class="btn btn-forest btn-sm" data-i18n="order_btn">Order</a>
           </div>
         </div>
       </article>
@@ -1114,139 +740,85 @@ ul{list-style:none}
 <section id="gallery" class="gallery-section">
   <div class="container">
     <div class="sec-title reveal">
-      <div class="eyebrow">Inside Our Farm</div>
-      <h2>From Our Farm to Your Table</h2>
-      <p>Step inside Nico Poultry &amp; Eggs Ltd &mdash; where every Turkey and Chicken is raised with love, space and the highest care standards in Tanzania.</p>
+      <div class="eyebrow" data-i18n="gallery_eyebrow">Inside Our Farm</div>
+      <h2 data-i18n="gallery_title">From Our Farm to Your Table</h2>
+      <p data-i18n="gallery_sub">Step inside Nico Poultry &amp; Eggs Ltd &mdash; where every Turkey and Chicken is raised with love, space and the highest care standards in Tanzania.</p>
     </div>
-
     <div class="farm-slideshow reveal">
-      <!-- Main stage -->
       <div class="slideshow-stage" id="slideshowStage">
-
-        <!-- Slide 1 — Wadogo (chicks under heat lamp) -->
         <div class="slide active" id="slide-0">
-          <img src="wadogo.jpeg"
-               alt="Young turkey chicks under heat lamp at Nico Poultry Farm"
-               loading="eager"
-               decoding="async">
+          <img src="wadogo.jpeg" alt="Young turkey chicks under heat lamp at Nico Poultry Farm" loading="eager" decoding="async">
           <div class="slide-overlay"></div>
           <div class="slide-caption">
             <div class="caption-text">
-              <div class="caption-tag"><i class="fas fa-fire"></i> Day-Old Chicks</div>
-              <div class="caption-title">Warmth &amp; Care from Day One</div>
-              <div class="caption-desc">Our newly-hatched chicks bask under professional heat lamps &mdash; monitored 24/7 for optimal temperature and health.</div>
+              <div class="caption-tag"><i class="fas fa-fire"></i> <span data-i18n="slide1_tag">Day-Old Chicks</span></div>
+              <div class="caption-title" data-i18n="slide1_title">Warmth &amp; Care from Day One</div>
+              <div class="caption-desc" data-i18n="slide1_desc">Our newly-hatched chicks bask under professional heat lamps &mdash; monitored 24/7 for optimal temperature and health.</div>
             </div>
-            <div class="caption-badge">
-              <span class="cb-n">24/7</span>
-              <span class="cb-l">Monitored</span>
-            </div>
+            <div class="caption-badge"><span class="cb-n">24/7</span><span class="cb-l" data-i18n="monitored">Monitored</span></div>
           </div>
           <div class="slide-counter" id="slideCounter">1 / 3</div>
           <div class="slide-progress"><div class="slide-progress-bar" id="progressBar"></div></div>
           <button class="slide-prev" id="slidePrev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
           <button class="slide-next" id="slideNext" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
         </div>
-
-        <!-- Slide 2 — Vifaranga (young birds in pen) -->
         <div class="slide" id="slide-1">
-          <img src="Vifaranga.jpeg"
-               alt="Young turkey flock growing strong at Nico Poultry Farm"
-               loading="lazy"
-               decoding="async">
+          <img src="Vifaranga.jpeg" alt="Young turkey flock at Nico Poultry Farm" loading="lazy" decoding="async">
           <div class="slide-overlay"></div>
           <div class="slide-caption">
             <div class="caption-text">
-              <div class="caption-tag"><i class="fas fa-feather-alt"></i> Growing Flock</div>
-              <div class="caption-title">Healthy Birds, Happy Farm</div>
-              <div class="caption-desc">Our thriving flock of young turkeys raised with hormone-free feed in spacious, clean and ventilated pens.</div>
+              <div class="caption-tag"><i class="fas fa-feather-alt"></i> <span data-i18n="slide2_tag">Growing Flock</span></div>
+              <div class="caption-title" data-i18n="slide2_title">Healthy Birds, Happy Farm</div>
+              <div class="caption-desc" data-i18n="slide2_desc">Our thriving flock of young turkeys raised with hormone-free feed in spacious, clean and ventilated pens.</div>
             </div>
-            <div class="caption-badge">
-              <span class="cb-n">500+</span>
-              <span class="cb-l">Birds Raised</span>
-            </div>
+            <div class="caption-badge"><span class="cb-n">500+</span><span class="cb-l" data-i18n="birds_raised">Birds Raised</span></div>
           </div>
         </div>
-
-        <!-- Slide 3 — Turkey Picture (mature birds) -->
         <div class="slide" id="slide-2">
-          <img src="Turkey Picture.jpeg"
-               alt="Mature heritage turkeys ready at Nico Poultry Farm Dar es Salaam"
-               loading="lazy"
-               decoding="async">
+          <img src="Turkey Picture.jpeg" alt="Mature heritage turkeys at Nico Poultry Farm" loading="lazy" decoding="async">
           <div class="slide-overlay"></div>
           <div class="slide-caption">
             <div class="caption-text">
-              <div class="caption-tag"><i class="fas fa-crown"></i> Premium Heritage Breed</div>
-              <div class="caption-title">Restaurant-Grade Turkeys</div>
-              <div class="caption-desc">Our mature heritage turkeys — naturally reared, hormone-free and ready for your kitchen or celebration feast.</div>
+              <div class="caption-tag"><i class="fas fa-crown"></i> <span data-i18n="slide3_tag">Premium Heritage Breed</span></div>
+              <div class="caption-title" data-i18n="slide3_title">Restaurant-Grade Turkeys</div>
+              <div class="caption-desc" data-i18n="slide3_desc">Our mature heritage turkeys &mdash; naturally reared, hormone-free and ready for your kitchen or celebration feast.</div>
             </div>
-            <div class="caption-badge">
-              <span class="cb-n">15kg+</span>
-              <span class="cb-l">Premium Size</span>
-            </div>
+            <div class="caption-badge"><span class="cb-n">15kg+</span><span class="cb-l" data-i18n="premium_size">Premium Size</span></div>
           </div>
         </div>
-
-      </div><!-- /slideshow-stage -->
-
-      <!-- Dot navigation -->
+      </div>
       <div class="slide-dots" id="slideDots" role="tablist" aria-label="Slideshow navigation">
         <button class="dot active" data-slide="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
         <button class="dot" data-slide="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
         <button class="dot" data-slide="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
       </div>
-
-      <!-- Thumbnail strip -->
       <div class="thumb-strip">
-        <div class="thumb-item active" data-slide="0" role="button" tabindex="0" aria-label="View slide 1">
+        <div class="thumb-item active" data-slide="0" role="button" tabindex="0">
           <img src="wadogo.jpeg" alt="Chicks under heat lamp" loading="lazy">
-          <div class="thumb-label"><i class="fas fa-fire" style="color:var(--g3);margin-right:.3rem"></i>Day-Old Chicks</div>
+          <div class="thumb-label"><i class="fas fa-fire" style="color:var(--g3);margin-right:.3rem"></i><span data-i18n="slide1_tag">Day-Old Chicks</span></div>
         </div>
-        <div class="thumb-item" data-slide="1" role="button" tabindex="0" aria-label="View slide 2">
+        <div class="thumb-item" data-slide="1" role="button" tabindex="0">
           <img src="Vifaranga.jpeg" alt="Growing turkey flock" loading="lazy">
-          <div class="thumb-label"><i class="fas fa-feather-alt" style="color:var(--g3);margin-right:.3rem"></i>Young Flock</div>
+          <div class="thumb-label"><i class="fas fa-feather-alt" style="color:var(--g3);margin-right:.3rem"></i><span data-i18n="slide2_tag">Young Flock</span></div>
         </div>
-        <div class="thumb-item" data-slide="2" role="button" tabindex="0" aria-label="View slide 3">
+        <div class="thumb-item" data-slide="2" role="button" tabindex="0">
           <img src="Turkey Picture.jpeg" alt="Mature heritage turkeys" loading="lazy">
-          <div class="thumb-label"><i class="fas fa-crown" style="color:var(--g3);margin-right:.3rem"></i>Premium Turkeys</div>
+          <div class="thumb-label"><i class="fas fa-crown" style="color:var(--g3);margin-right:.3rem"></i><span data-i18n="slide3_tag">Premium Turkeys</span></div>
         </div>
       </div>
-
-      <!-- Farm stats row -->
       <div class="gallery-stats">
-        <div class="gstat">
-          <div class="gstat-icon"><i class="fas fa-seedling"></i></div>
-          <div>
-            <div class="gstat-label">Farming Standard</div>
-            <div class="gstat-val">Open-Range &amp; Organic</div>
-          </div>
-        </div>
-        <div class="gstat">
-          <div class="gstat-icon"><i class="fas fa-ban"></i></div>
-          <div>
-            <div class="gstat-label">Zero Tolerance</div>
-            <div class="gstat-val">No Hormones · No Antibiotics</div>
-          </div>
-        </div>
-        <div class="gstat">
-          <div class="gstat-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div>
-            <div class="gstat-label">Farm Location</div>
-            <div class="gstat-val">Tabata Sundown, Dar es Salaam</div>
-          </div>
-        </div>
+        <div class="gstat"><div class="gstat-icon"><i class="fas fa-seedling"></i></div><div><div class="gstat-label" data-i18n="gstat1_label">Farming Standard</div><div class="gstat-val" data-i18n="gstat1_val">Open-Range &amp; Organic</div></div></div>
+        <div class="gstat"><div class="gstat-icon"><i class="fas fa-ban"></i></div><div><div class="gstat-label" data-i18n="gstat2_label">Zero Tolerance</div><div class="gstat-val" data-i18n="gstat2_val">No Hormones &middot; No Antibiotics</div></div></div>
+        <div class="gstat"><div class="gstat-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="gstat-label" data-i18n="gstat3_label">Farm Location</div><div class="gstat-val" data-i18n="gstat3_val">Tabata Sundown, Dar es Salaam</div></div></div>
       </div>
-
-    </div><!-- /farm-slideshow -->
+    </div>
   </div>
 </section>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox">
-  <button class="lb-close" id="lbClose" aria-label="Close lightbox"><i class="fas fa-times"></i></button>
-  <div class="lightbox-img-wrap">
-    <img id="lbImg" src="" alt="">
-  </div>
+  <button class="lb-close" id="lbClose" aria-label="Close"><i class="fas fa-times"></i></button>
+  <div class="lightbox-img-wrap"><img id="lbImg" src="" alt=""></div>
 </div>
 
 <!-- ===== ABOUT ===== -->
@@ -1255,24 +827,24 @@ ul{list-style:none}
     <div class="about-grid">
       <div class="about-img-wrap reveal">
         <div class="about-img-main">
-          <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=900&q=80" alt="Turkeys on our farm" loading="lazy" width="900" height="700" onerror="this.onerror=null;this.src='https://picsum.photos/seed/turkey900/900/700'">
+          <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=900&q=80" alt="Turkeys on our farm" loading="lazy" width="900" height="700" onerror="this.src='https://picsum.photos/seed/turkey900/900/700'">
         </div>
         <div class="about-img-accent">
-          <img src="https://images.unsplash.com/photo-1498579687545-d5a4fffb0a9e?auto=format&fit=crop&w=400&q=80" alt="Fresh eggs" loading="lazy" width="400" height="400" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fresheggs/400/400'">
+          <img src="https://images.unsplash.com/photo-1498579687545-d5a4fffb0a9e?auto=format&fit=crop&w=400&q=80" alt="Fresh eggs" loading="lazy" width="400" height="400" onerror="this.src='https://picsum.photos/seed/fresheggs/400/400'">
         </div>
-        <div class="about-badge"><span class="badge-n">8+</span><span class="badge-l">Years of<br>Excellence</span></div>
+        <div class="about-badge"><span class="badge-n">8+</span><span class="badge-l" data-i18n="badge_years">Years of<br>Excellence</span></div>
       </div>
       <div class="about-content reveal d1">
-        <div class="eyebrow">Our Story</div>
-        <h2>Tanzania's Trusted Poultry Farm Since 2016</h2>
-        <p>Founded in Tabata Sundown, Dar es Salaam, Nico Poultry &amp; Eggs Ltd began with one mission: deliver the freshest, most ethically raised poultry to Tanzanian families and businesses.</p>
-        <p>Today we serve over 500 satisfied customers &mdash; from private households to Dar es Salaam's finest restaurants and hotels &mdash; with the same commitment to quality.</p>
+        <div class="eyebrow" data-i18n="about_eyebrow">Our Story</div>
+        <h2 data-i18n="about_title">Tanzania's Trusted Poultry Farm Since 2016</h2>
+        <p data-i18n="about_p1">Founded in Tabata Sundown, Dar es Salaam, Nico Poultry &amp; Eggs Ltd began with one mission: deliver the freshest, most ethically raised poultry to Tanzanian families and businesses.</p>
+        <p data-i18n="about_p2">Today we serve over 500 satisfied customers &mdash; from private households to Dar es Salaam's finest restaurants and hotels &mdash; with the same commitment to quality.</p>
         <div class="about-list">
-          <div class="about-list-item"><i class="fas fa-leaf abt-icon"></i><div><div class="abt-title">Ethically Raised</div><div class="abt-desc">All Turkey and Chickens raised open-range with organic feed &mdash; no hormones, no antibiotics, ever.</div></div></div>
-          <div class="about-list-item"><i class="fas fa-temperature-low abt-icon"></i><div><div class="abt-title">Cold-Chain Delivery</div><div class="abt-desc">Temperature-controlled transport ensures every product arrives fresh and safe within 24 hours.</div></div></div>
-          <div class="about-list-item"><i class="fas fa-handshake abt-icon"></i><div><div class="abt-title">Wholesale Partnerships</div><div class="abt-desc">Custom supply agreements for hotels, restaurants, supermarkets and event caterers.</div></div></div>
+          <div class="about-list-item"><i class="fas fa-leaf abt-icon"></i><div><div class="abt-title" data-i18n="about_f1_title">Ethically Raised</div><div class="abt-desc" data-i18n="about_f1_desc">All Turkey and Chickens raised open-range with organic feed &mdash; no hormones, no antibiotics, ever.</div></div></div>
+          <div class="about-list-item"><i class="fas fa-temperature-low abt-icon"></i><div><div class="abt-title" data-i18n="about_f2_title">Cold-Chain Delivery</div><div class="abt-desc" data-i18n="about_f2_desc">Temperature-controlled transport ensures every product arrives fresh and safe within 24 hours.</div></div></div>
+          <div class="about-list-item"><i class="fas fa-handshake abt-icon"></i><div><div class="abt-title" data-i18n="about_f3_title">Wholesale Partnerships</div><div class="abt-desc" data-i18n="about_f3_desc">Custom supply agreements for hotels, restaurants, supermarkets and event caterers.</div></div></div>
         </div>
-        <a href="#contact" class="btn btn-forest btn-lg"><i class="fas fa-phone-alt"></i> Get in Touch</a>
+        <a href="#contact" class="btn btn-forest btn-lg"><i class="fas fa-phone-alt"></i> <span data-i18n="get_in_touch">Get in Touch</span></a>
       </div>
     </div>
   </div>
@@ -1282,28 +854,28 @@ ul{list-style:none}
 <section id="prices" class="section pricing-section">
   <div class="container">
     <div class="sec-title reveal">
-      <div class="eyebrow">Rates &amp; Packages</div>
-      <h2>Transparent Pricing</h2>
-      <p>Competitive rates for retail, wholesale and corporate clients. Contact us for bulk discounts and custom supply agreements.</p>
+      <div class="eyebrow" data-i18n="pricing_eyebrow">Rates &amp; Packages</div>
+      <h2 data-i18n="pricing_title">Transparent Pricing</h2>
+      <p data-i18n="pricing_sub">Competitive rates for retail, wholesale and corporate clients. Contact us for bulk discounts and custom supply agreements.</p>
     </div>
     <div class="pricing-card reveal">
       <table class="pricing-table" aria-label="Product pricing">
         <thead>
           <tr>
-            <th scope="col">Product</th>
-            <th scope="col">Weight / Unit</th>
-            <th scope="col" style="text-align:right">Price (TZS)</th>
+            <th scope="col" data-i18n="th_product">Product</th>
+            <th scope="col" data-i18n="th_weight">Weight / Unit</th>
+            <th scope="col" style="text-align:right" data-i18n="th_price">Price (TZS)</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td><div class="p-name">Local Heritage Turkey</div><div class="p-desc">Traditional breed, naturally reared</div></td><td>8 &ndash; 10 kg</td><td><span class="p-quote"><i class="fas fa-phone-alt"></i> Contact for Quote</span></td></tr>
-          <tr><td><div class="p-name">Improved Breed Turkey</div><div class="p-desc">Larger frame, superior meat quality</div></td><td>10 &ndash; 15 kg</td><td><span class="p-price">85,000 &ndash; 120,000</span></td></tr>
-          <tr><td><div class="p-name">Premium Show Turkey</div><div class="p-desc">Grand heritage, restaurant-grade</div></td><td>15+ kg</td><td><span class="p-quote"><i class="fas fa-tag"></i> Negotiable</span></td></tr>
-          <tr><td><div class="p-name">Broiler Chicken</div><div class="p-desc">Hormone-free, consistently fresh</div></td><td>1.5 &ndash; 2.5 kg</td><td><span class="p-price">15,000 &ndash; 25,000</span></td></tr>
-          <tr><td><div class="p-name">Fresh Turkey Eggs</div><div class="p-desc">Collected daily &mdash; retail &amp; wholesale</div></td><td>Per Egg</td><td><span class="p-price">5,000</span></td></tr>
+          <tr><td><div class="p-name" data-i18n="pt1_name">Local Heritage Turkey</div><div class="p-desc" data-i18n="pt1_desc">Traditional breed, naturally reared</div></td><td>8 &ndash; 10 kg</td><td><span class="p-quote"><i class="fas fa-phone-alt"></i> <span data-i18n="contact_quote">Contact for Quote</span></span></td></tr>
+          <tr><td><div class="p-name" data-i18n="pt2_name">Improved Breed Turkey</div><div class="p-desc" data-i18n="pt2_desc">Larger frame, superior meat quality</div></td><td>10 &ndash; 15 kg</td><td><span class="p-price">85,000 &ndash; 120,000</span></td></tr>
+          <tr><td><div class="p-name" data-i18n="pt3_name">Premium Show Turkey</div><div class="p-desc" data-i18n="pt3_desc">Grand heritage, restaurant-grade</div></td><td>15+ kg</td><td><span class="p-quote"><i class="fas fa-tag"></i> <span data-i18n="negotiable">Negotiable</span></span></td></tr>
+          <tr><td><div class="p-name" data-i18n="pt4_name">Broiler Chicken</div><div class="p-desc" data-i18n="pt4_desc">Hormone-free, consistently fresh</div></td><td>1.5 &ndash; 2.5 kg</td><td><span class="p-price">15,000 &ndash; 25,000</span></td></tr>
+          <tr><td><div class="p-name" data-i18n="pt5_name">Fresh Turkey Eggs</div><div class="p-desc" data-i18n="pt5_desc">Collected daily &mdash; retail &amp; wholesale</div></td><td data-i18n="per_egg_unit">Per Egg</td><td><span class="p-price">5,000</span></td></tr>
         </tbody>
       </table>
-      <div class="pricing-note"><i class="fas fa-info-circle"></i> Bulk orders of 10+ Turkey and Chicken qualify for special discounts. Call or WhatsApp for a custom quote.</div>
+      <div class="pricing-note"><i class="fas fa-info-circle"></i> <span data-i18n="pricing_note">Bulk orders of 10+ Turkey and Chicken qualify for special discounts. Call or WhatsApp for a custom quote.</span></div>
     </div>
   </div>
 </section>
@@ -1312,29 +884,29 @@ ul{list-style:none}
 <section id="location" class="section location-section">
   <div class="container">
     <div class="sec-title reveal">
-      <div class="eyebrow">Find Us</div>
-      <h2>Visit Our Farm</h2>
-      <p>Conveniently located in Tabata Sundown, Dar es Salaam &mdash; easy access for farm pickups and deliveries across the region.</p>
+      <div class="eyebrow" data-i18n="loc_eyebrow">Find Us</div>
+      <h2 data-i18n="loc_title">Visit Our Farm</h2>
+      <p data-i18n="loc_sub">Conveniently located in Tabata Sundown, Dar es Salaam &mdash; easy access for farm pickups and deliveries across the region.</p>
     </div>
     <div class="location-grid">
       <div class="map-wrap reveal">
         <iframe src="https://www.google.com/maps?q=-6.8310507,39.2031136&output=embed&z=15" title="Nico Poultry Farm location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="loc-card reveal d1">
-        <h3>Tabata Sundown, Dar es Salaam</h3>
+        <h3 data-i18n="loc_card_title">Tabata Sundown, Dar es Salaam</h3>
         <div class="loc-items">
-          <div class="loc-item"><div class="loc-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="loc-title">Address</div><div class="loc-val">Tabata Sundown, Dar es Salaam, Tanzania</div></div></div>
-          <div class="loc-item"><div class="loc-ico"><i class="fas fa-phone-alt"></i></div><div><div class="loc-title">Direct Line</div><div class="loc-val"><a href="tel:+255689583281">+255 689 583 281</a></div></div></div>
-          <div class="loc-item"><div class="loc-ico"><i class="fas fa-envelope"></i></div><div><div class="loc-title">Email</div><div class="loc-val"><a href="/cdn-cgi/l/email-protection#7812170b1d081011161d16111b171c1d150d0b484d381f15191114561b1715"><span class="__cf_email__" data-cfemail="abc1c4d8cedbc3c2c5cec5c2c8c4cfcec6ded89b9eebccc6cac2c785c8c4c6">[email&#160;protected]</span></a></div></div></div>
-          <div class="loc-item"><div class="loc-ico"><i class="fas fa-truck"></i></div><div><div class="loc-title">Delivery Areas</div><div class="loc-val">Dar es Salaam Region &middot; Same-day delivery &middot; Nationwide shipping for bulk orders</div></div></div>
+          <div class="loc-item"><div class="loc-ico"><i class="fas fa-map-marker-alt"></i></div><div><div class="loc-title" data-i18n="loc_address_label">Address</div><div class="loc-val" data-i18n="loc_address_val">Tabata Sundown, Dar es Salaam, Tanzania</div></div></div>
+          <div class="loc-item"><div class="loc-ico"><i class="fas fa-phone-alt"></i></div><div><div class="loc-title" data-i18n="loc_phone_label">Direct Line</div><div class="loc-val"><a href="tel:+255689583281">+255 689 583 281</a></div></div></div>
+          <div class="loc-item"><div class="loc-ico"><i class="fas fa-envelope"></i></div><div><div class="loc-title" data-i18n="loc_email_label">Email</div><div class="loc-val"><a href="mailto:josephinenicodemus05@gmail.com">josephinenicodemus05@gmail.com</a></div></div></div>
+          <div class="loc-item"><div class="loc-ico"><i class="fas fa-truck"></i></div><div><div class="loc-title" data-i18n="loc_delivery_label">Delivery Areas</div><div class="loc-val" data-i18n="loc_delivery_val">Dar es Salaam Region &middot; Same-day delivery &middot; Nationwide shipping for bulk orders</div></div></div>
         </div>
         <div class="hours-table">
-          <div class="hours-row"><span class="hours-day">Monday &ndash; Friday</span><span class="hours-time open">7:00 AM &ndash; 10:00 PM</span></div>
-          <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time open">7:00 AM &ndash; 10:00 PM</span></div>
-          <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time open">8:00 AM &ndash; 10:00 PM</span></div>
-          <div class="hours-row"><span class="hours-day">WhatsApp Orders</span><span class="hours-time open">24 / 7</span></div>
+          <div class="hours-row"><span class="hours-day" data-i18n="hours_weekday">Monday &ndash; Friday</span><span class="hours-time open">7:00 AM &ndash; 10:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day" data-i18n="hours_sat">Saturday</span><span class="hours-time open">7:00 AM &ndash; 10:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day" data-i18n="hours_sun">Sunday</span><span class="hours-time open">8:00 AM &ndash; 10:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day" data-i18n="hours_wa">WhatsApp Orders</span><span class="hours-time open">24 / 7</span></div>
         </div>
-        <a href="https://maps.google.com/?q=-6.8310507,39.2031136" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fas fa-directions"></i> Get Directions</a>
+        <a href="https://maps.google.com/?q=-6.8310507,39.2031136" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fas fa-directions"></i> <span data-i18n="get_directions">Get Directions</span></a>
       </div>
     </div>
   </div>
@@ -1344,102 +916,88 @@ ul{list-style:none}
 <section id="contact" class="section order-section">
   <div class="container">
     <div class="sec-title reveal">
-      <div class="eyebrow" data-i18n="get_started">Get Started</div>
-      <h2 data-i18n="place_order">Place Your Order</h2>
-      <p data-i18n="order_subtitle">Select your products, set quantities, and we'll confirm via WhatsApp within 15 minutes.</p>
+      <div class="eyebrow" data-i18n="order_eyebrow">Get Started</div>
+      <h2 data-i18n="order_title">Place Your Order</h2>
+      <p data-i18n="order_sub">Select your products, set quantities, and we'll confirm via WhatsApp within 15 minutes.</p>
     </div>
     <div class="order-wrap reveal">
-
-      <!-- Reorder banner -->
       <div class="reorder-banner" id="reorderBanner">
         <i class="fas fa-history"></i>
-        <span id="reorderMsg">Welcome back! We saved your details from last time.</span>
-        <button id="reorderFill">Autofill Details</button>
+        <span id="reorderMsg">Welcome back! We saved your details.</span>
+        <button class="refill-btn" id="reorderFill" data-i18n="autofill_btn">Autofill Details</button>
       </div>
-
       <div class="order-body">
-
-        <!-- STEP 1: Customer Info -->
-        <div class="cust-section">
+        <!-- Customer Details -->
+        <div style="margin-bottom:2rem">
           <div class="section-label"><i class="fas fa-user-circle"></i> <span data-i18n="your_details">Your Details</span></div>
           <div class="form-grid form-2col">
-            <div class="form-group" id="fg-name">
-              <label class="form-label" for="fName" data-i18n="full_name">Full Name <span class="req">*</span></label>
+            <div class="form-group" id="fg-fname">
+              <label class="form-label" for="fName"><span data-i18n="full_name">Full Name</span> <span class="req">*</span></label>
               <input type="text" id="fName" class="form-input" placeholder="e.g. Brightius Kalokola" required autocomplete="name">
               <span class="form-error" data-i18n="err_name">Please enter your full name.</span>
             </div>
-            <div class="form-group" id="fg-phone">
-              <label class="form-label" for="fPhone" data-i18n="phone">Phone Number <span class="req">*</span></label>
+            <div class="form-group" id="fg-fphone">
+              <label class="form-label" for="fPhone"><span data-i18n="phone_label">Phone Number</span> <span class="req">*</span></label>
               <input type="tel" id="fPhone" class="form-input" placeholder="+255 7XX XXX XXX" required autocomplete="tel">
               <span class="form-error" data-i18n="err_phone">Enter a valid Tanzanian number.</span>
             </div>
           </div>
         </div>
-
-        <!-- STEP 2: Product Picker -->
-        <div class="products-section-label"><i class="fas fa-shopping-basket"></i> <span data-i18n="select_products">Select Products</span> <span style="color:var(--muted);font-size:.65rem;font-weight:500;letter-spacing:0;text-transform:none;margin-left:.3rem" data-i18n="tap_to_add">(tap to add to cart)</span></div>
-        <div class="product-picker-grid" id="productPickerGrid">
-          <!-- tiles injected by JS -->
-        </div>
-
-        <!-- Bulk badge -->
+        <!-- Product Picker -->
+        <div class="section-label"><i class="fas fa-shopping-basket"></i> <span data-i18n="select_products">Select Products</span> <span style="color:var(--muted);font-size:.65rem;font-weight:400;letter-spacing:0;text-transform:none;margin-left:.3rem" data-i18n="tap_add">(tap to add)</span></div>
+        <div class="product-picker-grid" id="productPickerGrid"></div>
         <div class="bulk-badge" id="bulkBadge"><i class="fas fa-star"></i> <span data-i18n="bulk_note">Bulk discount applies on orders of 10+ items!</span></div>
-
-        <!-- STEP 3: Cart Items -->
+        <!-- Cart -->
         <div id="cartSection" style="display:none">
-          <div class="products-section-label" style="margin-top:.5rem"><i class="fas fa-list"></i> <span data-i18n="your_cart">Your Cart</span></div>
+          <div class="section-label" style="margin-top:.5rem"><i class="fas fa-list"></i> <span data-i18n="your_cart">Your Cart</span></div>
           <div class="cart-items-list" id="cartItemsList"></div>
         </div>
-
-        <!-- STEP 4: Live Receipt -->
+        <!-- Receipt -->
         <div class="order-receipt" id="orderReceipt">
           <div class="receipt-header">
             <div class="receipt-title"><i class="fas fa-receipt"></i> <span data-i18n="order_summary">Order Summary</span></div>
             <div class="receipt-order-num" id="receiptOrderNum">NICOPOULTRY-XXXXXX</div>
           </div>
           <div class="receipt-meta">
-            <div class="receipt-meta-item"><span data-i18n="date">Date</span><strong id="receiptDate">—</strong></div>
-            <div class="receipt-meta-item"><span data-i18n="customer">Customer</span><strong id="receiptName">—</strong></div>
-            <div class="receipt-meta-item"><span data-i18n="phone">Phone</span><strong id="receiptPhone">—</strong></div>
+            <div class="receipt-meta-item"><span data-i18n="date_label">Date</span><strong id="receiptDate">—</strong></div>
+            <div class="receipt-meta-item"><span data-i18n="customer_label">Customer</span><strong id="receiptName">—</strong></div>
+            <div class="receipt-meta-item"><span data-i18n="phone_label">Phone</span><strong id="receiptPhone">—</strong></div>
           </div>
           <div class="receipt-items" id="receiptItems">
             <div class="receipt-empty"><i class="fas fa-shopping-basket"></i><span data-i18n="no_items">No items yet — select products above</span></div>
           </div>
           <hr class="receipt-divider">
           <div class="receipt-delivery">
-            <span data-i18n="delivery">Delivery</span>
-            <span id="receiptDelivery">Farm Pickup (Free)</span>
+            <span data-i18n="delivery_label">Delivery</span>
+            <span id="receiptDelivery" data-i18n="pickup_free">Farm Pickup (Free)</span>
           </div>
           <div class="receipt-total-row">
             <span class="receipt-total-label" data-i18n="grand_total">Grand Total</span>
             <span class="receipt-total-amount" id="receiptTotal">TZS 0</span>
           </div>
         </div>
-
-        <!-- STEP 5: Delivery + Notes -->
+        <!-- Delivery + Notes -->
         <div class="delivery-notes-grid">
           <div class="form-group">
             <label class="form-label" for="fDelivery" data-i18n="delivery_pref">Delivery Preference</label>
             <select id="fDelivery" class="form-select">
-              <option value="pickup" data-i18n="pickup">Farm Pickup — Free</option>
-              <option value="dar" data-i18n="dar_delivery">Dar es Salaam Delivery — +TZS 5,000</option>
-              <option value="nationwide" data-i18n="nationwide">Nationwide Shipping — Quote Required</option>
+              <option value="pickup" data-i18n="opt_pickup">Farm Pickup — Free</option>
+              <option value="dar" data-i18n="opt_dar">Dar es Salaam Delivery — +TZS 5,000</option>
+              <option value="nationwide" data-i18n="opt_nationwide">Nationwide Shipping — Quote Required</option>
             </select>
           </div>
           <div class="form-group">
             <label class="form-label" for="fNotes" data-i18n="special_notes">Special Instructions</label>
-            <textarea id="fNotes" class="form-textarea" placeholder="Delivery time, event details, preparation notes..." style="min-height:48px"></textarea>
+            <textarea id="fNotes" class="form-textarea" placeholder="Delivery time, event details..." style="min-height:52px"></textarea>
           </div>
         </div>
-
         <!-- Submit -->
         <div class="submit-row">
           <button type="button" id="submitBtn" class="btn btn-forest btn-xl"><i class="fab fa-whatsapp"></i> <span data-i18n="send_order">Send Order via WhatsApp</span></button>
           <p class="submit-note"><i class="fas fa-shield-alt"></i> <span data-i18n="privacy_note">Your info is private. Orders confirmed within 15 min via WhatsApp.</span></p>
         </div>
-
-      </div><!-- /order-body -->
-    </div><!-- /order-wrap -->
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1450,7 +1008,7 @@ ul{list-style:none}
   <div class="footer-top">
     <div class="container">
       <div class="footer-top-text">
-        <span>Farm Fresh</span>&middot;<span>Hormone Free</span>&middot;<span>Dar es Salaam</span>&middot;<span>Tanzania</span>&middot;<span>Ethically Raised</span>&middot;<span>Premium Quality</span>
+        <span data-i18n="ft_fresh">Farm Fresh</span>&middot;<span data-i18n="ft_hormone">Hormone Free</span>&middot;<span>Dar es Salaam</span>&middot;<span>Tanzania</span>&middot;<span data-i18n="ft_ethical">Ethically Raised</span>&middot;<span data-i18n="ft_quality">Premium Quality</span>
       </div>
     </div>
   </div>
@@ -1459,46 +1017,46 @@ ul{list-style:none}
       <div class="footer-grid">
         <div class="foot-brand">
           <h3 class="foot-col-title">Nico Poultry &amp; Eggs Ltd</h3>
-          <p>Premium turkey and chicken supplier in Dar es Salaam. Committed to quality, freshness and exceptional service since 2016.</p>
+          <p data-i18n="foot_brand_desc">Premium turkey and chicken supplier in Dar es Salaam. Committed to quality, freshness and exceptional service since 2016.</p>
           <div class="foot-socials">
             <a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             <a href="https://www.instagram.com/nicodemus_moshi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="/cdn-cgi/l/email-protection#c4aeabb7a1b4acadaaa1aaada7aba0a1a9b1b7f4f184a3a9a5ada8eaa7aba9" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="mailto:josephinenicodemus05@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
         <div>
-          <h3 class="foot-col-title">Quick Links</h3>
+          <h3 class="foot-col-title" data-i18n="foot_links_title">Quick Links</h3>
           <ul class="foot-links">
-            <li><a href="#products"><i class="fas fa-chevron-right"></i>Our Products</a></li>
-            <li><a href="#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
-            <li><a href="#gallery"><i class="fas fa-chevron-right"></i>Farm Gallery</a></li>
-            <li><a href="#prices"><i class="fas fa-chevron-right"></i>Pricing Guide</a></li>
-            <li><a href="#location"><i class="fas fa-chevron-right"></i>Farm Location</a></li>
-            <li><a href="#contact"><i class="fas fa-chevron-right"></i>Place an Order</a></li>
+            <li><a href="#products"><i class="fas fa-chevron-right"></i><span data-i18n="nav_products">Our Products</span></a></li>
+            <li><a href="#about"><i class="fas fa-chevron-right"></i><span data-i18n="nav_about">About Us</span></a></li>
+            <li><a href="#gallery"><i class="fas fa-chevron-right"></i><span data-i18n="gallery_eyebrow">Farm Gallery</span></a></li>
+            <li><a href="#prices"><i class="fas fa-chevron-right"></i><span data-i18n="nav_pricing">Pricing Guide</span></a></li>
+            <li><a href="#location"><i class="fas fa-chevron-right"></i><span data-i18n="nav_location">Farm Location</span></a></li>
+            <li><a href="#contact"><i class="fas fa-chevron-right"></i><span data-i18n="order_eyebrow">Place an Order</span></a></li>
           </ul>
         </div>
         <div>
-          <h3 class="foot-col-title">Contact</h3>
+          <h3 class="foot-col-title" data-i18n="foot_contact_title">Contact</h3>
           <div class="foot-contact">
             <div class="foot-ci"><i class="fas fa-phone-alt"></i><a href="tel:+255689686148">+255 689 686 148</a></div>
-            <div class="foot-ci"><i class="fab fa-whatsapp"></i><a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer">WhatsApp Order Line</a></div>
-            <div class="foot-ci"><i class="fas fa-envelope"></i><a href="/cdn-cgi/l/email-protection#3953564a5c495150575c57505a565d5c544c4a090c795e54585055175a5654"><span class="__cf_email__" data-cfemail="a7cdc8d4c2d7cfcec9c2c9cec4c8c3c2cad2d49792e7c0cac6cecb89c4c8ca">[email&#160;protected]</span></a></div>
+            <div class="foot-ci"><i class="fab fa-whatsapp"></i><a href="https://wa.me/255689583281" target="_blank" rel="noopener noreferrer" data-i18n="wa_order_line">WhatsApp Order Line</a></div>
+            <div class="foot-ci"><i class="fas fa-envelope"></i><a href="mailto:josephinenicodemus05@gmail.com">josephinenicodemus05@gmail.com</a></div>
             <div class="foot-ci"><i class="fas fa-map-marker-alt"></i><span>Tabata Sundown, Dar es Salaam</span></div>
           </div>
         </div>
         <div>
-          <h3 class="foot-col-title">Business Hours</h3>
+          <h3 class="foot-col-title" data-i18n="foot_hours_title">Business Hours</h3>
           <div class="foot-contact">
-            <div class="foot-ci"><i class="far fa-clock"></i><span>Mon &ndash; Fri: 7:00 AM &ndash; 10:00 PM</span></div>
-            <div class="foot-ci"><i class="far fa-clock"></i><span>Saturday: 7:00 AM &ndash; 10:00 PM</span></div>
-            <div class="foot-ci"><i class="far fa-clock"></i><span>Sunday: 8:00 AM &ndash; 10:00 PM</span></div>
-            <div class="foot-ci"><i class="fab fa-whatsapp"></i><span>WhatsApp: 24 / 7</span></div>
+            <div class="foot-ci"><i class="far fa-clock"></i><span data-i18n="foot_hours_wkd">Mon &ndash; Fri: 7:00 AM &ndash; 10:00 PM</span></div>
+            <div class="foot-ci"><i class="far fa-clock"></i><span data-i18n="foot_hours_sat">Saturday: 7:00 AM &ndash; 10:00 PM</span></div>
+            <div class="foot-ci"><i class="far fa-clock"></i><span data-i18n="foot_hours_sun">Sunday: 8:00 AM &ndash; 10:00 PM</span></div>
+            <div class="foot-ci"><i class="fab fa-whatsapp"></i><span data-i18n="foot_hours_wa">WhatsApp: 24 / 7</span></div>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="yr"></span> Nico Poultry and Eggs Ltd. All rights reserved.</p>
-        <p>Crafted with <i class="fas fa-heart" style="color:#e8bb3e"></i> for Tanzania's finest poultry experience.</p>
+        <p>&copy; <span id="yr"></span> Nico Poultry and Eggs Ltd. <span data-i18n="all_rights">All rights reserved.</span></p>
+        <p data-i18n="footer_craft">Crafted with <i class="fas fa-heart" style="color:#e8bb3e"></i> for Tanzania's finest poultry experience.</p>
       </div>
     </div>
   </div>
@@ -1507,753 +1065,755 @@ ul{list-style:none}
 <a href="https://wa.me/255689583281?text=Hello%20Nico%20Poultry!%20I%20would%20like%20to%20place%20an%20order." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 <button class="btt-btn" id="bttBtn" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-(function() {
+<script>
+(function(){
 'use strict';
 
-function qs(s) { return document.querySelector(s); }
-function qsa(s) { return document.querySelectorAll(s); }
-function fmtTZS(n) { return 'TZS ' + Math.round(n).toLocaleString('en-TZ'); }
+/* ── helpers ── */
+function qs(s){return document.querySelector(s);}
+function qsa(s){return document.querySelectorAll(s);}
+function fmtTZS(n){return 'TZS '+Math.round(n).toLocaleString();}
 
-/* Year */
-var yrEl = qs('#yr');
-if (yrEl) yrEl.textContent = new Date().getFullYear();
+/* ── year ── */
+var yrEl=qs('#yr'); if(yrEl) yrEl.textContent=new Date().getFullYear();
 
-/* Logo fallback */
-var logoImg = qs('#logoImg'), logoFb = qs('#logoFallback');
-if (logoImg) {
-  var logoExts = ['LOGO.jpg','LOGO.png','LOGO.PNG','LOGO.JPG','logo.jpeg','logo.jpg','logo.png'];
-  var logoIdx = 0;
-  logoImg.onerror = function() {
-    if (logoIdx < logoExts.length) { logoImg.src = logoExts[logoIdx++]; }
-    else { logoImg.style.display='none'; if(logoFb){logoFb.style.display='flex';} }
+/* ── hero background image — loaded via JS so it works on any host ── */
+(function(){
+  var hero=qs('#heroSection');
+  if(!hero) return;
+  var img=new Image();
+  img.onload=function(){
+    hero.style.backgroundImage=
+      'linear-gradient(160deg,rgba(4,31,19,.93) 0%,rgba(11,93,59,.87) 40%,rgba(0,0,0,.80) 100%),url("'+img.src+'")';
+    hero.style.backgroundSize='cover';
+    hero.style.backgroundPosition='center';
+    hero.style.backgroundRepeat='no-repeat';
+  };
+  /* Primary: farm photo. Fallback chain: Unsplash variants then solid gradient */
+  img.crossOrigin='anonymous';
+  img.src='https://images.unsplash.com/photo-1518492104633-130d0cc84637?auto=format&fit=crop&w=1600&q=80';
+  img.onerror=function(){
+    img.onerror=function(){/* give up — CSS gradient fallback already showing */};
+    img.src='https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=1600&q=80';
+  };
+})();
+
+/* ── logo fallback ── */
+var logoImg=qs('#logoImg'), logoFb=qs('#logoFallback');
+if(logoImg){
+  var logoExts=['LOGO.jpg','LOGO.png','LOGO.PNG','LOGO.JPG','logo.jpeg','logo.jpg','logo.png'];
+  var lIdx=0;
+  logoImg.onerror=function(){
+    if(lIdx<logoExts.length){logoImg.src=logoExts[lIdx++];}
+    else{logoImg.style.display='none';if(logoFb){logoFb.style.display='flex';}}
   };
 }
 
-/* Turkey image fallback */
-var turkeyImg = qs('#turkeyImg');
-if (turkeyImg) {
-  var tExts = ['TURKEY.jpg','TURKEY.png','TURKEY.JPG','TURKEY.PNG',
+/* ── turkey image fallback ── */
+var tImg=qs('#turkeyImg');
+if(tImg){
+  var tExts=['TURKEY.jpg','TURKEY.png','TURKEY.JPG','TURKEY.PNG',
     'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=800&q=80'];
-  var tIdx = 0;
-  turkeyImg.onerror = function() { if(tIdx < tExts.length) turkeyImg.src = tExts[tIdx++]; };
+  var tIdx=0;
+  tImg.onerror=function(){if(tIdx<tExts.length) tImg.src=tExts[tIdx++];};
 }
 
-/* Header scroll */
-var hdr = qs('#siteHeader');
-window.addEventListener('scroll', function() {
-  if(hdr) hdr.classList.toggle('scrolled', window.scrollY > 60);
-}, { passive:true });
+/* ── header scroll ── */
+var hdr=qs('#siteHeader');
+window.addEventListener('scroll',function(){if(hdr) hdr.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
 
-/* Mobile menu */
-var ham = qs('#hamburger'), mobMenu = qs('#mobileMenu'), menuOpen = false;
-function setMenu(open) {
-  menuOpen = open;
-  if(ham) { ham.classList.toggle('open',open); ham.setAttribute('aria-expanded',String(open)); }
-  if(mobMenu) { mobMenu.classList.toggle('open',open); mobMenu.setAttribute('aria-hidden',String(!open)); }
-  document.body.style.overflow = open ? 'hidden' : '';
+/* ── mobile menu ── */
+var ham=qs('#hamburger'), mobMenu=qs('#mobileMenu'), menuOpen=false;
+function setMenu(open){
+  menuOpen=open;
+  if(ham){ham.classList.toggle('open',open);ham.setAttribute('aria-expanded',String(open));}
+  if(mobMenu){mobMenu.classList.toggle('open',open);mobMenu.setAttribute('aria-hidden',String(!open));}
+  document.body.style.overflow=open?'hidden':'';
 }
-if(ham) ham.addEventListener('click', function() { setMenu(!menuOpen); });
-qsa('.mob-link, .mob-cta').forEach(function(a) { a.addEventListener('click', function() { setMenu(false); }); });
-document.addEventListener('keydown', function(e) { if(e.key==='Escape'&&menuOpen) setMenu(false); });
+if(ham) ham.addEventListener('click',function(){setMenu(!menuOpen);});
+qsa('.mob-link,.mob-cta').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menuOpen) setMenu(false);});
 
-/* Smooth scroll */
-qsa('a[href^="#"]').forEach(function(a) {
-  a.addEventListener('click', function(e) {
-    var href = a.getAttribute('href');
+/* ── smooth scroll ── */
+qsa('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var href=a.getAttribute('href');
     if(!href||href==='#') return;
-    var target = document.querySelector(href);
+    var target=document.querySelector(href);
     if(!target) return;
     e.preventDefault();
-    var navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'))||76;
-    window.scrollTo({ top: target.getBoundingClientRect().top+window.pageYOffset-navH, behavior:'smooth' });
+    var navH=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'))||76;
+    window.scrollTo({top:target.getBoundingClientRect().top+window.pageYOffset-navH,behavior:'smooth'});
   });
 });
 
-/* Scroll cue */
-var cue = qs('#scrollInd');
-if(cue) {
-  cue.addEventListener('click', function() { window.scrollTo({top:window.innerHeight,behavior:'smooth'}); });
-  cue.addEventListener('keydown', function(e) { if(e.key==='Enter'||e.key===' '){e.preventDefault();cue.click();} });
+/* ── scroll cue ── */
+var cue=qs('#scrollInd');
+if(cue){
+  cue.addEventListener('click',function(){window.scrollTo({top:window.innerHeight,behavior:'smooth'});});
+  cue.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();cue.click();}});
 }
 
-/* Back to top */
-var bttBtn = qs('#bttBtn');
-if(bttBtn) {
-  window.addEventListener('scroll', function() { bttBtn.classList.toggle('visible',window.scrollY>500); }, {passive:true});
-  bttBtn.addEventListener('click', function() { window.scrollTo({top:0,behavior:'smooth'}); });
+/* ── back to top ── */
+var bttBtn=qs('#bttBtn');
+if(bttBtn){
+  window.addEventListener('scroll',function(){bttBtn.classList.toggle('visible',window.scrollY>500);},{passive:true});
+  bttBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
 }
 
-/* Reveal on scroll */
-var revealObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) { if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);} });
-}, { threshold:0.08, rootMargin:'0px 0px -28px 0px' });
-qsa('.reveal').forEach(function(el) { revealObs.observe(el); });
+/* ── reveal ── */
+var revObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});
+},{threshold:0.08,rootMargin:'0px 0px -28px 0px'});
+qsa('.reveal').forEach(function(el){revObs.observe(el);});
 
-/* Counter animation */
-function animCount(el, target) {
-  var step = target/55, cur = 0;
-  var timer = setInterval(function() {
-    cur = Math.min(cur+step, target);
-    el.textContent = Math.floor(cur)+(el.dataset.suffix||'');
-    if(cur>=target){el.textContent=target+(el.dataset.suffix||'');clearInterval(timer);}
-  }, 18);
+/* ── counter animation ── */
+function animCount(el,target){
+  var step=target/55,cur=0;
+  var timer=setInterval(function(){
+    cur=Math.min(cur+step,target);
+    el.textContent=Math.floor(cur);
+    if(cur>=target){el.textContent=target;clearInterval(timer);}
+  },18);
 }
-var cntObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
+var cntObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
     if(!e.isIntersecting) return;
-    var el=e.target, t=parseInt(el.dataset.target,10);
+    var el=e.target,t=parseInt(el.dataset.target,10);
     if(!isNaN(t)) animCount(el,t);
     cntObs.unobserve(el);
   });
-}, { threshold:0.5 });
-qsa('[data-target]').forEach(function(el) { cntObs.observe(el); });
+},{threshold:0.5});
+qsa('[data-target]').forEach(function(el){cntObs.observe(el);});
 
-/* Active nav on scroll */
-var secs = qsa('section[id]'), navAs = qsa('.nav-links a[href^="#"]');
-window.addEventListener('scroll', function() {
-  var y = window.scrollY+110;
-  secs.forEach(function(s) {
+/* ── active nav ── */
+var secs=qsa('section[id]'), navAs=qsa('.nav-links a[href^="#"]');
+window.addEventListener('scroll',function(){
+  var y=window.scrollY+110;
+  secs.forEach(function(s){
     if(y>=s.offsetTop&&y<s.offsetTop+s.offsetHeight)
       navAs.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+s.id);});
   });
-}, { passive:true });
+},{passive:true});
 
-/* ═══════════════════════════════════════
-   FARM GALLERY SLIDESHOW
-═══════════════════════════════════════ */
-(function() {
-  var SLIDE_DURATION = 6000; // ms per slide
-  var totalSlides = 3;
-  var current = 0;
-  var autoTimer = null;
-  var progTimer = null;
-
-  var slides     = qsa('.slide');
-  var dots       = qsa('.dot');
-  var thumbs     = qsa('.thumb-item');
-  var counter    = qs('#slideCounter');
-  var progressBar= qs('#progressBar');
-  var prevBtn    = qs('#slidePrev');
-  var nextBtn    = qs('#slideNext');
-
-  function goTo(idx) {
-    if(idx === current) return;
-    slides[current].classList.remove('active');
-    slides[current].classList.add('prev');
-    dots[current].classList.remove('active');
-    dots[current].setAttribute('aria-selected','false');
-    thumbs[current].classList.remove('active');
-
-    current = (idx + totalSlides) % totalSlides;
-
-    slides[current].classList.add('active');
-    slides[current].classList.remove('prev');
-    dots[current].classList.add('active');
-    dots[current].setAttribute('aria-selected','true');
-    thumbs[current].classList.add('active');
-
-    if(counter) counter.textContent = (current+1) + ' / ' + totalSlides;
-
-    // restart prev class cleanup after transition
-    setTimeout(function() {
-      slides.forEach(function(s,i){ if(i!==current) s.classList.remove('prev'); });
-    }, 1100);
-
-    resetProgress();
-  }
-
-  function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
-
-  /* progress bar */
-  function resetProgress() {
-    if(!progressBar) return;
-    clearTimeout(progTimer);
-    progressBar.style.transition = 'none';
-    progressBar.style.width = '0%';
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        progressBar.style.transition = 'width ' + SLIDE_DURATION + 'ms linear';
-        progressBar.style.width = '100%';
-      });
-    });
-  }
-
-  /* auto-advance */
-  function startAuto() {
-    stopAuto();
-    autoTimer = setInterval(next, SLIDE_DURATION);
-  }
-  function stopAuto() {
-    if(autoTimer) { clearInterval(autoTimer); autoTimer = null; }
-  }
-
-  /* arrow buttons */
-  if(prevBtn) prevBtn.addEventListener('click', function() { stopAuto(); prev(); startAuto(); });
-  if(nextBtn) nextBtn.addEventListener('click', function() { stopAuto(); next(); startAuto(); });
-
-  /* dot clicks */
-  dots.forEach(function(dot) {
-    dot.addEventListener('click', function() {
-      stopAuto();
-      goTo(parseInt(dot.dataset.slide, 10));
-      startAuto();
-    });
-  });
-
-  /* thumbnail clicks */
-  thumbs.forEach(function(thumb) {
-    thumb.addEventListener('click', function() {
-      stopAuto();
-      goTo(parseInt(thumb.dataset.slide, 10));
-      startAuto();
-    });
-    thumb.addEventListener('keydown', function(e) {
-      if(e.key==='Enter'||e.key===' '){e.preventDefault();thumb.click();}
-    });
-  });
-
-  /* keyboard navigation */
-  document.addEventListener('keydown', function(e) {
-    var stage = qs('#slideshowStage');
-    if(!stage) return;
-    var rect = stage.getBoundingClientRect();
-    var inView = rect.top < window.innerHeight && rect.bottom > 0;
-    if(!inView) return;
-    if(e.key==='ArrowLeft') { stopAuto(); prev(); startAuto(); }
-    if(e.key==='ArrowRight') { stopAuto(); next(); startAuto(); }
-  });
-
-  /* touch/swipe */
-  var touchStartX = 0;
-  var stage = qs('#slideshowStage');
-  if(stage) {
-    stage.addEventListener('touchstart', function(e) {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive:true });
-    stage.addEventListener('touchend', function(e) {
-      var dx = e.changedTouches[0].screenX - touchStartX;
-      if(Math.abs(dx) > 40) {
-        stopAuto();
-        if(dx < 0) next(); else prev();
-        startAuto();
-      }
-    }, { passive:true });
-  }
-
-  /* pause on hover */
-  if(stage) {
-    stage.addEventListener('mouseenter', function() {
-      stopAuto();
-      if(progressBar) { progressBar.style.transition = 'none'; }
-    });
-    stage.addEventListener('mouseleave', function() {
-      resetProgress();
-      startAuto();
-    });
-  }
-
-  /* lightbox on slide click */
-  var lightbox = qs('#lightbox');
-  var lbImg    = qs('#lbImg');
-  var lbClose  = qs('#lbClose');
-  if(stage && lightbox && lbImg) {
-    stage.addEventListener('click', function(e) {
-      if(e.target.closest('.slide-prev,.slide-next')) return;
-      var activeSlide = qs('.slide.active');
-      if(!activeSlide) return;
-      var img = activeSlide.querySelector('img');
-      if(!img) return;
-      lbImg.src = img.src;
-      lbImg.alt = img.alt;
-      lightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      stopAuto();
-    });
-  }
-  if(lbClose) {
-    lbClose.addEventListener('click', function() {
-      lightbox.classList.remove('open');
-      document.body.style.overflow = '';
-      startAuto();
-    });
-  }
-  if(lightbox) {
-    lightbox.addEventListener('click', function(e) {
-      if(e.target === lightbox) {
-        lightbox.classList.remove('open');
-        document.body.style.overflow = '';
-        startAuto();
-      }
-    });
-    document.addEventListener('keydown', function(e) {
-      if(e.key==='Escape' && lightbox.classList.contains('open')) {
-        lightbox.classList.remove('open');
-        document.body.style.overflow = '';
-        startAuto();
-      }
-    });
-  }
-
-  /* init */
-  resetProgress();
-  startAuto();
-
-})();
-
-/* ═══════════════════════════════════════
-   LANGUAGE SWITCHER
-═══════════════════════════════════════ */
-var I18N = {
-  en: {
-    order_now:'Order Now', get_started:'Get Started', place_order:'Place Your Order',
-    order_subtitle:'Select your products, set quantities, and we\'ll confirm via WhatsApp within 15 minutes.',
-    your_details:'Your Details', full_name:'Full Name', phone:'Phone Number',
-    select_products:'Select Products', tap_to_add:'(tap to add to cart)',
-    your_cart:'Your Cart', order_summary:'Order Summary', date:'Date',
-    customer:'Customer', delivery:'Delivery', grand_total:'Grand Total',
-    delivery_pref:'Delivery Preference', special_notes:'Special Instructions',
-    send_order:'Send Order via WhatsApp', privacy_note:'Your info is private. Orders confirmed within 15 min via WhatsApp.',
+/* ═══════════════════════════════════════════════════════
+   TRANSLATIONS — full site coverage EN / SW
+═══════════════════════════════════════════════════════ */
+var T={
+  en:{
+    /* nav */
+    tagline:'Farm Fresh · Dar es Salaam',
+    nav_products:'Products', nav_about:'About', nav_pricing:'Pricing', nav_location:'Location',
+    order_now:'Order Now', place_order_btn:'Place an Order',
+    /* hero */
+    hero_eyebrow:"Dar es Salaam's Premier Farm",
+    hero_title_1:'Premium', hero_title_em:'Turkey', hero_title_2:'Chicken', hero_title_3:'Supplier Tanzania',
+    hero_sub:'Supplying hormone-free turkeys, broiler chickens & farm-fresh eggs to households, restaurants and wholesale buyers across Tanzania — delivered fresh, every single day.',
+    hero_cta_1:'Place Your Order', hero_cta_2:'Explore Products',
+    stat_customers:'Happy Customers', stat_restaurants:'Restaurants Served', stat_fresh:'Fresh Guarantee', stat_years:'Years of Excellence',
+    scroll:'Scroll',
+    /* ticker */
+    tick_eggs:'Farm Fresh Eggs', tick_delivery:'24-Hour Delivery', tick_hormone:'Hormone Free',
+    tick_quality:'Quality Certified', tick_location:'Dar es Salaam', tick_whatsapp:'Order via WhatsApp',
+    tick_years:'8+ Years Excellence', tick_customers:'500+ Customers',
+    /* features bar */
+    feat_del_label:'Delivery', feat_del_val:'Within 24 Hours',
+    feat_qual_label:'Quality', feat_qual_val:'100% Certified Fresh',
+    feat_raised_label:'Raised', feat_raised_val:'Hormone & Antibiotic Free',
+    feat_support_label:'Support', feat_support_val:'24/7 WhatsApp Line',
+    /* products */
+    prod_eyebrow:'What We Offer', prod_title:'Our Premium Products',
+    prod_sub:'Every Turkey and Chicken is raised with professional care under open-range conditions — hormone-free, naturally fed and delivered fresh to your door.',
+    badge_bestseller:'Best Seller', badge_premium:'Premium', badge_fresh_daily:'Fresh Daily',
+    prod_tag_premium:'Premium Quality', prod_tag_heritage:'Heritage Breed', prod_tag_collected:'Collected Every Morning',
+    prod1_name:'Broiler Chickens', prod1_desc:'Healthy broilers raised hormone-free under professional farm standards. Consistent quality for families, restaurants and caterers.',
+    prod1_price:'From TZS 15,000', prod_per_chicken:'per chicken',
+    prod2_name:'Grand Heritage Turkeys', prod2_desc:'Majestic heritage turkeys raised with organic feed and open space. Perfect for restaurants, hotels and festive celebrations.',
+    prod2_price:'From TZS 85,000', prod_per_turkey:'per turkey',
+    prod3_name:'Fresh Turkey Eggs', prod3_desc:'Nutrient-rich turkey eggs for gourmet cooking, professional baking or incubation. Collected fresh every morning.',
+    prod3_price:'TZS 5,000', prod_per_egg:'per egg',
+    order_btn:'Order',
+    /* gallery */
+    gallery_eyebrow:'Inside Our Farm', gallery_title:'From Our Farm to Your Table',
+    gallery_sub:'Step inside Nico Poultry & Eggs Ltd — where every Turkey and Chicken is raised with love, space and the highest care standards in Tanzania.',
+    slide1_tag:'Day-Old Chicks', slide1_title:'Warmth & Care from Day One',
+    slide1_desc:'Our newly-hatched chicks bask under professional heat lamps — monitored 24/7 for optimal temperature and health.',
+    monitored:'Monitored',
+    slide2_tag:'Growing Flock', slide2_title:'Healthy Birds, Happy Farm',
+    slide2_desc:'Our thriving flock of young turkeys raised with hormone-free feed in spacious, clean and ventilated pens.',
+    birds_raised:'Birds Raised',
+    slide3_tag:'Premium Heritage Breed', slide3_title:'Restaurant-Grade Turkeys',
+    slide3_desc:'Our mature heritage turkeys — naturally reared, hormone-free and ready for your kitchen or celebration feast.',
+    premium_size:'Premium Size',
+    gstat1_label:'Farming Standard', gstat1_val:'Open-Range & Organic',
+    gstat2_label:'Zero Tolerance', gstat2_val:'No Hormones · No Antibiotics',
+    gstat3_label:'Farm Location', gstat3_val:'Tabata Sundown, Dar es Salaam',
+    /* about */
+    badge_years:'Years of\nExcellence',
+    about_eyebrow:'Our Story', about_title:"Tanzania's Trusted Poultry Farm Since 2016",
+    about_p1:'Founded in Tabata Sundown, Dar es Salaam, Nico Poultry & Eggs Ltd began with one mission: deliver the freshest, most ethically raised poultry to Tanzanian families and businesses.',
+    about_p2:'Today we serve over 500 satisfied customers — from private households to Dar es Salaam\'s finest restaurants and hotels — with the same commitment to quality.',
+    about_f1_title:'Ethically Raised', about_f1_desc:'All Turkey and Chickens raised open-range with organic feed — no hormones, no antibiotics, ever.',
+    about_f2_title:'Cold-Chain Delivery', about_f2_desc:'Temperature-controlled transport ensures every product arrives fresh and safe within 24 hours.',
+    about_f3_title:'Wholesale Partnerships', about_f3_desc:'Custom supply agreements for hotels, restaurants, supermarkets and event caterers.',
+    get_in_touch:'Get in Touch',
+    /* pricing */
+    pricing_eyebrow:'Rates & Packages', pricing_title:'Transparent Pricing',
+    pricing_sub:'Competitive rates for retail, wholesale and corporate clients. Contact us for bulk discounts and custom supply agreements.',
+    th_product:'Product', th_weight:'Weight / Unit', th_price:'Price (TZS)',
+    pt1_name:'Local Heritage Turkey', pt1_desc:'Traditional breed, naturally reared',
+    pt2_name:'Improved Breed Turkey', pt2_desc:'Larger frame, superior meat quality',
+    pt3_name:'Premium Show Turkey', pt3_desc:'Grand heritage, restaurant-grade',
+    pt4_name:'Broiler Chicken', pt4_desc:'Hormone-free, consistently fresh',
+    pt5_name:'Fresh Turkey Eggs', pt5_desc:'Collected daily — retail & wholesale',
+    per_egg_unit:'Per Egg', contact_quote:'Contact for Quote', negotiable:'Negotiable',
+    pricing_note:'Bulk orders of 10+ Turkey and Chicken qualify for special discounts. Call or WhatsApp for a custom quote.',
+    /* location */
+    loc_eyebrow:'Find Us', loc_title:'Visit Our Farm',
+    loc_sub:'Conveniently located in Tabata Sundown, Dar es Salaam — easy access for farm pickups and deliveries across the region.',
+    loc_card_title:'Tabata Sundown, Dar es Salaam',
+    loc_address_label:'Address', loc_address_val:'Tabata Sundown, Dar es Salaam, Tanzania',
+    loc_phone_label:'Direct Line', loc_email_label:'Email',
+    loc_delivery_label:'Delivery Areas', loc_delivery_val:'Dar es Salaam Region · Same-day delivery · Nationwide shipping for bulk orders',
+    hours_weekday:'Monday – Friday', hours_sat:'Saturday', hours_sun:'Sunday', hours_wa:'WhatsApp Orders',
+    get_directions:'Get Directions',
+    /* order form */
+    order_eyebrow:'Get Started', order_title:'Place Your Order',
+    order_sub:"Select your products, set quantities, and we'll confirm via WhatsApp within 15 minutes.",
+    autofill_btn:'Autofill Details',
+    your_details:'Your Details', full_name:'Full Name', phone_label:'Phone Number',
+    select_products:'Select Products', tap_add:'(tap to add)',
+    your_cart:'Your Cart', order_summary:'Order Summary',
+    date_label:'Date', customer_label:'Customer',
+    no_items:'No items yet — select products above',
+    bulk_note:'Bulk discount applies on orders of 10+ items!',
+    delivery_label:'Delivery', pickup_free:'Farm Pickup (Free)',
+    grand_total:'Grand Total',
+    delivery_pref:'Delivery Preference',
+    opt_pickup:'Farm Pickup — Free', opt_dar:'Dar es Salaam Delivery — +TZS 5,000', opt_nationwide:'Nationwide Shipping — Quote Required',
+    special_notes:'Special Instructions',
+    send_order:'Send Order via WhatsApp',
+    privacy_note:'Your info is private. Orders confirmed within 15 min via WhatsApp.',
     err_name:'Please enter your full name.', err_phone:'Enter a valid Tanzanian number.',
-    no_items:'No items yet — select products above', bulk_note:'Bulk discount applies on orders of 10+ items!',
-    pickup:'Farm Pickup — Free', dar_delivery:'Dar es Salaam Delivery — +TZS 5,000',
-    nationwide:'Nationwide Shipping — Quote Required',
-    products:{
-      'turkey-local':{name:'Local Heritage Turkey',weight:'8 – 10 kg'},
-      'turkey-improved':{name:'Improved Breed Turkey',weight:'10 – 15 kg'},
-      'turkey-premium':{name:'Premium Show Turkey',weight:'15+ kg'},
-      'chicken':{name:'Broiler Chicken',weight:'1.5 – 2.5 kg'},
-      'eggs':{name:'Fresh Turkey Eggs',weight:'per egg'}
-    }
+    /* cart product names */
+    cat_turkey_local:'Local Heritage Turkey', cat_turkey_local_w:'8 – 10 kg',
+    cat_turkey_improved:'Improved Breed Turkey', cat_turkey_improved_w:'10 – 15 kg',
+    cat_turkey_premium:'Premium Show Turkey', cat_turkey_premium_w:'15+ kg',
+    cat_chicken:'Broiler Chicken', cat_chicken_w:'1.5 – 2.5 kg',
+    cat_eggs:'Fresh Turkey Eggs', cat_eggs_w:'per egg',
+    cat_quote:'Contact for Quote',
+    /* footer */
+    ft_fresh:'Farm Fresh', ft_hormone:'Hormone Free', ft_ethical:'Ethically Raised', ft_quality:'Premium Quality',
+    foot_brand_desc:'Premium turkey and chicken supplier in Dar es Salaam. Committed to quality, freshness and exceptional service since 2016.',
+    foot_links_title:'Quick Links', foot_contact_title:'Contact', foot_hours_title:'Business Hours',
+    wa_order_line:'WhatsApp Order Line',
+    foot_hours_wkd:'Mon – Fri: 7:00 AM – 10:00 PM', foot_hours_sat:'Saturday: 7:00 AM – 10:00 PM',
+    foot_hours_sun:'Sunday: 8:00 AM – 10:00 PM', foot_hours_wa:'WhatsApp: 24 / 7',
+    all_rights:'All rights reserved.',
+    footer_craft:'Crafted with love for Tanzania\'s finest poultry experience.'
   },
-  sw: {
-    order_now:'Agiza Sasa', get_started:'Anza Hapa', place_order:'Weka Agizo Lako',
-    order_subtitle:'Chagua bidhaa zako, weka idadi, nasi tutathibitisha kupitia WhatsApp ndani ya dakika 15.',
-    your_details:'Maelezo Yako', full_name:'Jina Kamili', phone:'Nambari ya Simu',
-    select_products:'Chagua Bidhaa', tap_to_add:'(bonyeza kuongeza)',
-    your_cart:'Kikapu Chako', order_summary:'Muhtasari wa Agizo', date:'Tarehe',
-    customer:'Mteja', delivery:'Utoaji', grand_total:'Jumla Kuu',
-    delivery_pref:'Njia ya Utoaji', special_notes:'Maelekezo Maalum',
-    send_order:'Tuma Agizo kwa WhatsApp', privacy_note:'Taarifa zako ni salama. Uthibitisho ndani ya dakika 15 via WhatsApp.',
+  sw:{
+    /* nav */
+    tagline:'Mazao Safi · Dar es Salaam',
+    nav_products:'Bidhaa', nav_about:'Kuhusu', nav_pricing:'Bei', nav_location:'Mahali',
+    order_now:'Agiza Sasa', place_order_btn:'Weka Agizo',
+    /* hero */
+    hero_eyebrow:'Shamba Bora la Dar es Salaam',
+    hero_title_1:'Bata Mzinga na', hero_title_em:'Kuku', hero_title_2:'Bora', hero_title_3:'Tanzania',
+    hero_sub:'Tunasambaza bata mzinga, kuku wa broiler na mayai mapya kwa familia, migahawa na wanunuzi jumla Tanzania nzima — yakiwasilishwa mapya kila siku.',
+    hero_cta_1:'Weka Agizo Lako', hero_cta_2:'Angalia Bidhaa',
+    stat_customers:'Wateja Wafurahi', stat_restaurants:'Migahawa Tunayohudumia', stat_fresh:'Uhakika wa Usafi', stat_years:'Miaka ya Ubora',
+    scroll:'Shuka',
+    /* ticker */
+    tick_eggs:'Mayai Mapya ya Shamba', tick_delivery:'Uwasilishaji Masaa 24', tick_hormone:'Bila Homoni',
+    tick_quality:'Ubora Uliothibitishwa', tick_location:'Dar es Salaam', tick_whatsapp:'Agiza kwa WhatsApp',
+    tick_years:'Miaka 8+ ya Ubora', tick_customers:'Wateja 500+',
+    /* features bar */
+    feat_del_label:'Uwasilishaji', feat_del_val:'Ndani ya Masaa 24',
+    feat_qual_label:'Ubora', feat_qual_val:'100% Safi Iliyothibitishwa',
+    feat_raised_label:'Uliolewa', feat_raised_val:'Bila Homoni Wala Antibiotiki',
+    feat_support_label:'Msaada', feat_support_val:'WhatsApp Masaa 24/7',
+    /* products */
+    prod_eyebrow:'Tunachotoa', prod_title:'Bidhaa Zetu Bora',
+    prod_sub:'Kila Bata Mzinga na Kuku hulewa kwa utunzaji wa kitaalamu — bila homoni, lishe asili na yakiwasilishwa mapya mlangoni mwako.',
+    badge_bestseller:'Inayouzwa Zaidi', badge_premium:'Ya Juu', badge_fresh_daily:'Safi Kila Siku',
+    prod_tag_premium:'Ubora wa Juu', prod_tag_heritage:'Kizazi cha Asili', prod_tag_collected:'Hukusanywa Kila Asubuhi',
+    prod1_name:'Kuku wa Broiler', prod1_desc:'Kuku wazima waliozaliwa bila homoni chini ya viwango vya kitaalamu. Ubora thabiti kwa familia, migahawa na wapishi.',
+    prod1_price:'Kuanzia TZS 15,000', prod_per_chicken:'kwa kuku',
+    prod2_name:'Bata Mzinga Mkubwa wa Asili', prod2_desc:'Bata mzinga wa kizazi cha asili waliolewa kwa chakula cha kikaboni na nafasi kubwa. Bora kwa migahawa, hoteli na sherehe.',
+    prod2_price:'Kuanzia TZS 85,000', prod_per_turkey:'kwa bata mzinga',
+    prod3_name:'Mayai Mapya ya Bata Mzinga', prod3_desc:'Mayai yenye virutubisho vingi kwa kupikia ladha, kuoka kitaalamu au kuatuliwa. Hukusanywa mapya kila asubuhi.',
+    prod3_price:'TZS 5,000', prod_per_egg:'kwa yai',
+    order_btn:'Agiza',
+    /* gallery */
+    gallery_eyebrow:'Ndani ya Shamba Letu', gallery_title:'Kutoka Shambani Hadi Mezani Kwako',
+    gallery_sub:'Ingia ndani ya Nico Poultry & Eggs Ltd — mahali ambapo kila Bata Mzinga na Kuku hulewa kwa upendo, nafasi na viwango vya juu vya utunzaji Tanzania.',
+    slide1_tag:'Vifaranga Wachanga', slide1_title:'Joto na Utunzaji Tangu Siku ya Kwanza',
+    slide1_desc:'Vifaranga wetu wachanga wanaendelea kwa taa za joto za kitaalamu — vikifuatiliwa masaa 24 kwa joto na afya bora.',
+    monitored:'Inafuatiliwa',
+    slide2_tag:'Kundi Linalokua', slide2_title:'Ndege Wenye Afya, Shamba Lenye Furaha',
+    slide2_desc:'Kundi letu la bata mzinga wachanga wanaolewa bila homoni katika mazizi mapana, masafi na yenye hewa ya kutosha.',
+    birds_raised:'Ndege Waliozaliwa',
+    slide3_tag:'Kizazi Bora cha Asili', slide3_title:'Bata Mzinga wa Kiwango cha Mgahawa',
+    slide3_desc:'Bata mzinga wetu wazima — waliolewa kiasili, bila homoni na wako tayari kwa jikoni yako au karamu ya sherehe.',
+    premium_size:'Ukubwa wa Juu',
+    gstat1_label:'Kiwango cha Ufugaji', gstat1_val:'Uwanja Wazi na Kikaboni',
+    gstat2_label:'Kutovumilia Kabisa', gstat2_val:'Bila Homoni · Bila Antibiotiki',
+    gstat3_label:'Mahali pa Shamba', gstat3_val:'Tabata Sundown, Dar es Salaam',
+    /* about */
+    badge_years:'Miaka ya\nUbora',
+    about_eyebrow:'Hadithi Yetu', about_title:'Shamba Linaloaminiwa Tanzania Tangu 2016',
+    about_p1:'Ilianzishwa Tabata Sundown, Dar es Salaam, Nico Poultry & Eggs Ltd ilianza na lengo moja: kuwasilisha kuku waliozaliwa kwa uaminifu zaidi kwa familia na biashara za Tanzania.',
+    about_p2:'Leo tunahudumia wateja zaidi ya 500 walioris — kutoka kwa kaya binafsi hadi migahawa na hoteli bora za Dar es Salaam — kwa kujitolea sawa kwa ubora.',
+    about_f1_title:'Uliolewa kwa Uadilifu', about_f1_desc:'Bata Mzinga na Kuku wote hulewa uwanjani wazi kwa chakula cha kikaboni — bila homoni, bila antibiotiki, kamwe.',
+    about_f2_title:'Uwasilishaji wa Baridi', about_f2_desc:'Usafiri unaodhibitiwa kwa joto huhakikisha kila bidhaa inafika safi na salama ndani ya masaa 24.',
+    about_f3_title:'Ushirikiano wa Jumla', about_f3_desc:'Makubaliano maalum ya ugavi kwa hoteli, migahawa, maduka makubwa na wapishi wa matukio.',
+    get_in_touch:'Wasiliana Nasi',
+    /* pricing */
+    pricing_eyebrow:'Viwango na Vifurushi', pricing_title:'Bei Wazi na Dhahiri',
+    pricing_sub:'Bei shindani kwa wateja wa rejareja, jumla na makampuni. Wasiliana nasi kwa punguzo la jumla na makubaliano maalum.',
+    th_product:'Bidhaa', th_weight:'Uzito / Kitengo', th_price:'Bei (TZS)',
+    pt1_name:'Bata Mzinga wa Asili wa Ndani', pt1_desc:'Kizazi cha jadi, kilicholewa kiasili',
+    pt2_name:'Bata Mzinga wa Kizazi Bora', pt2_desc:'Mwili mkubwa, ubora wa nyama wa juu',
+    pt3_name:'Bata Mzinga wa Maonyesho ya Juu', pt3_desc:'Kizazi kikuu, kiwango cha mgahawa',
+    pt4_name:'Kuku wa Broiler', pt4_desc:'Bila homoni, safi kila wakati',
+    pt5_name:'Mayai Mapya ya Bata Mzinga', pt5_desc:'Hukusanywa kila siku — rejareja na jumla',
+    per_egg_unit:'Kwa Yai', contact_quote:'Piga Simu kwa Bei', negotiable:'Inajadiliwa',
+    pricing_note:'Maagizo ya jumla ya Bata Mzinga na Kuku 10+ yanastahili punguzo maalum. Piga simu au WhatsApp kwa nukuu maalum.',
+    /* location */
+    loc_eyebrow:'Tupate', loc_title:'Tembelea Shamba Letu',
+    loc_sub:'Iko vizuri Tabata Sundown, Dar es Salaam — ufikio rahisi kwa kuchukua shambani na uwasilishaji eneo lote.',
+    loc_card_title:'Tabata Sundown, Dar es Salaam',
+    loc_address_label:'Anwani', loc_address_val:'Tabata Sundown, Dar es Salaam, Tanzania',
+    loc_phone_label:'Simu ya Moja kwa Moja', loc_email_label:'Barua Pepe',
+    loc_delivery_label:'Maeneo ya Uwasilishaji', loc_delivery_val:'Mkoa wa Dar es Salaam · Uwasilishaji siku hiyo hiyo · Usafirishaji nchi nzima kwa maagizo makubwa',
+    hours_weekday:'Jumatatu – Ijumaa', hours_sat:'Jumamosi', hours_sun:'Jumapili', hours_wa:'Maagizo ya WhatsApp',
+    get_directions:'Pata Mwelekeo',
+    /* order form */
+    order_eyebrow:'Anza Hapa', order_title:'Weka Agizo Lako',
+    order_sub:'Chagua bidhaa zako, weka idadi, na tutathibitisha kupitia WhatsApp ndani ya dakika 15.',
+    autofill_btn:'Jaza Maelezo',
+    your_details:'Maelezo Yako', full_name:'Jina Kamili', phone_label:'Nambari ya Simu',
+    select_products:'Chagua Bidhaa', tap_add:'(gusa kuongeza)',
+    your_cart:'Kikapu Chako', order_summary:'Muhtasari wa Agizo',
+    date_label:'Tarehe', customer_label:'Mteja',
+    no_items:'Hakuna bidhaa bado — chagua bidhaa hapo juu',
+    bulk_note:'Punguzo la jumla linatumika kwa maagizo ya vitu 10+!',
+    delivery_label:'Uwasilishaji', pickup_free:'Kuchukua Shambani (Bila Malipo)',
+    grand_total:'Jumla Kuu',
+    delivery_pref:'Njia ya Uwasilishaji',
+    opt_pickup:'Kuchukua Shambani — Bila Malipo', opt_dar:'Uwasilishaji Dar es Salaam — +TZS 5,000', opt_nationwide:'Usafirishaji Nchi Nzima — Nukuu Inahitajika',
+    special_notes:'Maelekezo Maalum',
+    send_order:'Tuma Agizo kwa WhatsApp',
+    privacy_note:'Taarifa zako ni salama. Uthibitisho ndani ya dakika 15 via WhatsApp.',
     err_name:'Tafadhali ingiza jina lako kamili.', err_phone:'Ingiza nambari sahihi ya Tanzania.',
-    no_items:'Hakuna bidhaa bado — chagua bidhaa hapo juu', bulk_note:'Punguzo la jumla linatumika kwa maagizo ya vitu 10+!',
-    pickup:'Kuchukua Shambani — Bila Malipo', dar_delivery:'Utoaji Dar es Salaam — +TZS 5,000',
-    nationwide:'Usafirishaji Nchi Nzima — Nukuu Inahitajika',
-    products:{
-      'turkey-local':{name:'Bata Mzinga wa Asili',weight:'8 – 10 kg'},
-      'turkey-improved':{name:'Bata Mzinga Bora',weight:'10 – 15 kg'},
-      'turkey-premium':{name:'Bata Mzinga wa Kifahari',weight:'15+ kg'},
-      'chicken':{name:'Kuku wa Broiler',weight:'1.5 – 2.5 kg'},
-      'eggs':{name:'Mayai ya Bata Mzinga',weight:'kwa yai'}
-    }
+    /* cart product names */
+    cat_turkey_local:'Bata Mzinga wa Asili wa Ndani', cat_turkey_local_w:'8 – 10 kg',
+    cat_turkey_improved:'Bata Mzinga wa Kizazi Bora', cat_turkey_improved_w:'10 – 15 kg',
+    cat_turkey_premium:'Bata Mzinga wa Maonyesho ya Juu', cat_turkey_premium_w:'15+ kg',
+    cat_chicken:'Kuku wa Broiler', cat_chicken_w:'1.5 – 2.5 kg',
+    cat_eggs:'Mayai Mapya ya Bata Mzinga', cat_eggs_w:'kwa yai',
+    cat_quote:'Piga Simu kwa Bei',
+    /* footer */
+    ft_fresh:'Mazao Safi', ft_hormone:'Bila Homoni', ft_ethical:'Uliolewa kwa Uadilifu', ft_quality:'Ubora wa Juu',
+    foot_brand_desc:'Msambazaji bora wa bata mzinga na kuku Dar es Salaam. Amejitolea kwa ubora, usafi na huduma bora tangu 2016.',
+    foot_links_title:'Viungo vya Haraka', foot_contact_title:'Mawasiliano', foot_hours_title:'Masaa ya Biashara',
+    wa_order_line:'Mstari wa Agizo wa WhatsApp',
+    foot_hours_wkd:'Jumatatu – Ijumaa: 7:00 AM – 10:00 PM', foot_hours_sat:'Jumamosi: 7:00 AM – 10:00 PM',
+    foot_hours_sun:'Jumapili: 8:00 AM – 10:00 PM', foot_hours_wa:'WhatsApp: 24 / 7',
+    all_rights:'Haki zote zimehifadhiwa.',
+    footer_craft:'Imetengenezwa kwa upendo kwa uzoefu bora wa kuku Tanzania.'
   }
 };
+
 var currentLang = localStorage.getItem('nicoLang') || 'en';
 
+/* apply language to whole site */
 function applyLang(lang) {
   currentLang = lang;
   localStorage.setItem('nicoLang', lang);
-  var tr = I18N[lang];
-  // update button flag/label
+  /* html lang attribute */
+  document.getElementById('htmlRoot').setAttribute('lang', lang==='sw'?'sw':'en');
+  var tr = T[lang];
+  /* update every data-i18n element */
+  qsa('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n');
+    if(tr[k] !== undefined) el.textContent = tr[k];
+  });
+  /* update select option text (options don't support data-i18n easily) */
+  var sel = qs('#fDelivery');
+  if(sel){
+    sel.options[0].text = tr.opt_pickup;
+    sel.options[1].text = tr.opt_dar;
+    sel.options[2].text = tr.opt_nationwide;
+  }
+  /* update lang button — show only the OTHER language in dropdown */
   var flagMap = {en:'🇬🇧', sw:'🇹🇿'};
   var labelMap = {en:'EN', sw:'SW'};
   var flagEl = qs('#langFlag'), labelEl = qs('#langLabel');
   if(flagEl) flagEl.textContent = flagMap[lang];
   if(labelEl) labelEl.textContent = labelMap[lang];
-  // SMART DROPDOWN: only show the OTHER language option
-  qsa('.lang-opt').forEach(function(o) {
-    var isOther = o.dataset.lang !== lang;
-    o.style.display = isOther ? 'flex' : 'none';
-    o.classList.toggle('active', !isOther);
+  /* show only the other option */
+  qsa('.lang-opt').forEach(function(o){
+    o.style.display = (o.dataset.lang !== lang) ? 'flex' : 'none';
   });
-  // update all data-i18n text
-  qsa('[data-i18n]').forEach(function(el) {
-    var key = el.getAttribute('data-i18n');
-    if(tr[key]) el.textContent = tr[key];
-  });
-  // rebuild dynamic UI
-  if(typeof buildProductTiles === 'function') buildProductTiles();
-  if(typeof renderReceipt === 'function') renderReceipt();
+  /* rebuild cart tiles and receipt with new language */
+  buildProductTiles();
+  renderReceipt();
 }
 
+/* lang button toggle */
 var langBtn = qs('#langBtn'), langDrop = qs('#langDropdown');
-if(langBtn) {
-  langBtn.addEventListener('click', function(e) {
+if(langBtn){
+  langBtn.addEventListener('click', function(e){
     e.stopPropagation();
-    var open = langDrop.classList.toggle('open');
-    langBtn.setAttribute('aria-expanded', String(open));
+    var isOpen = langDrop.classList.toggle('open');
+    langBtn.classList.toggle('open', isOpen);
+    langBtn.setAttribute('aria-expanded', String(isOpen));
   });
 }
-document.addEventListener('click', function() { if(langDrop) langDrop.classList.remove('open'); });
-qsa('.lang-opt').forEach(function(o) {
-  o.addEventListener('click', function(e) {
+document.addEventListener('click', function(){
+  if(langDrop){ langDrop.classList.remove('open'); }
+  if(langBtn){ langBtn.classList.remove('open'); langBtn.setAttribute('aria-expanded','false'); }
+});
+qsa('.lang-opt').forEach(function(o){
+  o.addEventListener('click', function(e){
     e.stopPropagation();
     applyLang(o.dataset.lang);
-    if(langDrop) langDrop.classList.remove('open');
+    langDrop.classList.remove('open');
+    langBtn.classList.remove('open');
+    langBtn.setAttribute('aria-expanded','false');
   });
 });
 
-/* ═══════════════════════════════════════
-   MULTI-ITEM CART ORDER SYSTEM
-═══════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════
+   SLIDESHOW
+═══════════════════════════════════════════════════════ */
+(function(){
+  var DURATION=6000, total=3, current=0, autoTimer=null;
+  var slides=qsa('.slide'), dots=qsa('.dot'), thumbs=qsa('.thumb-item');
+  var counter=qs('#slideCounter'), progressBar=qs('#progressBar');
+  var prevBtn=qs('#slidePrev'), nextBtn=qs('#slideNext');
+
+  function goTo(idx){
+    if(idx===current) return;
+    slides[current].classList.remove('active'); slides[current].classList.add('prev');
+    dots[current].classList.remove('active'); dots[current].setAttribute('aria-selected','false');
+    thumbs[current].classList.remove('active');
+    current=(idx+total)%total;
+    slides[current].classList.add('active'); slides[current].classList.remove('prev');
+    dots[current].classList.add('active'); dots[current].setAttribute('aria-selected','true');
+    thumbs[current].classList.add('active');
+    if(counter) counter.textContent=(current+1)+' / '+total;
+    setTimeout(function(){slides.forEach(function(s,i){if(i!==current)s.classList.remove('prev');});},1100);
+    resetProgress();
+  }
+  function next(){goTo(current+1);}
+  function prev(){goTo(current-1);}
+  function resetProgress(){
+    if(!progressBar) return;
+    progressBar.style.transition='none'; progressBar.style.width='0%';
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      progressBar.style.transition='width '+DURATION+'ms linear'; progressBar.style.width='100%';
+    });});
+  }
+  function startAuto(){stopAuto();autoTimer=setInterval(next,DURATION);}
+  function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null;}}
+
+  if(prevBtn) prevBtn.addEventListener('click',function(){stopAuto();prev();startAuto();});
+  if(nextBtn) nextBtn.addEventListener('click',function(){stopAuto();next();startAuto();});
+  dots.forEach(function(d){d.addEventListener('click',function(){stopAuto();goTo(parseInt(d.dataset.slide,10));startAuto();});});
+  thumbs.forEach(function(th){
+    th.addEventListener('click',function(){stopAuto();goTo(parseInt(th.dataset.slide,10));startAuto();});
+    th.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();th.click();}});
+  });
+
+  var stage=qs('#slideshowStage');
+  if(stage){
+    var tx=0;
+    stage.addEventListener('touchstart',function(e){tx=e.changedTouches[0].screenX;},{passive:true});
+    stage.addEventListener('touchend',function(e){var dx=e.changedTouches[0].screenX-tx;if(Math.abs(dx)>40){stopAuto();dx<0?next():prev();startAuto();}},{passive:true});
+    stage.addEventListener('mouseenter',function(){stopAuto();if(progressBar)progressBar.style.transition='none';});
+    stage.addEventListener('mouseleave',function(){resetProgress();startAuto();});
+    /* lightbox */
+    var lb=qs('#lightbox'), lbImg=qs('#lbImg'), lbClose=qs('#lbClose');
+    stage.addEventListener('click',function(e){
+      if(e.target.closest('.slide-prev,.slide-next')) return;
+      var as=qs('.slide.active'); if(!as) return;
+      var img=as.querySelector('img'); if(!img) return;
+      lbImg.src=img.src; lbImg.alt=img.alt;
+      lb.classList.add('open'); document.body.style.overflow='hidden'; stopAuto();
+    });
+    if(lbClose) lbClose.addEventListener('click',function(){lb.classList.remove('open');document.body.style.overflow='';startAuto();});
+    if(lb) lb.addEventListener('click',function(e){if(e.target===lb){lb.classList.remove('open');document.body.style.overflow='';startAuto();}});
+  }
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&qs('#lightbox').classList.contains('open')){qs('#lightbox').classList.remove('open');document.body.style.overflow='';startAuto();}
+  });
+
+  resetProgress(); startAuto();
+})();
+
+/* ═══════════════════════════════════════════════════════
+   MULTI-ITEM CART
+═══════════════════════════════════════════════════════ */
 var CATALOG = {
-  'turkey-local':   {price:0,      icon:'🦃', color:'#116845'},
-  'turkey-improved':{price:100000, icon:'🦃', color:'#0b5d3b'},
-  'turkey-premium': {price:0,      icon:'👑', color:'#7a5c10'},
-  'chicken':        {price:20000,  icon:'🐔', color:'#1a8a5a'},
-  'eggs':           {price:5000,   icon:'🥚', color:'#a3821a'}
+  'turkey-local':   {price:0,      icon:'🦃'},
+  'turkey-improved':{price:100000, icon:'🦃'},
+  'turkey-premium': {price:0,      icon:'👑'},
+  'chicken':        {price:20000,  icon:'🐔'},
+  'eggs':           {price:5000,   icon:'🥚'}
 };
-var DCOST = {pickup:0, dar:5000, nationwide:-1};
-// cart: { key: qty }
-var cart = {};
-// generate order number once per session
-var sessionOrderNum = 'NICOPOULTRY-' + (100000 + Math.floor(Math.random() * 899999));
+/* map catalog keys to translation keys */
+var CKEYS = {
+  'turkey-local':   {name:'cat_turkey_local',   weight:'cat_turkey_local_w'},
+  'turkey-improved':{name:'cat_turkey_improved',weight:'cat_turkey_improved_w'},
+  'turkey-premium': {name:'cat_turkey_premium', weight:'cat_turkey_premium_w'},
+  'chicken':        {name:'cat_chicken',         weight:'cat_chicken_w'},
+  'eggs':           {name:'cat_eggs',            weight:'cat_eggs_w'}
+};
+var DCOST={pickup:0,dar:5000,nationwide:-1};
+var cart={};
+var sessionOrderNum='NICOPOULTRY-'+(100000+Math.floor(Math.random()*899999));
+if(qs('#receiptOrderNum')) qs('#receiptOrderNum').textContent=sessionOrderNum;
 
-function t(key) { return I18N[currentLang][key] || I18N['en'][key] || key; }
-function prodName(key) { var p=I18N[currentLang].products[key]; return p?p.name:(I18N['en'].products[key]||{}).name||key; }
-function prodWeight(key){ var p=I18N[currentLang].products[key]; return p?p.weight:(I18N['en'].products[key]||{}).weight||''; }
+function tr(k){ return (T[currentLang]&&T[currentLang][k]!==undefined)?T[currentLang][k]:T['en'][k]||k; }
+function pName(k){ return tr(CKEYS[k].name); }
+function pWeight(k){ return tr(CKEYS[k].weight); }
 
-/* ── build product tiles ── */
-function buildProductTiles() {
-  var grid = qs('#productPickerGrid');
-  if(!grid) return;
-  grid.innerHTML = '';
-  Object.keys(CATALOG).forEach(function(key) {
-    var c = CATALOG[key];
-    var inCart = !!cart[key];
-    var priceStr = c.price > 0 ? fmtTZS(c.price) : '<span class="pt-price quote">Contact for Quote</span>';
-    var tile = document.createElement('div');
-    tile.className = 'product-tile' + (inCart ? ' selected' : '');
-    tile.dataset.key = key;
-    tile.innerHTML =
-      '<div class="pt-check"><i class="fas fa-check"></i></div>' +
-      '<div class="pt-icon">' + c.icon + '</div>' +
-      '<div class="pt-name">' + prodName(key) + '</div>' +
-      '<div class="pt-weight">' + prodWeight(key) + '</div>' +
-      (c.price > 0 ? '<div class="pt-price">' + fmtTZS(c.price) + '</div>' : '<div class="pt-price quote">Contact for Quote</div>');
-    tile.addEventListener('click', function() { toggleProduct(key); });
+function buildProductTiles(){
+  var grid=qs('#productPickerGrid'); if(!grid) return;
+  grid.innerHTML='';
+  Object.keys(CATALOG).forEach(function(key){
+    var c=CATALOG[key], inCart=!!cart[key];
+    var tile=document.createElement('div');
+    tile.className='product-tile'+(inCart?' selected':'');
+    tile.dataset.key=key;
+    tile.innerHTML=
+      '<div class="pt-check"><i class="fas fa-check"></i></div>'+
+      '<div class="pt-icon">'+c.icon+'</div>'+
+      '<div class="pt-name">'+pName(key)+'</div>'+
+      '<div class="pt-weight">'+pWeight(key)+'</div>'+
+      (c.price>0?'<div class="pt-price">'+fmtTZS(c.price)+'</div>':'<div class="pt-price quote">'+tr('cat_quote')+'</div>');
+    tile.addEventListener('click',function(){
+      if(cart[key]){
+        tile.style.transform='scale(1.04)';setTimeout(function(){tile.style.transform='';},200);
+      } else {
+        cart[key]=1; renderAll();
+      }
+    });
     grid.appendChild(tile);
   });
 }
 
-function toggleProduct(key) {
-  if(cart[key]) {
-    // already in cart — just highlight, don't remove (user can remove via cart)
-    var el = qs('[data-key="'+key+'"]');
-    if(el) { el.style.transform='scale(1.04)'; setTimeout(function(){el.style.transform='';},200); }
-  } else {
-    cart[key] = 1;
-    renderAll();
-  }
-}
-
-function changeQty(key, delta) {
-  if(!cart[key]) return;
-  var newQty = (cart[key] || 0) + delta;
-  if(newQty < 1) {
-    removeItem(key);
-  } else if(newQty > 500) {
-    newQty = 500;
-    cart[key] = newQty;
-    renderAll();
-  } else {
-    cart[key] = newQty;
-    renderAll();
-  }
-}
-
-function removeItem(key) {
-  delete cart[key];
-  renderAll();
-}
-
-function totalQty() {
-  return Object.values(cart).reduce(function(s,q){return s+q;},0);
-}
-
-function renderAll() {
-  buildProductTiles();
-  renderCartList();
-  renderReceipt();
-  updateBulkBadge();
-}
-
-/* ── render cart list ── */
-function renderCartList() {
-  var list = qs('#cartItemsList');
-  var section = qs('#cartSection');
-  if(!list || !section) return;
-  var keys = Object.keys(cart);
-  section.style.display = keys.length ? 'block' : 'none';
-  list.innerHTML = '';
-  keys.forEach(function(key) {
-    var c = CATALOG[key], qty = cart[key];
-    var sub = c.price > 0 ? fmtTZS(c.price * qty) : null;
-    var item = document.createElement('div');
-    item.className = 'cart-item';
-    item.innerHTML =
-      '<div class="ci-info">' +
-        '<div class="ci-name">' + c.icon + ' ' + prodName(key) + '</div>' +
-        '<div class="ci-weight">' + prodWeight(key) + '</div>' +
-        (c.price > 0 ? '<div class="ci-unit">' + fmtTZS(c.price) + ' / unit</div>' : '<div class="ci-unit" style="color:var(--g1)">Price on request</div>') +
-      '</div>' +
-      '<div class="ci-qty">' +
-        '<button class="qty-btn" data-act="minus" data-key="'+key+'"><i class="fas fa-minus" style="font-size:.65rem"></i></button>' +
-        '<span class="qty-num">'+qty+'</span>' +
-        '<button class="qty-btn" data-act="plus" data-key="'+key+'"><i class="fas fa-plus" style="font-size:.65rem"></i></button>' +
-      '</div>' +
-      '<div class="ci-subtotal' + (sub?'':' quote-item') + '">' + (sub||'Quote') + '</div>' +
-      '<button class="ci-remove" data-key="'+key+'" aria-label="Remove item"><i class="fas fa-times"></i></button>';
+function renderCartList(){
+  var list=qs('#cartItemsList'), section=qs('#cartSection');
+  if(!list||!section) return;
+  var keys=Object.keys(cart);
+  section.style.display=keys.length?'block':'none';
+  list.innerHTML='';
+  keys.forEach(function(key){
+    var c=CATALOG[key], qty=cart[key];
+    var sub=c.price>0?fmtTZS(c.price*qty):null;
+    var item=document.createElement('div');
+    item.className='cart-item';
+    item.innerHTML=
+      '<div><div class="ci-name">'+c.icon+' '+pName(key)+'</div>'+
+      '<div class="ci-weight">'+pWeight(key)+'</div>'+
+      (c.price>0?'<div class="ci-unit">'+fmtTZS(c.price)+' / '+tr('per_egg_unit').toLowerCase()+'</div>':'<div class="ci-unit" style="color:var(--g1)">'+tr('cat_quote')+'</div>')+
+      '</div>'+
+      '<div class="ci-qty">'+
+        '<button class="qty-btn" data-act="minus" data-key="'+key+'"><i class="fas fa-minus" style="font-size:.65rem"></i></button>'+
+        '<span class="qty-num">'+qty+'</span>'+
+        '<button class="qty-btn" data-act="plus" data-key="'+key+'"><i class="fas fa-plus" style="font-size:.65rem"></i></button>'+
+      '</div>'+
+      '<div class="ci-subtotal'+(sub?'':' quote-item')+'">'+(sub||tr('cat_quote'))+'</div>'+
+      '<button class="ci-remove" data-key="'+key+'" aria-label="Remove"><i class="fas fa-times"></i></button>';
     list.appendChild(item);
   });
-  // bind qty and remove buttons
-  list.querySelectorAll('.qty-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      changeQty(btn.dataset.key, btn.dataset.act==='plus' ? 1 : -1);
+  list.querySelectorAll('.qty-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var k=btn.dataset.key, d=btn.dataset.act==='plus'?1:-1;
+      var nq=(cart[k]||0)+d;
+      if(nq<1){delete cart[k];}else if(nq>500){cart[k]=500;}else{cart[k]=nq;}
+      renderAll();
     });
   });
-  list.querySelectorAll('.ci-remove').forEach(function(btn) {
-    btn.addEventListener('click', function() { removeItem(btn.dataset.key); });
+  list.querySelectorAll('.ci-remove').forEach(function(btn){
+    btn.addEventListener('click',function(){delete cart[btn.dataset.key];renderAll();});
   });
 }
 
-/* ── render receipt ── */
-function renderReceipt() {
-  var now = new Date();
-  var dateStr = now.toLocaleDateString('en-TZ',{day:'2-digit',month:'short',year:'numeric'});
-  var name = (qs('#fName') && qs('#fName').value.trim()) || '—';
-  var phone = (qs('#fPhone') && qs('#fPhone').value.trim()) || '—';
-  var dk = qs('#fDelivery') ? qs('#fDelivery').value : 'pickup';
-  var dc = DCOST[dk] !== undefined ? DCOST[dk] : 0;
-
-  if(qs('#receiptDate')) qs('#receiptDate').textContent = dateStr;
-  if(qs('#receiptName')) qs('#receiptName').textContent = name;
-  if(qs('#receiptPhone')) qs('#receiptPhone').textContent = phone;
-  if(qs('#receiptOrderNum')) qs('#receiptOrderNum').textContent = sessionOrderNum;
-
-  // delivery label
-  var delLabels = { pickup: t('pickup'), dar: t('dar_delivery'), nationwide: t('nationwide') };
-  if(qs('#receiptDelivery')) qs('#receiptDelivery').textContent = delLabels[dk] || '';
-
-  var itemsEl = qs('#receiptItems');
-  if(!itemsEl) return;
-  var keys = Object.keys(cart);
-  if(!keys.length) {
-    itemsEl.innerHTML = '<div class="receipt-empty"><i class="fas fa-shopping-basket"></i><span>' + t('no_items') + '</span></div>';
-    if(qs('#receiptTotal')) { qs('#receiptTotal').textContent = 'TZS 0'; qs('#receiptTotal').className='receipt-total-amount'; }
+function renderReceipt(){
+  var now=new Date();
+  var dateStr=now.toLocaleDateString('en-TZ',{day:'2-digit',month:'short',year:'numeric'});
+  var name=(qs('#fName')&&qs('#fName').value.trim())||'—';
+  var phone=(qs('#fPhone')&&qs('#fPhone').value.trim())||'—';
+  var dk=qs('#fDelivery')?qs('#fDelivery').value:'pickup';
+  var dc=DCOST[dk]!==undefined?DCOST[dk]:0;
+  if(qs('#receiptDate')) qs('#receiptDate').textContent=dateStr;
+  if(qs('#receiptName')) qs('#receiptName').textContent=name;
+  if(qs('#receiptPhone')) qs('#receiptPhone').textContent=phone;
+  var delLabels={pickup:tr('opt_pickup'),dar:tr('opt_dar'),nationwide:tr('opt_nationwide')};
+  if(qs('#receiptDelivery')) qs('#receiptDelivery').textContent=delLabels[dk]||'';
+  var itemsEl=qs('#receiptItems'); if(!itemsEl) return;
+  var keys=Object.keys(cart);
+  if(!keys.length){
+    itemsEl.innerHTML='<div class="receipt-empty"><i class="fas fa-shopping-basket"></i><span>'+tr('no_items')+'</span></div>';
+    if(qs('#receiptTotal')){qs('#receiptTotal').textContent='TZS 0';qs('#receiptTotal').className='receipt-total-amount';}
     return;
   }
-  var subtotal = 0;
-  var hasQuote = false;
-  itemsEl.innerHTML = '';
-  keys.forEach(function(key) {
-    var c = CATALOG[key], qty = cart[key];
-    var lineTotal = c.price > 0 ? c.price * qty : null;
-    if(lineTotal !== null) subtotal += lineTotal; else hasQuote = true;
-    var row = document.createElement('div');
-    row.className = 'ri-row';
-    row.innerHTML =
-      '<div class="ri-left">' +
-        '<span class="ri-bullet"></span>' +
-        '<span class="ri-desc">' + prodName(key) + '</span>' +
-        '<span class="ri-x">× '+qty+'</span>' +
-        (c.price>0?'<span class="ri-unit">'+fmtTZS(c.price)+'/unit</span>':'') +
-      '</div>' +
-      '<span class="ri-total'+(lineTotal===null?' quote':'')+'">'+
-        (lineTotal!==null ? fmtTZS(lineTotal) : 'Quote') +
+  var subtotal=0, hasQuote=false;
+  itemsEl.innerHTML='';
+  keys.forEach(function(key){
+    var c=CATALOG[key], qty=cart[key];
+    var lt=c.price>0?c.price*qty:null;
+    if(lt!==null) subtotal+=lt; else hasQuote=true;
+    var row=document.createElement('div'); row.className='ri-row';
+    row.innerHTML=
+      '<div class="ri-left">'+
+        '<span class="ri-bullet"></span>'+
+        '<span class="ri-desc">'+pName(key)+'</span>'+
+        '<span class="ri-x">× '+qty+'</span>'+
+        (c.price>0?'<span class="ri-unit">'+fmtTZS(c.price)+'/unit</span>':'')+
+      '</div>'+
+      '<span class="ri-total'+(lt===null?' quote':'')+'">'+
+        (lt!==null?fmtTZS(lt):tr('cat_quote'))+
       '</span>';
     itemsEl.appendChild(row);
   });
-
-  var grandTotal = qs('#receiptTotal');
-  if(!grandTotal) return;
-  if(dc === -1 || hasQuote) {
-    grandTotal.textContent = 'To be quoted';
-    grandTotal.className = 'receipt-total-amount quote';
-  } else {
-    var grand = subtotal + dc;
-    grandTotal.textContent = fmtTZS(grand);
-    grandTotal.className = 'receipt-total-amount';
-  }
+  var grandEl=qs('#receiptTotal'); if(!grandEl) return;
+  if(dc===-1||hasQuote){grandEl.textContent=tr('negotiable');grandEl.className='receipt-total-amount quote';}
+  else{grandEl.textContent=fmtTZS(subtotal+dc);grandEl.className='receipt-total-amount';}
 }
 
-function updateBulkBadge() {
-  var badge = qs('#bulkBadge');
-  if(badge) badge.classList.toggle('show', totalQty() >= 10);
+function renderAll(){buildProductTiles();renderCartList();renderReceipt();updateBulkBadge();}
+function updateBulkBadge(){
+  var total=Object.values(cart).reduce(function(s,q){return s+q;},0);
+  var badge=qs('#bulkBadge'); if(badge) badge.classList.toggle('show',total>=10);
 }
+function totalQty(){return Object.values(cart).reduce(function(s,q){return s+q;},0);}
 
-/* ── live updates on name/phone/delivery ── */
-['fName','fPhone'].forEach(function(id) {
-  var el = qs('#'+id);
-  if(el) el.addEventListener('input', renderReceipt);
-});
-var fDelEl = qs('#fDelivery');
-if(fDelEl) fDelEl.addEventListener('change', renderReceipt);
+qs('#fName').addEventListener('input',renderReceipt);
+qs('#fPhone').addEventListener('input',renderReceipt);
+qs('#fDelivery').addEventListener('change',renderReceipt);
 
-/* ── autofill / reorder ── */
-var STORAGE_KEY = 'nicoCustDetails';
-function loadSavedDetails() {
-  try {
-    var raw = localStorage.getItem(STORAGE_KEY);
-    if(!raw) return null;
-    return JSON.parse(raw);
-  } catch(e) { return null; }
-}
-function saveDetails(name, phone) {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify({name:name,phone:phone})); } catch(e){}
-}
-function showReorderBanner(saved) {
-  var banner = qs('#reorderBanner');
-  var msg = qs('#reorderMsg');
-  if(!banner) return;
-  if(msg) msg.textContent = 'Welcome back, ' + saved.name + '! Autofill your details?';
-  banner.classList.add('show');
-  var fillBtn = qs('#reorderFill');
-  if(fillBtn) {
-    fillBtn.addEventListener('click', function() {
-      var nameEl = qs('#fName'), phoneEl = qs('#fPhone');
-      if(nameEl) { nameEl.value = saved.name; nameEl.dispatchEvent(new Event('input')); }
-      if(phoneEl) { phoneEl.value = saved.phone; phoneEl.dispatchEvent(new Event('input')); }
-      banner.classList.remove('show');
-      showToast('Details filled in! ✓');
-    });
-  }
-}
-var savedCust = loadSavedDetails();
-if(savedCust && savedCust.name) { showReorderBanner(savedCust); }
-
-/* ── validation ── */
-function vField(id) {
-  var el = qs('#'+id);
-  var fgId = 'fg-' + id.slice(1).toLowerCase();
-  var fg = qs('#'+fgId);
+/* validation */
+function vField(id){
+  var el=qs('#'+id), fg=qs('#fg-'+id.toLowerCase());
   if(!el) return true;
-  var val = el.value.trim(), ok = true;
-  if(el.required && !val) ok = false;
-  else if(id==='fPhone' && val) ok = /^\+?255[0-9]{9}$/.test(val.replace(/\s/g,''));
-  if(fg) fg.classList.toggle('has-error', !ok);
+  var val=el.value.trim(), ok=true;
+  if(el.required&&!val) ok=false;
+  else if(id==='fPhone'&&val) ok=/^\+?255[0-9]{9}$/.test(val.replace(/\s/g,''));
+  if(fg) fg.classList.toggle('has-error',!ok);
   return ok;
 }
-['fName','fPhone'].forEach(function(id) {
-  var el = qs('#'+id); if(!el) return;
-  el.addEventListener('blur', function(){ vField(id); });
-  el.addEventListener('input', function(){
-    var fgId='fg-'+id.slice(1).toLowerCase();
-    var fg=qs('#'+fgId);
-    if(fg && fg.classList.contains('has-error')) vField(id);
-  });
+['fName','fPhone'].forEach(function(id){
+  var el=qs('#'+id); if(!el) return;
+  el.addEventListener('blur',function(){vField(id);});
+  el.addEventListener('input',function(){var fg=qs('#fg-'+id.toLowerCase());if(fg&&fg.classList.contains('has-error'))vField(id);});
 });
 
-/* ── submit ── */
-var submitBtn = qs('#submitBtn');
-if(submitBtn) {
-  submitBtn.addEventListener('click', function() {
-    var nameOk = vField('fName'), phoneOk = vField('fPhone');
-    if(!nameOk || !phoneOk) {
-      var fe = document.querySelector('.form-group.has-error');
-      if(fe) fe.scrollIntoView({behavior:'smooth',block:'center'});
-      return;
-    }
-    if(!Object.keys(cart).length) {
-      showToast('Please select at least one product ↑'); return;
-    }
-    var name = qs('#fName').value.trim(), phone = qs('#fPhone').value.trim();
-    var dk = qs('#fDelivery').value, notes = qs('#fNotes').value.trim();
-    var dc = DCOST[dk] !== undefined ? DCOST[dk] : 0;
-    var delLabel = {pickup:'Farm Pickup (Free)', dar:'Dar es Salaam Delivery (+TZS 5,000)', nationwide:'Nationwide Shipping (Quote Required)'}[dk];
+/* autofill banner */
+var SKEY='nicoCustDetails';
+function loadSaved(){try{var r=localStorage.getItem(SKEY);return r?JSON.parse(r):null;}catch(e){return null;}}
+function saveCust(n,p){try{localStorage.setItem(SKEY,JSON.stringify({name:n,phone:p}));}catch(e){}}
+var saved=loadSaved();
+if(saved&&saved.name){
+  var banner=qs('#reorderBanner'), msg=qs('#reorderMsg');
+  if(msg) msg.textContent=(currentLang==='sw'?'Karibu tena, ':'Welcome back, ')+saved.name+'!';
+  if(banner) banner.classList.add('show');
+  var rfBtn=qs('#reorderFill');
+  if(rfBtn) rfBtn.addEventListener('click',function(){
+    var n=qs('#fName'),p=qs('#fPhone');
+    if(n){n.value=saved.name;n.dispatchEvent(new Event('input'));}
+    if(p){p.value=saved.phone;p.dispatchEvent(new Event('input'));}
+    banner.classList.remove('show');
+    showToast(currentLang==='sw'?'Maelezo yamejazwa ✓':'Details filled in ✓');
+  });
+}
 
-    var now = new Date();
-    var dateStr = now.toLocaleDateString('en-TZ',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-    var timeStr = now.toLocaleTimeString('en-TZ',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
-
-    var subtotal = 0, hasQuote = false;
-    var itemLines = [];
-    Object.keys(cart).forEach(function(key) {
-      var c = CATALOG[key], qty = cart[key];
-      var lineTotal = c.price > 0 ? c.price * qty : null;
-      if(lineTotal !== null) subtotal += lineTotal; else hasQuote = true;
-      var bulkMark = (qty >= 10) ? ' ✦BULK' : '';
-      itemLines.push('  • ' + prodName(key) + ' (' + prodWeight(key) + ') × ' + qty +
-        '  |  ' + (c.price>0?fmtTZS(c.price)+'/unit':'Quote') +
-        '  |  ' + (lineTotal!==null?fmtTZS(lineTotal):'Quote') + bulkMark);
+/* submit */
+var submitBtn=qs('#submitBtn');
+if(submitBtn){
+  submitBtn.addEventListener('click',function(){
+    var ok=vField('fName')&vField('fPhone');
+    if(!ok){var fe=document.querySelector('.form-group.has-error');if(fe)fe.scrollIntoView({behavior:'smooth',block:'center'});return;}
+    if(!Object.keys(cart).length){showToast(currentLang==='sw'?'Chagua bidhaa angalau moja ↑':'Please select at least one product ↑');return;}
+    var name=qs('#fName').value.trim(), phone=qs('#fPhone').value.trim();
+    var dk=qs('#fDelivery').value, notes=qs('#fNotes').value.trim();
+    var dc=DCOST[dk]!==undefined?DCOST[dk]:0;
+    var delLabel={pickup:'Farm Pickup (Free)',dar:'Dar es Salaam Delivery (+TZS 5,000)',nationwide:'Nationwide Shipping (Quote Required)'}[dk];
+    var now=new Date();
+    var dateStr=now.toLocaleDateString('en-TZ',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    var timeStr=now.toLocaleTimeString('en-TZ',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    var subtotal=0, hasQuote=false, itemLines=[];
+    Object.keys(cart).forEach(function(key){
+      var c=CATALOG[key], qty=cart[key];
+      var lt=c.price>0?c.price*qty:null;
+      if(lt!==null) subtotal+=lt; else hasQuote=true;
+      itemLines.push('  • '+pName(key)+' ('+pWeight(key)+') × '+qty+'  |  '+(c.price>0?fmtTZS(c.price)+'/unit':'Quote')+'  |  '+(lt!==null?fmtTZS(lt):'Quote')+(qty>=10?' ✦BULK':''));
     });
-
-    var grandAmt = (dc===-1||hasQuote) ? null : subtotal + dc;
-    var grandStr = grandAmt !== null ? fmtTZS(grandAmt) : 'To be quoted';
-
-    var lines = [
+    var grandAmt=(dc===-1||hasQuote)?null:subtotal+dc;
+    var grandStr=grandAmt!==null?fmtTZS(grandAmt):'To be quoted';
+    var lines=[
       '╔════════════════════════════╗',
       '   *NICO POULTRY & EGGS LTD*',
       '   Farm Fresh · Dar es Salaam',
       '╚════════════════════════════╝','',
-      '🧾 *ORDER: ' + sessionOrderNum + '*',
-      '📅 Date: ' + dateStr,
-      '🕐 Time: ' + timeStr,'',
+      '🧾 *ORDER: '+sessionOrderNum+'*',
+      '📅 Date: '+dateStr,
+      '🕐 Time: '+timeStr,'',
       '┄┄┄ 👤 CUSTOMER ┄┄┄┄┄┄┄┄┄┄┄',
-      '• Name:   ' + name,
-      '• Phone:  ' + phone,'',
+      '• Name:   '+name,
+      '• Phone:  '+phone,'',
       '┄┄┄ 🛒 ITEMS ORDERED ┄┄┄┄┄┄┄'
     ].concat(itemLines).concat([
-      '',
-      '┄┄┄ 💰 PAYMENT SUMMARY ┄┄┄┄┄',
-      '• Subtotal:  ' + (hasQuote?'Includes items for quote':fmtTZS(subtotal)),
-      '• Delivery:  ' + (dc===0?'Free':dc>0?fmtTZS(dc):'Quote required'),
-      '',
-      '💵 *TOTAL: ' + grandStr + '*','',
+      '','┄┄┄ 💰 PAYMENT SUMMARY ┄┄┄┄┄',
+      '• Subtotal:  '+(hasQuote?'Includes items for quote':fmtTZS(subtotal)),
+      '• Delivery:  '+(dc===0?'Free':dc>0?fmtTZS(dc):'Quote required'),
+      '','💵 *TOTAL: '+grandStr+'*','',
       '┄┄┄ 🚚 DELIVERY ┄┄┄┄┄┄┄┄┄┄┄',
-      '• ' + delLabel
+      '• '+delLabel
     ]);
-    if(notes){ lines.push(''); lines.push('┄┄┄ 📝 NOTES ┄┄┄┄┄┄┄┄┄┄┄┄┄┄'); lines.push(notes); }
-    lines = lines.concat([
-      '','════════════════════════════════',
+    if(notes){lines.push('');lines.push('┄┄┄ 📝 NOTES ┄┄┄┄┄┄┄┄┄┄┄┄┄┄');lines.push(notes);}
+    lines=lines.concat(['','════════════════════════════════',
       '🌿 *Thank you for choosing Nico Poultry!*',
       '_We will confirm within 15 minutes._','',
       '📞 +255 689 583 281',
       '📧 josephinenicodemus05@gmail.com',
       '📍 Tabata Sundown, Dar es Salaam',
-      '════════════════════════════════'
-    ]);
-
-    saveDetails(name, phone);
-
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
-    setTimeout(function() {
+      '════════════════════════════════']);
+    saveCust(name,phone);
+    submitBtn.disabled=true;
+    submitBtn.innerHTML='<i class="fas fa-spinner fa-spin"></i> '+(currentLang==='sw'?'Inafungua WhatsApp...':'Opening WhatsApp...');
+    setTimeout(function(){
       window.open('https://wa.me/255689583281?text='+encodeURIComponent(lines.join('\n')),'_blank');
-      setTimeout(function() {
-        cart = {};
-        renderAll();
-        qs('#fName').value = name;
-        qs('#fPhone').value = phone;
-        renderReceipt();
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = '<i class="fab fa-whatsapp"></i> <span data-i18n="send_order">' + t('send_order') + '</span>';
-        showToast('Order ' + sessionOrderNum + ' sent! Nico Poultry will confirm shortly ✓');
-      }, 900);
-    }, 600);
+      setTimeout(function(){
+        cart={};renderAll();
+        qs('#fName').value=name;qs('#fPhone').value=phone;renderReceipt();
+        submitBtn.disabled=false;
+        submitBtn.innerHTML='<i class="fab fa-whatsapp"></i> <span data-i18n="send_order">'+tr('send_order')+'</span>';
+        showToast(sessionOrderNum+' '+(currentLang==='sw'?'Imetumwa! Nico Poultry itathibitisha hivi karibuni ✓':'sent! Nico Poultry will confirm shortly ✓'));
+      },900);
+    },600);
   });
 }
 
-/* init */
+/* toast */
+function showToast(msg){
+  var old=document.querySelector('.np-toast');if(old)old.remove();
+  var t=document.createElement('div');
+  t.className='np-toast';t.setAttribute('role','alert');t.textContent=msg;
+  document.body.appendChild(t);
+  requestAnimationFrame(function(){requestAnimationFrame(function(){t.classList.add('show');});});
+  setTimeout(function(){t.classList.remove('show');setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},400);},5000);
+}
+
+/* ── INIT ── */
 buildProductTiles();
 renderReceipt();
 applyLang(currentLang);
-
-/* Toast — uses CSS class instead of inline style for animation */
-function showToast(msg) {
-  var old=document.querySelector('.np-toast');if(old)old.remove();
-  var t2=document.createElement('div');
-  t2.className='np-toast';
-  t2.setAttribute('role','alert');
-  t2.textContent=msg;
-  document.body.appendChild(t2);
-  requestAnimationFrame(function(){requestAnimationFrame(function(){t2.classList.add('show');});});
-  setTimeout(function(){
-    t2.classList.remove('show');
-    setTimeout(function(){if(t2.parentNode)t2.parentNode.removeChild(t2);},400);
-  },5000);
-}
 
 })();
 </script>
