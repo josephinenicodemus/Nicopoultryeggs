@@ -1,84 +1,84 @@
-# Nico Poultry & Eggs Ltd – Website
+# Nico Poultry & Eggs Ltd — Official Website
 
-A responsive business landing page with an integrated order system for a poultry supplier mainly Turkey , Chicken and their eggs. Built using vanilla HTML, CSS, and JavaScript with a focus on performance, accessibility, and user experience.
-
----
-
-## Features
-
-* **Responsive Navigation**: Desktop + mobile menu with hamburger toggle and accessibility support
-* **Hero Section**: Animated counters and call-to-action buttons
-* **Product Showcase**: Cards for chickens, turkeys, and eggs with lazy-loaded images
-* **Pricing Table**: Supports fixed, negotiable, and quote-based pricing
-* **Order System**:
-
-  * Real-time order summary (product, quantity, pricing)
-  * Input validation (name, phone, quantity)
-  * Dynamic pricing logic
-  * WhatsApp order integration with structured message
-* **UX Enhancements**:
-
-  * Smooth scrolling
-  * Scroll-based animations
-  * Back-to-top button
-  * Toast notifications
-* **Accessibility**:
-
-  * ARIA labels
-  * Keyboard navigation
-  * Semantic HTML
+> Premium turkey, chicken & farm-fresh egg supplier based in **Tabata Sundown, Dar es Salaam, Tanzania**.  
+> Live site → [nicopoultry.vercel.app](https://nicopoultry.vercel.app)
 
 ---
 
-## JavaScript Architecture
+## 🐔 About the Business
 
-* Encapsulated using IIFE for scope isolation
-* Utility functions for DOM selection and currency formatting
-* Uses IntersectionObserver for animations and counters
-* Event-driven structure for UI interactions and form handling
+**Nico Poultry & Eggs Ltd** is a family-run poultry farm established in **2016**, supplying hormone-free broiler chickens, heritage turkeys, and fresh turkey eggs to households, restaurants, hotels, and wholesale buyers across Tanzania. All birds are open-range reared with organic feed — no hormones, no antibiotics, ever.
 
----
-
-## Core Logic
-
-* **Pricing Engine**: Maps products and delivery costs dynamically
-* **Validation**: Ensures required fields and valid Tanzanian phone numbers
-* **Order Processing**:
-
-  * Generates unique order reference
-  * Builds formatted WhatsApp message
-  * Redirects user to WhatsApp API
+| Detail | Info |
+|---|---|
+| 📍 Location | Tabata Sundown, Dar es Salaam, Tanzania |
+| 📞 Phone | +255 689 583 281 |
+| 📧 Email | josephinenicodemus05@gmail.com |
+| 💬 WhatsApp | [Chat directly](https://wa.me/255689583281) |
+| 🕐 Hours | Mon–Sat 7AM–10PM · Sun 8AM–10PM · WhatsApp 24/7 |
 
 ---
 
-## Performance
+## 🌐 Website Features
 
-* Lazy-loaded images
-* Passive event listeners
-* No external JS dependencies
-* Optimized DOM updates
-
----
-
-## Deployment
-
-Static hosting ready:
-
-* GitHub Pages
-* Netlify
-* Vercel
+- **Bilingual** — Full English & Kiswahili support with one-click language toggle
+- **Multi-item cart** — Select multiple products, set quantities, live order receipt
+- **WhatsApp ordering** — Formatted order sent directly to business WhatsApp
+- **Farm gallery** — Interactive slideshow of real farm photos with lightbox
+- **Autofill** — Returning customers' details saved locally for quick re-ordering
+- **Fully responsive** — Optimised for mobile, tablet and desktop
+- **No backend required** — Pure HTML/CSS/JS, deployable on any static host
 
 ---
 
-## Future Improvements
+## 📦 Products & Pricing
 
-* Backend integration (order storage)
-* Payment gateway support
-* Admin dashboard
-* Inventory management
+| Product | Size | Price (TZS) |
+|---|---|---|
+| Local Heritage Turkey | 8–10 kg | Contact for Quote |
+| Improved Breed Turkey | 10–15 kg | 85,000 – 120,000 |
+| Premium Show Turkey | 15+ kg | Negotiable |
+| Broiler Chicken | 1.5–2.5 kg | 15,000 – 25,000 |
+| Fresh Turkey Eggs | Per egg | 5,000 |
+
+> **Bulk discount** available on orders of 10+ units. Call or WhatsApp for custom pricing.
 
 ---
 
-## License
+## 🗂 Repository Structure
 
-Public project – not for redistribution.
+```
+/
+├── index.html          # Main website (single-file app)
+├── LOGO.jpeg           # Business logo
+├── TURKEY.jpg          # Heritage turkey product image
+├── Turkey Picture.jpeg # Farm gallery — mature turkeys
+├── Vifaranga.jpeg      # Farm gallery — growing flock
+├── wadogo.jpeg         # Farm gallery — day-old chicks
+└── README.md           # This file
+```
+
+---
+
+## 🚀 Deployment
+
+The site is deployed on **Vercel** as a static site. To run locally, simply open `index.html` in any browser — no build step or server required.
+
+```bash
+# Clone and open
+git clone https://github.com/josephinenicodemus/Nicopoultryeggs.git
+cd Nicopoultryeggs
+open index.html
+```
+
+---
+
+## 📬 Contact & Orders
+
+Place orders via WhatsApp for fastest response:
+
+**[+255 689 583 281](https://wa.me/255689583281?text=Hello%20Nico%20Poultry!%20I%20would%20like%20to%20place%20an%20order.)**
+
+---
+
+*© 2016–2025 Nico Poultry and Eggs Ltd. All rights reserved.*
