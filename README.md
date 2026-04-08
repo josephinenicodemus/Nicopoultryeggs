@@ -1,7 +1,11 @@
 # Nico Poultry & Eggs Ltd — Official Website
 
 > Premium turkey, chicken & farm-fresh egg supplier based in **Tabata Sundown, Dar es Salaam, Tanzania**.  
-> Live site → [nicopoultry.vercel.app](https://nicopoultry.vercel.app)
+> Demo Pre Prod site → [nicopoultry.vercel.app](https://nicopoultry.vercel.app)
+> Official Site Link ->[https://nicopoultry.co.tz/]
+
+
+Feel free to go through the official Site and provide feedback
 
 ---
 
